@@ -1,0 +1,11 @@
+@import '../../../../shared/scss/variables.scss';
+
+.etapas-cadastro {
+    @include MQ($small) {
+        padding-top: 0;
+    }
+}
+
+.cadastro-etapa1-content-item {
+    margin-bottom: 20px;
+}

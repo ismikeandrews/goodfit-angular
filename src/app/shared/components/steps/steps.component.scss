@@ -1,0 +1,113 @@
+@import '../../../shared/scss/variables.scss';
+
+.etapas {
+    padding-top: 45px;
+}
+
+.counter {
+    margin-top: 30px;
+}
+
+.counter-etapas {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.counter-etapas-etapa {
+    border: 2px solid $primary-blue;
+    border-radius: 100%;
+    color: $primary-blue;;
+    font: 18px/20px $font-bold;    
+    height: 25px;
+    margin: 0 25px;
+    position: relative;
+    text-align: center;
+    transition: border-color ease 2s, color ease 2s;
+    width: 25px;
+    z-index: -1;
+    
+    @include MQ($small) {
+        margin: 0 20px;
+    }
+
+    &:before {
+        background: $primary-blue;  ;
+        content: "";
+        display: block;
+        height: 2px;
+        right: 52px;
+        position: absolute;
+        transform: translate(50%, -50%);
+        transition: background ease 1s;
+        top: 50%;
+        width: 50px;
+        z-index: -1;
+
+        @include MQ($small) {
+            right: 43px;
+            width: 40px;
+        }
+    }
+
+    &:first-child {
+        &:before {
+            height: 0px;
+        }
+    }
+
+    &.is-disable {
+        border-color: #C5C5C5;
+        color: #C5C5C5;
+
+        &:before {
+            background: #C5C5C5;
+        }
+    }
+}
+
+.counter-etapas-content{
+    // height: 0;
+    // opacity: 0;
+    // overflow: hidden;
+    transition: opacity 1s ease-out;
+    // width: 0;
+
+    &.is-active {
+        height: 100%;
+        opacity: 1;
+        width: 100%;
+
+        .curriculo-title {
+            margin-top: 30px;
+        }
+
+        .curriculo-desc {
+            margin-top: 10px;
+        }
+    }
+}
+
+.etapas-btn {
+    display: flex;
+
+    &-curriculo {
+        @include MQ($small) {
+            bottom: 70px;
+        }
+    }
+
+    &-cadastro {
+        margin-top: 20px;
+    }
+
+    &-item {
+        outline: none;
+        width: 48% !important;
+
+        &.is-disable {
+            background: rgba(4, 178, 217, 0.34);
+            pointer-events: none;
+        }
+    }
+}

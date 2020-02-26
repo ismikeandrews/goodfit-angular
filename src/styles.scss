@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Variables
+@import 'app/shared/scss/variables.scss';
+
+//Base
+@import 'app/shared/scss/base.scss';
+
+// Components
+@import 'app/shared/scss/button.scss';
+@import 'app/shared/scss/form.scss';
+@import 'app/shared/scss/radio.scss';
+@import 'app/shared/scss/profile.scss';

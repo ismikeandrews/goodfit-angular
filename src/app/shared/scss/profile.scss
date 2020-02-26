@@ -1,0 +1,73 @@
+.container-perfil {
+    padding-top: 80px;
+}
+
+.content-perfil {
+    margin: 15px 0 30px;
+
+    &-image {
+        display: block;
+        text-align: center;
+        height: 200px;
+        margin: 0 auto 20px;
+        width: 200px;
+
+        @include MQ($small) {
+            height: 150px;
+            width: 148px;
+        }
+
+        &-cadastro {
+          height: 150px;
+          width: 150px;
+        }
+
+        &-img {
+            border: 5px solid $primary-blue;
+            border-radius: 50%;
+            height: 200px;
+            margin: 0 auto;
+            transition: border-color .5s ease-out;
+            width: 200px;
+
+            @include MQ($small) {
+                height: 150px;
+                width: 150px;
+            }
+
+            &-erro {
+              border: 5px solid #e41930;
+            }
+
+            &-cadastro {
+              height: 150px;
+              width: 150px;
+            }
+        }
+    }
+
+    &-desc {
+        color: #A2A2A2;
+        font: 16px/20px $font-semibold;
+        margin: 10px;
+
+        &-item {
+          margin-bottom: 20px;
+        }
+    }
+}
+
+.content-perfil-input-foto {
+    display: none;
+}
+
+.form-input-item-perfil {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    color: $black;
+    font: 20px $font-regular;
+    margin: 5px 0 10px;
+    padding: 5px 0;
+}

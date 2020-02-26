@@ -1,0 +1,46 @@
+@import '../../../shared/scss/variables.scss';
+.container-cadastro {
+    padding: 20px 30px;
+}
+
+.icon-voltar-cadastro {
+  margin: 20px 0;
+}
+
+.cadastro-intro {
+    padding: 10px 0;
+}
+
+.intro {
+    color: $gray;
+    letter-spacing: 0.5px;
+    margin: 15px 0;
+
+    &-title {
+        font: 25px $font-light;
+    }
+
+    &-desc {
+        font: 15px $font-regular;
+    }
+}
+
+.borda-progresso-valido{
+  border-color: #63DE9A;
+}
+
+.borda-progresso-invalido{
+  border-color: #F06A47;
+}
+
+//escolha component
+
+.etapas-cadastro {
+  @include MQ($small) {
+      padding-top: 0;
+  }
+}
+
+.cadastro-etapa1-content-item {
+  margin-bottom: 20px;
+}

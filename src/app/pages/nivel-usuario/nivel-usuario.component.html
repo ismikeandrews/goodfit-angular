@@ -1,0 +1,5 @@
+<button class="btn" (click)="getAll()">Show data</button>
+<button class="btn" (click)="clean()">Limpar</button>
+<div *ngFor="let nivel of niveisUsuario.data">
+    <p>{{nivel.id}}</p><p>{{nivel.titulo}}</p>
+</div>

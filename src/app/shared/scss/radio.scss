@@ -1,0 +1,47 @@
+.radio:checked,
+.radio:not(:checked) {
+    display: none;
+}
+
+.radio:checked + label {
+  color: $primary-blue;
+}
+
+.radio:not(:checked) + label {
+  color: #ababab;
+}
+
+.radio:checked + label,
+.radio:not(:checked) + label {
+  border: 3px solid #ccc;
+  border-radius: 20px;
+  color: #ccc;
+  display: block;
+  padding: 20px 0;
+  text-align: center;
+  transition: all .5s ease-out;
+
+  @include MQ($small) {
+     padding: 10px 0;
+  }
+}
+
+.radio-label {
+  &-icon {
+    width: 90px;
+    
+    @include MQ($small) {
+      width: 60px;
+    }
+  }
+
+  &-desc {
+      font: 17px/22px $font-semibold;
+      margin-top: 10px;
+  }
+}
+
+.radio:checked + label {
+  border-color: $primary-blue;
+  color: $primary-blue;
+}

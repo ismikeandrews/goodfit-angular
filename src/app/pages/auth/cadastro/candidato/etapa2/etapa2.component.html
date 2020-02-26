@@ -1,0 +1,51 @@
+<div class="section section-cadastro">
+    <div class="cadastro-intro">
+      <h3 class="intro-title">Informações da conta</h3>
+      <p class="intro-desc">Agora vamos configurar a sua conta...</p>
+    </div>
+  
+    <div class="cadastro-etapa2-content">
+      <div class="content-perfil-desc">
+        <div class="content-perfil-desc-item">
+          Login
+          <input class="form-input-item form-input-item-perfil" id="login" type="text" name="login" value=""  autocomplete="login" autofocus>
+          <!-- if error -->
+          <span class="erro" role="alert">
+            <strong>message</strong>
+          </span>
+          <!-- end if error -->
+        </div>
+  
+        <div class="content-perfil-desc-item">
+          Email
+          <input class="form-input-item form-input-item-perfil" id="email" type="email" name="email" value=""  autocomplete="email" autofocus>
+          <!-- if error -->
+          <span class="erro" role="alert">
+            <strong>message</strong>
+          </span>
+          <!-- end if error -->
+        </div>
+  
+        <div class="content-perfil-desc-item">
+          Senha
+          <input class="form-input-item form-input-item-perfil" type="password" id="senha" name="password" value="" autocomplete="password" autofocus>
+          <!-- if error -->
+          <span class="erro" role="alert">
+            <strong>message</strong>
+          </span>
+          <!-- end if error -->
+        </div>
+  
+        <div class="content-perfil-desc-item">
+          Confirmar senha
+          <input class="form-input-item form-input-item-perfil" type="password" id="confirmar-senha" name="password_confirmation" value="" autocomplete="password_confirmation" autofocus>
+          <!-- if error -->
+          <span class="erro" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          <!-- end if error -->
+        </div>
+      </div>
+    </div>
+  </div>
+  

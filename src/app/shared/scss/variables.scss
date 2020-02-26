@@ -1,0 +1,28 @@
+// Typography
+@import 'font-faces.scss';
+
+$font-regular: 'Raleway Regular', 'Montserrat Regular', 'sans-serif';
+$font-bold: 'Raleway Bold', 'Montserrat Bold', 'sans-serif';
+$font-semibold: 'Raleway SemiBold', 'Montserrat SemiBold', 'sans-serif';
+$font-medium: 'Raleway Medium', 'Montserrat Medium', 'sans-serif';
+$font-light: 'Raleway Light', 'Montserrat Light', 'sans-serif';
+
+// Colors
+$white: #F2F2F2;
+$black: #2a2a2a;
+$gray: #828181;
+$primary_blue: #04B2D9;
+$secondary_blue: #0468BF;
+$tertiary_blue: #0339A6;
+$dark_blue: #023373;
+
+// Sizes
+@mixin MQ($size) {
+    @media screen and (max-width: $size) {
+        @content;
+    }
+}
+
+$small: 380px;
+$medium: 500px;
+$large: 900px;

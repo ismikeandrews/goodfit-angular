@@ -1,0 +1,95 @@
+<div class="section section-cadastro container-endereco">
+    <div class="cadastro-intro">
+      <h3 class="intro-title">Endereço</h3>
+      <p class="intro-desc">Para finalizar, precisamos de informações localização</p>
+    </div>
+  
+    <div class="cadastro-etapa2-content">
+        <div class="content-perfil-desc">
+          <div class="content-perfil-desc-item">
+            CEP
+            <input class="form-input-item form-input-item-perfil" id="cep" type="text" name="cep" value=""   autocomplete="cep" autofocus>
+            <!-- if error -->
+            <span class="erro" role="alert">
+              <strong>message</strong>
+            </span>
+            <!-- end if error -->
+          </div>
+  
+          <div class="content-perfil-desc-item">
+            Logradouro
+            <input class="form-input-item form-input-item-perfil" id="logradouro" type="text" name="logradouro" value=""  autocomplete="logradouro" autofocus>
+            <!-- if error -->
+            <span class="erro" role="alert">
+              <strong>message</strong>
+            </span>
+            <!-- end if error -->
+          </div>
+  
+          <div class="content-perfil-desc-item">
+            Bairro
+            <input class="form-input-item form-input-item-perfil @error('bairro') is-invalid @enderror" type="text" id="bairro" name="bairro" value="{{ old('bairro') }}" autocomplete="bairro" autofocus>
+            <!-- if error -->
+            <span class="erro" role="alert">
+              <strong>message</strong>
+            </span>
+            <!-- end if error -->
+          </div>
+  
+          <div class="content-perfil-desc-item">
+            Cidade
+            <input class="form-input-item form-input-item-perfil" type="text" id="cidade" name="cidade" value="" autocomplete="cidade" autofocus>
+            <!-- if error -->
+            <span class="erro" role="alert">
+              <strong>message</strong>
+            </span>
+            <!-- end if error -->
+          </div>
+  
+          <div class="content-perfil-desc-box">
+            <div class="content-perfil-desc-item content-perfil-desc-box-item">
+              Estado
+              <input class="form-input-item form-input-item-perfil" id="estado" type="text" name="estado" value=""  autocomplete="estado" autofocus>
+              <!-- if error -->
+              <span class="erro" role="alert">
+                <strong>message</strong>
+              </span>
+              <!-- end if error -->
+            </div>
+  
+            <div class="content-perfil-desc-item content-perfil-desc-box-item">
+              Zona
+              <input class="form-input-item form-input-item-perfil" type="text" id="zona" name="zona" value="" autocomplete="zona" autofocus>
+              <!-- if error -->
+              <span class="erro" role="alert">
+                <strong>message</strong>
+              </span>   
+              <!-- end if error -->
+            </div>
+          </div>
+  
+          <div class="content-perfil-desc-box">
+            <div class="content-perfil-desc-item content-perfil-desc-box-item">
+              Número
+              <input class="form-input-item form-input-item-perfil" id="numero" type="text" name="numero" value=""  autocomplete="numero" autofocus>
+              if error
+              <span class="erro" role="alert">
+                <strong>message</strong>
+              </span>
+              <!-- end if error -->
+            </div>
+  
+            <div class="content-perfil-desc-item content-perfil-desc-box-item">
+              Complemento
+              <input class="form-input-item form-input-item-perfil" type="text" id="complemento" name="complemento" value="" autocomplete="complemento" autofocus>
+              <!-- if error -->
+              <span class="erro" role="alert">
+                <strong>message</strong>
+              </span>
+              <!-- end if error -->
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,20 @@
+.form-legend {
+    color: $primary_blue;
+    font: 14px/18px $font-semibold;
+    letter-spacing: 0.5px;
+    margin: 25px 0 10px;
+}
+
+.form-inputs {
+  display: block;
+}
+
+.form-input-item {
+  border: 1px solid #aeaeae;
+  border-radius: 10px;
+  font: 15px $font-medium;
+  margin: 10px 0;
+  outline: none !important;
+  padding: 15px 0px 15px 15px;
+  width: 100%;
+}

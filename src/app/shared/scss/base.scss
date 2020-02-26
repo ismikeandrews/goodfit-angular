@@ -1,0 +1,27 @@
+body {
+    background: $white;
+    font-family: $font-regular;
+    height: 100%;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.erro {
+  color: #e41930;
+
+  &-center {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+}
