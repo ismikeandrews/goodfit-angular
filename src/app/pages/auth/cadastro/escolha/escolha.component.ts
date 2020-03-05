@@ -11,4 +11,5 @@ export class EscolhaComponent implements OnInit {
 
   ngOnInit() {
   }
+
 }

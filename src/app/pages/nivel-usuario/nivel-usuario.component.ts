@@ -8,8 +8,11 @@ import { NivelUsuarioService } from '../../services/nivel-usuario.service';
   styleUrls: ['./nivel-usuario.component.scss']
 })
 export class NivelUsuarioComponent implements OnInit {
-  niveisUsuario: any;
-  constructor(private nivelUsuarioService: NivelUsuarioService ) { }
+  niveisUsuario: any = [];
+
+  constructor(private nivelUsuarioService: NivelUsuarioService ) {
+    localStorage.setItem('token', 'DBD0xnx6TUruCgM5fUaoMuO2u9I2RYZA') // Delete later
+   }
 
   ngOnInit() {
     

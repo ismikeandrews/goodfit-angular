@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NivelUsuarioComponent } from './pages/nivel-usuario/nivel-usuario.component';
@@ -13,6 +13,7 @@ import { EmpresaComponent } from './pages/auth/cadastro/empresa/empresa.componen
 import { Etapa1Component } from './pages/auth/cadastro/candidato/etapa1/etapa1.component';
 import { Etapa2Component } from './pages/auth/cadastro/candidato/etapa2/etapa2.component';
 import { Etapa3Component } from './pages/auth/cadastro/candidato/etapa3/etapa3.component';
+
 
 
 @NgModule({

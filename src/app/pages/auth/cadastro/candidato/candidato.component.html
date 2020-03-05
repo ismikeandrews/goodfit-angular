@@ -1,9 +1,11 @@
-<div class="counter-etapas-content">
-    <app-steps></app-steps>
+<div class="counter-etapas-content">    
     <div class="etapas-btn etapas-btn-cadastro">
         <app-etapa1 *ngIf="page === 1"></app-etapa1>
         <app-etapa2 *ngIf="page === 2"></app-etapa2>
         <app-etapa3 *ngIf="page === 3"></app-etapa3>
+        
+        <app-steps></app-steps>
+
         <button *ngIf="page > 1" class="btn etapas-btn-item is-disable" (click)="prevPage()">
             Voltar
         </button>
