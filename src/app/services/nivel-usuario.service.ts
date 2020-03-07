@@ -12,12 +12,19 @@ export class NivelUsuarioService {
     private http: HttpClient,
   ) { }
 
- async getAllCustomer() {
-    let Headers = {
-      headers: new HttpHeaders({
-          'APP_KEY': 'DBD0xnx6TUruCgM5fUaoMuO2u9I2RYZA'
-      })
-    }
+ async getAllNivelUsuario() {
     return await this.http.get(`${environment.baseUrlApi}/nivel-usuario`).toPromise();
+  }
+
+  async getNivelUsuarioById(id: number){
+    return await this.http.get(`${environment.baseUrlApi}/nivel-usuario/${id}`).toPromise();
+  }
+ 
+  async setNivelUsuario(nivelUsuario: any){
+    return await this.http.post(`${environment.baseUrlApi}/nivel-usuario/register`, nivelUsuario).toPromise()
+  } 
+
+  async deleteNivelUsuario(id: number){
+    return await this.http.delete(`${environment.baseUrlApi}/nivel-usuario/delete/${id}`).toPromise()
   }
 }

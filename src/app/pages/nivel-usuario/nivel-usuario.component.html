@@ -1,5 +1,17 @@
-<button class="btn" (click)="getAll()">Show data</button>
-<button class="btn" (click)="clean()">Limpar</button>
+<h1>Mostrar todos os niveis cadastrados</h1>
+<br>
 <div *ngFor="let nivel of niveisUsuario.data">
-    <p>{{nivel.id}}</p><p>{{nivel.titulo}}</p>
+    <p>{{nivel.id}} {{nivel.titulo}}<button (click)="deleteNivelUsuario(nivel.id)">x</button></p>
 </div>
+<br>
+<br>
+<br>
+<h1>Encotre um nivel de usuario por id</h1>
+<input placeholder="Pesquise um id" class="form-input-item" type="number" name="id" (keyup)="getNivelUsuarioById($event.key)" autofocus>
+<br>
+<br>
+<br>
+<h1>Cadastre um nivel usuario</h1>
+
+<input class="form-input-item" [(ngModel)]="nivelUsuarioModel.nomeNivelUsuario" type="text" name="nomeNivelUsuario" placeholder="titulo do nivel usuario">
+<button class="btn" (click)="setNivelUsuario()">Cadastrar</button>
