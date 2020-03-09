@@ -51,12 +51,16 @@
             </div>
   
             <div class="content-perfil-desc-item content-perfil-desc-box-item">
-              Data de Nascimento
-              <input class="form-input-item form-input-item-perfil" type="text" name="nascimento" value="" autocomplete="nascimento" autofocus>
+              <mat-form-field>
+                <mat-label>Data de Nascimento</mat-label>
+                <input matInput [matDatepicker]="picker" type="text" name="nascimento" value="" autocomplete="nascimento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
               <!-- if error -->
-              <span class="erro" role="alert">
+              <!-- <span class="erro" role="alert">
                 <strong>message</strong>
-              </span>
+              </span> -->
               <!-- end if error -->
             </div>
           </div>

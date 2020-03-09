@@ -14,6 +14,8 @@ import { EmpresaComponent } from './pages/auth/cadastro/empresa/empresa.componen
 import { Etapa1Component } from './pages/auth/cadastro/candidato/etapa1/etapa1.component';
 import { Etapa2Component } from './pages/auth/cadastro/candidato/etapa2/etapa2.component';
 import { Etapa3Component } from './pages/auth/cadastro/candidato/etapa3/etapa3.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 
 
 
@@ -37,6 +39,11 @@ import { Etapa3Component } from './pages/auth/cadastro/candidato/etapa3/etapa3.c
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

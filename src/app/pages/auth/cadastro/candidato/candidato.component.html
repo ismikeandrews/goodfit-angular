@@ -1,15 +1,21 @@
 <div class="counter-etapas-content">    
     <div class="etapas-btn etapas-btn-cadastro">
-        <app-etapa1 *ngIf="page === 1"></app-etapa1>
-        <app-etapa2 *ngIf="page === 2"></app-etapa2>
-        <app-etapa3 *ngIf="page === 3"></app-etapa3>
-        
-        <app-steps></app-steps>
-
+        <div class="icon-voltar icon-voltar-cadastro">
+            <a href="cadastro">
+              <img src="../../../assets/images/componentes/seta-voltar.svg" alt="Voltar" class="icon-voltar-img">
+            </a>
+        </div>   
+        <form>
+            <app-etapa1 *ngIf="page === 1"></app-etapa1>
+            <app-etapa2 *ngIf="page === 2"></app-etapa2>
+            <app-etapa3 *ngIf="page === 3"></app-etapa3>
+            <app-steps></app-steps>
+            <button *ngIf="page === 3" class="btn etapas-btn-item">Salvar</button>
+        </form>
         <button *ngIf="page > 1" class="btn etapas-btn-item is-disable" (click)="prevPage()">
             Voltar
         </button>
-        <button class="btn etapas-btn-item" (click)="nextPage()">
+        <button *ngIf="page === 1 || page === 2" class="btn etapas-btn-item" (click)="nextPage()">
             Avançar
         </button>
     </div>

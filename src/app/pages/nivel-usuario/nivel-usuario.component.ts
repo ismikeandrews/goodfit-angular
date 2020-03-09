@@ -32,6 +32,7 @@ export class NivelUsuarioComponent implements OnInit {
 
   async getNivelUsuarioById(id: number){ 
     let result: any = await this.nivelUsuarioService.getNivelUsuarioById(id);
+    console.log(result)
     alert(result.data[0].titulo);
   }
 
