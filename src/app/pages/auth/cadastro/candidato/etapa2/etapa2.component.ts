@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from './../../../../../models/usuario.model';
+
 
 @Component({
   selector: 'app-etapa2',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./etapa2.component.scss']
 })
 export class Etapa2Component implements OnInit {
+
+  usuarioModel: Usuario = new Usuario()
 
   constructor() { }
 

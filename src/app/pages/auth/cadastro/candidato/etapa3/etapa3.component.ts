@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Endereco } from './../../../../../models/endereco.model';
+
 
 @Component({
   selector: 'app-etapa3',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./etapa3.component.scss']
 })
 export class Etapa3Component implements OnInit {
+
+  enderecoModel: Endereco = new Endereco();
 
   constructor() { }
 

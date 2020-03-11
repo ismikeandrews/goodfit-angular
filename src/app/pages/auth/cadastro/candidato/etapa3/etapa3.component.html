@@ -3,12 +3,23 @@
       <h3 class="intro-title">Endereço</h3>
       <p class="intro-desc">Para finalizar, precisamos de informações localização</p>
     </div>
-  
+
+    <code>
+      {{candidatoModel | json}}
+    </code>
+    <code>
+      {{usuarioModel | json}}
+    </code>
+    <code>
+      {{enderecoModel | json}}
+    </code>
+
     <div class="cadastro-etapa2-content">
         <div class="content-perfil-desc">
           <div class="content-perfil-desc-item">
             CEP
-            <input class="form-input-item form-input-item-perfil" id="cep" type="text" name="cep" value=""   autocomplete="cep" autofocus>
+            <input 
+            class="form-input-item form-input-item-perfil" id="cep" type="text" name="cep" value=""   autocomplete="cep" autofocus>
             <!-- if error -->
             <span class="erro" role="alert">
               <strong>message</strong>

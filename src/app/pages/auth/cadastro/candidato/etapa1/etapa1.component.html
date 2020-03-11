@@ -10,18 +10,31 @@
           <label class="content-perfil-image content-perfil-image-cadastro" for="selecao-arquivo">
             <img src="../../../assets/images/componentes/perfil.svg" id="foto-perfil" class="content-perfil-image-img content-perfil-image-img-cadastro " alt="Insira sua imagem de perfil">
           </label>
-          <input id="selecao-arquivo" type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
+          <input
+           id="selecao-arquivo" type="file" 
+           name="foto" class="content-perfil-input-foto" 
+           accept=".jpg, .jpeg, .png" [(ngModel)]="usuarioModel.fotoUsuario">
           <!-- if error -->
           <span class="erro" role="alert">
             <strong>mensagem</strong>
           </span>
           <!-- end if error -->
         </div>
-  
+        
+        <code>
+          {{candidatoModel | json}}
+        </code>
+        <code>
+          {{usuarioModel | json}}
+        </code>
+           
         <div class="content-perfil-desc">
           <div class="content-perfil-desc-item">
             Nome
-            <input class="form-input-item form-input-item-perfil" type="text"  name="nome" value="" autocomplete="nome" autofocus>
+            <input 
+            class="form-input-item form-input-item-perfil" type="text"  
+            name="nome" [(ngModel)]="candidatoModel.nomeCandidato"
+            autocomplete="nome" autofocus>
             <!-- if error -->
             <span class="erro" role="alert">
               <strong>mensagem</strong>
@@ -32,7 +45,10 @@
           <div class="content-perfil-desc-box">
             <div class="content-perfil-desc-item content-perfil-desc-box-item">
               RG
-              <input class="form-input-item form-input-item-perfil" type="text" name="rg" value="" autocomplete="rg" autofocus>
+              <input 
+              class="form-input-item form-input-item-perfil" type="text" 
+              name="rg" value="" [(ngModel)]="candidatoModel.rgCandidato"
+              autocomplete="rg" autofocus>
               <!-- if error   -->
               <span class="erro" role="alert">
                 <strong>message</strong>
@@ -42,7 +58,10 @@
   
             <div class="content-perfil-desc-item content-perfil-desc-box-item">
               CPF
-              <input class="form-input-item form-input-item-perfil" type="text" name="cpf" value="" autocomplete="cpf" autofocus>
+              <input 
+              class="form-input-item form-input-item-perfil" 
+              type="text" name="cpf" [(ngModel)]="candidatoModel.cpfCandidato"
+              value="" autocomplete="cpf" autofocus>
               <!-- if error -->
               <span class="erro" role="alert">
                 <strong>message</strong>
@@ -53,7 +72,10 @@
             <div class="content-perfil-desc-item content-perfil-desc-box-item">
               <mat-form-field>
                 <mat-label>Data de Nascimento</mat-label>
-                <input matInput [matDatepicker]="picker" type="text" name="nascimento" value="" autocomplete="nascimento">
+                <input 
+                matInput [matDatepicker]="picker" 
+                type="text" name="nascimento" [(ngModel)]="candidatoModel.dataNascimentoCandidato"
+                value="" autocomplete="nascimento">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>

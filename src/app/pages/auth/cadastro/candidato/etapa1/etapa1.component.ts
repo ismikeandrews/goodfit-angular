@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Candidato } from './../../../../../models/candidato.model';
+import { Usuario } from './../../../../../models/usuario.model';
 
 @Component({
   selector: 'app-etapa1',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Etapa1Component implements OnInit {
 
+  candidatoModel: Candidato = new Candidato();
+  usuarioModel: Usuario = new Usuario();
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

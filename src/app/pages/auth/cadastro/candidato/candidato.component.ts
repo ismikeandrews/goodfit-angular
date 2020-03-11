@@ -1,38 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
 import { Endereco } from './../../../../models/endereco.model';
-import { Candidato } from './../../../../models/candidato.model';
 import { Usuario } from './../../../../models/usuario.model';
-
-
-
+import { Candidato } from './../../../../models/candidato.model';
 
 @Component({
   selector: 'app-candidato',
   templateUrl: './candidato.component.html',
   styleUrls: ['./candidato.component.scss']
 })
+
 export class CandidatoComponent implements OnInit {
 
-  page: number = 1;
-  enderecoModel = new Endereco();
-  candidatoModel = new Candidato();
-  usuarioModel = new Usuario();
+  private page: number = 1;
+  public usuarioModel: Usuario = new Usuario();
+  public candidatoModel: Candidato = new Candidato();
+  public Endereco: Endereco = new Endereco();
 
-  constructor(private formBuilder: FormBuilder){}
+
+  constructor(){}
 
   OnInit(){}
-
-  fillUsuarioModel(){
-    
-  }
-
-  fillCandidatoModel(){
-  }
-
-  fillEnderecoModel(){
-
-  }
 
   ngOnInit() {
   }
@@ -45,5 +32,8 @@ export class CandidatoComponent implements OnInit {
     this.page = this.page - 1;
   }
 
-
+  /*Shared variables teste, delete later on*/
+  // get pagesNumbers(): number{
+  //   return this.page;
+  // }
 }
