@@ -30,11 +30,14 @@
            
         <div class="content-perfil-desc">
           <div class="content-perfil-desc-item">
-            Nome
-            <input 
-            class="form-input-item form-input-item-perfil" type="text"  
-            name="nome" [(ngModel)]="candidatoModel.nomeCandidato"
-            autocomplete="nome" autofocus>
+            <mat-form-field class="example-full-width input">
+              <mat-label>Nome</mat-label>
+              <input matInput 
+              name="nome" type="text" 
+              [(ngModel)]="candidatoModel.nomeCandidato"
+              autocomplete="nome" autofocus>
+            </mat-form-field>
+
             <!-- if error -->
             <span class="erro" role="alert">
               <strong>mensagem</strong>
@@ -44,11 +47,13 @@
   
           <div class="content-perfil-desc-box">
             <div class="content-perfil-desc-item content-perfil-desc-box-item">
-              RG
-              <input 
-              class="form-input-item form-input-item-perfil" type="text" 
-              name="rg" value="" [(ngModel)]="candidatoModel.rgCandidato"
-              autocomplete="rg" autofocus>
+              <mat-form-field class="example-full-width input">
+                <mat-label>RG</mat-label>
+                <input 
+                matInput name="rg"  type="text" 
+                [(ngModel)]="candidatoModel.rgCandidato"
+                autocomplete="rg">
+              </mat-form-field>
               <!-- if error   -->
               <span class="erro" role="alert">
                 <strong>message</strong>
@@ -57,11 +62,15 @@
             </div>
   
             <div class="content-perfil-desc-item content-perfil-desc-box-item">
-              CPF
-              <input 
-              class="form-input-item form-input-item-perfil" 
-              type="text" name="cpf" [(ngModel)]="candidatoModel.cpfCandidato"
-              value="" autocomplete="cpf" autofocus>
+              
+              <mat-form-field class="example-full-width input">
+                <mat-label>CPF</mat-label>
+                <input 
+                matInput 
+                type="text" name="cpf" 
+                [(ngModel)]="candidatoModel.cpfCandidato"
+                value="" autocomplete="cpf">
+              </mat-form-field>
               <!-- if error -->
               <span class="erro" role="alert">
                 <strong>message</strong>
@@ -70,7 +79,7 @@
             </div>
   
             <div class="content-perfil-desc-item content-perfil-desc-box-item">
-              <mat-form-field>
+              <mat-form-field class="input">
                 <mat-label>Data de Nascimento</mat-label>
                 <input 
                 matInput [matDatepicker]="picker" 
