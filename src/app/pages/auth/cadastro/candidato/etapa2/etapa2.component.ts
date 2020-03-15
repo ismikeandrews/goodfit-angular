@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Usuario } from './../../../../../models/usuario.model';
+
+
 
 
 @Component({
@@ -9,11 +11,16 @@ import { Usuario } from './../../../../../models/usuario.model';
 })
 export class Etapa2Component implements OnInit {
 
-  usuarioModel: Usuario = new Usuario()
+  private usuarioModel: Usuario = new Usuario();
+  @Output() sendUsuarioModel = new EventEmitter<Object>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  sendModels(){
+    this.sendUsuarioModel.emit(this.usuarioModel);
   }
 
 }

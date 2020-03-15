@@ -3,20 +3,18 @@
       <h3 class="intro-title">Informações da conta</h3>
       <p class="intro-desc">Agora vamos configurar a sua conta...</p>
     </div>
-    <code>
-      {{candidatoModel | json}}
-    </code>
-    <code>
-      {{usuarioModel | json}}
-    </code>
     <div class="cadastro-etapa2-content">
+      <button (click)="sendModels()">models</button>
       <div class="content-perfil-desc">
         <div class="content-perfil-desc-item">
-          Login
-          <input 
-          class="form-input-item form-input-item-perfil" id="login" 
-          type="text" name="login" [(ngModel)]="usuarioModel.loginUsuario"
-          value=""  autocomplete="login" autofocus>
+          <mat-form-field class="example-full-width input">
+            <mat-label>Login</mat-label>
+            <input matInput 
+            name="nome" type="text" 
+            [(ngModel)]="usuarioModel.loginUsuario"
+            autocomplete="nome" autofocus>
+          </mat-form-field>
+
           <!-- if error -->
           <span class="erro" role="alert">
             <strong>message</strong>
@@ -25,11 +23,13 @@
         </div>
   
         <div class="content-perfil-desc-item">
-          Email
-          <input 
-          class="form-input-item form-input-item-perfil" id="email" 
-          type="email" name="email" [(ngModel)]="usuarioModel.email"
-          value=""  autocomplete="email" autofocus>
+          <mat-form-field class="example-full-width input">
+            <mat-label>Email</mat-label>
+            <input matInput id="email" 
+            type="email" name="email" [(ngModel)]="usuarioModel.email"
+            autocomplete="email">
+          </mat-form-field>
+
           <!-- if error -->
           <span class="erro" role="alert">
             <strong>message</strong>
@@ -38,10 +38,13 @@
         </div>
   
         <div class="content-perfil-desc-item">
-          Senha
-          <input class="form-input-item form-input-item-perfil" type="password" 
-          id="senha" name="password" [(ngModel)]="usuarioModel.password"
-          value="" autocomplete="password" autofocus>
+          <mat-form-field class="example-full-width input">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" 
+            id="senha" name="password" [(ngModel)]="usuarioModel.password"
+            value="" autocomplete="password">
+          </mat-form-field>
+
           <!-- if error -->
           <span class="erro" role="alert">
             <strong>message</strong>
@@ -50,11 +53,12 @@
         </div>
   
         <div class="content-perfil-desc-item">
-          Confirmar senha
-          <input 
-          class="form-input-item form-input-item-perfil" type="password" 
-          id="confirmar-senha" name="password_confirmation" [(ngModel)]="usuarioModel.passwordConfirm"
-          value="" autocomplete="password_confirmation" autofocus>
+          <mat-form-field class="example-full-width input">
+            <mat-label>Confirmar senha</mat-label>
+            <input matInput type="password" 
+            id="confirmar-senha" name="password_confirmation" [(ngModel)]="usuarioModel.passwordConfirm"
+            value="" autocomplete="password_confirmation">
+          </mat-form-field>
           <!-- if error -->
           <span class="erro" role="alert">
             <strong>{{ $message }}</strong>

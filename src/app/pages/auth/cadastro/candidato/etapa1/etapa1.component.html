@@ -5,7 +5,7 @@
     </div>
   
     <div class="cadastro-etapa2-content">
-  
+      <button (click)="sendModels()">models</button>
         <div class="content-perfil">
           <label class="content-perfil-image content-perfil-image-cadastro" for="selecao-arquivo">
             <img src="../../../assets/images/componentes/perfil.svg" id="foto-perfil" class="content-perfil-image-img content-perfil-image-img-cadastro " alt="Insira sua imagem de perfil">
@@ -20,14 +20,6 @@
           </span>
           <!-- end if error -->
         </div>
-        
-        <code>
-          {{candidatoModel | json}}
-        </code>
-        <code>
-          {{usuarioModel | json}}
-        </code>
-           
         <div class="content-perfil-desc">
           <div class="content-perfil-desc-item">
             <mat-form-field class="example-full-width input">

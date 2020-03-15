@@ -4,20 +4,23 @@
             <a href="cadastro">
               <img src="../../../assets/images/componentes/seta-voltar.svg" alt="Voltar" class="icon-voltar-img">
             </a>
+        
         </div>   
+        <button (click)="fetchdata()">show data</button>
         <form>
-            <app-etapa1 *ngIf="page === 1"></app-etapa1>
-            <app-etapa2 *ngIf="page === 2"></app-etapa2>
-            <app-etapa3 *ngIf="page === 3"></app-etapa3>
+            <app-etapa1 
+            *ngIf="page === 1" (sendUsuarioModel)="receiveUsuarioModel($event)" 
+            (sendCandidatoModel)="receiveCandidatoModel($event)"></app-etapa1>
+            <app-etapa2 *ngIf="page === 2" (sendUsuarioModel)="receiveUsuarioModel($event)"></app-etapa2>
+            <app-etapa3 *ngIf="page === 3" (sendEnderecoModel)="receiveEnderecoModel($event)"></app-etapa3>
             <app-steps></app-steps>
-            <button *ngIf="page === 3" class="btn etapas-btn-item">Salvar</button>
+            <button *ngIf="page > 1" class="btn etapas-btn-item is-disable" (click)="prevPage()">
+                Voltar
+            </button>
+            <button *ngIf="page === 1 || page === 2" class="btn etapas-btn-item" (click)="nextPage()">
+                Avançar
+            </button>
         </form>
-        <button *ngIf="page > 1" class="btn etapas-btn-item is-disable" (click)="prevPage()">
-            Voltar
-        </button>
-        <button *ngIf="page === 1 || page === 2" class="btn etapas-btn-item" (click)="nextPage()">
-            Avançar
-        </button>
     </div>
 </div>
 

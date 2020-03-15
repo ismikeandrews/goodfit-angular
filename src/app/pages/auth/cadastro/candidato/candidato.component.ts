@@ -12,9 +12,10 @@ import { Candidato } from './../../../../models/candidato.model';
 export class CandidatoComponent implements OnInit {
 
   private page: number = 1;
-  public usuarioModel: Usuario = new Usuario();
-  public candidatoModel: Candidato = new Candidato();
-  public Endereco: Endereco = new Endereco();
+  private usuarioModel: Usuario = new Usuario();
+  private candidatoModel: Candidato = new Candidato();
+  private enderecoModel: Endereco = new Endereco();
+
 
 
   constructor(){}
@@ -22,6 +23,7 @@ export class CandidatoComponent implements OnInit {
   OnInit(){}
 
   ngOnInit() {
+    
   }
 
   nextPage(){
@@ -32,8 +34,21 @@ export class CandidatoComponent implements OnInit {
     this.page = this.page - 1;
   }
 
-  /*Shared variables teste, delete later on*/
-  // get pagesNumbers(): number{
-  //   return this.page;
-  // }
+  fetchdata(){
+    console.log(this.usuarioModel)
+    console.log(this.candidatoModel)
+    console.log(this.enderecoModel)
+  }
+
+  receiveUsuarioModel($event){
+    this.usuarioModel = $event;
+  }
+
+  receiveCandidatoModel($event){
+    this.candidatoModel = $event;
+  }
+
+  receiveEnderecoModel($event){
+    this.enderecoModel = $event;
+  }
 }
