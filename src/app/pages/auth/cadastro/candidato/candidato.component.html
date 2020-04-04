@@ -6,7 +6,7 @@
             </a>
         
         </div>   
-        <button (click)="fetchdata()">show data</button>
+        <button (click)="showdata()">show data</button>
         <form>
             <app-etapa1 
             *ngIf="page === 1" (sendUsuarioModel)="receiveUsuarioModel($event)" 
