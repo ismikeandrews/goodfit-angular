@@ -1,0 +1,152 @@
+@import '../../../shared/scss/variables.scss';
+
+.vagas {
+    background: #e5e5e5;
+    height: 100%;
+}
+
+.wrapper {
+    padding: 30px 50px;
+}
+
+.header {
+    align-items: center;
+    border-bottom: 1px solid #bababa;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font: 35px $font-regular;
+    margin-left: 20px;
+}
+
+.buttons {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    margin-right: 20px;
+
+    &-item {
+        background-color: $secondary_blue;
+        border-radius: 50%;
+        height: 50px;
+        margin: 0 10px;
+        position: relative;
+        width: 50px;
+
+        &-icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0 0;
+}
+
+.item {
+    background-color: $white;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    color: #ccc;
+    cursor: pointer;
+    padding: 20px;
+    transition: all .5s ease-out;
+    width: 270px;
+
+    &:hover {
+        background: rgba(4, 99, 217, 0.25);
+        border-color: $secondary_blue;
+    }
+
+    &-desc {
+        align-items: center;
+        display: flex;
+
+        &-img {
+            margin-right: 10px;
+            width: 30%;
+            
+            &-icon {
+                width: 100%;
+            }
+        }
+
+        &-name {
+            color: $black;
+            font: 18px $font-bold;
+            text-transform: uppercase;
+            word-wrap: break-word;
+            width: 70%;
+
+            span {
+                font: 13px $font-regular;
+            }
+        }
+    }
+
+    &-info {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 5px;
+
+        &-img {
+            margin-right: 10px;
+        }
+
+        &-text {
+            color: $black;
+            font: 18px $font-bold;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+.pagination {
+    align-items: center;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    margin-top: 30px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    &-button {
+        cursor: pointer;
+    }
+
+    &-number {
+        display: flex;
+
+        &-item {
+            border: 2px solid $secondary_blue;
+            border-radius: 100%;
+            color: $secondary_blue;
+            font: 22px $font-regular;    
+            height: 30px;
+            margin: 0 25px;
+            text-align: center;
+            width: 30px;
+        
+            &.is-active {
+                background-color: $secondary_blue;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -16,6 +16,7 @@ import { Etapa2Component } from './pages/auth/cadastro/candidato/etapa2/etapa2.c
 import { Etapa3Component } from './pages/auth/cadastro/candidato/etapa3/etapa3.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelectModule} from '@angular/material';
+import { DashboardComponent } from './pages/auth/dashboard/dashboard.component';
 
 
 
@@ -32,6 +33,7 @@ import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateMo
     Etapa1Component,
     Etapa2Component,
     Etapa3Component,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
