@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { NivelUsuarioComponent } from './pages/nivel-usuario/nivel-usuario.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { CadastroComponent } from './pages/auth/cadastro/cadastro.component';
-import { EscolhaComponent } from './pages/auth/cadastro/escolha/escolha.component';
 import { CandidatoComponent } from './pages/auth/cadastro/candidato/candidato.component';
 import { StepsComponent } from './shared/components/steps/steps.component';
 import { EmpresaComponent } from './pages/auth/cadastro/empresa/empresa.component';
@@ -26,7 +25,6 @@ import { DashboardComponent } from './pages/auth/dashboard/dashboard.component';
     NivelUsuarioComponent,
     LoginComponent,
     CadastroComponent,
-    EscolhaComponent,
     CandidatoComponent,
     StepsComponent,
     EmpresaComponent,

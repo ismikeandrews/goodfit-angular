@@ -34,7 +34,7 @@ export class CandidatoComponent implements OnInit {
     this.page = this.page - 1;
   }
 
-  fetchdata(){
+  showdata(){
     console.log(this.usuarioModel)
     console.log(this.candidatoModel)
     console.log(this.enderecoModel)
