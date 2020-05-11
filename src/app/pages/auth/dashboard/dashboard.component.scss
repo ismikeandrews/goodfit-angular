@@ -30,16 +30,52 @@
     &-item {
         background-color: $secondary_blue;
         border-radius: 50%;
-        height: 50px;
+        height: 51px;
         margin: 0 10px;
         position: relative;
-        width: 50px;
+        width: 51px;
 
         &-icon {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+            width: 25px;
+       
+            &__filter {
+                margin-top: 2px;
+            }
+
+            &__add {
+                position: relative;
+                
+                &::before, &::after {
+                    background: #fff;
+                    content: '';
+                    height: 30px;
+                    left: 12px;
+                    position: absolute;
+                    top: -15px;
+                    transition: all .5s ease-in-out;
+                    width: 1.5px;
+                }
+                
+                &::after {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+
+        &.is-active {
+            .buttons-item-icon__add {
+                &::before {
+                    transform: rotate(135deg);
+                }
+                
+                &::after {
+                    transform: rotate(45deg);
+                }
+            }
         }
     }
 }
@@ -57,7 +93,7 @@
     border-radius: 20px;
     color: #ccc;
     cursor: pointer;
-    padding: 20px;
+    padding: 20px 20px 15px;
     transition: all .5s ease-out;
     width: 270px;
 
@@ -93,12 +129,17 @@
     }
 
     &-info {
+        align-items: center;
         display: flex;
         justify-content: flex-end;
-        margin-top: 5px;
 
         &-img {
             margin-right: 10px;
+
+            &-icon {
+                margin-top: 5px;
+                width: 25px;
+            }
         }
 
         &-text {
@@ -107,14 +148,6 @@
         }
     }
 }
-
-
-
-
-
-
-
-
 
 .pagination {
     align-items: center;
@@ -128,6 +161,15 @@
 
     &-button {
         cursor: pointer;
+
+        &-icon {
+            margin: 4px 5px 0 5px;
+            width: 20px;
+
+            &__prev {
+                transform: rotate(180deg);
+            }
+        }
     }
 
     &-number {
@@ -137,11 +179,11 @@
             border: 2px solid $secondary_blue;
             border-radius: 100%;
             color: $secondary_blue;
-            font: 22px $font-regular;    
-            height: 30px;
-            margin: 0 25px;
+            font: 20px $font-regular;    
+            height: 27px;
+            margin: 0 20px;
             text-align: center;
-            width: 30px;
+            width: 27px;
         
             &.is-active {
                 background-color: $secondary_blue;
