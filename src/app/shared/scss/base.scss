@@ -7,9 +7,14 @@ body {
 }
 
 .container {
+    height: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     padding: 20px;
+
+    &__menu {
+      padding: 15px;
+    }
 }
 
 a {

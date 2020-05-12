@@ -3,6 +3,7 @@
 .vagas {
     background: #e5e5e5;
     height: 100%;
+    position: relative;
 }
 
 .wrapper {
@@ -150,12 +151,9 @@
 }
 
 .pagination {
-    align-items: center;
     bottom: 30px;
     display: flex;
-    justify-content: center;
     left: 50%;
-    margin-top: 30px;
     position: absolute;
     transform: translate(-50%, -50%);
 
