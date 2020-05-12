@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  public itensMenu : any[];
+
+  constructor() {
+      this.itensMenu = [
+        { label: 'Vagas', link: '/vagas', img: '../../../../assets/images/componentes/vagas.svg' },
+        { label: 'Candidatos', link: '/candidatos', img: '../../../../assets/images/componentes/candidatos.png' },
+        { label: 'Processos', link: '/processos', img: '../../../../assets/images/componentes/processos.png' },
+      ]
+  }
 
   ngOnInit() {
     const sideBar = document.querySelector('#side-bar');
@@ -19,5 +27,4 @@ export class MenuComponent implements OnInit {
       sideBar.classList.toggle("is-active");
     });
   }
-
 }

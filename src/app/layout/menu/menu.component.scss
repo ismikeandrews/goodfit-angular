@@ -6,6 +6,10 @@
     width: 55px;
 }
 
+.container__menu {
+    background: #E5E5E5;
+}
+
 .menu {
     height: 100%;
 
@@ -87,18 +91,20 @@
         padding: 20px;
 
         &-item {
-            align-items: center;
-            border-bottom: 1px solid #bababa;
-            display: flex;
-            justify-content: space-between;
-            margin: 60px 0;
-
             &:first-child {
                 margin-top: 150px;
             }
 
+            &-link {
+                align-items: center;
+                border-bottom: 1px solid #bababa;
+                display: flex;
+                justify-content: space-between;
+                margin: 60px 0;
+            }
+
             &-img-icon {
-                width: 25px;
+                width: 30px;
             }
 
             &-name {

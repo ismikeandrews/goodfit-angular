@@ -11,13 +11,15 @@
         </div>
     </div>
     <div class="menu--content">
-        <div class="menu--content-item">
-            <div class="menu--content-item-img">
-                <img src="../../../../assets/images/componentes/filtrar.png" alt="Vagas" class="menu--content-item-img-icon">
-            </div>
-            <div class="menu--content-item-name">
-                Vagas
-            </div>
+        <div class="menu--content-item" *ngFor='let item of itensMenu'>
+            <a href="{{item.link}}" class="menu--content-item-link">
+                <div class="menu--content-item-img">
+                    <img src="{{item.img}}" alt="Vagas" class="menu--content-item-img-icon">
+                </div>
+                <div class="menu--content-item-name">
+                    {{item.label}}
+                </div>
+            </a>
         </div>
     </div>
 </div>
