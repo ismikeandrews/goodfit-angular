@@ -10,13 +10,13 @@ import { VagasComponent } from './pages/auth/dashboard/vagas/vagas.component';
 const routes: Routes = [
   {path: '', component: ContentComponent, 
     children: [
-      {path: 'dashboard', component: DashboardComponent }
+      {path: 'dashboard', component: DashboardComponent },
+      {path: 'vagas', component: VagasComponent},
     ]
   },
   {path: 'login', component: LoginComponent},
   {path: 'cadastro', component: CadastroComponent},
   {path: 'nivel-usuario', component: NivelUsuarioComponent},
-  {path: 'vagas', component: VagasComponent},
 ];
 
 @NgModule({

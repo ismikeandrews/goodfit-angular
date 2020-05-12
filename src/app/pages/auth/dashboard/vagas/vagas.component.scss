@@ -8,6 +8,7 @@
 
 .wrapper {
     padding: 30px 50px;
+    position: relative;
 }
 
 .header {
@@ -122,7 +123,7 @@
 }
 
 .pagination {
-    bottom: 30px;
+    bottom: -30px;
     display: flex;
     left: 50%;
     position: absolute;
