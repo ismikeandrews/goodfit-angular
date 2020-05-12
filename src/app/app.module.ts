@@ -18,6 +18,7 @@ import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateMo
 import { DashboardComponent } from './pages/auth/dashboard/dashboard.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { LayoutModule } from './layout/layout.module';
+import { VagasComponent } from './pages/auth/dashboard/vagas/vagas.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { LayoutModule } from './layout/layout.module';
     Etapa3Component,
     DashboardComponent,
     ModalComponent,
+    VagasComponent,
   ],
   imports: [
     BrowserModule,

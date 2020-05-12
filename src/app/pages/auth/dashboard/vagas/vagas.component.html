@@ -1,0 +1,64 @@
+<section class="vagas">
+    <div class="wrapper">
+        
+        <div class="header">
+            <h1 class="title">Vagas</h1>
+
+            <div class="buttons">
+                <div class="buttons-item" *ngFor='let item of buttonsVagas'>
+                    <img src="{{item.img}}" alt="{{item.name}}" title="{{item.name}}" class="buttons-item-icon {{item.class}}">
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="item" *ngFor='let item of itemsVagas'>
+                <div class="item-desc">
+                    <div class="item-desc-img">
+                        <img src="{{item.img}}" alt="{{item.name}} {{item.subname}}" class="item-desc-img-icon">
+                    </div>
+                    <div class="item-desc-name">
+                        {{item.name}}
+                        
+                        <span>
+                            <br/>
+                            {{item.subname}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="item-info">
+                    <div class="item-info-img">
+                        <img src="../../../../assets/images/componentes/dolar.png" alt="Salário" class="item-info-img-icon">
+                    </div>
+                    <div class="item-info-text">
+                        {{item.salario}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <div class="pagination-button">
+                <img src="../../../../assets/images/componentes/pagination-icon.png" alt="Voltar" class="pagination-button-icon pagination-button-icon__prev">
+            </div>
+            
+            <div class="pagination-number">
+                <div class="pagination-number-item is-active">
+                    1
+                </div>
+                <div class="pagination-number-item">
+                    2
+                </div>
+                <div class="pagination-number-item">
+                    3
+                </div>
+            </div>
+
+            <div class="pagination-button">
+                <img src="../../../../assets/images/componentes/pagination-icon.png" alt="Avançar" class="pagination-button-icon">
+            </div>
+        </div>
+
+    </div>
+</section>

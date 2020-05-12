@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { CadastroComponent } from './pages/auth/cadastro/cadastro.component';
 import { ContentComponent } from './layout/content/content.component';
 import { DashboardComponent } from './pages/auth/dashboard/dashboard.component';
+import { VagasComponent } from './pages/auth/dashboard/vagas/vagas.component';
 
 const routes: Routes = [
   {path: '', component: ContentComponent, 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cadastro', component: CadastroComponent},
   {path: 'nivel-usuario', component: NivelUsuarioComponent},
+  {path: 'vagas', component: VagasComponent},
 ];
 
 @NgModule({
