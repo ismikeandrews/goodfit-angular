@@ -1,8 +1,9 @@
 <section class="vagas">
     <div class="wrapper">
 
-        <app-modal></app-modal>
-        
+        <app-modal [vagaModelInput]="vagaModel"></app-modal>
+
+
         <div class="header">
             <h1 class="title">Vagas</h1>
 
@@ -14,7 +15,7 @@
         </div>
 
         <div class="content">
-            <div class="item" *ngFor='let item of itemsVagas'>
+            <div class="item" *ngFor='let item of itemsVagas' (click)="openModal()">
                 <div class="item-desc">
                     <div class="item-desc-img">
                         <img src="{{item.img}}" alt="{{item.name}} {{item.subname}}" class="item-desc-img-icon">

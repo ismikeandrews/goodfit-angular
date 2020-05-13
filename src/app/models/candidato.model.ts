@@ -1,4 +1,4 @@
-export class Candidato{
+export class CandidatoModel{
     codCandidato: number;
     nomeCandidato: string;
     cpfCandidato: string;
