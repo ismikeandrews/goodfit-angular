@@ -15,27 +15,29 @@
         </div>
 
         <div class="content">
-            <div class="item" *ngFor='let item of itemsVagas' (click)="openModal()">
-                <div class="item-desc">
-                    <div class="item-desc-img">
-                        <img src="{{item.img}}" alt="{{item.name}} {{item.subname}}" class="item-desc-img-icon">
+            <div class="item" *ngFor='let item of itemsVagas'>
+                <div class="item--box" (click)="openModal()">
+                    <div class="item--box-desc">
+                        <div class="item--box-desc-img">
+                            <img src="{{item.img}}" alt="{{item.name}} {{item.subname}}" class="item--box-desc-img-icon">
+                        </div>
+                        <div class="item--box-desc-name">
+                            {{item.name}}
+                            
+                            <span>
+                                <br/>
+                                {{item.subname}}
+                            </span>
+                        </div>
                     </div>
-                    <div class="item-desc-name">
-                        {{item.name}}
-                        
-                        <span>
-                            <br/>
-                            {{item.subname}}
-                        </span>
-                    </div>
-                </div>
 
-                <div class="item-info">
-                    <div class="item-info-img">
-                        <img src="../../../../assets/images/componentes/dolar.png" alt="Salário" class="item-info-img-icon">
-                    </div>
-                    <div class="item-info-text">
-                        {{item.salario}}
+                    <div class="item--box-info">
+                        <div class="item--box-info-img">
+                            <img src="../../../../assets/images/componentes/dolar.png" alt="Salário" class="item--box-info-img-icon">
+                        </div>
+                        <div class="item--box-info-text">
+                            {{item.salario}}
+                        </div>
                     </div>
                 </div>
             </div>

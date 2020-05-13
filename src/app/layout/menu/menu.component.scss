@@ -20,10 +20,34 @@
         
         .menu--button-logo-icon {
             width: 130px;
+            
+            @include MQ ($XL) {
+                width: 100px;
+            }
+            
+            @include MQ ($M) {
+                width: 90px;
+            }
+            
+            @include MQ ($XS) {
+                width: 80px;
+            }
         }
 
         .menu--content-item {
             width: 190px;
+            
+            @include MQ ($XL) {
+                width: 150px;        
+            }
+            
+            @include MQ ($M) {
+                width: 125px;
+            }
+            
+            @include MQ ($XS) {
+                width: 95px;
+            }
         }
 
         .menu--button-burguer-lines {
@@ -35,7 +59,7 @@
                 }
                 
                 &::after {
-                    bottom: 0;
+                    bottom: 1px;
                     transform: rotate(-45deg);
                 }
         }
@@ -56,10 +80,14 @@
                 transition: border .5s ease-in-out;
                 width: 25px;
 
+                @include MQ ($XS) {
+                    width: 20px;
+                }
+
                 &::before, &::after {
                     background: $dark_red;
                     content: '';
-                    height: 3px;
+                    height: 2px;
                     left: 0;
                     position: absolute;
                     transition: all .5s ease-in-out;
@@ -68,10 +96,18 @@
                 
                 &::before {
                     top: -8px;
+                    
+                    @include MQ ($M) {
+                        top: -6px;
+                    }
                 }
                 
                 &::after {
-                    bottom: -11px;
+                    bottom: -10px;
+                    
+                    @include MQ ($M) {
+                        bottom: -9px;
+                    }
                 }
             }
         }
@@ -81,6 +117,14 @@
 
             &-icon  {
                 width: 130px;
+                
+                @include MQ ($XL) {
+                    width: 100px;
+                }
+                
+                @include MQ ($M) {
+                    width: 90px;
+                }
             }
         }
     }
@@ -105,6 +149,18 @@
 
             &-img-icon {
                 width: 30px;
+                
+                @include MQ ($XL) {
+                    width: 25px;    
+                }
+                
+                @include MQ ($M) {
+                    width: 20px;
+                }
+                
+                @include MQ ($XS) {
+                    width: 15px;
+                }
             }
 
             &-name {
@@ -112,6 +168,18 @@
                 display: flex;
                 font: 20px $font-regular;
                 text-transform: uppercase;
+
+                @include MQ ($XL) {
+                    font-size: 17px;   
+                }
+                        
+                @include MQ ($M) {
+                    font-size: 13px;
+                }
+                        
+                @include MQ ($XS) {
+                    font-size: 11px;
+                }
             }
         }
     }

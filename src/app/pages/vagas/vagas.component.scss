@@ -7,7 +7,7 @@
 }
 
 .wrapper {
-    padding: 30px 50px;
+    padding: 30px;
 }
 
 .header {
@@ -19,7 +19,16 @@
 
 .title {
     font: 35px $font-regular;
-    margin-left: 20px;
+    margin: 20px;
+
+    @include MQ ($S) {
+        font-size: 30px;
+        margin: 20px 20px 15px;
+    }
+
+    @include MQ ($XS) {
+        font-size: 25px;
+    }
 }
 
 .buttons {
@@ -35,9 +44,20 @@
         position: relative;
         width: 51px;
 
-        @include MQ($M) {
+        @include MQ($L) {
             height: 45px;
             width: 45px;
+        }
+
+        @include MQ($S) {
+            height: 35px;
+            margin: 0 5px;
+            width: 35px;
+        }
+
+        @include MQ($XS) {
+            height: 30px;
+            width: 30px;
         }
 
         &-icon {
@@ -47,8 +67,16 @@
             transform: translate(-50%, -50%);
             width: 25px;
        
-            @include MQ($M) {
+            @include MQ($L) {
                 width: 20px;
+            }
+       
+            @include MQ($S) {
+                width: 17px;
+            }
+            
+            @include MQ($XS) {
+                width: 15px;
             }
 
             &__filter {
@@ -71,144 +99,148 @@
 }
 
 .content {
-    align-items: center;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 50px;
-    
+    margin: 50px auto 30px;
+
     @include MQ ($M) {
-        margin-top: 20px;
-    }
-    
-    @include MQ ($S) {
-        justify-content: center;
+        margin: 20px auto 30px;
     }
 }
 
 .item {
-    background-color: $white;
-    border: 3px solid #ccc;
-    border-radius: 20px;
-    color: #ccc;
-    cursor: pointer;
-    margin: 5px;
-    max-width: 20%;
-    padding: 20px 20px 15px;
-    transition: all .5s ease-out;
-    width: 270px;
-
-    @include MQ($L) {
-        padding: 15px;
+    width: 25%;
+    
+    @include MQ ($M) {
+        width: 33%;
     }
     
-    @include MQ($M) {
-        padding: 7px 13px;
-    }
-    
-    @include MQ($S) {
-        max-width: 25%;
-        padding: 15px;
+    @include MQ ($XS) {
+        width: 50%;
     }
 
-    &:hover {
-        background: rgba(230, 71, 131, 0.25);
-        border-color: $dark_red;
-    }
+    &--box {
+        background-color: $white;
+        border: 3px solid #ccc;
+        border-radius: 20px;
+        color: #ccc;
+        cursor: pointer;
+        margin: 3px;
+        padding: 20px 20px 15px;
+        transition: all .5s ease-out;
 
-    &-desc {
-        align-items: center;
-        display: flex;
+        @include MQ($XL) {
+            padding: 13px 10px;
+        }
+        
+        @include MQ($S) {
+            height: 110px;
+            text-align: center;
+        }
 
-        &-img {
-            margin-right: 10px;
-            width: 30%;
-      
-            @include MQ($M) {
-                width: 25%;
+        &:hover {
+            background: rgba(230, 71, 131, 0.25);
+            border-color: $dark_red;
+        }
+
+        &-desc {
+            align-items: center;
+            display: flex;
+
+            @include MQ($S) {
+                display: block;
             }
-            
-            &-icon {
-                width: 100%;
+
+            &-img {
+                margin-right: 10px;
+                width: 30%;
+        
+                @include MQ($L) {
+                    height: 45px;
+                }
+        
+                @include MQ($S) {
+                    margin: auto;
+                    width: 45px;
+                }
+                
+                &-icon {
+                    width: 100%;
+                }
+            }
+
+            &-name {
+                color: $black;
+                font: 16px $font-bold;
+                text-transform: uppercase;
+                word-wrap: break-word;
+                width: 70%;
+
+                @include MQ($XL) {
+                    font-size: 15px;
+                }
+                
+                @include MQ($L) {
+                    font-size: 13px;
+                    margin: 7px 0 3px;
+                    width: 100%;
+                }
+                
+                @include MQ($XS) {
+                    font-size: 12px;
+                }
+                
+                span {
+                    font: 12px $font-regular;
+
+                    @include MQ($XL) {
+                        font-size: 11px;
+                    }
+                    
+                    @include MQ($L) {
+                        font-size: 10px;
+                    }
+                }
             }
         }
 
-        &-name {
-            color: $black;
-            font: 18px $font-bold;
-            text-transform: uppercase;
-            word-wrap: break-word;
-            width: 70%;
+        &-info {
+            align-items: center;
+            display: flex;
+            justify-content: flex-end;
 
-            @include MQ($L) {
-                font-size: 16px;
-            }
-            
-            @include MQ($M) {
-                font-size: 13px;
-            }
-            
             @include MQ($S) {
-                font-size: 15px;
+                justify-content: center;
             }
 
-            span {
-                font: 13px $font-regular;
+            &-img {
+                margin-right: 10px;
 
                 @include MQ($L) {
-                    font-size: 12px;
+                    margin-right: 5px;
+                }
+
+                &-icon {
+                    margin-top: 5px;
+                    width: 25px;
+                
+                    @include MQ($L) {
+                        width: 17px;
+                    }
+                }
+            }
+
+            &-text {
+                color: $black;
+                font: 16px $font-bold;
+                
+                @include MQ($XL) {
+                    font-size: 14px;
                 }
                 
-                @include MQ($M) {
-                    font-size: 10px;
+                @include MQ($L) {
+                    font-size: 13px;
                 }
-                
-                @include MQ($S) {
-                    font-size: 12px;
-                }
-            }
-        }
-    }
-
-    &-info {
-        align-items: center;
-        display: flex;
-        justify-content: flex-end;
-
-        &-img {
-            margin-right: 10px;
-
-            @include MQ($M) {
-                margin-right: 5px;
-            }
-
-            &-icon {
-                margin-top: 5px;
-                width: 25px;
-            
-                @include MQ($M) {
-                    width: 17px;
-                }
-            
-                @include MQ($S) {
-                    width: 20px;
-                }
-            }
-        }
-
-        &-text {
-            color: $black;
-            font: 18px $font-bold;
-            
-            @include MQ($L) {
-                font-size: 16px;
-            }
-            
-            @include MQ($M) {
-                font-size: 13px;
-            }
-            
-            @include MQ($S) {
-                font-size: 15px;
             }
         }
     }
@@ -217,7 +249,6 @@
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
 
     &-button {
         cursor: pointer;
@@ -226,7 +257,7 @@
             margin: 4px 5px 0 5px;
             width: 20px;
 
-            @include MQ($M) {
+            @include MQ($L) {
                 width: 17px;
             }
 
@@ -249,7 +280,7 @@
             text-align: center;
             width: 27px;
 
-            @include MQ($M) {
+            @include MQ($L) {
                 font-size: 16px;
                 height: 23px;
                 margin: 0 15px;
