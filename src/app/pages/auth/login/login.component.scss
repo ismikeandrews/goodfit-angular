@@ -22,7 +22,7 @@
     margin: 0 auto;
     width: 75%;
 
-    @include MQ($medium){
+    @include MQ($M){
         width: 100%;
     }
 }
@@ -44,7 +44,7 @@
         font: 21px $font-regular;
         line-height: 25px;
 
-        @include MQ($small) {
+        @include MQ($S) {
             font-size: 20px;
         }
 
@@ -82,7 +82,7 @@
 .login-btn-entrar {
     margin: 60px 0 50px;
 
-    @include MQ($medium){
+    @include MQ($M){
         margin: 40px 0 0;
     }
 }

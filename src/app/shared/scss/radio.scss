@@ -21,7 +21,7 @@
   text-align: center;
   transition: all .5s ease-out;
 
-  @include MQ($small) {
+  @include MQ($S) {
      padding: 10px 0;
   }
 }
@@ -30,7 +30,7 @@
   &-icon {
     width: 90px;
     
-    @include MQ($small) {
+    @include MQ($S) {
       width: 60px;
     }
   }

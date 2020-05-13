@@ -27,7 +27,7 @@
     width: 25px;
     z-index: -1;
     
-    @include MQ($small) {
+    @include MQ($S) {
         margin: 0 20px;
     }
 
@@ -44,7 +44,7 @@
         width: 50px;
         z-index: -1;
 
-        @include MQ($small) {
+        @include MQ($S) {
             right: 43px;
             width: 40px;
         }
@@ -98,7 +98,7 @@
     display: flex;
 
     &-curriculo {
-        @include MQ($small) {
+        @include MQ($S) {
             bottom: 70px;
         }
     }

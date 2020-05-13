@@ -36,7 +36,7 @@
 //escolha component
 
 .etapas-cadastro {
-  @include MQ($small) {
+  @include MQ($S) {
       padding-top: 0;
   }
 }

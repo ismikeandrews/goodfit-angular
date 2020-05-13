@@ -35,6 +35,11 @@
         position: relative;
         width: 51px;
 
+        @include MQ($M) {
+            height: 45px;
+            width: 45px;
+        }
+
         &-icon {
             position: absolute;
             left: 50%;
@@ -42,6 +47,10 @@
             transform: translate(-50%, -50%);
             width: 25px;
        
+            @include MQ($M) {
+                width: 20px;
+            }
+
             &__filter {
                 margin-top: 2px;
             }
@@ -65,7 +74,11 @@
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    margin: 50px 0 0;
+    margin-top: 50px;
+    
+    @include MQ ($M) {
+        margin-top: 20px;
+    }
 }
 
 .item {
@@ -76,9 +89,17 @@
     cursor: pointer;
     padding: 20px 20px 15px;
     transition: all .5s ease-out;
-    margin: 10px;
+    margin: 5px;
     max-width: 20%;
     width: 270px;
+
+    @include MQ($L) {
+        padding: 15px;
+    }
+    
+    @include MQ($M) {
+        padding: 7px 13px;
+    }
 
     &:hover {
         background: rgba(230, 71, 131, 0.25);
@@ -92,6 +113,10 @@
         &-img {
             margin-right: 10px;
             width: 30%;
+      
+            @include MQ($M) {
+                width: 25%;
+            }
             
             &-icon {
                 width: 100%;
@@ -105,8 +130,24 @@
             word-wrap: break-word;
             width: 70%;
 
+            @include MQ($L) {
+                font-size: 16px;
+            }
+            
+            @include MQ($M) {
+                font-size: 13px;
+            }
+
             span {
                 font: 13px $font-regular;
+
+                @include MQ($L) {
+                    font-size: 12px;
+                }
+                
+                @include MQ($M) {
+                    font-size: 10px;
+                }
             }
         }
     }
@@ -119,15 +160,31 @@
         &-img {
             margin-right: 10px;
 
+            @include MQ($M) {
+                margin-right: 5px;
+            }
+
             &-icon {
                 margin-top: 5px;
                 width: 25px;
+            
+                @include MQ($M) {
+                    width: 17px;
+                }
             }
         }
 
         &-text {
             color: $black;
             font: 18px $font-bold;
+            
+            @include MQ($L) {
+                font-size: 16px;
+            }
+            
+            @include MQ($M) {
+                font-size: 13px;
+            }
         }
     }
 }
@@ -144,6 +201,10 @@
             margin: 4px 5px 0 5px;
             width: 20px;
 
+            @include MQ($M) {
+                width: 17px;
+            }
+
             &__prev {
                 transform: rotate(180deg);
             }
@@ -157,11 +218,18 @@
             border: 2px solid $dark_red;
             border-radius: 100%;
             color: $dark_red;
-            font: 20px $font-regular;    
+            font: 20px $font-bold;    
             height: 27px;
             margin: 0 20px;
             text-align: center;
             width: 27px;
+
+            @include MQ($M) {
+                font-size: 16px;
+                height: 23px;
+                margin: 0 15px;
+                width: 23px;
+            }
         
             &.is-active {
                 background-color: $dark_red;

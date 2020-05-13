@@ -8,7 +8,7 @@
     &-item {
         width: 47%;
 
-        @include MQ($small) {
+        @include MQ($S) {
             width: 100%;
         }
     }
