@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Output, EventEmitter} from '@angular/core';
+import { VagaModel } from '../../models/vaga.model';
+
 
 @Component({
   selector: 'app-vagas',
   templateUrl: './vagas.component.html',
   styleUrls: ['./vagas.component.scss']
 })
+
+
 export class VagasComponent implements OnInit {
 
   public buttonsVagas : any[];
   public itemsVagas : any[];
+  public vagaModel : VagaModel;
 
   constructor() {
     this.buttonsVagas = [
@@ -16,9 +21,7 @@ export class VagasComponent implements OnInit {
       { name: 'Filtrar' , img: '../../../../assets/images/componentes/filtrar.png', class: 'buttons-item-icon__filter' },
       { name: 'Adicionar' , img: '../../../../assets/images/componentes/add.png' },
     ]
-
     this.itemsVagas = [
-      { name: 'Desenvolvedor', subname: 'Front-End', salario: 'R$ 2000,00' , img: '../../../../assets/images/icones/profissao/ti.png' },
       { name: 'Atendente', subname: 'de Telemarketing' , salario: 'R$ 1200,00' , img: '../../../../assets/images/icones/profissao/telemarketing.png' },
       { name: 'Desenvolvedor', subname: 'Back-End', salario: 'R$ 2300,00' , img: '../../../../assets/images/icones/profissao/ti.png' },
       { name: 'Desenvolvedor', subname: 'Full Stack', salario: 'R$ 3000,00' , img: '../../../../assets/images/icones/profissao/ti.png' },
@@ -29,6 +32,20 @@ export class VagasComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
+  openModal(){
+    this.vagaModel = {
+      codVaga: 1,
+      descricaoVaga: 'Desenvolvedor',
+      salarioVaga: 2000.00,
+      cargaHorariaVaga: '8h',
+      quantidadeVaga: 2,
+      codEmpresa: 1,
+      codProfissao: 1,
+      codEndereco: 1,
+      codRegimeContratacao: 1,
+    }
+  }
 }
