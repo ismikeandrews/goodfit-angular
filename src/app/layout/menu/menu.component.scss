@@ -51,13 +51,13 @@
             width: 25%;
 
             &-lines {
-                border-bottom: 3px solid $secondary_blue;
+                border-bottom: 3px solid $pink;
                 position: relative;
                 transition: border .5s ease-in-out;
                 width: 25px;
 
                 &::before, &::after {
-                    background: $secondary_blue;
+                    background: $dark_red;
                     content: '';
                     height: 3px;
                     left: 0;
@@ -86,7 +86,7 @@
     }
 
     &--content {
-        background: $secondary_blue;
+        background: $dark_red;
         height: 100%;
         padding: 20px;
 

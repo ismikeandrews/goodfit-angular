@@ -16,6 +16,12 @@ $secondary_blue: #0468BF;
 $tertiary_blue: #0339A6;
 $dark_blue: #023373;
 
+// IJC Colors
+$orange: #ff9015;
+$pink: #e64783;
+$dark_red: #9d1d64;
+$dark_grey: #898A8D;
+
 // Sizes
 @mixin MQ($size) {
     @media screen and (max-width: $size) {

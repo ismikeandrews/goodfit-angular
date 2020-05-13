@@ -8,7 +8,6 @@
 
 .wrapper {
     padding: 30px 50px;
-    position: relative;
 }
 
 .header {
@@ -30,7 +29,6 @@
     margin-right: 20px;
 
     &-item {
-        background-color: $secondary_blue;
         border-radius: 50%;
         height: 51px;
         margin: 0 10px;
@@ -47,6 +45,18 @@
             &__filter {
                 margin-top: 2px;
             }
+        }
+
+        &:first-child {
+            background-color: $orange;
+        }
+        
+        &:nth-child(2) {
+            background-color: $pink;
+        }
+        
+        &:last-child {
+            background-color: $dark_red;
         }
     }
 }
@@ -71,8 +81,8 @@
     width: 270px;
 
     &:hover {
-        background: rgba(4, 99, 217, 0.25);
-        border-color: $secondary_blue;
+        background: rgba(230, 71, 131, 0.25);
+        border-color: $dark_red;
     }
 
     &-desc {
@@ -123,11 +133,9 @@
 }
 
 .pagination {
-    bottom: -30px;
     display: flex;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
+    justify-content: center;
+    margin-top: 30px;
 
     &-button {
         cursor: pointer;
@@ -146,9 +154,9 @@
         display: flex;
 
         &-item {
-            border: 2px solid $secondary_blue;
+            border: 2px solid $dark_red;
             border-radius: 100%;
-            color: $secondary_blue;
+            color: $dark_red;
             font: 20px $font-regular;    
             height: 27px;
             margin: 0 20px;
@@ -156,7 +164,7 @@
             width: 27px;
         
             &.is-active {
-                background-color: $secondary_blue;
+                background-color: $dark_red;
                 color: #fff;
             }
         }
