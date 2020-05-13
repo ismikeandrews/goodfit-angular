@@ -20,6 +20,7 @@
 .title {
     font: 35px $font-regular;
     margin: 20px;
+    text-transform: uppercase;
 
     @include MQ ($S) {
         font-size: 30px;
@@ -101,7 +102,7 @@
 .content {
     display: flex;
     flex-wrap: wrap;
-    margin: 50px auto 30px;
+    margin: 40px auto 30px;
 
     @include MQ ($M) {
         margin: 20px auto 30px;
@@ -126,7 +127,7 @@
         color: #ccc;
         cursor: pointer;
         margin: 3px;
-        padding: 20px 20px 15px;
+        padding: 15px 20px;
         transition: all .5s ease-out;
 
         @include MQ($XL) {
@@ -214,7 +215,7 @@
             }
 
             &-img {
-                margin-right: 10px;
+                margin-right: 5px;
 
                 @include MQ($L) {
                     margin-right: 5px;
@@ -224,6 +225,10 @@
                     margin-top: 5px;
                     width: 25px;
                 
+                    @include MQ($XL) {
+                        width: 20px;
+                    }
+                
                     @include MQ($L) {
                         width: 17px;
                     }
@@ -232,7 +237,7 @@
 
             &-text {
                 color: $black;
-                font: 16px $font-bold;
+                font: 17px $font-bold;
                 
                 @include MQ($XL) {
                     font-size: 14px;
@@ -293,4 +298,11 @@
             }
         }
     }
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.45);
+    height: 100%;
+    position: absolute;
+    width: 100%;
 }
