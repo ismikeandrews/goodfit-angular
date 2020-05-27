@@ -1,6 +1,6 @@
 @import '../../scss/variables.scss';
 
-.modal--container {
+.container {
     background: #f2f2f2;
     border-radius: 20px;
     height: 550px;
@@ -9,15 +9,41 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
+    width: 700px;
+}
 
-    &-content {
+.content {
+ 
+    &--header {
+        align-items: center;
+        display: flex;
+        position: relative;
         
+        &-icon {
+            margin-right: 10px;
+            width: 40px;
+        }
+        
+        &-title {
+            color: #000;
+            font: 22px $font-bold;
+            text-transform: uppercase;
+        }
+
+        &-close {
+            border: none;
+            color: #C4C4C4;
+            cursor: pointer;
+            font-size: 30px;
+            outline: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
     }
 
-    &-title {
-        color: #000;
-        font: 22px $font-bold;
-        text-transform: uppercase;
+    &--description-box {
+        width: 50%;
     }
 }
+
