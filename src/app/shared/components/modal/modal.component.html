@@ -1,22 +1,56 @@
 <div class="container">
+    <div class="header">
+        <img src="../../../../assets/images/icones/profissao/ti.png" alt="{{vagaModel?.descricaoVaga}}" class="header-icon">
+        
+        <h1 class="header-title">
+            {{vagaModel?.descricaoVaga}}
+        </h1>
+
+        <button (click)="resetVagaModel()" class="header-close">&times;</button>
+    </div>
+
     <div class="content">
-        <div class="content--header">
-            <img src="../../../../assets/images/icones/profissao/ti.png" alt="{{vagaModel?.descricaoVaga}}" class="content--header-icon">
-            
-            <h1 class="content--header-title">
-                {{vagaModel?.descricaoVaga}}
-            </h1>
-
-            <button (click)="resetVagaModel()" class="content--header-close">&times;</button>
-        </div>
-
         <div class="content--description-box">
             <app-description-box></app-description-box>
         </div>
 
-        {{vagaModel?.descricaoVaga}}
-        {{vagaModel?.descricaoVaga}}
-        {{vagaModel?.descricaoVaga}}
-        {{vagaModel?.descricaoVaga}}
+        <div class="content--requisitos">
+            <div class="content--requisitos-title">
+                Requisitos
+            </div>
+
+            <div class="content--requisitos__obrigatorio">
+                <div class="content--requisitos-subtitle">
+                    Obrigatórios
+                </div>
+                <div class="content--requisitos-list">
+                    <div class="content--requisitos-list-item">
+                        <div class="content--requisitos-list-item-img">
+                            <img src="../../../../assets/images/icones/requisitos/alfabetizacao.png" alt="Alfabetizado" class="content--requisitos-list-item-icon">
+                        </div>
+                        <div class="content--requisitos-list-item-name">
+                            Alfabetizado
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content--requisitos__opcional">
+                <div class="content--requisitos-subtitle">
+                    Opcionais
+                </div>
+                <div class="content--requisitos-list">
+                    <div class="content--requisitos-list-item">
+                        <div class="content--requisitos-list-item-img">
+                            <img src="../../../../assets/images/icones/habilidades/comunicativo.png" alt="Comunicativo" class="content--requisitos-list-item-icon">
+                        </div>
+                        <div class="content--requisitos-list-item-name">
+                            Comunicativo
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>

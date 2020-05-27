@@ -12,38 +12,105 @@
     width: 700px;
 }
 
-.content {
- 
-    &--header {
-        align-items: center;
-        display: flex;
-        position: relative;
-        
-        &-icon {
-            margin-right: 10px;
-            width: 40px;
-        }
-        
-        &-title {
-            color: #000;
-            font: 22px $font-bold;
-            text-transform: uppercase;
-        }
-
-        &-close {
-            border: none;
-            color: #C4C4C4;
-            cursor: pointer;
-            font-size: 30px;
-            outline: none;
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
+.header {
+    align-items: center;
+    display: flex;
+    position: relative;
+    
+    &-icon {
+        margin-right: 10px;
+        width: 40px;
+    }
+    
+    &-title {
+        color: #000;
+        font: 22px $font-bold;
+        text-transform: uppercase;
     }
 
-    &--description-box {
-        width: 50%;
+    &-close {
+        border: none;
+        color: #C4C4C4;
+        cursor: pointer;
+        font-size: 30px;
+        outline: none;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 }
 
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+
+    &--description-box {
+        width: 48%;
+    }
+
+    &--requisitos {
+        width: 48%;
+
+        &__obrigatorio {
+            height: 110px;
+        }
+
+        &__opcional {
+            margin-top: 15px;
+        }
+
+        &-title {
+            font: 20px $font-regular;
+            margin: 10px 0 15px;
+            text-transform: uppercase;
+        }
+
+        &-subtitle {
+            font: 16px $font-bold;
+            margin: 10px 0;
+        }
+
+        &-list {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            max-height: 80px;
+            overflow-y: auto;
+
+            &-item {
+                align-items: center;
+                display: flex;
+                margin: 0 20px 10px 0;
+
+                &-img {
+                    height: 30px;
+                }
+
+                &-icon {
+                    width: 30px;
+                    margin-right: 5px;
+                }
+
+                &-name {
+                    font: 15px $font-regular;
+                }
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: $dark_red;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $dark_red;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ebebeb;
+}
