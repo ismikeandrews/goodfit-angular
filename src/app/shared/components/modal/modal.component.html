@@ -6,7 +6,7 @@
             {{vagaModel?.descricaoVaga}}
         </h1>
 
-        <button (click)="closeModal()" class="header-close">&times;</button>
+        <button (click)="onNoClick()" class="header-close">&times;</button>
     </div>
 
     <div class="content">
@@ -71,8 +71,9 @@
             <h1 class="header-title">
                 {{vagaModel?.descricaoVaga}}
             </h1>
-    
-            <button (click)="closeModal()" class="header-close">&times;</button>
+            <button class="header-close" (click)="closeModal()" mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon>clear</mat-icon>
+            </button>
         </div>
     
         <div class="content">

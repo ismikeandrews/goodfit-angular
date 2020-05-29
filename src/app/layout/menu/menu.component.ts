@@ -10,11 +10,6 @@ export class MenuComponent implements OnInit {
   public itensMenu : any[];
 
   constructor() {
-      this.itensMenu = [
-        { label: 'Vagas', link: '/vagas', img: '../../../../assets/images/componentes/vagas.svg' },
-        { label: 'Candidatos', link: '/candidatos', img: '../../../../assets/images/componentes/candidatos.png' },
-        { label: 'Processos', link: '/processos', img: '../../../../assets/images/componentes/processos.png' },
-      ]
   }
 
   ngOnInit() {

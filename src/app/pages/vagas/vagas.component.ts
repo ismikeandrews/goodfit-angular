@@ -1,6 +1,5 @@
 import { Component, OnInit,  Output, EventEmitter} from '@angular/core';
 import { VagaModel } from '../../models/vaga.model';
-import { trigger, state, style, transition, animate } from '@angular/animations'
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../../shared/components/modal/modal.component';
 
@@ -8,20 +7,6 @@ import { ModalComponent } from '../../shared/components/modal/modal.component';
   selector: 'app-vagas',
   templateUrl: './vagas.component.html',
   styleUrls: ['./vagas.component.scss'],
-  animations: [ 
-    trigger('animationTrigger', [
-      state('hidden', style({
-        opacity: 0,
-        zIndex: -1
-      })),
-      state('visible', style({
-        opacity: 1,
-        zIndex: 3
-      })),
-      transition('hidden => visible', animate('0.5s 0s ease-in')),
-      transition('visible => hidden', animate('0.5s 0s ease-out')),
-    ])
-  ]
 })
 
 export class VagasComponent implements OnInit {
@@ -33,11 +18,6 @@ export class VagasComponent implements OnInit {
   public vaga : any;
 
   constructor(public dialog: MatDialog) {
-    this.buttonsVagas = [
-      { name: 'Buscar' , img: '../../../../assets/images/componentes/buscar.png' },
-      { name: 'Filtrar' , img: '../../../../assets/images/componentes/filtrar.png', class: 'buttons-item-icon__filter' },
-      { name: 'Adicionar' , img: '../../../../assets/images/componentes/add.png' },
-    ]
     this.itemsVagas = [
       { name: 'Atendente', state: 'hidden', subname: 'de Telemarketing' , salario: 'R$ 1200,00' , img: '../../../../assets/images/icones/profissao/telemarketing.png' },
       { name: 'Desenvolvedor', state: 'hidden', subname: 'Back-End', salario: 'R$ 2300,00' , img: '../../../../assets/images/icones/profissao/ti.png' },

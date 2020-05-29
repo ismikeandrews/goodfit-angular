@@ -5,9 +5,15 @@
             <h1 class="title">Vagas</h1>
 
             <div class="buttons">
-                <div class="buttons-item" *ngFor='let item of buttonsVagas'>
-                    <img src="{{item.img}}" alt="{{item.name}}" title="{{item.name}}" class="buttons-item-icon {{item.class}}">
-                </div>
+                <a [routerLink]="['/vagas/create']" class="buttons-item" mat-fab aria-label="Example icon button with a delete icon">
+                    <mat-icon>search</mat-icon>
+                </a>
+                <a [routerLink]="['/vagas/create']" class="buttons-item" mat-fab aria-label="Example icon button with a delete icon">
+                    <mat-icon>filter_list</mat-icon>
+                </a>
+                <a [routerLink]="['/vagas/create']" class="buttons-item" mat-fab aria-label="Example icon button with a delete icon">
+                    <mat-icon>create</mat-icon>
+                </a>
             </div>
         </div>
 
@@ -30,7 +36,7 @@
 
                     <div class="item--box-info">
                         <div class="item--box-info-img">
-                            <img src="../../../../assets/images/componentes/dolar.png" alt="Salário" class="item--box-info-img-icon">
+                            <mat-icon>local_atm</mat-icon>
                         </div>
                         <div class="item--box-info-text">
                             {{item.salario}}

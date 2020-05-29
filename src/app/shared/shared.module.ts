@@ -6,6 +6,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { DescriptionBoxComponent } from './components/description-box/description-box.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AccordionComponent, ModalComponent, DescriptionBoxComponent],
@@ -14,7 +16,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     CommonModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class SharedModule { }

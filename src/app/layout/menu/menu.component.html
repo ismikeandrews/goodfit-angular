@@ -11,13 +11,29 @@
         </div>
     </div>
     <div class="menu--content">
-        <div class="menu--content-item" *ngFor='let item of itensMenu'>
-            <a href="{{item.link}}" class="menu--content-item-link">
+        <div class="menu--content-item">
+            <a [routerLink]="['/vagas']" class="menu--content-item-link">
                 <div class="menu--content-item-img">
-                    <img src="{{item.img}}" alt="Vagas" class="menu--content-item-img-icon">
+                    <mat-icon>business_center</mat-icon>
                 </div>
                 <div class="menu--content-item-name">
-                    {{item.label}}
+                    Vagas
+                </div>
+            </a>
+            <a [routerLink]="['/candidatos']" class="menu--content-item-link">
+                <div class="menu--content-item-img">
+                    <mat-icon>people</mat-icon>
+                </div>
+                <div class="menu--content-item-name">
+                    Candidatos
+                </div>
+            </a>
+            <a [routerLink]="['/processos']" class="menu--content-item-link">
+                <div class="menu--content-item-img">
+                    <mat-icon>how_to_reg</mat-icon>
+                </div>
+                <div class="menu--content-item-name">
+                    Processos
                 </div>
             </a>
         </div>
