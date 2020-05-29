@@ -1,13 +1,24 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { VagaModel } from './../../../models/vaga.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { VagaModel } from '../../../models/vaga.model';
+import { trigger, state, style, transition, animate } from '@angular/animations'
+
 
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
+  animations: [ 
+    trigger('animationTrigger', [
+      state('hidden', style({
+        opacity: 0,
+        zIndex: -1
+      })),
+      transition('visible => hidden', animate('0.5s 0s ease-out')),
+    ])
+  ]
 })
-export class ModalComponent implements OnInit,  OnChanges{
+export class ModalComponent implements OnInit{
   public vagaModel: VagaModel;
 
   @Input() vagaModelInput: VagaModel;
@@ -15,28 +26,5 @@ export class ModalComponent implements OnInit,  OnChanges{
   constructor() { }
   
   ngOnInit() {
-  }
-
-  ngOnChanges(): void{
-    this.setVagaModel();
-  }
-
-  setVagaModel(){
-    this.vagaModel = this.vagaModelInput;
-  }
-
-  resetVagaModel(){
-    this.vagaModel = 
-    {
-      'codVaga': null,
-      'descricaoVaga': "",
-      'salarioVaga': null,
-      'cargaHorariaVaga': "",
-      'quantidadeVaga': null,
-      'codEmpresa': null,
-      'codProfissao': null,
-      'codEndereco': null,
-      'codRegimeContratacao': null,
-    }
   }
 }

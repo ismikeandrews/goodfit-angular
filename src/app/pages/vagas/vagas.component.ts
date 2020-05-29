@@ -1,6 +1,8 @@
 import { Component, OnInit,  Output, EventEmitter} from '@angular/core';
 import { VagaModel } from '../../models/vaga.model';
-import { trigger, state, style, transition, animate, animation } from '@angular/animations'
+import { trigger, state, style, transition, animate } from '@angular/animations'
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../../shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-vagas',
@@ -30,7 +32,7 @@ export class VagasComponent implements OnInit {
   public vagaModel : VagaModel;
   public vaga : any;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.buttonsVagas = [
       { name: 'Buscar' , img: '../../../../assets/images/componentes/buscar.png' },
       { name: 'Filtrar' , img: '../../../../assets/images/componentes/filtrar.png', class: 'buttons-item-icon__filter' },
@@ -53,6 +55,14 @@ export class VagasComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  openDialog() {
+    this.dialog.open(ModalComponent, {
+      data: {
+        animal: 'panda'
+      }
+    });
   }
 
   openModal(vaga: any){
