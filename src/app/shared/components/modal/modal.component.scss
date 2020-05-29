@@ -3,13 +3,13 @@
 .container {
     background: #f2f2f2;
     border-radius: 20px;
-    height: 550px;
+    height: 650px;
     left: 50%;
     padding: 15px 20px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 700px;
+    width: 730px;
 }
 
 .header {
@@ -31,8 +31,6 @@
     &-close {
         border: none;
         color: #C4C4C4;
-        cursor: pointer;
-        font-size: 30px;
         outline: none;
         position: absolute;
         right: 0;
@@ -43,15 +41,12 @@
 .content {
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
 
-    &--description-box {
+    &--description-box, &--requisitos, &--accordion {
         width: 48%;
     }
 
     &--requisitos {
-        width: 48%;
-
         &__obrigatorio {
             height: 110px;
         }

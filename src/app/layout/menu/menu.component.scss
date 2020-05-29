@@ -8,6 +8,7 @@
 
 .container__menu {
     background: #E5E5E5;
+    padding: 10px 15px;
 }
 
 .menu {
@@ -19,18 +20,18 @@
         }
         
         .menu--button-logo-icon {
-            width: 130px;
+            width: 155px;
             
             @include MQ ($XL) {
-                width: 100px;
+                width: 130px;
             }
             
             @include MQ ($M) {
-                width: 90px;
+                width: 110px;
             }
             
             @include MQ ($XS) {
-                width: 80px;
+                width: 90px;
             }
         }
 
@@ -114,18 +115,6 @@
 
         &-logo {
             width: 75%;
-
-            &-icon  {
-                width: 130px;
-                
-                @include MQ ($XL) {
-                    width: 100px;
-                }
-                
-                @include MQ ($M) {
-                    width: 90px;
-                }
-            }
         }
     }
 
@@ -148,18 +137,20 @@
             }
 
             &-img-icon {
-                width: 30px;
+                color: #fff;
+                font-size: 30px;
                 
                 @include MQ ($XL) {
-                    width: 25px;    
+                    font-size: 25px;    
                 }
                 
                 @include MQ ($M) {
-                    width: 20px;
+                    font-size: 20px;
                 }
                 
                 @include MQ ($XS) {
-                    width: 15px;
+                    font-size: 15px;
+                    height: 15px;
                 }
             }
 

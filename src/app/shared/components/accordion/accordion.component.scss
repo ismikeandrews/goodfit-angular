@@ -1,22 +1,70 @@
+@import '../../scss/variables.scss';
+
 .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
-  
-.active, .accordion:hover {
-    background-color: #ccc;
-}
-  
-.accordion-content {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
-    overflow: hidden;
+    &--container {
+        box-shadow: none;
+        border-radius: 0 !important;
+        border: 1px solid $pink_light;
+
+        &-header {
+            border-bottom: 1px solid $pink_light;
+            background: #f2f2f2;
+            transition: all .5s ease-in-out;
+            
+            &:hover {
+                background: $pink_light;
+            }
+        }
+        
+        &-title {
+            color: $pink_light;
+            font: 18px/26px $font-bold;
+            transition: all .5s ease-in-out;
+            
+            &:hover {
+                color: #fff;
+            }
+
+            &-icon {
+                width: 30px;
+            }
+        }
+    }
+
+    &--content {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+
+        &-item {
+            align-items: center;
+            display: flex;
+            margin-top: 20px;
+            width: 50%;
+
+            &__endereco {
+                width: 100%;
+            }
+        }
+
+        &-img-icon {
+            font-size: 30px;
+            height: 30px;
+            width: 35px;
+        }
+
+        &-desc {
+            &-name {
+                color: $pink_light;
+                font: 12px $font-regular;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            &-text {
+                color: #000;
+                font: 20px $font-regular;
+            }
+        }
+    }
 }

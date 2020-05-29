@@ -31,15 +31,31 @@
 
 <mat-tab-group>
   <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon>movie_creation</mat-icon>
-       Video
+    <ng-template mat-tab-label md-no-pagination="true">
+      <mat-icon>videocam</mat-icon>
     </ng-template>
+    
+    <label for='arquivo-video'>
+      <div class="box--content-video">
+        <img src="../../../../assets/images/icones/video.png" alt="Descrição sobre a vaga em forma de vídeo" class="box--content-video-icon">
+
+        <p class="box--content-video-desc">
+          Clique para enviar um vídeo
+        </p>
+      </div>
+    </label>
+    <input id='arquivo-video' type="file" name="videoVaga" class="video-vaga" accept=".mp4, .avi, .mkv, .ogg, .ogm, .mpg, .mpeg, .vob, .bvcd, .bsvcd">
+
   </mat-tab>
-  <mat-tab> 
+  
+  <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon> notes</mat-icon>
-       Descrição
-    </ng-template>  
+      <mat-icon>notes</mat-icon>
+    </ng-template>
+  
+    <div class="box--content-text">
+      <textarea name="descricaoVaga" class="box--textarea" placeholder="Escreva uma breve descrição sobre a vaga..."></textarea>
+    </div>
+  
   </mat-tab>
 </mat-tab-group>

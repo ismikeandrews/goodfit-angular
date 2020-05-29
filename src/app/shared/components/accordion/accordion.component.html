@@ -1,10 +1,82 @@
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <mat-icon>assignment_ind</mat-icon> Sobre
+<mat-accordion class="accordion">
+  <mat-expansion-panel class="accordion--container">
+    <mat-expansion-panel-header class="accordion--container-header">
+      <mat-panel-title class="accordion--container-title">
+        <mat-icon class="accordion--container-title-icon">info</mat-icon> Sobre
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+
+    <div class="accordion--content">
+      <div class="accordion--content-item">
+        <div class="accordion--content-img">
+          <mat-icon class="accordion--content-img-icon">attach_money</mat-icon>
+        </div>
+        <div class="accordion--content-desc">
+          <div class="accordion--content-desc-name">
+            Salário:
+          </div>
+          <div class="accordion--content-desc-text">
+            R$ 1800,00
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion--content-item">
+        <div class="accordion--content-img">
+          <mat-icon class="accordion--content-img-icon">access_time</mat-icon>
+        </div>
+        <div class="accordion--content-desc">
+          <div class="accordion--content-desc-name">
+            Carga Horária:
+          </div>
+          <div class="accordion--content-desc-text">
+            8H
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion--content-item">
+        <div class="accordion--content-img">
+          <mat-icon class="accordion--content-img-icon">description</mat-icon>
+        </div>
+        <div class="accordion--content-desc">
+          <div class="accordion--content-desc-name">
+            Regime de Contratação:
+          </div>
+          <div class="accordion--content-desc-text">
+            Estágio
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion--content-item">
+        <div class="accordion--content-img">
+          <mat-icon class="accordion--content-img-icon">recent_actors</mat-icon>
+        </div>
+        <div class="accordion--content-desc">
+          <div class="accordion--content-desc-name">
+            Vagas:
+          </div>
+          <div class="accordion--content-desc-text">
+            3
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion--content-item accordion--content-item__endereco">
+        <div class="accordion--content-img">
+          <mat-icon class="accordion--content-img-icon">location_on</mat-icon>
+        </div>
+        <div class="accordion--content-desc">
+          <div class="accordion--content-desc-name">
+            Endereço:
+          </div>
+          <div class="accordion--content-desc-text">
+            Av. Lins de Vasconcelos, 1222 - Aclimação
+          </div>
+        </div>
+      </div>
+    </div>
+  
   </mat-expansion-panel>
 </mat-accordion>
