@@ -3,13 +3,17 @@
     <mat-expansion-panel class="accordion--container">
       
       <mat-expansion-panel-header class="accordion--container-header">
-        <mat-panel-title class="accordion--container-title" *ngFor='let item of title'>
-          <mat-icon class="accordion--container-title-icon">{{item.icon}}</mat-icon> {{item.name}}
+        <mat-panel-title class="accordion--container-title">
+          <ng-container *ngIf="title === 'Sobre'">
+            <mat-icon class="accordion--container-title-icon">info</mat-icon> {{title}}
+          </ng-container>
+          <ng-container *ngIf="title === 'Benefícios'">
+            <mat-icon class="accordion--container-title-icon">loyalty</mat-icon> {{title}}
+          </ng-container>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-      <ng-content>
-      </ng-content>
+      <ng-content></ng-content>
       
     </mat-expansion-panel>
   </mat-accordion>

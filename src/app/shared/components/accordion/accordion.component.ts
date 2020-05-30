@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-accordion',
@@ -6,14 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accordion.component.scss']
 })
 export class AccordionComponent implements OnInit {
-
-  public title : any[];
+  @Input() title: string
 
   constructor() {
-    this.title = [
-      { icon: 'info', name: 'Sobre' },  
-      { icon: 'loyalty', name: 'Benefícios' }
-    ]
   }
 
   ngOnInit() {
