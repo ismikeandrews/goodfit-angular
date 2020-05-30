@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 
@@ -12,7 +12,7 @@ export class NivelUsuarioService {
     private http: HttpClient,
   ) { }
 
- async getAllNivelUsuario() {
+  async getAllNivelUsuario() {
     return await this.http.get(`${environment.baseUrlApi}/nivel-usuario`).toPromise();
   }
 

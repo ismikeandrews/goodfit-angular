@@ -1,1 +1,44 @@
-<p>create-vaga works!</p>
+<mat-horizontal-stepper>
+    <mat-step>
+        <ng-template matStepLabel>Habilidades</ng-template>
+        <form>
+            <mat-selection-list #adicionais>
+                <mat-list-option  *ngFor="let adicional of adicionalList">
+                    {{adicional.nomeAdicional}}
+                </mat-list-option>
+            </mat-selection-list>
+            <p>
+                Options selected: {{adicionais.selectedOptions.selected.length}}
+            </p>
+        </form>
+        <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Habilidades</ng-template>
+        <form>
+            <mat-selection-list #adicionais>
+                <mat-list-option  *ngFor="let adicional of adicionalList">
+                    {{adicional.nomeAdicional}}
+                </mat-list-option>
+            </mat-selection-list>
+            <p>
+                Options selected: {{adicionais.selectedOptions.selected.length}}
+            </p>
+        </form>
+        <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
+
+
+  <ng-container *ngFor="let item of items">
+    ... conteudo aqui
+    {{item.nome}}
+  </ng-container>
+  
+  

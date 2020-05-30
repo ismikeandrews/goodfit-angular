@@ -10,7 +10,11 @@ import { ModalComponent } from '../shared/components/modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateVagaComponent } from './create-vaga/create-vaga.component';
-
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent],
@@ -21,7 +25,13 @@ import { CreateVagaComponent } from './create-vaga/create-vaga.component';
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatInputModule
+
   ],
   entryComponents: [
     ModalComponent,
