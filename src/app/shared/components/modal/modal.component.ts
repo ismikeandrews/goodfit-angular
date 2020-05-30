@@ -8,10 +8,30 @@ import { MatDialogRef} from '@angular/material/dialog';
 })
 export class ModalComponent implements OnInit{
   public vagaModel: VagaModel;
+  public accordion : any[];
+  public sobre : any[];
+  public beneficios : any[];
 
   @Input() vagaModelInput: VagaModel;
 
-  constructor(public dialogRef: MatDialogRef<ModalComponent>) { }
+  constructor(public dialogRef: MatDialogRef<ModalComponent>) {
+    this.accordion = [
+      { icon: 'info', name: 'Sobre' },
+      { icon: 'loyalty', name: 'Benefícios' }
+    ]
+    this.sobre = [
+      { icon: 'attach_money', name: 'Salário', text: 'R$ 1800,00' },
+      { icon: 'access_time', name: 'Carga Horária', text: '8H' },
+      { icon: 'format_list_bulleted', name: 'Vagas', text: '3' },
+      { icon: 'description', name: 'Regime Contratação', text: 'Estágio' },
+      { icon: 'location_on', name: 'Endereço', text: 'Av. Lins de Vasconcelos, 1222 - Aclimação', class: 'accordion--content-item__endereco' }
+    ]
+    this.beneficios = [
+      { icon: 'attach_money', name: 'Salário', text: 'R$ 1800,00' },
+      { icon: 'access_time', name: 'Carga Horária', text: '8H' },
+      { icon: 'format_list_bulleted', name: 'Vagas', text: '3' }
+    ]
+   }
   
   ngOnInit() {
   }

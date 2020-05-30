@@ -123,16 +123,30 @@
     
         
         <div class="content">
-            <div class="content--accordion">
+            <div class="content--accordion content--accordion__sobre">
                 <app-accordion>
-                    <mat-expansion-panel-header class="accordion--container-header">
-                        <mat-panel-title class="accordion--container-title">
-                            <mat-icon class="accordion--container-title-icon">info</mat-icon> Sobre
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                  
                     <div class="accordion--content">
                         <div *ngFor='let item of sobre' class="accordion--content-item {{item.class}}">
+                            <div class="accordion--content-img">
+                                <mat-icon class="accordion--content-img-icon">{{item.icon}}</mat-icon>
+                            </div>
+                            <div class="accordion--content-desc">
+                                <div class="accordion--content-desc-name">
+                                    {{item.name}}:
+                                </div>
+                                <div class="accordion--content-desc-text">
+                                    {{item.text}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </app-accordion>
+            </div>
+        
+            <div class="content--accordion content--accordion__beneficios">
+                <app-accordion>
+                    <div class="accordion--content">
+                        <div *ngFor='let item of beneficios' class="accordion--content-item {{item.class}}">
                             <div class="accordion--content-img">
                                 <mat-icon class="accordion--content-img-icon">{{item.icon}}</mat-icon>
                             </div>
