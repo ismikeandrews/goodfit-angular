@@ -1,9 +1,9 @@
-<ng-container *ngFor='let item of accordion'>
+<!-- <ng-container *ngFor='let item of accordion'> -->
   <mat-accordion class="accordion">
     <mat-expansion-panel class="accordion--container">
       
       <mat-expansion-panel-header class="accordion--container-header">
-        <mat-panel-title class="accordion--container-title">
+        <mat-panel-title class="accordion--container-title" *ngFor='let item of title'>
           <mat-icon class="accordion--container-title-icon">{{item.icon}}</mat-icon> {{item.name}}
         </mat-panel-title>
       </mat-expansion-panel-header>
@@ -13,4 +13,4 @@
       
     </mat-expansion-panel>
   </mat-accordion>
-</ng-container>
+<!-- </ng-container> -->

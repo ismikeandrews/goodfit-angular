@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccordionComponent implements OnInit {
 
-  constructor() {}
+  public title : any[];
+
+  constructor() {
+    this.title = [
+      { icon: 'info', name: 'Sobre' },  
+      { icon: 'loyalty', name: 'Benefícios' }
+    ]
+  }
 
   ngOnInit() {
   }

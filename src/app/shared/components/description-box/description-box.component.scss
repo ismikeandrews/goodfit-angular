@@ -99,6 +99,14 @@
     display: none !important;
 }
 
+::ng-deep .mat-tab-label {
+    width: 50% !important;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: $pink !important;
+}
+
 .video-vaga {
     display: none;
 }
