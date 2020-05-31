@@ -10,10 +10,11 @@ import { ModalComponent } from '../shared/components/modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateVagaComponent } from './create-vaga/create-vaga.component';
+import { CandidatosComponent } from './candidatos/candidatos.component';
 
 
 @NgModule({
-  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent],
+  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
