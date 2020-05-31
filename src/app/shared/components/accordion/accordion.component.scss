@@ -1,29 +1,23 @@
 @import '../../scss/variables.scss';
 
 .accordion {
+    display: flex;
+    justify-content: space-between;
+
     &--container {
         box-shadow: none;
         border-radius: 0 !important;
-        border: 1px solid $pink_light;
 
         &-header {
             border-bottom: 1px solid $pink_light;
             background: #f2f2f2;
             transition: all .5s ease-in-out;
-            
-            &:hover {
-                background: $pink_light;
-            }
         }
         
         &-title {
             color: $pink_light;
             font: 18px/26px $font-bold;
             transition: all .5s ease-in-out;
-            
-            &:hover {
-                color: #fff;
-            }
 
             &-icon {
                 width: 30px;
@@ -35,15 +29,18 @@
         align-items: center;
         display: flex;
         flex-wrap: wrap;
+        margin-top: 20px;
+        max-height: 166px;
+        overflow-y: auto;
 
         &-item {
             align-items: center;
             display: flex;
             margin-top: 20px;
-            width: 50%;
+            width: 100%;
 
-            &__endereco {
-                width: 100%;
+            &:first-child {
+                margin-top: 0;
             }
         }
 
@@ -56,15 +53,45 @@
         &-desc {
             &-name {
                 color: $pink_light;
-                font: 12px $font-regular;
+                font: 11px $font-regular;
                 font-weight: 700;
                 text-transform: uppercase;
             }
 
             &-text {
                 color: #000;
-                font: 20px $font-regular;
+                font: 19px $font-regular;
             }
         }
     }
 }
+
+::ng-deep .mat-expansion-panel-header {
+    background-color: $pink_light !important;
+    height: 50px !important;
+}
+
+::ng-deep .mat-expansion-panel-header-title {
+    color: #fff !important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+    background-color: #f2f2f2;
+    border: 1px solid $pink_light;
+    border-top: none;
+    padding: 0 10px 15px !important;
+}
+
+::ng-deep .mat-expansion-indicator::after {
+    border-color: #fff !important;
+    margin-bottom: 5px;
+    padding: 5px !important;
+}
+
+// ::ng-deep .mat-expansion-panel {
+//     background-color: $pink_light;
+// }
+
+// ::ng-deep .cdk-focused { 
+//     display: none;
+// }
