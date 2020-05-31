@@ -56,7 +56,7 @@
 
     
     <div class="content">
-        <div class="content--accordion">
+        <div class="accordion--box">
             <app-accordion></app-accordion>
         </div>
     </div>
@@ -121,11 +121,11 @@
             </div>
         </div>
         
-        <div class="content" *ngFor='let item of itensList'>
-            <div class="content--accordion content--accordion__beneficios">
+        <div class="accordion">
+            <div class="content content__accordion" *ngFor='let item of itensList'>
                 <app-accordion [title]="item.itemType.name">
                     <div class="accordion--content">
-                        <div class="accordion--content-item {{item.class}}" *ngFor="let content of item.itemContent">
+                        <div class="accordion--content-item" *ngFor="let content of item.itemContent">
                             <div class="accordion--content-img">
                                 <mat-icon class="accordion--content-img-icon">{{content.icon}}</mat-icon>
                             </div>
