@@ -11,6 +11,7 @@ import { EnderecoModel } from './../../models/endereco.model';
 import { EnderecoService } from './../../services/endereco.service';
 import { VagaService } from './../../services/vaga.service';
 
+
 @Component({
   selector: 'app-create-vaga',
   templateUrl: './create-vaga.component.html',
@@ -24,10 +25,14 @@ export class CreateVagaComponent implements OnInit {
   public adicionalList: [AdicionalModel];
   public regimeList: [{}];
   public profissaoList: [];
-  public benefits: any[] = [{nomeBeneficio: null, codVaga: null}];
+  public benefits: any[] = [{nomeBeneficio: null}];
+  public selectedSkills = [];
   /*form group*/
   public address: FormGroup;
   public description: FormGroup;
+  public habilidades = new FormControl();
+  public habilidadesObrigatorias = new FormControl();
+  public selected: boolean = true;
 
   constructor(
     private adicionalService: AdicionalService,
@@ -36,7 +41,7 @@ export class CreateVagaComponent implements OnInit {
     private viacepService: ViacepService,
     private snackBar: MatSnackBar,
     private enderecoService: EnderecoService,
-    private vagaService: VagaService
+    private vagaService: VagaService,
     ) {
       this.address = new FormGroup({
         cepEndereco: new FormControl('', [Validators.required]),
@@ -55,7 +60,7 @@ export class CreateVagaComponent implements OnInit {
         quantidadeVaga: new FormControl('', [Validators.required]),
         codProfissao: new FormControl('', [Validators.required]),
         codRegimeContratacao: new FormControl('', [Validators.required]),
-        descricaoVaga: new FormControl('', [Validators.required]),
+        descricaoVaga: new FormControl('', [Validators.required, Validators.min(15)]),
       });
 
      }
@@ -99,49 +104,79 @@ export class CreateVagaComponent implements OnInit {
   }
 
   addBenefit(){
-    this.benefits.push({
-      nomeBeneficio: null,
-      codVaga: null
-    })
+    this.benefits.push({nomeBeneficio: null})
   }
 
   removeBenefit(index){
     this.benefits.splice(index, 1);
   }
 
+  enableOptionalField(){
+    if (this.habilidades.value != null) {
+      this.selected = false
+      this.handleSelectedSkills()
+    } 
+    if(this.habilidades.value === null || this.habilidades.value === null){
+      this.selected = true
+    }
+  }
+
+  handleSelectedSkills(){
+    this.selectedSkills = this.adicionalList.filter(adicional =>{
+      return this.habilidades.value.includes(adicional.codAdicional)
+    })
+  }
+
   async submit(){
-    let selectedSkills: any = this.adicionalList.filter(adicional => adicional.checked === true);
-    if (this.address.valid && this.description.valid && selectedSkills.length >= 2 && this.benefits[0].nomeBeneficio != null) {
-      selectedSkills = selectedSkills.map(skill => {
-        return skill.codAdicional
-      })
-      this.enderecoModel = this.address.value
-        const enderecoRes: any = await this.enderecoService.setEndereco(this.enderecoModel)
+    if (this.address.valid && this.description.valid && this.selectedSkills.length >= 2 && this.benefits[0].nomeBeneficio != null) { 
+      try {
+        let requisitosArray = []
+        this.selectedSkills.forEach(skill => {
+          this.habilidadesObrigatorias.value.forEach(mandatory => {
+            if (mandatory === skill.codAdicional) {
+              requisitosArray.push({codAdicional: skill.codAdicional, obrigatoriedade: 1})
+            }
+            else{
+              requisitosArray.push({codAdicional: skill.codAdicional, obrigatoriedade: 0})
+            }
+          });
+        })
+        
+        this.enderecoModel = this.address.value;
+        const enderecoRes: any = await this.enderecoService.setEndereco(this.enderecoModel);
+  
+        this.vagaModel = this.description.value;
+        this.vagaModel.codEmpresa = 1;
+        this.vagaModel.codEndereco = enderecoRes;
+        const vagaRes: any = await this.vagaService.setVaga(this.vagaModel);
 
-        this.vagaModel = this.description.value
-        this.vagaModel.codEmpresa = 1
-        this.vagaModel.codEndereco = enderecoRes
-        const vagaRes: any = await this.vagaService.setVaga(this.vagaModel)
-
-        let adicionaisObject = {
+        let benefit = this.benefits.map(element => {
+          return element.nomeBeneficio
+        });
+        let beneficiosObj = {
           codVaga: vagaRes,
-          habilidade: selectedSkills
-        } 
+          beneficios: benefit
+        }
 
-        const adicionalRes: any = await this.adicionalService.setAdicionalVaga(adicionaisObject);
+        await this.vagaService.setBeneficiosVaga(beneficiosObj);
+  
+        let requisitosObject = { 
+          codVaga: vagaRes, 
+          requisitos: requisitosArray
+        };
+        const adicionalRes: any = await this.vagaService.setRequisitosVaga(requisitosObject);
         console.log(adicionalRes)
         if (adicionalRes) {
-          this.snackBar.open("Cadastro concluido com sucesso", "", {
+          await this.snackBar.open("Cadastro concluido com sucesso", "", {
             duration: 4000,
             horizontalPosition: "right",
             verticalPosition: "top",
           });
+          window.location.href = "/vagas"
         }
-      // try {
-        
-      // } catch (error) {
-      //   console.error(error)
-      // }
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }

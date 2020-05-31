@@ -108,11 +108,19 @@
     <mat-step>
         <ng-template matStepLabel>Requisitos</ng-template>
         <form>
-            <mat-list role="list">
-                <mat-list-item role="listitem" *ngFor="let adicional of adicionalList">
-                    <mat-checkbox [value]="adicional.codAdicional" name="nomeAdicional" [(ngModel)]="adicional.checked">{{adicional.nomeAdicional}}</mat-checkbox>
-                </mat-list-item>
-            </mat-list>
+            <mat-form-field  appearance="outline">
+                <mat-label>Habilidades</mat-label>
+                <mat-select  [formControl]="habilidades" multiple (focusout)="enableOptionalField()">
+                  <mat-option *ngFor="let adicional of adicionalList" [value]="adicional.codAdicional">{{adicional.nomeAdicional}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field  appearance="outline">
+                <mat-label>Habilidades obrigatorias</mat-label>
+                <mat-select  [formControl]="habilidadesObrigatorias" [disabled]="selected" multiple>
+                  <mat-option *ngFor="let skill of selectedSkills" [value]="skill.codAdicional">{{skill.nomeAdicional}}</mat-option>
+                </mat-select>
+            </mat-form-field>
         </form>
         <div>
             <button mat-button matStepperPrevious class="color">Voltar</button>
@@ -153,6 +161,7 @@
         </ul>
         
         <div>
+            <button mat-button (click)="teste()">Teste</button>
             <button mat-button matStepperPrevious class="color">Voltar</button>
             <button mat-button (click)="submit()">Cadatrar</button>
         </div>

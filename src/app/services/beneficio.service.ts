@@ -5,13 +5,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class AdicionalService {
+export class BeneficioService {
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  async getAdicionalList() {
-    return this.http.get(`${environment.baseUrlApi}/adicional`).toPromise();
-  }
+  
 }

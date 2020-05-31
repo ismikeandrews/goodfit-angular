@@ -18,7 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @NgModule({
   declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent],
   imports: [
@@ -37,7 +37,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSlideToggleModule
   ],
   entryComponents: [
     ModalComponent,

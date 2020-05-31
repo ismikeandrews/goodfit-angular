@@ -14,4 +14,12 @@ export class VagaService {
   async setVaga(vaga){
     return await this.http.post(`${environment.baseUrlApi}/vaga`, vaga).toPromise();
   }
+
+  async setRequisitosVaga(requisitos) {
+    return this.http.post(`${environment.baseUrlApi}/vaga/requisitos`, requisitos).toPromise();
+  }
+
+  async setBeneficiosVaga(beneficios){
+    return await this.http.post(`${environment.baseUrlApi}/vaga/beneficios`, beneficios).toPromise();
+  }
 }

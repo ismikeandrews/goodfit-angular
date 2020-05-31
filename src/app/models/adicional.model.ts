@@ -5,6 +5,7 @@ export class AdicionalModel{
     imagemAdicional: string;
     nomeAdicional: string;
     checked: boolean;
+    obridatorio: boolean;
 
     constructor(){
        this.codAdicional = null;
@@ -13,5 +14,6 @@ export class AdicionalModel{
        this.imagemAdicional = "";
        this.nomeAdicional = "";
        this.checked = false;
+       this.obridatorio = false;
     }
 }
