@@ -61,22 +61,53 @@
             height: 100px;
         }
     }
-}
 
+    &__single.wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+    }
 
-.candidato__single.wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-}
+    &__top, 
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.profile .candidato__img{
-    margin: auto;
-    width: fit-content;
-}
+    &__top--right, 
+    &__bottom--right, 
+    &__bottom--left{
+        width: 450px;
+    }
 
-.candidato__top, .candidato__bottom {
-    display: flex;
-    justify-content: space-between;
+    &__top--left {
+        width: 200px;
+    }
+
+    &__description {margin-top: 20px;}
+
+    &__list{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 150px;
+    }
+
+    &__list--item{
+        list-style: none;
+        display: flex;
+        margin: 10px 0;
+        img{
+            width: 45px;
+        }
+        span{
+            margin-left: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 45px;
+        }
+    }
 }
 
 .profile {
@@ -88,6 +119,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    .candidato__img{
+        margin: auto;
+        width: fit-content;
+    }
+    
 }
 
 .compatibility {
@@ -96,37 +132,3 @@
     border-top: 1px solid #000;
 }
 
-.candidato__description {margin-top: 20px;}
-
-.candidato__top--left {
-    width: 200px;
-}
-
-.candidato__top--right, 
-.candidato__bottom--right, 
-.candidato__bottom--left{
-    width: 450px;
-}
-
-.candidato__bottom ul{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-height: 150px;
-}
-.list__item--candidato{
-    list-style: none;
-    display: flex;
-    margin: 10px 0;
-    img{
-        width: 45px;
-    }
-    span{
-        margin-left: 10px;
-        display: inline-block;
-        vertical-align: middle;
-        line-height: 45px;
-    }
-}
