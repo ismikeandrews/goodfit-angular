@@ -1,44 +1,162 @@
-<mat-horizontal-stepper>
+<mat-horizontal-stepper class="container">
     <mat-step>
-        <ng-template matStepLabel>Habilidades</ng-template>
-        <form>
-            <mat-selection-list #adicionais>
-                <mat-list-option  *ngFor="let adicional of adicionalList">
-                    {{adicional.nomeAdicional}}
-                </mat-list-option>
-            </mat-selection-list>
-            <p>
-                Options selected: {{adicionais.selectedOptions.selected.length}}
-            </p>
+        <ng-template matStepLabel>Localização</ng-template>
+        <form class="form" [formGroup]="address">
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>CEP</mat-label>
+                <input matInput placeholder="Ex. 00000-000" formControlName="cepEndereco" (focusout)="searchLocation(cep.value)" #cep required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Logradouro</mat-label>
+                <input matInput formControlName="logradouroEndereco" required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Numero</mat-label>
+                <input matInput formControlName="numeroEndereco" required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Complemento</mat-label>
+                <input matInput formControlName="complementoEndereco">
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Bairro</mat-label>
+                <input matInput formControlName="bairroEndereco" required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Zona</mat-label>
+                <input matInput formControlName="zonaEndereco" required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Cidade</mat-label>
+                <input matInput formControlName="cidadeEndereco" required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Estado</mat-label>
+                <input matInput placeholder="Ex. SP" formControlName="estadoEndereco" required>
+            </mat-form-field>
         </form>
         <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperNext>Próximo</button>
         </div>
     </mat-step>
+
     <mat-step>
-        <ng-template matStepLabel>Habilidades</ng-template>
-        <form>
-            <mat-selection-list #adicionais>
-                <mat-list-option  *ngFor="let adicional of adicionalList">
-                    {{adicional.nomeAdicional}}
-                </mat-list-option>
-            </mat-selection-list>
-            <p>
-                Options selected: {{adicionais.selectedOptions.selected.length}}
-            </p>
+        <ng-template matStepLabel>Descrição</ng-template>
+        <form [formGroup]="description">
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Salario</mat-label>
+                <input matInput formControlName="salarioVaga" type="number" class="right-align" required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Carga Horaria</mat-label>
+                <input matInput formControlName="cargaHorariaVaga" placeholder="Ex. 8h" required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Quantidade</mat-label>
+                <input matInput formControlName="quantidadeVaga" required>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Profissão</mat-label>
+                <mat-select required formControlName="codProfissao" required>
+                    <mat-option *ngFor="let profissao of profissaoList" [value]="profissao.codProfissao">
+                        {{profissao.nomeProfissao}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Regime de contratação</mat-label>
+                <mat-select required formControlName="codRegimeContratacao">
+                    <mat-option *ngFor="let regime of regimeList" [value]="regime.codRegimeContratacao">
+                        {{regime.nomeRegimeContratacao}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="quarter-width" appearance="outline">
+                <mat-label>Descrição</mat-label>
+                <textarea matInput formControlName="descricaoVaga" required></textarea>
+            </mat-form-field>
         </form>
         <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperPrevious>Voltar</button>
+            <button mat-button matStepperNext>Próximo</button>
+        </div>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Beneficios</ng-template>
+        <form>
+            <button type="button" mat-fab color="primary" (click)="addBenefit()">
+                <mat-icon>add</mat-icon>
+            </button>
+            <section *ngFor="let benefit of benefits; let i = index;">
+                <button type="button" mat-mini-fab color="warn" (click)="removeBenefit(i)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <mat-form-field class="quarter-width" appearance="outline">
+                    <mat-label>Nome do beneficio</mat-label>
+                    <input matInput required name="nomeBeneficio{{i}}" [(ngModel)]="benefit.nomeBeneficio">
+                </mat-form-field>
+            </section>
+        </form>
+        <div>
+            <button mat-button matStepperPrevious class="color">Voltar</button>
+            <button mat-button matStepperNext>Próximo</button>
+        </div>
+    </mat-step>
+    
+    <mat-step>
+        <ng-template matStepLabel>Requisitos</ng-template>
+        <form>
+            <mat-list role="list">
+                <mat-list-item role="listitem" *ngFor="let adicional of adicionalList">
+                    <mat-checkbox [value]="adicional.codAdicional" name="nomeAdicional" [(ngModel)]="adicional.checked">{{adicional.nomeAdicional}}</mat-checkbox>
+                </mat-list-item>
+            </mat-list>
+        </form>
+        <div>
+            <button mat-button matStepperPrevious class="color">Voltar</button>
+            <button mat-button matStepperNext>Próximo</button>
+        </div>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Resumo</ng-template>
+        <h3>Enderço</h3>
+        <mat-divider></mat-divider>
+        <ul>
+            <li>CEP: {{address.value.cepEndereco}}</li>
+            <li>Logradouro: {{address.value.logradouroEndereco}}</li>
+            <li>Numero: {{address.value.numeroEndereco}}</li>
+            <li>Complemento: {{address.value.complementoEndereco}}</li>
+            <li>Bairro: {{address.value.bairroEndereco}}</li>
+            <li>Zona: {{address.value.zonaEndereco}}</li>
+            <li>Cidade: {{address.value.cidadeEndereco}}</li>
+            <li>Estado: {{address.value.estadoEndereco}}</li>
+        </ul>
+
+        <h3>Descrição</h3>
+        <mat-divider></mat-divider>
+        <ul>
+            <li>Salario: {{description.value.salarioVaga}}</li>
+            <li>Carga Horaria: {{description.value.cargaHorariaVaga}}</li>
+            <li>Quantidade: {{description.value.quantidadeVaga}}</li>
+            <li>Profissão: {{description.value.codProfissao}}</li>
+            <li>Regime de contratação: {{description.value.codRegimeContratacao}}</li>
+            <li>Descrição: {{description.value.descricaoVaga}}</li>
+        </ul>
+
+        <h3>Beneficios</h3>
+        <mat-divider></mat-divider>
+        <ul>
+            <li *ngFor="let benefit of benefits">Nome: {{benefit.nomeBeneficio}}</li>
+        </ul>
+        
+        <div>
+            <button mat-button matStepperPrevious class="color">Voltar</button>
+            <button mat-button (click)="submit()">Cadatrar</button>
         </div>
     </mat-step>
 </mat-horizontal-stepper>
-
-
-  <ng-container *ngFor="let item of items">
-    ... conteudo aqui
-    {{item.nome}}
-  </ng-container>
   
   

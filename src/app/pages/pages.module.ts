@@ -15,6 +15,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent],
@@ -30,8 +33,11 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatCheckboxModule,
     MatListModule,
-    MatInputModule
-
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSnackBarModule
   ],
   entryComponents: [
     ModalComponent,

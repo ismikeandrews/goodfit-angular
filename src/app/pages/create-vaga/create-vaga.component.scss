@@ -1,0 +1,25 @@
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+.quarter-width {
+    margin-left: 10px;
+    width: 25%;
+}
+.full-width {
+    width: 25%;
+}
+.container{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected{
+    background-color: #ff4081 !important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit{
+    background-color: #ff4081 !important;
+}

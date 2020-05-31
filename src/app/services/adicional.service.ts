@@ -14,4 +14,8 @@ export class AdicionalService {
   async getAdicionalList() {
     return this.http.get(`${environment.baseUrlApi}/adicional`).toPromise();
   }
+
+  async setAdicionalVaga(adicional) {
+    return this.http.post(`${environment.baseUrlApi}/vaga/requisitos`, adicional).toPromise();
+  }
 }
