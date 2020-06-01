@@ -38,11 +38,7 @@ export class VagasComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(ModalComponent, {
-      data: {
-        animal: 'panda'
-      }
-    });
+    this.dialog.open(ModalComponent);
   }
 
   openModal(vaga: any){
