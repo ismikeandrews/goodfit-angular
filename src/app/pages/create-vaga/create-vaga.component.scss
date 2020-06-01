@@ -78,9 +78,13 @@
     }
 }
 
+::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
+    font-family: $font-regular;
+}
 
-
-
+// ::ng-deep .mat-step-header .mat-step-icon {
+//     font-family: $font-regular;
+// }
 
 ::ng-deep .mat-stepper-horizontal, .mat-stepper-vertical {
     background-color: #e5e5e5 !important;
