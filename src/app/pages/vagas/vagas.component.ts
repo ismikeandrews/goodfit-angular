@@ -2,6 +2,8 @@ import { Component, OnInit,  Output, EventEmitter} from '@angular/core';
 import { VagaModel } from '../../models/vaga.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../../shared/components/modal/modal.component';
+import { VagaService } from './../../services/vaga.service';
+
 
 @Component({
   selector: 'app-vagas',
@@ -16,8 +18,12 @@ export class VagasComponent implements OnInit {
   public pagination : any[];
   public vagaModel : VagaModel;
   public vaga : any;
+  public vagasList: [VagaModel];
 
-  constructor(public dialog: MatDialog) {
+  constructor(
+    public dialog: MatDialog,
+    public vagaService: VagaService
+    ) {
     this.itemsVagas = [
       { name: 'Atendente', state: 'hidden', subname: 'de Telemarketing' , salario: 'R$ 1200,00' , img: '../../../../assets/images/icones/profissao/telemarketing.png' },
       { name: 'Desenvolvedor', state: 'hidden', subname: 'Back-End', salario: 'R$ 2300,00' , img: '../../../../assets/images/icones/profissao/ti.png' },
@@ -34,26 +40,17 @@ export class VagasComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.loadData()
   }
 
   openDialog() {
     this.dialog.open(ModalComponent);
   }
 
-  openModal(vaga: any){
-    vaga.state = vaga.state === 'hidden' ? 'visible' : 'hidden';
-
-    this.vagaModel = {
-      codVaga: 1,
-      descricaoVaga: 'Desenvolvedor',
-      salarioVaga: 2000.00,
-      cargaHorariaVaga: '8h',
-      quantidadeVaga: 2,
-      codEmpresa: 1,
-      codProfissao: 1,
-      codEndereco: 1,
-      codRegimeContratacao: 1,
-    }
+  async loadData(){
+    const vagaRes: any = await this.vagaService.getVagasByCompanyId(1);
+    console.log(vagaRes)
+    // this.vagasList = vagaRes
   }
+
 }
