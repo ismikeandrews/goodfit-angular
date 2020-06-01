@@ -99,18 +99,3 @@
         }
     }
 }
-
-::-webkit-scrollbar {
-    width: 5px;
-    background: $dark_red;
-    border-radius: 15px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: $dark_red;
-    border-radius: 15px;
-}
-
-::-webkit-scrollbar-track {
-    background: #ebebeb;
-}
