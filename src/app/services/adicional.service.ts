@@ -18,4 +18,11 @@ export class AdicionalService {
   async getHabilidades(){
     return this.http.get(`${environment.baseUrlApi}/adicional/tipo/1`).toPromise();
   }
+  
+  async getEscolaridade(){
+    return this.http.get(`${environment.baseUrlApi}/adicional/tipo/2`).toPromise();
+  }
+  async getAlfabetizacao(){
+    return this.http.get(`${environment.baseUrlApi}/adicional/tipo/3`).toPromise();
+  }
 }

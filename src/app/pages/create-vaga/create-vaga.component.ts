@@ -24,10 +24,15 @@ export class CreateVagaComponent implements OnInit {
   /*array lists*/
   public adicionalList: [AdicionalModel];
   public habilidadeList: [AdicionalModel];
+  public escolaridadeList: [AdicionalModel];
+  public alfabetizacaoList: [AdicionalModel];
   public regimeList: [{}];
   public profissaoList: [];
   public benefits: any[] = [{nomeBeneficio: null}];
   public selectedSkills = [];
+  public selectedAlf = [AdicionalModel];
+  public selectedEsclr = [AdicionalModel];
+
   /*form group*/
   public address: FormGroup;
   public description: FormGroup;
@@ -60,7 +65,6 @@ export class CreateVagaComponent implements OnInit {
         codRegimeContratacao: new FormControl('', [Validators.required]),
         descricaoVaga: new FormControl('', [Validators.required, Validators.min(15)]),
       });
-
      }
 
   ngOnInit() {
@@ -69,11 +73,15 @@ export class CreateVagaComponent implements OnInit {
 
   async loadData(){
     const adicionalRes: any = await this.adicionalService.getAdicionalList();
+    const escolaridadeRes: any = await this.adicionalService.getEscolaridade();
+    const alfabetizacaoRes: any = await this.adicionalService.getAlfabetizacao();
     const habilidadeRes: any = await this.adicionalService.getHabilidades();
     const regimeContratacaoRes: any = await this.regimeContratacaoService.getRegimeContratacaoList();
     const profissaoRes: any = await this.profissaoService.getProfissaoList();
     this.adicionalList = adicionalRes;
     this.habilidadeList = habilidadeRes;
+    this.escolaridadeList = escolaridadeRes;
+    this.alfabetizacaoList = alfabetizacaoRes;
     this.regimeList = regimeContratacaoRes;
     this.profissaoList = profissaoRes;
   }
@@ -111,13 +119,20 @@ export class CreateVagaComponent implements OnInit {
     this.benefits.splice(index, 1);
   }
 
-  handleRequisitosObject(){
+  handleRequisitosObject(vagaCod){
     let requisitosList = []
+    let selectedReq = [];
+    selectedReq.push(this.selectedAlf, this.selectedEsclr);
 
+    selectedReq.forEach(requisito => {
+      requisito.checked = true;
+      requisito.obrigatorio = true;
+      this.habilidadeList.push(requisito);
+    });
+    
     requisitosList = this.habilidadeList.filter(habilidade =>{
       return habilidade.checked === true
     })
-
     requisitosList.forEach(requisito => {
       if (requisito.obridatorio) {
         this.selectedSkills.push({codAdicional: requisito.codAdicional, obrigatoriedade: 1})
@@ -125,11 +140,12 @@ export class CreateVagaComponent implements OnInit {
         this.selectedSkills.push({codAdicional: requisito.codAdicional, obrigatoriedade: 0})
       }
     })
-    return {codVaga: 1, requisitos: this.selectedSkills}
-  }
 
+    return {codVaga: vagaCod, requisitos: this.selectedSkills}
+  }
+  
   async submit(){
-    console.log(this.address.valid, this.description.valid, this.selectedSkills.length, this.benefits[0])
+    console.log(this.address.valid, this.description.valid, this.selectedSkills, this.benefits[0])
     if (this.address.valid && this.description.valid && this.benefits[0].nomeBeneficio != null) { 
       try {
         
@@ -149,7 +165,7 @@ export class CreateVagaComponent implements OnInit {
           beneficios: benefit
         }
         await this.vagaService.setBeneficiosVaga(beneficiosObj);
-        const requisitos = this.handleRequisitosObject()
+        const requisitos = this.handleRequisitosObject(vagaRes)
         const adicionalRes: any = await this.vagaService.setRequisitosVaga(requisitos);
         console.log("uhuuu")
         if (adicionalRes) {

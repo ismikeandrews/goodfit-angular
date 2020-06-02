@@ -117,6 +117,22 @@
                 <mat-step>
                     <ng-template matStepLabel>Requisitos</ng-template>
                     <form>
+                        <mat-form-field class="quarter-width" appearance="outline">
+                            <mat-label>Escolaridade</mat-label>
+                            <mat-select required [(ngModel)]="selectedEsclr" name="escolaridade">
+                                <mat-option *ngFor="let escolaridade of escolaridadeList" [value]="escolaridade">
+                                    {{ escolaridade.nomeAdicional }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="quarter-width" appearance="outline">
+                            <mat-label>Alfabetização</mat-label>
+                            <mat-select required [(ngModel)]="selectedAlf" name="alfabetizacao">
+                                <mat-option *ngFor="let alfabetizacao of alfabetizacaoList" [value]="alfabetizacao">
+                                    {{ alfabetizacao.nomeAdicional }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
                         <div class="requisitos">
                             <div class="requisito" *ngFor="let habilidade of habilidadeList">
                                 <input type="checkbox" class="d-none input-requisito" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [value]="habilidade.codAdicional"  [(ngModel)]="habilidade.checked">
@@ -124,7 +140,7 @@
                                     <img src="../../../assets/images/icones/habilidades/{{ habilidade.imagemAdicional }}">
                                     {{ habilidade.nomeAdicional }}
                                 </label>
-                                <input type="checkbox" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obridatorio">
+                                <input type="checkbox" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obrigatorio">
                             </div>
                         </div>
                     </form>
@@ -173,7 +189,7 @@
                     
                     <div>
                         <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
-                        <button mat-button (click)="submit()">Cadatrar</button>
+                        <button mat-button (click)="submit()">Cadastrar</button>
                     </div>
                 </mat-step>
             </mat-horizontal-stepper>

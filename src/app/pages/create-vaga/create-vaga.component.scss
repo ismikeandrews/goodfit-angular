@@ -110,8 +110,15 @@
     }
 }
 
-.input-requisito:checked ~ .requisito__icon{
-    background-color: $pink_light;
+.input-requisito{
+    &:checked ~ .requisito__icon{
+        background-color: $pink_light;
+        border-radius: 7px;
+        color: #fff;
+    }
+    &:not(:checked) ~ input {
+        display: none;
+    }
 }
 
 ::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
