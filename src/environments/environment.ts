@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrlApi: 'http://good-fit.herokuapp.com/public/',
+  baseUrlApi: 'http://good-fit.herokuapp.com/public',
   originalUrlApi: 'http://localhost:8000',
 };
 

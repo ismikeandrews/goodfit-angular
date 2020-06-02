@@ -125,22 +125,22 @@ a {
   }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 9px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: $white;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $dark_red;
-}
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: $pink_light;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: $dark_red;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $dark_red;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ebebeb;
 }
