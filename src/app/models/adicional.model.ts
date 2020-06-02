@@ -5,7 +5,7 @@ export class AdicionalModel{
     imagemAdicional: string;
     nomeAdicional: string;
     checked: boolean;
-    obridatorio: boolean;
+    obridatorio: boolean;z
 
     constructor(){
        this.codAdicional = null;

@@ -117,27 +117,14 @@
                 <mat-step>
                     <ng-template matStepLabel>Requisitos</ng-template>
                     <form>
-                        <mat-form-field class="requisitos" appearance="outline">
-                            <mat-label>Requisitos</mat-label>
-                            <mat-select [formControl]="habilidades" multiple (focusout)="enableOptionalField()">
-                                <mat-option *ngFor="let adicional of adicionalList" [value]="adicional.codAdicional">{{adicional.nomeAdicional}}</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                        
-                        <!-- <mat-form-field class="requisitos" appearance="outline">
-                            <mat-label>Dos itens selecionados, escolha quais são obrigatórios</mat-label>
-                            <mat-select [formControl]="habilidadesObrigatorias" [disabled]="selected" multiple>
-                                <mat-option *ngFor="let skill of selectedSkills" [value]="skill.codAdicional">{{skill.nomeAdicional}}</mat-option>
-                            </mat-select>
-                        </mat-form-field> -->
-                        <div class="requisitos" [formControl]="habilidades">
+                        <div class="requisitos">
                             <div class="requisito" *ngFor="let habilidade of habilidadeList">
-                                <input type="checkbox" class="d-none input-requisito" id="{{ habilidade.codAdicional }}" name="{{ habilidade.codAdicional }}">
+                                <input type="checkbox" class="d-none input-requisito" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [value]="habilidade.codAdicional"  [(ngModel)]="habilidade.checked">
                                 <label for="{{ habilidade.codAdicional }}" class="requisito__icon">
                                     <img src="../../../assets/images/icones/habilidades/{{ habilidade.imagemAdicional }}">
                                     {{ habilidade.nomeAdicional }}
                                 </label>
-                                <input type="checkbox" [formControl]="habilidadesObrigatorias" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.codAdicional }}">
+                                <input type="checkbox" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obridatorio">
                             </div>
                         </div>
                     </form>

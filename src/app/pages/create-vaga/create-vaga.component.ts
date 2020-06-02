@@ -23,7 +23,7 @@ export class CreateVagaComponent implements OnInit {
   public enderecoModel: EnderecoModel;
   /*array lists*/
   public adicionalList: [AdicionalModel];
-  public habilidadeList: [{}];
+  public habilidadeList: [AdicionalModel];
   public regimeList: [{}];
   public profissaoList: [];
   public benefits: any[] = [{nomeBeneficio: null}];
@@ -31,9 +31,6 @@ export class CreateVagaComponent implements OnInit {
   /*form group*/
   public address: FormGroup;
   public description: FormGroup;
-  public habilidades = new FormControl();
-  public habilidadesObrigatorias = new FormControl();
-  public selected: boolean = true;
 
   constructor(
     private adicionalService: AdicionalService,
@@ -114,36 +111,27 @@ export class CreateVagaComponent implements OnInit {
     this.benefits.splice(index, 1);
   }
 
-  enableOptionalField(){
-    if (this.habilidades.value != null) {
-      this.selected = false
-      this.handleSelectedSkills()
-    } 
-    if(this.habilidades.value === null || this.habilidades.value === null){
-      this.selected = true
-    }
-  }
+  handleRequisitosObject(){
+    let requisitosList = []
 
-  handleSelectedSkills(){
-    this.selectedSkills = this.adicionalList.filter(adicional =>{
-      return this.habilidades.value.includes(adicional.codAdicional)
+    requisitosList = this.habilidadeList.filter(habilidade =>{
+      return habilidade.checked === true
     })
+
+    requisitosList.forEach(requisito => {
+      if (requisito.obridatorio) {
+        this.selectedSkills.push({codAdicional: requisito.codAdicional, obrigatoriedade: 1})
+      }else{
+        this.selectedSkills.push({codAdicional: requisito.codAdicional, obrigatoriedade: 0})
+      }
+    })
+    return {codVaga: 1, requisitos: this.selectedSkills}
   }
 
   async submit(){
-    if (this.address.valid && this.description.valid && this.selectedSkills.length >= 2 && this.benefits[0].nomeBeneficio != null) { 
+    console.log(this.address.valid, this.description.valid, this.selectedSkills.length, this.benefits[0])
+    if (this.address.valid && this.description.valid && this.benefits[0].nomeBeneficio != null) { 
       try {
-        let requisitosArray = []
-        this.selectedSkills.forEach(skill => {
-          this.habilidadesObrigatorias.value.forEach(mandatory => {
-            if (mandatory === skill.codAdicional) {
-              requisitosArray.push({codAdicional: skill.codAdicional, obrigatoriedade: 1})
-            }
-            else{
-              requisitosArray.push({codAdicional: skill.codAdicional, obrigatoriedade: 0})
-            }
-          });
-        })
         
         this.enderecoModel = this.address.value;
         const enderecoRes: any = await this.enderecoService.setEndereco(this.enderecoModel);
@@ -160,15 +148,10 @@ export class CreateVagaComponent implements OnInit {
           codVaga: vagaRes,
           beneficios: benefit
         }
-
         await this.vagaService.setBeneficiosVaga(beneficiosObj);
-  
-        let requisitosObject = { 
-          codVaga: vagaRes, 
-          requisitos: requisitosArray
-        };
-        const adicionalRes: any = await this.vagaService.setRequisitosVaga(requisitosObject);
-        console.log(adicionalRes)
+        const requisitos = this.handleRequisitosObject()
+        const adicionalRes: any = await this.vagaService.setRequisitosVaga(requisitos);
+        console.log("uhuuu")
         if (adicionalRes) {
           await this.snackBar.open("Cadastro concluido com sucesso", "", {
             duration: 4000,
@@ -180,6 +163,8 @@ export class CreateVagaComponent implements OnInit {
       } catch (error) {
         console.error(error)
       }
+    }else{
+      alert("deu erro no formulario")
     }
   }
 }
