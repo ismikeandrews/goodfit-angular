@@ -140,7 +140,9 @@
                                     <img src="../../../assets/images/icones/habilidades/{{ habilidade.imagemAdicional }}">
                                     {{ habilidade.nomeAdicional }}
                                 </label>
-                                <input type="checkbox" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obrigatorio">
+                                <!-- <input type="checkbox" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obridatorio"> -->
+                                <input type="hidden" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obridatorio">
+                                <mat-checkbox class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obridatorio">Obrigatório</mat-checkbox>
                             </div>
                         </div>
                     </form>
