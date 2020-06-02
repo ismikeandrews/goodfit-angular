@@ -98,8 +98,8 @@
                         <button type="button" mat-fab color="primary" (click)="addBenefit()">
                             <mat-icon>add</mat-icon>
                         </button>
-                        <section *ngFor="let benefit of benefits; let i = index;">
-                            <button type="button" mat-mini-fab color="warn" (click)="removeBenefit(i)">
+                        <section *ngFor="let benefit of benefits; let i = index;" class="beneficio">
+                            <button type="button" mat-mini-fab color="warn" (click)="removeBenefit(i)" class="btn-delete">
                                 <mat-icon>delete</mat-icon>
                             </button>
                             <mat-form-field class="quarter-width" appearance="outline">
@@ -117,21 +117,53 @@
                 <mat-step>
                     <ng-template matStepLabel>Requisitos</ng-template>
                     <form>
-                        <mat-form-field class="requisitos" appearance="outline">
-                            <mat-label>Requisitos</mat-label>
-                            <mat-select [formControl]="habilidades" multiple (focusout)="enableOptionalField()">
-                                <mat-option *ngFor="let adicional of adicionalList" [value]="adicional.codAdicional">{{adicional.nomeAdicional}}</mat-option>
+                        <div class="requisitos__description">Ter, no mínimo...</div>
+                        <mat-form-field class="quarter-width" appearance="outline">
+                            <mat-label>
+                                <div class="requisito__name">
+                                    <div class="requisito__img">
+                                        <img src="../../../assets/images/icones/requisitos/escolaridade.png" class="requisito__img-icon">
+                                    </div>
+                                    Escolaridade
+                                </div>
+                            </mat-label>
+                            <mat-select required [(ngModel)]="selectedEsclr" name="escolaridade">
+                                <mat-option *ngFor="let escolaridade of escolaridadeList" [value]="escolaridade">
+                                    {{ escolaridade.nomeAdicional }}
+                                </mat-option>
                             </mat-select>
                         </mat-form-field>
-                        
-                        <mat-form-field class="requisitos" appearance="outline">
-                            <mat-label>Dos itens selecionados, escolha quais são obrigatórios</mat-label>
-                            <mat-select [formControl]="habilidadesObrigatorias" [disabled]="selected" multiple>
-                                <mat-option *ngFor="let skill of selectedSkills" [value]="skill.codAdicional">{{skill.nomeAdicional}}</mat-option>
+                        <mat-form-field class="quarter-width" appearance="outline">
+                            <mat-label>
+                                <div class="requisito__name">
+                                    <div class="requisito__img">
+                                        <img src="../../../assets/images/icones/requisitos/alfabetizacao.png" class="requisito__img-icon">
+                                    </div>
+                                    Alfabetização
+                                </div>
+                            </mat-label>
+                            <!-- <mat-label>Alfabetização</mat-label> -->
+                            <mat-select required [(ngModel)]="selectedAlf" name="alfabetizacao">
+                                <mat-option *ngFor="let alfabetizacao of alfabetizacaoList" [value]="alfabetizacao">
+                                    {{ alfabetizacao.nomeAdicional }}
+                                </mat-option>
                             </mat-select>
                         </mat-form-field>
+
+                        <div class="requisitos__description requisitos__description--habilidade">Ser bom em...</div>
+                        <div class="habilidades">
+                            <div class="habilidade" *ngFor="let habilidade of habilidadeList">
+                                <input type="checkbox" class="d-none input-requisito" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [value]="habilidade.codAdicional"  [(ngModel)]="habilidade.checked">
+                                <label for="{{ habilidade.codAdicional }}" class="habilidade__icon">
+                                    <img src="../../../assets/images/icones/habilidades/{{ habilidade.imagemAdicional }}">
+                                    {{ habilidade.nomeAdicional }}
+                                </label>
+                                <mat-checkbox class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.codAdicional }}" [(ngModel)]="habilidade.obridatorio" [disabled]="habilidade.checked === false">Obrigatório</mat-checkbox>
+                            </div>
+                        </div>
                     </form>
                     <div>
+                        <button (click)="tester()">tester</button>
                         <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
                         <button mat-button matStepperNext>Próximo</button>
                     </div>
@@ -176,7 +208,7 @@
                     
                     <div>
                         <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
-                        <button mat-button (click)="submit()">Cadatrar</button>
+                        <button mat-button (click)="submit()">Cadastrar</button>
                     </div>
                 </mat-step>
             </mat-horizontal-stepper>
