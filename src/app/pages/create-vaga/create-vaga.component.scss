@@ -78,6 +78,42 @@
     }
 }
 
+.requisitos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.requisito {
+    border: 1px solid;
+    border-radius: 10px;
+    background: $white;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+    &__icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 17px;
+        font-family: "Montserrat";
+        white-space: pre-wrap;
+        height: 100%;
+        cursor: pointer;
+        img {
+            width: 90px;
+            margin: auto;
+        }
+    }
+}
+
+.input-requisito:checked ~ .requisito__icon{
+    background-color: $pink_light;
+}
+
 ::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
     font-family: $font-regular;
 }

@@ -14,4 +14,8 @@ export class AdicionalService {
   async getAdicionalList() {
     return this.http.get(`${environment.baseUrlApi}/adicional`).toPromise();
   }
+
+  async getHabilidades(){
+    return this.http.get(`${environment.baseUrlApi}/adicional/tipo/1`).toPromise();
+  }
 }

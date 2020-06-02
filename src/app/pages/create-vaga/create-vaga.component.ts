@@ -23,6 +23,7 @@ export class CreateVagaComponent implements OnInit {
   public enderecoModel: EnderecoModel;
   /*array lists*/
   public adicionalList: [AdicionalModel];
+  public habilidadeList: [{}];
   public regimeList: [{}];
   public profissaoList: [];
   public benefits: any[] = [{nomeBeneficio: null}];
@@ -71,9 +72,11 @@ export class CreateVagaComponent implements OnInit {
 
   async loadData(){
     const adicionalRes: any = await this.adicionalService.getAdicionalList();
+    const habilidadeRes: any = await this.adicionalService.getHabilidades();
     const regimeContratacaoRes: any = await this.regimeContratacaoService.getRegimeContratacaoList();
     const profissaoRes: any = await this.profissaoService.getProfissaoList();
     this.adicionalList = adicionalRes;
+    this.habilidadeList = habilidadeRes;
     this.regimeList = regimeContratacaoRes;
     this.profissaoList = profissaoRes;
   }
