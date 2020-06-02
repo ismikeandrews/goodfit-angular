@@ -21,7 +21,7 @@
     &__listagem {
         max-height: 550px;
         overflow: auto;
-
+        
         &-profissao {
             &:not(:first-child) {
                 border-top: 1px solid #c7c7c7;
@@ -29,7 +29,7 @@
             }
         }
     }
-
+    
     &__slider-content {
         display: flex;
         justify-content: space-between;
@@ -42,7 +42,7 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-
+    
     &__item {
         border: 1px solid #c7c7c7;
         border-radius: 10px;
@@ -51,7 +51,7 @@
         margin: 10px;
         transition: all .5s ease-in-out;
         width: 170px;
-
+        
         &:hover {
             background: rgba(255, 144, 21, 0.41);
         }
@@ -60,7 +60,7 @@
             padding: 15px;
             width: 80%;
         }
-
+        
         &-name {
             border-top: 1px solid #c7c7c7;
             font: 16px $font-regular;
@@ -77,9 +77,9 @@
     &__perfil {
         border: 15px solid #7eda7e;
         border-radius: 50%;
-        height: 170px;
+        height: 150px;
         margin: 0 auto;
-        width: 170px;
+        width: 150px;
         
         &-img {
             border-radius: 50%;
@@ -90,12 +90,29 @@
     
     &__info {
         &-item {
-            border: 1px solid #c7c7c7;
-            border-radius: 10px;
-            font: 15px "Raleway Regular", "Montserrat Regular", "sans-serif";
-            margin-top: 10px;
-            padding: 5px 0;
+            font: 16px $font-bold;
             text-align: center;
+            margin-top: 15px;
+            
+            &--email {
+                border: 1px solid $pink_light;
+                border-radius: 10px;
+                font-size: 15px;
+                margin-top: 10px;
+                padding: 5px 0;
+
+                &-link {
+                    align-items: center;
+                    color: $pink_light;
+                    display: flex;
+                    justify-content: center;
+                    transition: color .5s ease-in-out;
+                    
+                    &:hover {
+                        color: $dark_red;
+                    }
+                }
+            }
         }
     }
 }
