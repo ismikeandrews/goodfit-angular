@@ -1,134 +1,147 @@
 @import '../../shared/scss/variables.scss';
 
-.content.wrapper {
-    padding-top:0;
-}
-
-.profissao{
-    margin-top:30px;
-    &:not(:last-child){
-        border-bottom: 1px solid #939393;
-        padding-bottom: 30px;
-    }
-    &__head{
+.candidato {
+    &__header {
+        align-items: center;
         display: flex;
-        width: 100%;
-        height: fit-content;
-        & img{
-           height: 50px;
-           margin-right: 20px; 
+        margin-top: 20px;
+        
+        &--icon {
+            margin-right: 10px;
+            width: 40px;
         }
-        & span {
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 50px;
-            font-size: 25px;
-            font-family: "Montserrat";
-        }
-    }
-    &__candidatos {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 30px;
-        .item:not(:last-child) {
-            margin-right:30px;
+        
+        &--title {
+            color: #000;
+            font: 22px $font-bold;
+            text-transform: uppercase;
         }
     }
     
-}
+    &__listagem {
+        max-height: 550px;
+        overflow: auto;
 
-.candidato{
-    margin-bottom: 30px;
-    background-color: $white;
-    padding: 10px;
-    border-radius: 9px;
-    border: 1px solid #000;
-    width: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    &__img {
-        margin: 0;
-        * {
-            font-size: 100px;
-            width: fit-content;
-            margin: 0 auto;
-            height: fit-content;
-        }
-        img{
-            width: 100px;
-            height: 100px;
+        &-profissao {
+            &:not(:first-child) {
+                border-top: 1px solid #c7c7c7;
+                margin-top: 30px
+            }
         }
     }
 
-    &__single.wrapper {
-        max-width: 900px;
-        margin: 0 auto;
-    }
-
-    &__top, 
-    &__bottom {
+    &__slider-content {
         display: flex;
         justify-content: space-between;
+        margin: auto;
+        width: 90%;
     }
+}
 
-    &__top--right, 
-    &__bottom--right, 
-    &__bottom--left{
-        width: 450px;
-    }
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
 
-    &__top--left {
-        width: 200px;
-    }
+    &__item {
+        border: 1px solid #c7c7c7;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 230px;
+        margin: 10px;
+        transition: all .5s ease-in-out;
+        width: 170px;
 
-    &__description {margin-top: 20px;}
-
-    &__list{
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        max-height: 150px;
-    }
-
-    &__list--item{
-        list-style: none;
-        display: flex;
-        margin: 10px 0;
-        img{
-            width: 45px;
+        &:hover {
+            background: rgba(255, 144, 21, 0.41);
         }
-        span{
-            margin-left: 10px;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 45px;
+        
+        &-img-icon {
+            padding: 15px;
+            width: 80%;
+        }
+
+        &-name {
+            border-top: 1px solid #c7c7c7;
+            font: 16px $font-regular;
+            padding: 10px 0;
+            text-align: center;
         }
     }
 }
 
 .profile {
-    width: 100%;
-    height: 200px;
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .candidato__img{
-        margin: auto;
-        width: fit-content;
+    padding: 0 40px;
+    width: 40%;
+    
+    &__perfil {
+        border: 15px solid #7eda7e;
+        border-radius: 50%;
+        height: 170px;
+        margin: 0 auto;
+        width: 170px;
+        
+        &-img {
+            border-radius: 50%;
+            height: 100%;
+            width: 100%;
+        }
     }
     
+    &__info {
+        &-item {
+            border: 1px solid #c7c7c7;
+            border-radius: 10px;
+            font: 15px "Raleway Regular", "Montserrat Regular", "sans-serif";
+            margin-top: 10px;
+            padding: 5px 0;
+            text-align: center;
+        }
+    }
 }
 
-.compatibility {
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid #000;
+.description {
+    margin: -20px 15px 0;
+    width: 50%;
+}
+
+.topicos {
+    margin-top: 30px;
+    width: 50%;
+    
+    &__title {
+        font: 20px $font-bold;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    &__list {
+        max-height: 160px;
+        overflow: auto;
+        
+        &--requisito {
+            flex-direction: column;
+        }
+        
+        &-item {
+            align-items: center;
+            display: flex;
+            margin: 5px auto;
+            width: fit-content;
+            
+            &--requisito {
+                margin: 10px auto;
+            }
+            
+            &-icon {
+                margin-right: 10px;
+                width: 45px;
+            }
+            
+            &-name {
+                font: 16px $font-regular;
+            }
+        }
+    }
 }
 
