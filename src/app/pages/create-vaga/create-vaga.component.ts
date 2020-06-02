@@ -32,7 +32,6 @@ export class CreateVagaComponent implements OnInit {
   public selectedSkills = [];
   public selectedAlf = [AdicionalModel];
   public selectedEsclr = [AdicionalModel];
-
   /*form group*/
   public address: FormGroup;
   public description: FormGroup;
@@ -84,6 +83,11 @@ export class CreateVagaComponent implements OnInit {
     this.alfabetizacaoList = alfabetizacaoRes;
     this.regimeList = regimeContratacaoRes;
     this.profissaoList = profissaoRes;
+
+    this.habilidadeList.forEach(habilidade => {
+      habilidade.checked = false
+      habilidade.obrigatorio = false
+    });
   }
 
   async searchLocation(cep){
@@ -143,6 +147,10 @@ export class CreateVagaComponent implements OnInit {
 
     return {codVaga: vagaCod, requisitos: this.selectedSkills}
   }
+
+  tester(){
+    console.log(this.habilidadeList, this.selectedAlf,  this.selectedEsclr)
+  }
   
   async submit(){
     console.log(this.address.valid, this.description.valid, this.selectedSkills, this.benefits[0])
@@ -167,7 +175,6 @@ export class CreateVagaComponent implements OnInit {
         await this.vagaService.setBeneficiosVaga(beneficiosObj);
         const requisitos = this.handleRequisitosObject(vagaRes)
         const adicionalRes: any = await this.vagaService.setRequisitosVaga(requisitos);
-        console.log("uhuuu")
         if (adicionalRes) {
           await this.snackBar.open("Cadastro concluido com sucesso", "", {
             duration: 4000,

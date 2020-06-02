@@ -158,13 +158,12 @@
                                     <img src="../../../assets/images/icones/habilidades/{{ habilidade.imagemAdicional }}">
                                     {{ habilidade.nomeAdicional }}
                                 </label>
-                                <!-- <input type="checkbox" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obridatorio"> -->
-                                <input type="hidden" class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obridatorio">
-                                <mat-checkbox class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.nomeAdicional }}" [(ngModel)]="habilidade.obridatorio">Obrigatório</mat-checkbox>
+                                <mat-checkbox class="requisito__obrigatorio" id="{{ habilidade.codAdicional }}" name="{{ habilidade.codAdicional }}" [(ngModel)]="habilidade.obridatorio" [disabled]="habilidade.checked === false">Obrigatório</mat-checkbox>
                             </div>
                         </div>
                     </form>
                     <div>
+                        <button (click)="tester()">tester</button>
                         <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
                         <button mat-button matStepperNext>Próximo</button>
                     </div>
