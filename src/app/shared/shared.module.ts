@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AccordionComponent, ModalComponent, DescriptionBoxComponent],
-  exports: [ModalComponent],
+  exports: [ModalComponent, DescriptionBoxComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

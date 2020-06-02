@@ -1,9 +1,13 @@
 @import '../../shared/scss/variables.scss';
 
-.menu--button-logo, .menu--content-item {
+.menu--button-logo, .menu--content-item-name {
     opacity: 0;
     transition: all .5s ease-in-out;
     width: 55px;
+}
+
+.menu--button-logo-icon {
+    width: 0;
 }
 
 .container__menu {
@@ -15,7 +19,11 @@
     height: 100%;
 
     &.is-active {
-        .menu--button-logo, .menu--content-item {
+        .menu--content-item-link {
+            border-bottom: 1px solid #bababa;
+        }
+
+        .menu--button-logo, .menu--content-item-name {
             opacity: 1;
         }
         
@@ -35,7 +43,7 @@
             }
         }
 
-        .menu--content-item {
+        .menu--content-item-name {
             width: 190px;
             
             @include MQ ($XL) {
@@ -70,6 +78,7 @@
         align-items: center;
         cursor: pointer;
         display: flex;
+        height: 41px;
         justify-content: center;
 
         &-burguer {
@@ -121,7 +130,7 @@
     &--content {
         background: $dark_red;
         height: 100%;
-        padding: 20px;
+        padding: 20px 15px;
 
         &-item {
             &:first-child {
@@ -130,10 +139,10 @@
 
             &-link {
                 align-items: center;
-                border-bottom: 1px solid #bababa;
                 display: flex;
                 justify-content: space-between;
                 margin: 60px 0;
+                transition: border .5s ease-in-out;
             }
 
             &-img-icon {
@@ -156,8 +165,8 @@
 
             &-name {
                 color: #fff;
-                display: flex;
                 font: 20px $font-regular;
+                text-align: right;
                 text-transform: uppercase;
 
                 @include MQ ($XL) {

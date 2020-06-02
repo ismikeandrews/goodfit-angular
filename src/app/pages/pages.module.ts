@@ -19,8 +19,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CandidatosComponent } from './candidatos/candidatos.component';
+
 @NgModule({
-  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent],
+  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

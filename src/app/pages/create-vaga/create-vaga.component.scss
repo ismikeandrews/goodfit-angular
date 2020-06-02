@@ -1,25 +1,175 @@
+@import '../../shared/scss/variables.scss';
+@import '../../shared/scss/base.scss';
+
+.create-vagas {
+    background: #e5e5e5;
+    height: 100%;
+    position: relative;
+}
+
+.wrapper {
+    padding: 30px;
+}
+
+.header {
+    align-items: center;
+    border-bottom: 1px solid #bababa;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font: 35px $font-regular;
+    margin: 20px;
+    text-transform: uppercase;
+    
+    @include MQ ($S) {
+        font-size: 30px;
+        margin: 20px 20px 15px;
+    }
+    
+    @include MQ ($XS) {
+        font-size: 25px;
+    }
+}
+
 .form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
-  }
-  
+}
+
 .quarter-width {
     margin-left: 10px;
     width: 25%;
 }
+
 .full-width {
     width: 25%;
 }
-.container{
+
+.container {
     height: 100%;
     overflow-y: scroll;
 }
 
-::ng-deep .mat-step-header .mat-step-icon-selected{
-    background-color: #ff4081 !important;
+.resumo {
+    text-align: left !important;
+
+    &--topico {
+        margin-bottom: 30px;
+
+        &-title {
+            border-bottom: 1px solid #c7c7c7;
+            font: 20px $font-bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        &-list-item {
+            margin: 10px 0;
+            text-align: left !important;
+
+            &__span {
+                font-family: $font-bold;
+            }
+        }
+    }
 }
 
-::ng-deep .mat-step-header .mat-step-icon-state-edit{
+::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
+    font-family: $font-regular;
+}
+
+// ::ng-deep .mat-step-header .mat-step-icon {
+//     font-family: $font-regular;
+// }
+
+::ng-deep .mat-stepper-horizontal, .mat-stepper-vertical {
+    background-color: #e5e5e5 !important;
+    overflow: hidden !important;
+}
+
+.ng-star-inserted {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-prev.mat-button {
+    border-color: $orange !important;
+    color: $orange;
+}
+
+.btn-prev.mat-button:hover {
+    background-color: $orange !important;
+    color: #fff !important;
+}
+
+::ng-deep .mat-button {
+    border: 1.5px solid $pink_light !important;
+    color: $pink_light;
+    font-weight: bold;
+    margin: 0 5px !important;
+    text-transform: uppercase;
+    transition: all .5s ease-in-out;
+    width: 110px;
+}
+
+::ng-deep .mat-button:hover {
+    background-color: $pink_light;
+    color: #fff;
+}
+
+::ng-deep .form {
+    max-width: 100% !important;
+}
+
+::ng-deep .quarter-width {
+    width: 48% !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+    font-family: $font-regular;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $orange;
+    cursor: text;
+}
+
+::ng-deep .quarter-width {
+    vertical-align: top;
+}
+
+textarea.mat-input-element {
+    height: 100px;
+    resize: none;
+}
+
+.requisitos.mat-form-field {
+    display: inline;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $pink_light;
+}
+
+::ng-deep .mat-horizontal-stepper-content {
+    font-family: $font-regular;
+    height: 480px;
+    overflow: auto !important;
+    padding: 0 10px;
+}
+
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+    background-color: $pink_light !important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: $pink_light !important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
     background-color: #ff4081 !important;
 }
