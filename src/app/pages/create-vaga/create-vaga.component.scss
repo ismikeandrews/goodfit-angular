@@ -39,11 +39,6 @@
     width: 100%;
 }
 
-.quarter-width {
-    margin-left: 10px;
-    width: 25%;
-}
-
 .full-width {
     width: 25%;
 }
@@ -78,6 +73,75 @@
     }
 }
 
+.habilidades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.habilidade {
+    margin-right: 20px;
+    
+    &__icon {
+        border: 2px solid #c7c7c7;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        font: 15px $font-regular;
+        height: 120px;
+        padding: 10px;
+        transition: all .5s ease-in-out;
+        width: 130px;
+        
+        img {
+            width: 70px;
+            margin: 10px auto;
+        }
+    }
+}
+
+.requisitos__description {
+    font: 16px $font-bold;
+    text-align: left;
+    
+    &:first-child {
+        margin-bottom: 15px;
+        margin-left: 10px;
+    }
+
+    &--habilidade {
+        border-top: 1px solid #9b9b9b;
+        margin: 10px 0 0;
+        padding: 15px 10px 0;
+    }
+}
+
+.requisito {
+    &__name {
+        align-items: center;
+        display: flex;
+    }
+
+    &__img-icon {
+        margin-right: 10px;    
+        width: 30px;
+    }
+}
+
+::ng-deep .mat-checkbox-label {
+    font: 15px $font-regular;
+}
+
+::ng-deep .mat-checkbox-layout {
+    margin-top: 5px;
+}
+
+.input-requisito:checked ~ .habilidade__icon{
+    background-color: rgba(236, 55, 124, 0.35);
+    border-color: $pink_light;
+}
+
 ::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
     font-family: $font-regular;
 }
@@ -92,7 +156,7 @@
 }
 
 .ng-star-inserted {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -121,11 +185,34 @@
     color: #fff;
 }
 
+::ng-deep .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: $dark_red;
+}
+
+.ng-star-inserted {
+    position: relative;
+}
+
+::ng-deep .mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
+    background-color: #ff9015;
+    left: 22%;
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
 ::ng-deep .form {
     max-width: 100% !important;
 }
 
+.quarter-width {
+    margin-right: 10px;
+    width: 25%;
+}
+
 ::ng-deep .quarter-width {
+    vertical-align: top;
     width: 48% !important;
 }
 
@@ -138,16 +225,12 @@
     cursor: text;
 }
 
-::ng-deep .quarter-width {
-    vertical-align: top;
-}
-
 textarea.mat-input-element {
     height: 100px;
     resize: none;
 }
 
-.requisitos.mat-form-field {
+.habilidades.mat-form-field {
     display: inline;
 }
 
