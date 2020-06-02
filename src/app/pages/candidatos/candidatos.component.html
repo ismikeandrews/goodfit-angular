@@ -1,287 +1,221 @@
 <section class="page candidatos">
     <div class="wrapper">
-
+        
         <div class="header">
             <h1 class="title">Candidatos</h1>
-
+            
             <div class="buttons">
                 <a [routerLink]="['/candidatos']" class="buttons--item" aria-label="Botão de busca">
-                    <mat-icon class="buttons--item-icon">dashboard</mat-icon>
-                </a>
-                <a [routerLink]="['/candidatos']" class="buttons--item" aria-label="Botão de busca">
                     <mat-icon class="buttons--item-icon">search</mat-icon>
-                </a>
-                
+                </a>                
                 <a [routerLink]="['/candidatos']" class="buttons--item" aria-label="Botão de filtro">
                     <mat-icon class="buttons--item-icon">filter_alt</mat-icon>
                 </a>
+                <a [routerLink]="['/candidatos']" class="buttons--item" aria-label="Botão para trocar visualização">
+                    <mat-icon class="buttons--item-icon">view_module</mat-icon>
+                    <!-- <mat-icon class="buttons--item-icon">view_carousel</mat-icon> -->
+                </a>
             </div>
         </div>
+        
+        <div class="content">
+            <!-- <div class="candidato__listagem">
+                <div class="candidato__listagem-profissao">
+                    <div class="candidato__header">
+                        <img src="../../../assets/images/icones/profissao/livros.png" alt="Professor" class="candidato__header--icon">
+                        
+                        <h1 class="candidato__header--title">
+                            Professor
+                        </h1>
+                    </div>
+                    
+                    <div class="list">
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
+                        </div>
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
+                        </div>
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="candidato__listagem-profissao">
+                    <div class="candidato__header">
+                        <img src="../../../assets/images/icones/profissao/telemarketing.png" alt="Telemarketing" class="candidato__header--icon">
+                        
+                        <h1 class="candidato__header--title">
+                            Telemarketing
+                        </h1>
+                    </div>
+                    
+                    <div class="list">
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
+                        </div>
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
+                        </div>
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
+                        </div>
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
+                        </div>
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="content wrapper">
-            <!-- <div class="lista-candidatos">
-            <div class="profissao">
-                <div class="profissao__head">
-                    <img src="../../../../assets/images/icones/profissao/ti.png">
-                    <span>Programador(a)</span>
-                </div>
-                <div class="profissao__candidatos">
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
+                <div class="candidato__listagem-profissao">
+                    <div class="candidato__header">
+                        <img src="../../../assets/images/icones/profissao/assistencia-tecnica.png" alt="Assistente Técnico" class="candidato__header--icon">
+                        
+                        <h1 class="candidato__header--title">
+                            Assistente Técnico
+                        </h1>
                     </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
+                    
+                    <div class="list">
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="profissao">
-                <div class="profissao__head">
-                    <img src="../../../../assets/images/icones/profissao/telemarketing.png">
-                    <span>Telemarketing</span>
-                </div>
-                <div class="profissao__candidatos">
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
+                        <div class="list__item">
+                            <div class="list__item-img">
+                                <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="list__item-img-icon">
+                            </div>
+                            <div class="list__item-name">
+                                Fernandinho da Silva Costa Tavares sla
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="profissao">
-                <div class="profissao__head">
-                    <img src="../../../../assets/images/icones/profissao/assistencia-tecnica.png">
-                    <span>Assistencia Tecnica</span>
-                </div>
-                <div class="profissao__candidatos">
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                    <div class="item candidato">
-                        <figure class="candidato__img">
-                            <mat-icon>perm_identity</mat-icon>
-                        </figure>
-                        <div class="candidato__name">
-                            Fernandinho
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div> -->
-            <div class="candidato__single wrapper">
-                <h2 class="candidato__name">Professor(a)</h2>
-                <div class="candidato__top">
-                    <div class="candidato__top--left">
-                        <div class="profile">
-                            <figure class="candidato__img">
-                                <mat-icon>perm_identity</mat-icon>
-                            </figure>
-                            <div class="compatibility">80% Compatível</div>
+            
+            <div class="candidato__slider">
+                <div class="candidato__header">
+                    <img src="../../../assets/images/icones/profissao/livros.png" alt="Professor" class="candidato__header--icon">
+                    
+                    <h1 class="candidato__header--title">
+                        Professor
+                    </h1>
+                </div>
+                
+                <div class="candidato__slider-content">
+                    <div class="profile">
+                        <div class="profile__perfil">
+                            <div class="profile__perfil-percent">
+                                <svg>
+                                <circle cx="80" cy="80" r="80"></circle>
+                                <circle cx="80" cy="80" r="80"></circle>
+                                </svg>
+                                <div class="profile__perfil-img">
+                                    <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="profile__perfil-img-icon">
+                                </div>
+                            </div>
                         </div>
-                        <div class="candidato__description">
-                            Cyntia Sayuri de Almeida 19 anos, sla qualquer info básica
+                        <div class="profile__info">
+                            <div class="profile__info-item">
+                                Cyntia Sayuri de Almeida, 19 anos
+                            </div>
+                            <div class="profile__info-item profile__info-item--email">
+                                <a href="mailto:email@email.com.br" class="profile__info-item--email-link">
+                                    <mat-icon>mail_outline</mat-icon> Enviar email
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="candidato__top--right">
-                        <div class="content--description-box">
-                            <app-description-box></app-description-box>
-                        </div>
+                    <div class="description">
+                        <app-description-box></app-description-box>
                     </div>
                 </div>
-                <div class="candidato__bottom">
-                    <div class="candidato__bottom--left">
-                        <h2 class="candidato__bottom--title">Requisitos</h2>
-                        <ul class="candidato__list">
-                            <li class="candidato__list--item">
-                                <img src="../../../../assets/images/icones/requisitos/alfabetizacao.png" alt="Alfabetizado">
-                                <span>Alfabetizado</span>
-                            </li>  
-                            <li class="candidato__list--item">
-                                <img src="../../../../assets/images/icones/requisitos/escolaridade.png" alt="Escolarizado">
-                                <span>Escolarizado</span>
-                            </li>  
-                        </ul>
+                
+                <div class="candidato__slider-content">
+                    <div class="topicos">
+                        <div class="topicos__title">
+                            Requisitos
+                        </div>
+                        <div class="topicos__list topicos__list--requisito">
+                            <div class="topicos__list-item topicos__list-item--requisito">
+                                <img src="../../../../assets/images/icones/requisitos/alfabetizacao.png" alt="Alfabetizado" class="topicos__list-item-icon">
+                                <div class="topicos__list-item-name">Alfabetizado</div>
+                            </div>  
+                            <div class="topicos__list-item topicos__list-item--requisito">
+                                <img src="../../../../assets/images/icones/requisitos/escolaridade.png" alt="Escolarizado" class="topicos__list-item-icon">
+                                <div class="topicos__list-item-name">Escolarizado</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="candidato__bottom--right">
-                        <h2 class="candidato__bottom--title">Habilidades</h2>
-                        <ul class="candidato__list">
-                           <li class="candidato__list--item">
-                                <img src="../../../../assets/images/icones/habilidades/baby.png" alt="Crianças">
-                                <span>Bom com crianças ?</span>
-                           </li>
-                           <li class="candidato__list--item">
-                                <img src="../../../../assets/images/icones/habilidades/matematica.png" alt="Matematica">
-                                <span>Bom com numeros</span>
-                           </li>
-                           <li class="candidato__list--item">
-                                <img src="../../../../assets/images/icones/habilidades/relacionamento.png" alt="Relacionamento">
-                                <span>Bom relacionamento</span>
-                           </li>
-                        </ul>
+                    <div class="topicos">
+                        <div class="topicos__title">
+                            Habilidades
+                        </div>
+                        <div class="topicos__list">
+                            <div class="topicos__list-item">
+                                <img src="../../../../assets/images/icones/habilidades/baby.png" alt="Crianças" class="topicos__list-item-icon">
+                                <div class="topicos__list-item-name">Crianças</div>
+                            </div>
+                            <div class="topicos__list-item">
+                                <img src="../../../../assets/images/icones/habilidades/matematica.png" alt="Matematica" class="topicos__list-item-icon">
+                                <div class="topicos__list-item-name">Números</div>
+                            </div>
+                            <div class="topicos__list-item">
+                                <img src="../../../../assets/images/icones/habilidades/relacionamento.png" alt="Relacionamento" class="topicos__list-item-icon">
+                                <div class="topicos__list-item-name">Relacionamento</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </section>

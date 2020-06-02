@@ -1,7 +1,13 @@
-import { Component, OnInit,  Output, EventEmitter} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { VagaModel } from '../../models/vaga.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../../shared/components/modal/modal.component';
+import { VagaService } from './../../services/vaga.service';
+import { ProfissaoService } from './../../services/profissao.service';
+import { CategoriaService } from './../../services/categoria.service';
+import { EnderecoService } from './../../services/endereco.service';
+import { RegimeContratacaoService } from './../../services/regime-contratacao.service';
+
 
 @Component({
   selector: 'app-vagas',
@@ -16,16 +22,16 @@ export class VagasComponent implements OnInit {
   public pagination : any[];
   public vagaModel : VagaModel;
   public vaga : any;
+  public vagasList = [];
 
-  constructor(public dialog: MatDialog) {
-    this.itemsVagas = [
-      { name: 'Atendente', state: 'hidden', subname: 'de Telemarketing' , salario: 'R$ 1200,00' , img: '../../../../assets/images/icones/profissao/telemarketing.png' },
-      { name: 'Desenvolvedor', state: 'hidden', subname: 'Back-End', salario: 'R$ 2300,00' , img: '../../../../assets/images/icones/profissao/ti.png' },
-      { name: 'Desenvolvedor', state: 'hidden', subname: 'Full Stack', salario: 'R$ 3000,00' , img: '../../../../assets/images/icones/profissao/ti.png' },
-      { name: 'Suporte', state: 'hidden', subname: 'Técnico', salario: 'R$ 2000,00' , img: '../../../../assets/images/icones/profissao/assistencia-tecnica.png' },
-      { name: 'Desenvolvedor', state: 'hidden', subname: 'Mobile', salario: 'R$ 2500,00' , img: '../../../../assets/images/icones/profissao/ti.png' },
-      { name: 'Help Center', state: 'hidden', salario: 'R$ 2000,00' , img: '../../../../assets/images/icones/profissao/telemarketing.png' },
-    ]
+  constructor(
+    public dialog: MatDialog,
+    private vagaService: VagaService,
+    private profissaoService: ProfissaoService,
+    private categoriaService: CategoriaService,
+    private enderecoService: EnderecoService,
+    private regimeContratacaoService: RegimeContratacaoService,
+    ) {
     this.pagination = [
       { number: '1', class: 'is-active' },
       { number: '2'},
@@ -34,26 +40,89 @@ export class VagasComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.loadData()
   }
 
   openDialog() {
     this.dialog.open(ModalComponent);
   }
 
-  openModal(vaga: any){
-    vaga.state = vaga.state === 'hidden' ? 'visible' : 'hidden';
+  async loadData(){
+    this.buildVagaArrayObj()
+  }
 
-    this.vagaModel = {
-      codVaga: 1,
-      descricaoVaga: 'Desenvolvedor',
-      salarioVaga: 2000.00,
-      cargaHorariaVaga: '8h',
-      quantidadeVaga: 2,
-      codEmpresa: 1,
-      codProfissao: 1,
-      codEndereco: 1,
-      codRegimeContratacao: 1,
+  async loadVagas(){
+    const vagaRes:any = await this.vagaService.getVagasByCompanyId(1, 1);
+    return vagaRes.data;
+  }
+
+  async buildProfissaoArrayObj(){
+    const profissaoRes: any = await this.profissaoService.getProfissaoList();
+    const categoriaRes: any = await this.categoriaService.getCategoriaList();
+    let mergedObjectArray = []
+
+    profissaoRes.forEach(profissao => {
+      categoriaRes.forEach(categoria => {
+        if (profissao.codCategoria === categoria.codCategoria) {
+          mergedObjectArray.push({
+            codProfissao: profissao.codProfissao, 
+            nomeProfissao: profissao.nomeProfissao, 
+            categoria: {
+              codCategoria: categoria.codCategoria,
+              imagemCategoria: categoria.imagemCategoria,
+              nomeCategoria: categoria.nomeCategoria
+            }
+          })
+        }
+      });
+    });
+    return mergedObjectArray
+  }
+
+  async enderecosFilter(){
+    const vagas:any = await this.loadVagas()
+    let enderecos = vagas.map(vaga =>{
+      return vaga.codEndereco
+    })
+    let enderecoQuery = {
+      enderecos: enderecos
     }
+    const enderecoRes = await this.enderecoService.getEnderecoByIds(enderecoQuery)
+    return enderecoRes
+  }
+
+  async buildVagaArrayObj(){
+    const vagas: any = await this.loadVagas()
+    const enderecos: any = await this.enderecosFilter()
+    const profissao = await this.buildProfissaoArrayObj();
+    const regimeRes: any = await this.regimeContratacaoService.getRegimeContratacaoList()
+    console.log(vagas)
+    vagas.forEach(vaga => {
+      profissao.forEach(profissao => {
+        if (vaga.codProfissao === profissao.codProfissao) {
+          regimeRes.forEach(regime => {
+            if (regime.codRegimeContratacao === vaga.codRegimeContratacao) {
+              enderecos.forEach(endereco => {
+                if (endereco.codEndereco === vaga.codEndereco) {
+                  this.vagasList.push({
+                    cargaHorariaVaga: vaga.cargaHorariaVaga,
+                    codEmpresa: vaga.codEmpresa,
+                    codVaga: vaga.codVaga,
+                    descricaoVaga: vaga.descricaoVaga,
+                    quantidadeVaga: vaga.quantidadeVaga,
+                    salarioVaga: vaga.salarioVaga,
+                    regime: regime, 
+                    profissao: profissao, 
+                    endereco: endereco
+                  })
+                }
+              });
+            }
+          });
+        }
+      });
+    });
+
+    console.log(this.vagasList)
   }
 }

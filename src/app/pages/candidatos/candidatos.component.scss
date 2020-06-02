@@ -1,134 +1,200 @@
 @import '../../shared/scss/variables.scss';
 
-.content.wrapper {
-    padding-top:0;
-}
-
-.profissao{
-    margin-top:30px;
-    &:not(:last-child){
-        border-bottom: 1px solid #939393;
-        padding-bottom: 30px;
-    }
-    &__head{
+.candidato {
+    &__header {
+        align-items: center;
         display: flex;
-        width: 100%;
-        height: fit-content;
-        & img{
-           height: 50px;
-           margin-right: 20px; 
+        margin-top: 20px;
+        
+        &--icon {
+            margin-right: 10px;
+            width: 40px;
         }
-        & span {
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 50px;
-            font-size: 25px;
-            font-family: "Montserrat";
-        }
-    }
-    &__candidatos {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 30px;
-        .item:not(:last-child) {
-            margin-right:30px;
+        
+        &--title {
+            color: #000;
+            font: 22px $font-bold;
+            text-transform: uppercase;
         }
     }
     
-}
-
-.candidato{
-    margin-bottom: 30px;
-    background-color: $white;
-    padding: 10px;
-    border-radius: 9px;
-    border: 1px solid #000;
-    width: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    &__img {
-        margin: 0;
-        * {
-            font-size: 100px;
-            width: fit-content;
-            margin: 0 auto;
-            height: fit-content;
-        }
-        img{
-            width: 100px;
-            height: 100px;
+    &__listagem {
+        max-height: 550px;
+        overflow: auto;
+        
+        &-profissao {
+            &:not(:first-child) {
+                border-top: 1px solid #c7c7c7;
+                margin-top: 30px
+            }
         }
     }
-
-    &__single.wrapper {
-        max-width: 900px;
-        margin: 0 auto;
-    }
-
-    &__top, 
-    &__bottom {
+    
+    &__slider-content {
         display: flex;
         justify-content: space-between;
+        margin: auto;
+        width: 90%;
     }
+}
 
-    &__top--right, 
-    &__bottom--right, 
-    &__bottom--left{
-        width: 450px;
-    }
-
-    &__top--left {
-        width: 200px;
-    }
-
-    &__description {margin-top: 20px;}
-
-    &__list{
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        max-height: 150px;
-    }
-
-    &__list--item{
-        list-style: none;
-        display: flex;
-        margin: 10px 0;
-        img{
-            width: 45px;
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    
+    &__item {
+        border: 1px solid #c7c7c7;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 230px;
+        margin: 10px;
+        transition: all .5s ease-in-out;
+        width: 170px;
+        
+        &:hover {
+            background: rgba(255, 144, 21, 0.41);
         }
-        span{
-            margin-left: 10px;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 45px;
+        
+        &-img-icon {
+            padding: 15px;
+            width: 80%;
+        }
+        
+        &-name {
+            border-top: 1px solid #c7c7c7;
+            font: 16px $font-regular;
+            padding: 10px 0;
+            text-align: center;
         }
     }
+}
+
+svg {
+    height: 170px;
+    position: relative;
+    width: 170px;
+    z-index: 10;
+
+    & circle {
+        fill: none;
+        height: 100%;
+        stroke: #c7c7c7;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px, 5px);
+        width: 100%;
+    
+        &:nth-child(2) {
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+        }
+    }
+}
+
+.profile__perfil:nth-child(1) svg circle:nth-child(2) {
+    stroke: #68dd9b;
+    // stroke: #fed066;
+    // stroke: #e06f50;
+    stroke-dashoffset: calc(440 - (440 * 85) / 100);
 }
 
 .profile {
-    width: 100%;
-    height: 200px;
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .candidato__img{
-        margin: auto;
-        width: fit-content;
+    padding: 0 40px;
+    width: 40%;
+    
+    &__perfil {
+        margin: 0 auto;
+
+        &-percent {
+            border-radius: 50%;
+            height: 170px;
+            margin: auto;
+            position: relative;
+            width: 170px;
+        }
+        
+        &-img-icon {
+            border-radius: 50%;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            transform: translate(10px, 10px);
+            width: 150px;
+        }
     }
     
+    &__info {
+        &-item {
+            font: 16px $font-bold;
+            text-align: center;
+            margin-top: 15px;
+            
+            &--email {
+                border: 1px solid $pink_light;
+                border-radius: 10px;
+                font-size: 15px;
+                margin-top: 10px;
+                padding: 5px 0;
+
+                &-link {
+                    align-items: center;
+                    color: $pink_light;
+                    display: flex;
+                    justify-content: center;
+                    transition: color .5s ease-in-out;
+                    
+                    &:hover {
+                        color: $dark_red;
+                    }
+                }
+            }
+        }
+    }
 }
 
-.compatibility {
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid #000;
+.description {
+    margin: -20px 15px 0;
+    width: 50%;
+}
+
+.topicos {
+    margin-top: 30px;
+    width: 50%;
+    
+    &__title {
+        font: 20px $font-bold;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    &__list {
+        max-height: 160px;
+        overflow: auto;
+        
+        &--requisito {
+            flex-direction: column;
+        }
+        
+        &-item {
+            align-items: center;
+            display: flex;
+            margin: 5px auto;
+            width: fit-content;
+            
+            &--requisito {
+                margin: 10px auto;
+            }
+            
+            &-icon {
+                margin-right: 10px;
+                width: 45px;
+            }
+            
+            &-name {
+                font: 16px $font-regular;
+            }
+        }
+    }
 }
 

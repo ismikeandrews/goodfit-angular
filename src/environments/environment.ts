@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrlApi: 'http://localhost:8080',
-  originalUrlApi: 'http://good-fit.herokuapp.com/public',
+  baseUrlApi: 'http://good-fit.herokuapp.com/public',
+  originalUrlApi: 'http://localhost:8080',
 };
 
 /*
