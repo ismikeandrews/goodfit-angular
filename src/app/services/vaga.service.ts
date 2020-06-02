@@ -11,8 +11,8 @@ export class VagaService {
     private http: HttpClient,
   ) { }
 
-  async getVagasByCompanyId(codEmpresa){
-    return await this.http.get(`${environment.originalUrlApi}/empresa/${codEmpresa}/vagas`).toPromise();
+  async getVagasByCompanyId(codEmpresa, page){
+    return await this.http.get(`${environment.baseUrlApi}/empresa/${codEmpresa}/vagas?${page}`).toPromise();
   }
 
   async setVaga(vaga){

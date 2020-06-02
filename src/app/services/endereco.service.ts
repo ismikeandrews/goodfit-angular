@@ -14,4 +14,8 @@ export class EnderecoService {
   async setEndereco(endereco){
     return await this.http.post(`${environment.baseUrlApi}/endereco`, endereco).toPromise();
   }
+
+  async getEnderecoByIds(ids){
+    return await this.http.post(`${environment.baseUrlApi}/endereco`, ids).toPromise();
+  }
 }
