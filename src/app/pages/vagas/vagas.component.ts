@@ -32,11 +32,6 @@ export class VagasComponent implements OnInit {
     private enderecoService: EnderecoService,
     private regimeContratacaoService: RegimeContratacaoService,
     ) {
-    this.pagination = [
-      { number: '1', class: 'is-active' },
-      { number: '2'},
-      { number: '3'}
-    ]
   }
 
   ngOnInit() {
@@ -52,7 +47,7 @@ export class VagasComponent implements OnInit {
   }
 
   async loadVagas(){
-    const vagaRes:any = await this.vagaService.getVagasByCompanyId(1, 1);
+    const vagaRes:any = await this.vagaService.getVagasByCompanyId(3, 1);
     return vagaRes.data;
   }
 

@@ -147,10 +147,6 @@ export class CreateVagaComponent implements OnInit {
 
     return {codVaga: vagaCod, requisitos: this.selectedSkills}
   }
-
-  tester(){
-    console.log(this.habilidadeList, this.selectedAlf,  this.selectedEsclr)
-  }
   
   async submit(){
     console.log(this.address.valid, this.description.valid, this.selectedSkills, this.benefits[0])
@@ -161,7 +157,7 @@ export class CreateVagaComponent implements OnInit {
         const enderecoRes: any = await this.enderecoService.setEndereco(this.enderecoModel);
   
         this.vagaModel = this.description.value;
-        this.vagaModel.codEmpresa = 1;
+        this.vagaModel.codEmpresa = 3;
         this.vagaModel.codEndereco = enderecoRes;
         const vagaRes: any = await this.vagaService.setVaga(this.vagaModel);
 
