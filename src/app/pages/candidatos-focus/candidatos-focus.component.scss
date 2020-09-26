@@ -1,0 +1,226 @@
+@import '../../shared/scss/variables.scss';
+
+.candidato {
+    &__header {
+        align-items: center;
+        display: flex;
+        margin-top: 20px;
+        
+        &--icon {
+            margin-right: 10px;
+            width: 40px;
+        }
+        
+        &--title {
+            color: #000;
+            font: 22px $font-bold;
+            text-transform: uppercase;
+        }
+    }
+    
+    &__focus-content {
+        display: flex;
+        justify-content: space-evenly;
+        margin: auto;
+        width: 85%;
+    }
+}
+
+svg {
+    height: 170px;
+    position: relative;
+    width: 170px;
+    z-index: 10;
+
+    & circle {
+        fill: none;
+        height: 100%;
+        stroke: #c7c7c7;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px, 5px);
+        width: 100%;
+    
+        &:nth-child(2) {
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+        }
+    }
+}
+
+.profile__perfil:nth-child(1) svg circle:nth-child(2) {
+    stroke: #68dd9b;
+    // stroke: #fed066;
+    // stroke: #e06f50;
+    stroke-dashoffset: calc(440 - (440 * 85) / 100);
+}
+
+.profile {
+    padding: 0 20px;
+    width: 45%;
+    
+    &__perfil {
+        margin: 0 auto;
+
+        &-percent {
+            border-radius: 50%;
+            height: 170px;
+            margin: auto;
+            position: relative;
+            width: 170px;
+        }
+        
+        &-img-icon {
+            border-radius: 50%;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            transform: translate(10px, 10px);
+            width: 150px;
+        }
+    }
+    
+    &__info {
+        &-item {
+            font: 16px $font-bold;
+            text-align: center;
+            margin-top: 15px;
+        }
+    }
+
+    &__email {
+        border: 2px solid $pink_light;
+        border-radius: 10px;
+        font-size: 15px;
+        margin: 10px auto;
+        max-width: 310px;
+        padding: 3px 0;
+        transition: border-color .3s ease-in-out;
+        width: 90%;
+        
+        &:hover {
+            border-color: $dark_red;
+        }
+        
+        &-link {
+            align-items: center;
+            color: $pink_light;
+            display: flex;
+            justify-content: center;
+            padding: 0 10px;
+            transition: color .3s ease-in-out;
+            
+            &:hover {
+                color: $dark_red;
+            }
+        }
+    }
+
+    &__buttons {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px auto 0;
+        max-width: 320px;
+        
+        &-process {
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            padding: 5px 15px;
+            margin: 0 3px;
+            max-width: 120px;
+            transition: background .5s ease-in-out;
+            width: 45%;
+            
+            &--decline {
+                background-color: #e06f50;
+
+                &:hover {
+                    background-color: #af553c;
+                }
+            }
+            
+            &--accept {
+                background-color: #68dd9b;
+
+                &:hover {
+                    background-color: #43a96f;
+                }
+            }
+        }
+    }
+}
+
+.description {
+    margin: -20px 15px 0;
+    width: 45%;
+
+    &__video {
+        margin: 10px auto 0;
+        text-align: center;
+        
+        &-img {
+            max-height: 250px;
+        }
+    }
+    
+    &__text {
+        font: 17px/25px $font-regular;
+        margin: 20px 30px 0;
+        max-height: 245px;
+    }
+}
+
+::ng-deep .mat-tab-header-pagination {
+    display: none !important;
+}
+
+::ng-deep .mat-tab-label {
+    width: 50% !important;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: $pink !important;
+}
+
+.topicos {
+    margin-top: 30px;
+    width: 45%;
+    
+    &__title {
+        font: 20px $font-bold;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    &__list {
+        max-height: 160px;
+        overflow: auto;
+        
+        &--requisito {
+            flex-direction: column;
+        }
+        
+        &-item {
+            align-items: center;
+            display: flex;
+            margin: 5px auto;
+            width: fit-content;
+            
+            &--requisito {
+                margin: 10px auto;
+            }
+            
+            &-icon {
+                margin-right: 10px;
+                width: 45px;
+            }
+            
+            &-name {
+                font: 16px $font-regular;
+            }
+        }
+    }
+}
+

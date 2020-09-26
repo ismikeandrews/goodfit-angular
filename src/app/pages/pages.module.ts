@@ -15,14 +15,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CandidatosComponent } from './candidatos/candidatos.component';
+import { CandidatosFocusComponent } from './candidatos-focus/candidatos-focus.component';
+import { CandidatosListComponent } from './candidatos-list/candidatos-list.component';
 
 @NgModule({
-  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosComponent],
+  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosFocusComponent, CandidatosComponent, CandidatosListComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -35,6 +38,7 @@ import { CandidatosComponent } from './candidatos/candidatos.component';
     MatFormFieldModule,
     MatCheckboxModule,
     MatListModule,
+    MatTabsModule,
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
