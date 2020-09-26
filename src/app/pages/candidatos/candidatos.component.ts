@@ -12,6 +12,9 @@ export class CandidatosComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeView() {
+    console.log('clicou')
+  }
 }
 
 // {

@@ -2,3 +2,11 @@
 
 .candidato{
 }
+
+.list, .focus {
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
+}
