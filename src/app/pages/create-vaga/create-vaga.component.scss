@@ -1,14 +1,9 @@
 @import '../../shared/scss/variables.scss';
 @import '../../shared/scss/base.scss';
-
 .create-vagas {
     background: #e5e5e5;
     height: 100%;
     position: relative;
-}
-
-.wrapper {
-    padding: 30px;
 }
 
 .header {
@@ -22,12 +17,10 @@
     font: 35px $font-regular;
     margin: 20px;
     text-transform: uppercase;
-    
     @include MQ ($S) {
         font-size: 30px;
         margin: 20px 20px 15px;
     }
-    
     @include MQ ($XS) {
         font-size: 25px;
     }
@@ -50,10 +43,8 @@
 
 .resumo {
     text-align: left !important;
-
     &--topico {
         margin-bottom: 30px;
-
         &-title {
             border-bottom: 1px solid #c7c7c7;
             font: 20px $font-bold;
@@ -61,11 +52,9 @@
             padding-bottom: 10px;
             text-transform: uppercase;
         }
-
         &-list-item {
             margin: 10px 0;
             text-align: left !important;
-
             &__span {
                 font-family: $font-bold;
             }
@@ -81,7 +70,6 @@
 
 .habilidade {
     margin-right: 20px;
-    
     &__icon {
         border: 2px solid #c7c7c7;
         border-radius: 10px;
@@ -93,7 +81,6 @@
         padding: 10px;
         transition: all .5s ease-in-out;
         width: 130px;
-        
         img {
             width: 70px;
             margin: 10px auto;
@@ -104,12 +91,10 @@
 .requisitos__description {
     font: 16px $font-bold;
     text-align: left;
-    
     &:first-child {
         margin-bottom: 15px;
         margin-left: 10px;
     }
-
     &--habilidade {
         border-top: 1px solid #9b9b9b;
         margin: 10px 0 0;
@@ -122,9 +107,8 @@
         align-items: center;
         display: flex;
     }
-
     &__img-icon {
-        margin-right: 10px;    
+        margin-right: 10px;
         width: 30px;
     }
 }
@@ -137,7 +121,7 @@
     margin-top: 5px;
 }
 
-.input-requisito:checked ~ .habilidade__icon{
+.input-requisito:checked~.habilidade__icon {
     background-color: rgba(236, 55, 124, 0.35);
     border-color: $pink_light;
 }
@@ -149,8 +133,8 @@
 // ::ng-deep .mat-step-header .mat-step-icon {
 //     font-family: $font-regular;
 // }
-
-::ng-deep .mat-stepper-horizontal, .mat-stepper-vertical {
+::ng-deep .mat-stepper-horizontal,
+.mat-stepper-vertical {
     background-color: #e5e5e5 !important;
     overflow: hidden !important;
 }
@@ -185,7 +169,10 @@
     color: #fff;
 }
 
-::ng-deep .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+::ng-deep .mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
     background-color: $dark_red;
 }
 
@@ -193,7 +180,10 @@
     position: relative;
 }
 
-::ng-deep .mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
+::ng-deep .mat-flat-button.mat-warn,
+.mat-raised-button.mat-warn,
+.mat-fab.mat-warn,
+.mat-mini-fab.mat-warn {
     background-color: #ff9015;
     left: 22%;
     margin: auto;
@@ -245,7 +235,8 @@ textarea.mat-input-element {
     padding: 0 10px;
 }
 
-::ng-deep .mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate {
     background-color: $pink_light !important;
 }
 

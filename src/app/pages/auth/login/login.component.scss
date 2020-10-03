@@ -1,8 +1,6 @@
 @import '../../../shared/scss/variables.scss';
-
 .container-login {
     position: relative;
-
     &:after {
         background-image: url('../../../../assets/images/componentes/logo-bg.png') center no-repeat;
         background-size: 335px;
@@ -12,7 +10,7 @@
         right: 0px;
         position: absolute;
         top: 0;
-        transform: translate(50%,-50%);
+        transform: translate(50%, -50%);
         width: 330px;
         z-index: 1;
     }
@@ -21,20 +19,18 @@
 .section-login {
     margin: 0 auto;
     width: 75%;
-
-    @include MQ($M){
+    @include MQ($M) {
         width: 100%;
     }
 }
 
 .logo {
-  display: block;
-  text-align: center;
-  width: 100%;
-
+    display: block;
+    text-align: center;
+    width: 100%;
     &-img {
-      margin: 50px auto;
-      width: 125px;
+        margin: 50px auto;
+        width: 125px;
     }
 }
 
@@ -43,16 +39,13 @@
         color: $black;
         font: 21px $font-regular;
         line-height: 25px;
-
         @include MQ($S) {
             font-size: 20px;
         }
-
         &-span {
             color: $primary_blue;
         }
     }
-
     &-desc {
         color: $gray;
         font: 14px $font-light;
@@ -65,13 +58,11 @@
     font: 11px $font-regular;
     letter-spacing: 0.5px;
     text-decoration: none;
-
     &-senha {
         color: $primary_blue;
         float: right;
         margin-top: 10px;
     }
-
     &-cadastrar {
         color: $gray;
         margin: 45px auto -40px;
@@ -81,29 +72,31 @@
 
 .login-btn-entrar {
     margin: 60px 0 50px;
-
-    @include MQ($M){
+    @include MQ($M) {
         margin: 40px 0 0;
     }
 }
 
-.btn {
-    &-login {
-        margin-top: 20px;
-    }
+.buttons {
+    align-items: flex-start;
+}
 
+.btn {
+    width: 30%;
+    margin: 20px 10px 0 0;
+    &-primary {
+        background: $dark_red;
+    }
     &-cod {
         background: transparent;
         border: 1px solid $dark_blue;
         color: $dark_blue;
     }
-
     &-cadastrar {
         background: transparent;
         border: 1px solid $gray;
         color: $gray;
     }
-
     &-link {
         text-decoration: none;
     }
@@ -113,16 +106,30 @@
     display: flex;
     margin-top: 40px;
     width: 100%;
-
     &-item {
         width: 50%;
-
         &:first-child {
             margin-right: 5px;
         }
-
         &:last-child {
             margin-left: 5px;
         }
+    }
+}
+
+//estilos novos
+.form {
+    background: lighten(#e5e5e5, 5%);
+    padding: 5rem;
+    min-height: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    input {
+        width: 100%;
+    }
+    label {
+        font-size: 20px;
+        font-weight: 500;
     }
 }

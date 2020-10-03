@@ -22,4 +22,9 @@ export class MenuComponent implements OnInit {
       sideBar.classList.toggle("is-active");
     });
   }
+  
+  logOut() {
+    // this.userService.logOut()
+     
+  }
 }

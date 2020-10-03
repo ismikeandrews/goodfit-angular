@@ -5,11 +5,14 @@ import { VagasComponent } from './pages/vagas/vagas.component';
 import { NivelUsuarioComponent } from './pages/nivel-usuario/nivel-usuario.component';
 import { CreateVagaComponent } from './pages/create-vaga/create-vaga.component';
 import { CandidatosComponent } from './pages/candidatos/candidatos.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 
 
 const routes: Routes = [
   {path: '', component: ContentComponent, 
     children: [
+      {path: '', redirectTo: 'login', pathMatch: 'full'},
+      {path: 'login', component: LoginComponent},
       {path: 'vagas', component: VagasComponent},
       {path: 'vagas/create', component: CreateVagaComponent},
       {path: 'nivel-usuario', component: NivelUsuarioComponent},

@@ -1,0 +1,25 @@
+<div class="page">
+    <div class="wrapper">
+        <div class="container">
+            <h2 class="page-title">
+                Login
+            </h2>
+            <div class="form">
+                <form class="form-login" autocomplete="off" [formGroup]="loginForm" (sumbmit)="sendLogin(loginForm)">
+                    <div class="form-field">
+                        <label for="email">E-mail @:</label>
+                        <input type="email" class="form-input-item" id="email" formControlName="email" placeholder="Digite seu E-mail">
+                    </div>
+                    <div class="form-field">
+                        <label for="password">Senha:</label>
+                        <input type="password" class="form-input-item" id="password" formControlName="password" placeholder="********" autocomplete="new-password">
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="btn btn-login">Login</button>
+                        <button type="button" class="btn btn-primary">Solicitar acesso</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

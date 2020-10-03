@@ -23,9 +23,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CandidatosComponent } from './candidatos/candidatos.component';
 import { CandidatosFocusComponent } from './candidatos-focus/candidatos-focus.component';
 import { CandidatosListComponent } from './candidatos-list/candidatos-list.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
-  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosFocusComponent, CandidatosComponent, CandidatosListComponent],
+  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosFocusComponent, CandidatosComponent, CandidatosListComponent, LoginComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

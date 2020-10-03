@@ -1,100 +1,86 @@
 @import '../../shared/scss/variables.scss';
-
-.menu--button-logo, .menu--content-item-name {
+.menu--button-logo,
+.menu--content-item-name {
     opacity: 0;
     transition: all .5s ease-in-out;
-    width: 55px;
+    width: 85px;
 }
 
 .menu--button-logo-icon {
-    width: 0;
+    display: block;
+    margin-left: auto;
+    max-height: 40px;
 }
 
 .container__menu {
     background: #E5E5E5;
     padding: 10px 15px;
+    margin-left: 15px;
 }
 
 .menu {
     height: 100%;
-
     &.is-active {
         .menu--content-item-link {
             border-bottom: 1px solid #bababa;
         }
-
-        .menu--button-logo, .menu--content-item-name {
+        .menu--button-logo,
+        .menu--content-item-name {
             opacity: 1;
         }
-        
         .menu--button-logo-icon {
-            width: 155px;
-            
             @include MQ ($XL) {
                 width: 130px;
             }
-            
             @include MQ ($M) {
                 width: 110px;
             }
-            
             @include MQ ($XS) {
                 width: 90px;
             }
         }
-
         .menu--content-item-name {
             width: 190px;
-            
             @include MQ ($XL) {
-                width: 150px;        
+                width: 150px;
             }
-            
             @include MQ ($M) {
                 width: 125px;
             }
-            
             @include MQ ($XS) {
                 width: 95px;
             }
         }
-
         .menu--button-burguer-lines {
             border: none;
-
-                &::before {
-                    top: -3px;
-                    transform: rotate(45deg);
-                }
-                
-                &::after {
-                    bottom: 1px;
-                    transform: rotate(-45deg);
-                }
+            &::before {
+                top: -3px;
+                transform: rotate(45deg);
+            }
+            &::after {
+                bottom: 1px;
+                transform: rotate(-45deg);
+            }
         }
     }
-
     &--button {
         align-items: center;
         cursor: pointer;
         display: flex;
         height: 41px;
         justify-content: center;
-
         &-burguer {
             width: 25%;
-
             &-lines {
                 border-bottom: 3px solid $pink;
                 position: relative;
                 transition: border .5s ease-in-out;
                 width: 25px;
-
                 @include MQ ($XS) {
                     width: 20px;
                 }
-
-                &::before, &::after {
+                &::before,
+                &::after {
                     background: $dark_red;
                     content: '';
                     height: 2px;
@@ -103,40 +89,33 @@
                     transition: all .5s ease-in-out;
                     width: 100%;
                 }
-                
                 &::before {
                     top: -8px;
-                    
                     @include MQ ($M) {
                         top: -6px;
                     }
                 }
-                
                 &::after {
                     bottom: -10px;
-                    
                     @include MQ ($M) {
                         bottom: -9px;
                     }
                 }
             }
         }
-
         &-logo {
             width: 75%;
         }
     }
-
     &--content {
         background: $dark_red;
         height: 100%;
         padding: 20px 15px;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         &-item {
-            &:first-child {
-                margin-top: 150px;
-            }
-
+            cursor: pointer;
             &-link {
                 align-items: center;
                 display: flex;
@@ -144,39 +123,34 @@
                 margin: 60px 0;
                 transition: border .5s ease-in-out;
             }
-
+            &-img {
+                margin-left: 15px;
+            }
             &-img-icon {
                 color: #fff;
                 font-size: 30px;
-                
                 @include MQ ($XL) {
-                    font-size: 25px;    
+                    font-size: 25px;
                 }
-                
                 @include MQ ($M) {
                     font-size: 20px;
                 }
-                
                 @include MQ ($XS) {
                     font-size: 15px;
                     height: 15px;
                 }
             }
-
             &-name {
                 color: #fff;
                 font: 20px $font-regular;
                 text-align: right;
                 text-transform: uppercase;
-
                 @include MQ ($XL) {
-                    font-size: 17px;   
+                    font-size: 17px;
                 }
-                        
                 @include MQ ($M) {
                     font-size: 13px;
                 }
-                        
                 @include MQ ($XS) {
                     font-size: 11px;
                 }

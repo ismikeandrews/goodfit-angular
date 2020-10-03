@@ -1,14 +1,9 @@
 @import '../../shared/scss/variables.scss';
 @import '../../shared/scss/base.scss';
-
 .vagas {
     background: #e5e5e5;
     height: 100%;
     position: relative;
-}
-
-.wrapper {
-    padding: 30px;
 }
 
 .header {
@@ -22,12 +17,10 @@
     font: 35px $font-regular;
     margin: 20px;
     text-transform: uppercase;
-
     @include MQ ($S) {
         font-size: 30px;
         margin: 20px 20px 15px;
     }
-
     @include MQ ($XS) {
         font-size: 25px;
     }
@@ -37,7 +30,6 @@
     display: flex;
     flex-wrap: wrap;
     margin: 40px auto 30px;
-
     @include MQ ($M) {
         margin: 20px auto 30px;
     }
@@ -45,15 +37,12 @@
 
 .item {
     width: 25%;
-    
     @include MQ ($M) {
         width: 33%;
     }
-    
     @include MQ ($XS) {
         width: 50%;
     }
-
     &--box {
         background-color: $white;
         border: 3px solid #ccc;
@@ -63,104 +52,82 @@
         margin: 3px;
         padding: 15px 20px;
         transition: all .5s ease-out;
-
         @include MQ($XL) {
             padding: 13px 10px;
         }
-        
         @include MQ($S) {
             height: 110px;
             text-align: center;
         }
-
         &:hover {
             background: rgba(230, 71, 131, 0.25);
             border-color: $dark_red;
         }
-
         &-desc {
             align-items: center;
             display: flex;
-
             @include MQ($S) {
                 display: block;
             }
-
             &-img {
                 margin-right: 10px;
                 width: 30%;
-        
                 @include MQ($L) {
                     height: 45px;
                 }
-        
                 @include MQ($S) {
                     margin: auto;
                     width: 45px;
                 }
-                
                 &-icon {
                     width: 100%;
                 }
             }
-
             &-name {
                 color: $black;
                 font: 16px $font-bold;
                 text-transform: uppercase;
                 word-wrap: break-word;
                 width: 70%;
-
                 @include MQ($XL) {
                     font-size: 15px;
                 }
-                
                 @include MQ($L) {
                     font-size: 13px;
                     margin: 7px 0 3px;
                     width: 100%;
                 }
-                
                 @include MQ($XS) {
                     font-size: 12px;
                 }
-                
                 span {
                     font: 12px $font-regular;
-
                     @include MQ($XL) {
                         font-size: 11px;
                     }
-                    
                     @include MQ($L) {
                         font-size: 10px;
                     }
                 }
             }
         }
-
         &-info {
             align-items: center;
             display: flex;
             justify-content: flex-end;
-
             @include MQ($S) {
                 justify-content: center;
             }
-
             &-img {
                 margin-right: 5px;
-
                 @include MQ($L) {
                     margin-right: 5px;
                 }
-
                 &-icon {
                     color: #000;
                     font-size: 20px;
                     margin-top: 3px;
                     width: 15px;
-                
                     @include MQ($L) {
                         font-size: 17px;
                         margin-top: 5px;
@@ -168,15 +135,12 @@
                     }
                 }
             }
-
             &-text {
                 color: $black;
                 font: 17px $font-bold;
-                
                 @include MQ($XL) {
                     font-size: 14px;
                 }
-                
                 @include MQ($L) {
                     font-size: 13px;
                 }
@@ -188,44 +152,36 @@
 .pagination {
     display: flex;
     justify-content: center;
-
     &-button {
         cursor: pointer;
-
         &-icon {
             margin: 4px 5px 0 5px;
             width: 20px;
-
             @include MQ($L) {
                 width: 17px;
             }
-
             &__prev {
                 transform: rotate(180deg);
             }
         }
     }
-
     &-number {
         display: flex;
-
         &-item {
             border: 2px solid $dark_red;
             border-radius: 100%;
             color: $dark_red;
-            font: 20px $font-bold;    
+            font: 20px $font-bold;
             height: 27px;
             margin: 0 20px;
             text-align: center;
             width: 27px;
-
             @include MQ($L) {
                 font-size: 16px;
                 height: 23px;
                 margin: 0 15px;
                 width: 23px;
             }
-        
             &.is-active {
                 background-color: $dark_red;
                 color: #fff;

@@ -1,27 +1,22 @@
 @import '../../shared/scss/variables.scss';
-
 .candidato {
     &__header {
         align-items: center;
         display: flex;
         margin-top: 20px;
-        
         &--icon {
             margin-right: 10px;
             width: 40px;
         }
-        
         &--title {
             color: #000;
             font: 22px $font-bold;
             text-transform: uppercase;
         }
     }
-    
     &__listagem {
         max-height: 550px;
         overflow: auto;
-        
         &-profissao {
             &:not(:first-child) {
                 border-top: 1px solid #c7c7c7;
@@ -35,7 +30,6 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-    
     &__item {
         border: 1px solid #c7c7c7;
         border-radius: 10px;
@@ -44,16 +38,13 @@
         margin: 10px;
         transition: all .5s ease-in-out;
         width: 170px;
-        
         &:hover {
             background: rgba(255, 144, 21, 0.41);
         }
-        
         &-img-icon {
             padding: 15px;
             width: 80%;
         }
-        
         &-name {
             border-top: 1px solid #c7c7c7;
             font: 16px $font-regular;

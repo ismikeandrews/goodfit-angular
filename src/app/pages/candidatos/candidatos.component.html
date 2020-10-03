@@ -1,9 +1,9 @@
 <section class="page candidatos">
     <div class="wrapper">
-        
+
         <div class="header">
             <h1 class="title">Candidatos</h1>
-            
+
             <div class="buttons">
                 <div class="buttons--item" aria-label="Botão de busca">
                     <mat-icon class="buttons--item-icon">search</mat-icon>
@@ -17,13 +17,13 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content">
-            
-            <app-candidatos-list id="list" *ngVar='true as variable' class="list is-active"></app-candidatos-list>
-           
-            <app-candidatos-focus id="focus" *ngVar='false as variable' class="focus"></app-candidatos-focus>
-            
+
+            <app-candidatos-list id="list" *ngIf="true" class="list is-active"></app-candidatos-list>
+
+            <app-candidatos-focus id="focus" *ngIf='true' class="focus"></app-candidatos-focus>
+
         </div>
     </div>
 </section>
