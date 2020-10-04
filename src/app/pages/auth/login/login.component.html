@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <form autocomplete="off" [formGroup]="loginForm" (submit)="sendLogin(loginForm)">
+        <form autocomplete="off" [formGroup]="loginForm">
             <div class="form-inputs">
                 <div class="form-input-email">
                     <input type="email" class="form-input-item" id="email" formControlName="email" placeholder="Login">
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="cadastro-content-item login-btn-entrar">
-                    <button type="submit" class="btn btn-login"> Entrar </button>
+                    <button (click)="submit()" class="btn btn-login"> Entrar </button>
                 </div>
             </div>
         </form>
