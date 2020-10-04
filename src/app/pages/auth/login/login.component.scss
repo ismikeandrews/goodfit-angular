@@ -3,6 +3,7 @@
 .wrapper-login {
     align-items: center;
     display: flex;
+    height: 100%;
     justify-content: center;
 }
 
@@ -27,8 +28,8 @@
     width: 100%;
 
     &-img {
-        margin: 50px auto;
-        width: 125px;
+      margin: 0 auto 50px;
+      width: 125px;
     }
 }
 
@@ -73,14 +74,6 @@
     }
 }
 
-.login-btn-entrar {
-    margin: 40px 0 0;
-
-    @include MQ($M) {
-        margin: 40px 0 0;
-    }
-}
-
 .buttons {
     align-items: flex-start;
 }
@@ -91,12 +84,6 @@
 
     &-primary {
         background: $dark_red;
-    }
-
-    &-cod {
-        background: transparent;
-        border: 1px solid $orange;
-        color: $orange;
     }
 
     &-cadastrar {
@@ -117,7 +104,7 @@
 
 .cadastro-content {
     display: flex;
-    width: 100%;
+    width: 105%;
 
     &-item {
         width: 50%;
@@ -129,24 +116,5 @@
         &:last-child {
             margin-left: 5px;
         }
-    }
-}
-
-//estilos novos
-.form {
-    background: lighten(#e5e5e5, 5%);
-    padding: 5rem;
-    min-height: 470px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    input {
-        width: 100%;
-    }
-
-    label {
-        font-size: 20px;
-        font-weight: 500;
     }
 }
