@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Empresa } from './../../../../models/empresa.model';
 
 @Component({
   selector: 'app-empresa',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpresaComponent implements OnInit {
 
+  private empresaModel: Empresa = new Empresa();
+
+  @Output() sendEmpresaModel = new EventEmitter<Object>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  sendModels(){
+    this.sendEmpresaModel.emit(this.empresaModel);
+  }
+
 }
+
