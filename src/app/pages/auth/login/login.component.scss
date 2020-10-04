@@ -1,24 +1,21 @@
 @import '../../../shared/scss/variables.scss';
+
+.wrapper-login {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
 .container-login {
+    height: auto;
+    margin: 0 auto;
     position: relative;
-    &:after {
-        background-image: url('../../../../assets/images/componentes/logo-bg.png') center no-repeat;
-        background-size: 335px;
-        content: '';
-        display: block;
-        height: 330px;
-        right: 0px;
-        position: absolute;
-        top: 0;
-        transform: translate(50%, -50%);
-        width: 330px;
-        z-index: 1;
-    }
+    width: 350px;
 }
 
 .section-login {
-    margin: 0 auto;
     width: 75%;
+
     @include MQ($M) {
         width: 100%;
     }
@@ -28,6 +25,7 @@
     display: block;
     text-align: center;
     width: 100%;
+
     &-img {
         margin: 50px auto;
         width: 125px;
@@ -39,13 +37,16 @@
         color: $black;
         font: 21px $font-regular;
         line-height: 25px;
+
         @include MQ($S) {
             font-size: 20px;
         }
+
         &-span {
             color: $primary_blue;
         }
     }
+
     &-desc {
         color: $gray;
         font: 14px $font-light;
@@ -58,11 +59,13 @@
     font: 11px $font-regular;
     letter-spacing: 0.5px;
     text-decoration: none;
+
     &-senha {
-        color: $primary_blue;
+        color: $pink;
         float: right;
         margin-top: 10px;
     }
+
     &-cadastrar {
         color: $gray;
         margin: 45px auto -40px;
@@ -71,7 +74,8 @@
 }
 
 .login-btn-entrar {
-    margin: 60px 0 50px;
+    margin: 40px 0 0;
+
     @include MQ($M) {
         margin: 40px 0 0;
     }
@@ -82,35 +86,46 @@
 }
 
 .btn {
-    width: 30%;
+    width: 100%;
     margin: 20px 10px 0 0;
+
     &-primary {
         background: $dark_red;
     }
+
     &-cod {
         background: transparent;
-        border: 1px solid $dark_blue;
-        color: $dark_blue;
+        border: 1px solid $orange;
+        color: $orange;
     }
+
     &-cadastrar {
         background: transparent;
-        border: 1px solid $gray;
-        color: $gray;
+        border: 1px solid $dark_red;
+        color: $dark_red;
     }
+
     &-link {
         text-decoration: none;
+    }
+
+    &-login {
+        background: $pink;
+        color: #fff;
     }
 }
 
 .cadastro-content {
     display: flex;
-    margin-top: 40px;
     width: 100%;
+
     &-item {
         width: 50%;
+
         &:first-child {
             margin-right: 5px;
         }
+
         &:last-child {
             margin-left: 5px;
         }
@@ -125,9 +140,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     input {
         width: 100%;
     }
+
     label {
         font-size: 20px;
         font-weight: 500;

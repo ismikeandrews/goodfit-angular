@@ -9,10 +9,9 @@ import { LoginComponent } from './pages/auth/login/login.component';
 
 
 const routes: Routes = [
-  {path: '', component: ContentComponent, 
+  {path: '', component: ContentComponent,
     children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: LoginComponent},
       {path: 'vagas', component: VagasComponent},
       {path: 'vagas/create', component: CreateVagaComponent},
       {path: 'nivel-usuario', component: NivelUsuarioComponent},
@@ -20,6 +19,7 @@ const routes: Routes = [
     ]
   },
   {path: 'nivel-usuario', component: NivelUsuarioComponent},
+  {path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
