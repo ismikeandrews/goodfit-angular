@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AdicionalService } from './../../services/adicional.service';
-import { RegimeContratacaoService } from './../../services/regime-contratacao.service';
-import { ProfissaoService } from './../../services/profissao.service';
-import { ViacepService } from './../../services/viacep.service';
+import { AdicionalService } from '../../services/adicional.service';
+import { RegimeContratacaoService } from '../../services/regime-contratacao.service';
+import { ProfissaoService } from '../../services/profissao.service';
+import { ViacepService } from '../../services/viacep.service';
 import { AdicionalModel } from '../../models/adicional.model'
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { VagaModel } from './../../models/vaga.model';
-import { EnderecoModel } from './../../models/endereco.model';
-import { EnderecoService } from './../../services/endereco.service';
-import { VagaService } from './../../services/vaga.service';
+import { VagaModel } from '../../models/vaga.model';
+import { EnderecoModel } from '../../models/endereco.model';
+import { EnderecoService } from '../../services/endereco.service';
+import { VagaService } from '../../services/vaga.service';
 
 
 @Component({
@@ -133,7 +133,7 @@ export class CreateVagaComponent implements OnInit {
       requisito.obrigatorio = true;
       this.habilidadeList.push(requisito);
     });
-    
+
     requisitosList = this.habilidadeList.filter(habilidade =>{
       return habilidade.checked === true
     })
@@ -147,15 +147,15 @@ export class CreateVagaComponent implements OnInit {
 
     return {codVaga: vagaCod, requisitos: this.selectedSkills}
   }
-  
+
   async submit(){
     console.log(this.address.valid, this.description.valid, this.selectedSkills, this.benefits[0])
-    if (this.address.valid && this.description.valid && this.benefits[0].nomeBeneficio != null) { 
+    if (this.address.valid && this.description.valid && this.benefits[0].nomeBeneficio != null) {
       try {
-        
+
         this.enderecoModel = this.address.value;
         const enderecoRes: any = await this.enderecoService.setEndereco(this.enderecoModel);
-  
+
         this.vagaModel = this.description.value;
         this.vagaModel.codEmpresa = 3;
         this.vagaModel.codEndereco = enderecoRes;

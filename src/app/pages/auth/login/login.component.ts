@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
   }
 
   async submit(){
-      this.loginModel = this.loginForm.value
-      const token : any = await this.loginService.login(this.loginModel)
-
-    console.log(token)
+      if (this.loginForm.valid) {
+          this.loginModel = this.loginForm.value
+          const token : any = await this.loginService.login(this.loginModel)
+      }
   }
 
   ngOnInit(): void {}
