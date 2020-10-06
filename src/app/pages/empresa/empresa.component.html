@@ -1,0 +1,39 @@
+<section class="wrapper-cadastro">
+    <div class="container container-cadastro">
+        <div class="logo-content">
+            <div class="logo">
+                <img src="../../../assets/images/ijc.png" alt="Logo - Instituto Jô Clemente" class="logo-img">
+            </div>
+        </div>
+
+        <div class="section section-cadastro">
+            <div class="intro">
+                <h1 class="intro-title"> Seja bem-vindo! </h1>
+                <h3 class="intro-desc"> Faça o cadastro da sua Empresa para continuar (Passo 1) </h3>
+            </div>
+        </div>
+
+        <form autocomplete="off" [formGroup]="cadastroForm">
+            <div class="form-inputs">
+                <div class="form-input-cadastro">
+                    <input type="text" class="form-input-item" id="nameEmpresa" formControlName="nameEmpresa" placeholder="Nome da Empresa">
+                </div>
+                <div class="form-input-email">
+                    <input type="text" class="form-input-item" id="emailEmpresa" formControlName="emailEmpresa" placeholder="Email">
+                </div>
+                <div class="form-input-cnpj">
+                    <input type="text" class="form-input-item" id="cnpjEmpresa" formControlName="emailEmpresa" placeholder="CPNJ">
+                </div>
+            </div>
+
+            <div class="cadastro-content">
+                <div class="cadastro-content-item login-btn-entrar">
+                    <button class="btn btn-back"> Voltar </button>
+                </div>
+                <div class="cadastro-content-item">
+                    <a href="" class="btn btn-cadastrar"> Continuar </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

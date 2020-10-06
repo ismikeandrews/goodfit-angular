@@ -24,9 +24,10 @@ import { CandidatosComponent } from './candidatos/candidatos.component';
 import { CandidatosFocusComponent } from './candidatos-focus/candidatos-focus.component';
 import { CandidatosListComponent } from './candidatos-list/candidatos-list.component';
 import { LoginComponent } from './auth/login/login.component';
+import { EmpresaComponent } from './empresa/empresa.component';
 
 @NgModule({
-  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosFocusComponent, CandidatosComponent, CandidatosListComponent, LoginComponent],
+  declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosFocusComponent, CandidatosComponent, CandidatosListComponent, LoginComponent, EmpresaComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

@@ -1,0 +1,120 @@
+@import '../../shared/scss/variables.scss';
+
+.wrapper-cadastro {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.container-cadastro {
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    width: 350px;
+}
+
+.section-cadastro {
+    width: 100%;
+
+    @include MQ($M) {
+        width: 100%;
+    }
+}
+
+.logo {
+    display: block;
+    text-align: center;
+    width: 100%;
+
+    &-img {
+      margin: 0 auto 50px;
+      width: 125px;
+    }
+}
+
+.intro {
+    &-title {
+        color: $black;
+        font: 21px $font-regular;
+        line-height: 25px;
+
+        @include MQ($S) {
+            font-size: 20px;
+        }
+
+        &-span {
+            color: $primary_blue;
+        }
+    }
+
+    &-desc {
+        color: $gray;
+        font: 14px $font-light;
+        letter-spacing: 0.5px;
+        margin: 5px 0 15px;
+    }
+}
+
+.label {
+    font: 11px $font-regular;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+
+    &-senha {
+        color: $pink;
+        float: right;
+        margin-top: 10px;
+    }
+
+    &-cadastrar {
+        color: $gray;
+        margin: 45px auto -40px;
+        text-align: center;
+    }
+}
+
+.buttons {
+    align-items: flex-start;
+}
+
+.btn {
+    width: 100%;
+    margin: 20px 10px 0 0;
+
+    &-primary {
+        background: $dark_red;
+    }
+
+    &-back {
+        background: transparent;
+        border: 1px solid $dark_red;
+        color: $dark_red;
+    }
+
+    &-link {
+        text-decoration: none;
+    }
+
+    &-cadastrar {
+        background: $pink;
+        color: #fff;
+    }
+}
+
+.cadastro-content {
+    display: flex;
+    width: 105%;
+
+    &-item {
+        width: 50%;
+
+        &:first-child {
+            margin-right: 5px;
+        }
+
+        &:last-child {
+            margin-left: 5px;
+        }
+    }
+}
