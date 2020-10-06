@@ -7,6 +7,7 @@ import { CreateVagaComponent } from './pages/create-vaga/create-vaga.component';
 import { CandidatosComponent } from './pages/candidatos/candidatos.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { EmpresaComponent } from './pages/empresa/empresa.component';
+import { Empresa2Component } from './pages/empresa2/empresa2.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   },
   {path: 'nivel-usuario', component: NivelUsuarioComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'empresa', component: EmpresaComponent}
+  {path: 'empresa', component: EmpresaComponent},
+  {path: 'empresa2', component: Empresa2Component}
 ];
 
 @NgModule({

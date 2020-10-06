@@ -11,7 +11,7 @@
     height: auto;
     margin: 0 auto;
     position: relative;
-    width: 350px;
+    width: 25%;
 }
 
 .section-cadastro {
@@ -117,4 +117,17 @@
             margin-left: 5px;
         }
     }
+}
+
+.form-input-item-v2 {
+    border-bottom: 1px solid #aeaeae;
+    font: 15px "Raleway Medium", "Montserrat Medium", "sans-serif";
+    margin: 10px 0;
+    outline: none !important;
+    padding: 15px 0px 5px 5px;
+    width: 100%;
+    border-top: none;
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
 }

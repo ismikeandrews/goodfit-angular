@@ -1,0 +1,53 @@
+<section class="wrapper-cadastro">
+    <div class="container container-cadastro">
+        <div class="logo-content">
+            <div class="logo">
+                <img src="../../../assets/images/ijc.png" alt="Logo - Instituto Jô Clemente" class="logo-img">
+            </div>
+        </div>
+
+        <div class="section section-cadastro">
+            <div class="intro">
+                <h1 class="intro-title"> Agora estamos na Etapa 2 </h1>
+                <h3 class="intro-desc"> Insira mais informações da Empresa. </h3>
+            </div>
+        </div>
+
+        <form autocomplete="off" [formGroup]="cadastroForm">
+            <div class="form-inputs">
+                <div class="form-input-cnpj">
+                    <label class="label" for="cnpjEmpresa">CNPJ: </label>
+                    <input type="number" class="form-input-item-v2" id="cnpjEmpresa" formControlName="cnpjEmpresa" ng-required="true">
+                </div>
+                <div class="form-input-cep">
+                    <label class="label" for="cepEmpresa">CEP: </label>
+                    <input type="number" class="form-input-item-v2" id="cepEmpresa" formControlName="cepEmpresa" ng-required="true">
+                </div>
+                <div class="form-input-endereco">
+                    <label class="label" for="enderecoEmpresa">Endereço: </label>
+                    <input type="text" class="form-input-item-v2" id="enderecoEmpresa" formControlName="enderecoEmpresa" ng-required="true">
+                </div>
+                <div class="form-input-bairro">
+                    <label class="label" for="bairroEmpresa">Bairro: </label>
+                    <input type="text" class="form-input-item-v2" id="bairroEmpresa" formControlName="bairroEmpresa" ng-required="true">
+                </div>
+                <div class="form-input-cidade">
+                    <label class="label" for="cidadeEmpresa">Cidade: </label>
+                    <input type="text" class="form-input-item-v2" id="cidadeEmpresa" formControlName="cidadeEmpresa" ng-required="true">
+                </div>
+                <div class="form-input-estado">
+                    <label class="label" for="estadoEmpresa">Estado: </label>
+                    <input type="text" class="form-input-item-v2" id="estadoEmpresa" formControlName="estadoEmpresa" ng-required="true">
+                </div>
+            </div>
+            <div class="cadastro-content">
+                <div class="cadastro-content-item login-btn-entrar">
+                    <button class="btn btn-back"> Voltar </button>
+                </div>
+                <div class="cadastro-content-item">
+                    <a href="" class="btn btn-cadastrar"> Finalizar </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
