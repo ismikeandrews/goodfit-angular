@@ -4,10 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PagesModule } from './pages/pages.module'
+import { PagesModule } from './pages/pages.module';
 import { LayoutModule } from './layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {LoginService} from "./services/login.service";
+import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './services/auth.guard';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,12 @@ import {LoginService} from "./services/login.service";
     LayoutModule,
     PagesModule,
     BrowserAnimationsModule,
+    AuthModule
   ],
-  providers: [LoginService],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
