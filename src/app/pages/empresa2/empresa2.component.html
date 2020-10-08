@@ -13,31 +13,39 @@
             </div>
         </div>
 
-        <form autocomplete="off" [formGroup]="cadastroForm">
+        <form autocomplete="off" [formGroup]="cadastro2Form">
             <div class="form-inputs">
-                <div class="form-input-cnpj">
+                <div class="form-inputs-endereco">
                     <label class="label" for="cnpjEmpresa">CNPJ: </label>
                     <input type="number" class="form-input-item-v2" id="cnpjEmpresa" formControlName="cnpjEmpresa" ng-required="true">
                 </div>
-                <div class="form-input-cep">
+                <div class="form-inputs-endereco">
                     <label class="label" for="cepEmpresa">CEP: </label>
                     <input type="number" class="form-input-item-v2" id="cepEmpresa" formControlName="cepEmpresa" ng-required="true">
                 </div>
-                <div class="form-input-endereco">
+                <div class="form-inputs-endereco">
                     <label class="label" for="enderecoEmpresa">Endereço: </label>
                     <input type="text" class="form-input-item-v2" id="enderecoEmpresa" formControlName="enderecoEmpresa" ng-required="true">
                 </div>
-                <div class="form-input-bairro">
-                    <label class="label" for="bairroEmpresa">Bairro: </label>
-                    <input type="text" class="form-input-item-v2" id="bairroEmpresa" formControlName="bairroEmpresa" ng-required="true">
+                <div class="form-inputs-endereco">
+                    <label class="label" for="complementoEmpresa">Complemento: </label>
+                    <input type="text" class="form-input-item-v2" id="complementoEmpresa" formControlName="complementoEmpresa" ng-required="true">
                 </div>
-                <div class="form-input-cidade">
+                <div class="form-inputs-endereco">
                     <label class="label" for="cidadeEmpresa">Cidade: </label>
                     <input type="text" class="form-input-item-v2" id="cidadeEmpresa" formControlName="cidadeEmpresa" ng-required="true">
                 </div>
-                <div class="form-input-estado">
+                <div class="form-inputs-endereco">
+                    <label class="label" for="bairroEmpresa">Bairro: </label>
+                    <input type="text" class="form-input-item-v2" id="bairroEmpresa" formControlName="bairroEmpresa" ng-required="true">
+                </div>
+                <div class="form-inputs-endereco">
                     <label class="label" for="estadoEmpresa">Estado: </label>
                     <input type="text" class="form-input-item-v2" id="estadoEmpresa" formControlName="estadoEmpresa" ng-required="true">
+                </div>
+                <div class="form-inputs-endereco">
+                    <label class="label" for="zonaEmpresa">Zona: </label>
+                    <input type="text" class="form-input-item-v2" id="zonaEmpresa" formControlName="zonaEmpresa" ng-required="true">
                 </div>
             </div>
             <div class="cadastro-content">
