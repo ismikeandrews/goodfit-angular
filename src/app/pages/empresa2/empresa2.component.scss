@@ -1,8 +1,9 @@
 @import '../../shared/scss/variables.scss';
+@import '../../shared/scss/base.scss';
 
 .form-inputs{
     &-endereco{
-        margin: 2%;
+        margin: 5%;
         width: 40%;
         display: inline-block;
 
@@ -12,5 +13,16 @@
             width: auto;
         }
     }
+}
 
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+
+  .mat-horizontal-stepper-header-container {
+    background-color: #F2F2F2!important;
 }

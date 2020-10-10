@@ -5,15 +5,33 @@
                 <img src="../../../assets/images/ijc.png" alt="Logo - Instituto Jô Clemente" class="logo-img">
             </div>
         </div>
-
         <div class="section section-cadastro">
             <div class="intro">
                 <h1 class="intro-title"> Agora estamos na Etapa 2 </h1>
                 <h3 class="intro-desc"> Insira mais informações da Empresa. </h3>
             </div>
         </div>
-
-        <form autocomplete="off" [formGroup]="cadastro2Form">
+          <mat-horizontal-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup" >
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Fill out your name</ng-template>
+ 
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" label="Fill out your address" completed>
+              <form [formGroup]="secondFormGroup">
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Done</ng-template>
+              <p>You are now done.</p>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        <!--<form autocomplete="off" [formGroup]="cadastro2Form">
             <div class="form-inputs">
                 <div class="form-inputs-endereco">
                     <label class="label" for="cnpjEmpresa">CNPJ: </label>
@@ -50,12 +68,14 @@
             </div>
             <div class="cadastro-content">
                 <div class="cadastro-content-item login-btn-entrar">
-                    <button class="btn btn-back"> Voltar </button>
+                    <button class="btn btn-back" mat-button matStepperPrevious> Voltar </button>
                 </div>
                 <div class="cadastro-content-item">
-                    <a href="" class="btn btn-cadastrar"> Finalizar </a>
+                    <a href=""  mat-button matStepperNext class="btn btn-cadastrar"> Finalizar </a>
                 </div>
             </div>
-        </form>
+        </form>-->
     </div>
 </section>
+
+
