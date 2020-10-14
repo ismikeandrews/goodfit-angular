@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VagaService } from '../../services/vaga.service';
 
 @Component({
   selector: 'app-candidatos-list',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./candidatos-list.component.scss']
 })
 export class CandidatosListComponent implements OnInit {
+  public candidaturas : Object
 
-  constructor() { }
+  constructor(private vagaService : VagaService) { }
 
   ngOnInit() {
+      this.getCandidatosPorVaga()
+  }
+
+  async getCandidatosPorVaga() {
+      this.candidaturas = await this.vagaService.getCandidatosPorVaga(3)
+    console.log(this.candidaturas)
   }
 
 }
