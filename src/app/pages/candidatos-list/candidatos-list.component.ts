@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VagaService } from '../../services/vaga.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-candidatos-list',
@@ -9,15 +10,19 @@ import { VagaService } from '../../services/vaga.service';
 export class CandidatosListComponent implements OnInit {
   public candidaturas : Object
 
-  constructor(private vagaService : VagaService) { }
+  constructor(private vagaService : VagaService, private authService : AuthService) {
+      if ( ! authService.isSpecialUser() ) {
+          console.log('Error 403')
+      }
+  }
 
   ngOnInit() {
       this.getCandidatosPorVaga()
   }
 
   async getCandidatosPorVaga() {
-      this.candidaturas = await this.vagaService.getCandidatosPorVaga(3)
-    console.log(this.candidaturas)
+      const params      = this.authService.getLoggedUser()
+      this.candidaturas = await this.vagaService.getCandidatosPorVaga(params.token)
   }
 
 }
