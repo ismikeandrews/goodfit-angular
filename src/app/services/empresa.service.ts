@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import {Empresa} from '../models/empresa.model';
+import {EmpresaModel } from '../models/empresa.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class EmpresaService {
     private http: HttpClient,
   ) { }
 
-  async create(empresa: Empresa) {
+  async create(empresa: EmpresaModel) {
     return this.http.post(`${environment.baseUrlApi}/empresa`, empresa).toPromise()
   }
 }
