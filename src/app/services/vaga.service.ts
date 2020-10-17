@@ -11,8 +11,8 @@ export class VagaService {
     private http: HttpClient,
   ) { }
 
-  async getCandidatosPorVaga(codEmpresa){
-      return await this.http.get(`${environment.baseUrlApi}/empresa/${codEmpresa}/candidatos`).toPromise()
+  async getCandidatosPorVaga(token : string){
+      return await this.http.get(`${environment.baseUrlApi}/empresa/candidatos?token=${token}`).toPromise()
   }
 
   async getVagasByCompanyId(codEmpresa, page){
