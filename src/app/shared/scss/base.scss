@@ -64,35 +64,43 @@ a {
     cursor: pointer;
     display: flex;
     margin-right: 20px;
+   
     &--item {
         border-radius: 50%;
         height: 51px;
         margin: 0 10px;
         position: relative;
         width: 51px;
+   
         @include MQ($L) {
             height: 45px;
             width: 45px;
         }
+   
         @include MQ($S) {
             height: 35px;
             margin: 0 5px;
             width: 35px;
         }
+   
         @include MQ($XS) {
             height: 30px;
             width: 30px;
         }
+
         &-icon {
             color: #fff;
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            transition: color .7s ease-in-out;
+            transition: all .5s ease-in-out;
+            
             &:hover {
-                color: #252525;
+                color: #b9b9b9;
+                opacity: 0.7;
             }
+            
             @include MQ($S) {
                 font-size: 20px;
                 height: 20px;

@@ -13,7 +13,22 @@ export class CandidatosComponent implements OnInit {
   }
 
   changeView() {
-    console.log('clicou')
+    const list = document.getElementById('list')
+    const focus = document.getElementById('focus')
+    const listIcon = document.getElementById('list-icon')
+    const focusIcon = document.getElementById('focus-icon')
+    
+    if (list.classList.contains('is-active')) {
+      list.classList.remove('is-active')
+      focus.classList.add('is-active')
+      listIcon.classList.add('is-active')
+      focusIcon.classList.remove('is-active')
+    } else {
+      list.classList.add('is-active')
+      focus.classList.remove('is-active')
+      listIcon.classList.remove('is-active')
+      focusIcon.classList.add('is-active')
+    }
   }
 }
 

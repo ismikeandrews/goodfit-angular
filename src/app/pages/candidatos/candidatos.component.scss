@@ -3,6 +3,14 @@
 .candidato{
 }
 
+#list-icon, #focus-icon {
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
+}
+
 .list, .focus {
     display: none;
 
