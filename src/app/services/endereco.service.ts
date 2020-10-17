@@ -18,4 +18,8 @@ export class EnderecoService {
   async getEnderecoByIds(ids){
     return await this.http.post(`${environment.baseUrlApi}/endereco`, ids).toPromise();
   }
+
+  async getEnderecoPorCod(codEndereco : number) {
+      return await this.http.get(`${environment.baseUrlApi}/endereco/${codEndereco}`).toPromise()
+  }
 }

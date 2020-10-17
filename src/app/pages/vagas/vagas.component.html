@@ -17,7 +17,7 @@
         </div>
         <div class="content">
             <div class="item" *ngFor='let vaga of vagasList'>
-                <div class="item--box" (click)="openDialog()">
+                <div class="item--box" (click)="openDialog(vaga.codVaga)">
                     <div class="item--box-desc">
                         <div class="item--box-desc-img">
                             <img src="../../../../assets/images/icones/profissao/{{vaga.profissao.categoria.imagemCategoria}}" alt="{{vaga.profissao.nomeProfissao}} {{vaga.profissao.categoria.nomeCategoria}}" class="item--box-desc-img-icon">
@@ -47,7 +47,7 @@
                 <div class="pagination-button">
                     <img src="../../../../assets/images/componentes/pagination-icon.png" alt="Voltar" class="pagination-button-icon pagination-button-icon__prev">
                 </div>
-                
+
                 <div class="pagination-number" *ngFor='let item of pagination' >
                     <div class="pagination-number-item {{item.class}}">
                         {{item.number}}
