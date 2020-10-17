@@ -7,6 +7,7 @@ import { ProfissaoService } from './../../services/profissao.service';
 import { CategoriaService } from './../../services/categoria.service';
 import { EnderecoService } from './../../services/endereco.service';
 import { RegimeContratacaoService } from './../../services/regime-contratacao.service';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -25,13 +26,14 @@ export class VagasComponent implements OnInit {
   public vagasList = [];
 
   constructor(
-    public dialog: MatDialog,
-    private vagaService: VagaService,
-    private profissaoService: ProfissaoService,
-    private categoriaService: CategoriaService,
-    private enderecoService: EnderecoService,
-    private regimeContratacaoService: RegimeContratacaoService,
-    ) {
+    public dialog                    : MatDialog,
+    private vagaService              : VagaService,
+    private profissaoService         : ProfissaoService,
+    private categoriaService         : CategoriaService,
+    private enderecoService          : EnderecoService,
+    private regimeContratacaoService : RegimeContratacaoService,
+    private authService              : AuthService
+  ) {
   }
 
   ngOnInit() {
@@ -47,8 +49,9 @@ export class VagasComponent implements OnInit {
   }
 
   async loadVagas(){
-    const vagaRes:any = await this.vagaService.getVagasByCompanyId(3, 1);
-    return vagaRes.data;
+      const params      = this.authService.getLoggedUser()
+      const vagaRes:any = await this.vagaService.getVagasByCompanyId(params.token, 1);
+      return vagaRes.data;
   }
 
   async buildProfissaoArrayObj(){
@@ -60,8 +63,8 @@ export class VagasComponent implements OnInit {
       categoriaRes.forEach(categoria => {
         if (profissao.codCategoria === categoria.codCategoria) {
           mergedObjectArray.push({
-            codProfissao: profissao.codProfissao, 
-            nomeProfissao: profissao.nomeProfissao, 
+            codProfissao: profissao.codProfissao,
+            nomeProfissao: profissao.nomeProfissao,
             categoria: {
               codCategoria: categoria.codCategoria,
               imagemCategoria: categoria.imagemCategoria,
@@ -106,8 +109,8 @@ export class VagasComponent implements OnInit {
                     descricaoVaga: vaga.descricaoVaga,
                     quantidadeVaga: vaga.quantidadeVaga,
                     salarioVaga: vaga.salarioVaga,
-                    regime: regime, 
-                    profissao: profissao, 
+                    regime: regime,
+                    profissao: profissao,
                     endereco: endereco
                   })
                 }

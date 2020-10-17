@@ -15,8 +15,8 @@ export class VagaService {
       return await this.http.get(`${environment.baseUrlApi}/empresa/candidatos?token=${token}`).toPromise()
   }
 
-  async getVagasByCompanyId(codEmpresa, page){
-    return await this.http.get(`${environment.baseUrlApi}/empresa/${codEmpresa}/vagas?${page}`).toPromise();
+  async getVagasByCompanyId(token : string){
+    return await this.http.get(`${environment.baseUrlApi}/empresa/vagas?token=${token}`).toPromise();
   }
 
   async setVaga(vaga){
