@@ -1,13 +1,15 @@
-export class Empresa{
-    codEmpresa: number;
-    nomeEmpresa: string;
-    nomeEmpresaFantasia: string;
-    cnpjEmpresa: string;
+export class EmpresaModel{
+    codEmpresa          : number
+    razaoSocialEmpresa  : string
+    nomeFantasiaEmpresa : string
+    cnpjEmpresa         : string
+    codUsuario          : number
 
-    constructor(){
-       this.codEmpresa = null;
-       this.nomeEmpresa = "";
-       this.nomeEmpresaFantasia = "";
-       this.cnpjEmpresa = "";
+    constructor(codUsuario: number){
+        this.codUsuario          = codUsuario
+        this.codEmpresa          = null
+        this.razaoSocialEmpresa  = ""
+        this.nomeFantasiaEmpresa = ""
+        this.cnpjEmpresa         = ""
     }
 }
