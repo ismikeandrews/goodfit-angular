@@ -18,7 +18,8 @@ const routes: Routes = [
       {path: 'vagas', component: VagasComponent},
       {path: 'vagas/create', component: CreateVagaComponent},
       {path: 'nivel-usuario', component: NivelUsuarioComponent},
-      {path: 'candidatos', component: CandidatosComponent}
+      {path: 'candidatos', component: CandidatosComponent},
+      {path: 'nivel-usuario', component: NivelUsuarioComponent}
       // {path: '', redirectTo: 'login', pathMatch: 'full'},
       // {path: 'vagas', component: VagasComponent, canActivate: [AuthGuard]},
       // {path: 'vagas/create', component: CreateVagaComponent, canActivate: [AuthGuard]},
@@ -26,7 +27,7 @@ const routes: Routes = [
       // {path: 'candidatos', component: CandidatosComponent, canActivate: [AuthGuard]}
     ]
   },
-  {path: 'nivel-usuario', component: NivelUsuarioComponent},
+  
   // {path: 'login', component: AuthLoginComponent},
   {path: 'empresa', component: EmpresaComponent},
   {path: 'empresa2', component: Empresa2Component},
