@@ -16,11 +16,11 @@ export class CategoriaService {
   }
 
   async getCategoriaList() {
-    return this.http.get(`${environment.baseUrlApi}/categoria`).toPromise();
+    return this.http.get(`${environment.originalUrlApi}/categoria`).toPromise();
   }
 
   async getCategoriaPorCod(codCategoria : number) {
-      return this.http.get(`${environment.baseUrlApi}/categoria/${codCategoria}`).toPromise()
+      return this.http.get(`${environment.originalUrlApi}/categoria/${codCategoria}`).toPromise()
   }
 
   async getCategoria(codCategoria : number) {

@@ -12,14 +12,14 @@ export class EnderecoService {
   ) { }
 
   async setEndereco(endereco){
-    return await this.http.post(`${environment.baseUrlApi}/endereco/store`, endereco).toPromise();
+    return await this.http.post(`${environment.originalUrlApi}/endereco/store`, endereco).toPromise();
   }
 
   async getEnderecoByIds(ids){
-    return await this.http.post(`${environment.baseUrlApi}/endereco`, ids).toPromise();
+    return await this.http.post(`${environment.originalUrlApi}/endereco`, ids).toPromise();
   }
 
   async getEnderecoPorCod(codEndereco : number) {
-      return await this.http.get(`${environment.baseUrlApi}/endereco/${codEndereco}`).toPromise()
+      return await this.http.get(`${environment.originalUrlApi}/endereco/${codEndereco}`).toPromise()
   }
 }

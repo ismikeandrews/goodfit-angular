@@ -12,6 +12,6 @@ export class EmpresaService {
   ) { }
 
   async create(empresa: EmpresaModel) {
-    return this.http.post(`${environment.baseUrlApi}/empresa`, empresa).toPromise()
+    return this.http.post(`${environment.originalUrlApi}/empresa`, empresa).toPromise()
   }
 }

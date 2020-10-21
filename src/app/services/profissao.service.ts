@@ -14,11 +14,11 @@ export class ProfissaoService {
   ) { }
 
   async getProfissaoList() {
-    return this.http.get(`${environment.baseUrlApi}/profissao`).toPromise();
+    return this.http.get(`${environment.originalUrlApi}/profissao`).toPromise();
   }
 
   async getProfissaoPorCod(codProfissao : number) {
-      return this.http.get(`${environment.baseUrlApi}/profissao/${codProfissao}`).toPromise()
+      return this.http.get(`${environment.originalUrlApi}/profissao/${codProfissao}`).toPromise()
   }
 
   async getProfissao(codProfissao : number) {

@@ -19,14 +19,14 @@ const routes: Routes = [
       {path: 'vagas', component: VagasComponent, canActivate: [AuthGuard]},
       {path: 'vagas/create', component: CreateVagaComponent, canActivate: [AuthGuard]},
       {path: 'nivel-usuario', component: NivelUsuarioComponent, canActivate: [AuthGuard]},
-      {path: 'candidatos', component: CandidatosComponent, canActivate: [AuthGuard]}
+      {path: 'candidatos', component: CandidatosComponent, canActivate: [AuthGuard]},
+      {path: 'processos', component: ProcessosComponent}
     ]
   },
   {path: 'nivel-usuario', component: NivelUsuarioComponent},
   {path: 'login', component: AuthLoginComponent},
   {path: 'empresa', component: EmpresaComponent},
-  {path: 'empresa2', component: Empresa2Component},
-  {path: 'processos', component: ProcessosComponent}
+  {path: 'empresa2', component: Empresa2Component}
 ];
 
 @NgModule({

@@ -9,6 +9,9 @@ export class CandidatosFocusComponent implements OnInit {
 
   constructor() { }
 
+  public name = 'Sobre';
+
+
   ngOnInit() {
   }
 

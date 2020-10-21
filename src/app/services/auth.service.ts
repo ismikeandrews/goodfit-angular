@@ -1,7 +1,7 @@
 import {HttpClient} from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import {Injectable} from "@angular/core";
-//import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   async login(data) {
-    return await this.http.post(`${environment.baseUrlApi}/login`, data).toPromise()
+    return await this.http.post(`${environment.originalUrlApi}/login`, data).toPromise()
   }
 
   setLoggedUser(userData) {

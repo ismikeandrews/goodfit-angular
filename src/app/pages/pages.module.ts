@@ -26,6 +26,8 @@ import { CandidatosListComponent } from './candidatos-list/candidatos-list.compo
 import { EmpresaComponent } from './empresa/empresa.component';
 import { Empresa2Component } from './empresa2/empresa2.component';
 import { ProcessosComponent } from './processos/processos.component';
+import { AccordionComponent } from '../shared/components/accordion/accordion.component';
+
 
 @NgModule({
   declarations: [VagasComponent, NivelUsuarioComponent, CreateVagaComponent, CandidatosFocusComponent, CandidatosComponent, CandidatosListComponent, EmpresaComponent, Empresa2Component, ProcessosComponent],
@@ -51,6 +53,7 @@ import { ProcessosComponent } from './processos/processos.component';
   ],
   entryComponents: [
     ModalComponent,
+    AccordionComponent
   ]
 })
 export class PagesModule { }

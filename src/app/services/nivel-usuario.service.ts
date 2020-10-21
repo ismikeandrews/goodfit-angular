@@ -13,18 +13,18 @@ export class NivelUsuarioService {
   ) { }
 
   async getAllNivelUsuario() {
-    return this.http.get(`${environment.baseUrlApi}/nivel-usuario`).toPromise();
+    return this.http.get(`${environment.originalUrlApi}/nivel-usuario`).toPromise();
   }
 
   async getNivelUsuarioById(id: number){
-    return this.http.get(`${environment.baseUrlApi}/nivel-usuario/${id}`).toPromise();
+    return this.http.get(`${environment.originalUrlApi}/nivel-usuario/${id}`).toPromise();
   }
  
   async setNivelUsuario(nivelUsuario: any){
-    return this.http.post(`${environment.baseUrlApi}/nivel-usuario/register`, nivelUsuario).toPromise()
+    return this.http.post(`${environment.originalUrlApi}/nivel-usuario/register`, nivelUsuario).toPromise()
   } 
 
   async deleteNivelUsuario(id: number){
-    return this.http.delete(`${environment.baseUrlApi}/nivel-usuario/delete/${id}`).toPromise()
+    return this.http.delete(`${environment.originalUrlApi}/nivel-usuario/delete/${id}`).toPromise()
   }
 }

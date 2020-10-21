@@ -18,28 +18,29 @@
     </div>
     
     <div class="candidato__content">
-        <div class="candidato__content-item">
-            <div class="xp">
-                <div class="xp__item">
-                    <div class="xp__nome">
-                        Nome da vaga
+        <app-accordion [title]="name">
+            <div class="candidato__content-item">
+                <div class="xp">
+                    <div class="xp__item">
+                        <div class="xp__nome">
+                            Nome da vaga
+                        </div>
+                        <div class="xp__desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </div>
                     </div>
-                    <div class="xp__desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </div>
-                
-                <div class="xp__item">
-                    <div class="xp__nome">
-                        Nome da vaga
-                    </div>
-                    <div class="xp__desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    
+                    <div class="xp__item">
+                        <div class="xp__nome">
+                            Nome da vaga
+                        </div>
+                        <div class="xp__desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </app-accordion>
         <div class="candidato__content-item">
             <div class="profile">
                 <div class="profile__perfil">
