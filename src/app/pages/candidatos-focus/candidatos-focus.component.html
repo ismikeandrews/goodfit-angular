@@ -1,102 +1,130 @@
 <div class="candidato__focus">
     <div class="candidato__header">
-        <img src="../../../assets/images/icones/profissao/livros.png" alt="Professor" class="candidato__header--icon">
-        
-        <h1 class="candidato__header--title">
-            Professor
-        </h1>
-    </div>
-    
-    <div class="candidato__focus-content">
-        <div class="profile">
-            <div class="profile__perfil">
-                <div class="profile__perfil-percent">
-                    <svg>
-                    <circle cx="80" cy="80" r="80"></circle>
-                    <circle cx="80" cy="80" r="80"></circle>
-                    </svg>
-                    <div class="profile__perfil-img">
-                        <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="profile__perfil-img-icon">
-                    </div>
-                </div>
+        <div class="candidato__category">
+            <img src="../../../assets/images/icones/profissao/livros.png" alt="Professor" class="candidato__header-icon">
+            <h1 class="candidato__title">
+                Professor
+            </h1>
+        </div>
+
+        <div class="candidato__buttons">
+            <div class="candidato__process candidato__process--decline">
+                Recusar
             </div>
-            <div class="profile__info">
-                <div class="profile__info-item">
-                    Cyntia Sayuri de Almeida, 19 anos
-                </div>
-                <div class="profile__info-item profile__email">
-                    <a href="mailto:email@email.com.br" class="profile__email-link">
-                        <mat-icon style="font-size: 21px;line-height: 26px;">mail_outline</mat-icon> Enviar email
-                    </a>
-                </div>
-                <div class="profile__info-item profile__buttons">
-                    <div class="profile__buttons-process profile__buttons-process--decline">
-                        Recusar
-                    </div>
-                    <div class="profile__buttons-process profile__buttons-process--accept">
-                        Selecionar
-                    </div>
-                </div>
+            <div class="candidato__process candidato__process--accept">
+                Selecionar
             </div>
         </div>
-        <div class="description">
-            <mat-tab-group>
-                <mat-tab>
-                    <ng-template mat-tab-label md-no-pagination="true">
-                        <mat-icon>videocam</mat-icon>
-                    </ng-template>
-                    
-                    <div class="description__video">
-                        <img src="../../../../assets/images/video.png" alt="Descrição do candidato" class="description__video-img">
+    </div>
+    
+    <div class="candidato__content">
+        <div class="candidato__content-item">
+            <div class="xp">
+                <div class="xp__item">
+                    <div class="xp__nome">
+                        Nome da vaga
                     </div>
-                </mat-tab>
+                    <div class="xp__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                </div>
                 
-                <mat-tab>
-                    <ng-template mat-tab-label>
-                        <mat-icon>notes</mat-icon>
-                    </ng-template>
-                    
-                    <div class="description__text">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum commodi et, magni recusandae dicta repudiandae fuga provident possimus voluptatem dolores harum officia assumenda cumque sunt maxime nostrum nam sapiente dignissimos?
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum commodi et, magni recusandae dicta repudiandae fuga provident possimus voluptatem dolores harum officia assumenda cumque sunt maxime nostrum nam sapiente dignissimos?
+                <div class="xp__item">
+                    <div class="xp__nome">
+                        Nome da vaga
                     </div>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
-    </div>
-    
-    <div class="candidato__focus-content">
-        <div class="topicos">
-            <div class="topicos__title">
-                Requisitos
-            </div>
-            <div class="topicos__list topicos__list--requisito">
-                <div class="topicos__list-item topicos__list-item--requisito">
-                    <img src="../../../../assets/images/icones/requisitos/alfabetizacao.png" alt="Alfabetizado" class="topicos__list-item-icon">
-                    <div class="topicos__list-item-name">Alfabetizado</div>
-                </div>  
-                <div class="topicos__list-item topicos__list-item--requisito">
-                    <img src="../../../../assets/images/icones/requisitos/escolaridade.png" alt="Escolarizado" class="topicos__list-item-icon">
-                    <div class="topicos__list-item-name">Escolarizado</div>
+                    <div class="xp__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="topicos">
-            <div class="topicos__title">
-                Habilidades
+        
+        <div class="candidato__content-item">
+            <div class="profile">
+                <div class="profile__perfil">
+                    <div class="profile__perfil-percent">
+                        <svg>
+                            <circle cx="80" cy="80" r="80"></circle>
+                            <circle cx="80" cy="80" r="80"></circle>
+                        </svg>
+                        <div class="profile__perfil-img">
+                            <img src="../../../assets/images/icones/boy.png" alt="Nome do candidato" class="profile__perfil-img-icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="profile__info">
+                    <div class="profile__info-item">
+                        Cyntia Sayuri de Almeida, 19 anos
+                    </div>
+                    <div class="profile__info-item profile__email">
+                        <a href="mailto:email@email.com.br" class="profile__email-link">
+                            <mat-icon style="font-size: 21px; line-height: 26px;">mail_outline</mat-icon> Enviar email
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="topicos__list">
-                <div class="topicos__list-item">
-                    <img src="../../../../assets/images/icones/habilidades/baby.png" alt="Crianças" class="topicos__list-item-icon">
-                    <div class="topicos__list-item-name">Crianças</div>
+
+            <div class="topicos">
+                <div class="topicos__title">
+                    Requisitos
                 </div>
-                <div class="topicos__list-item">
-                    <img src="../../../../assets/images/icones/habilidades/matematica.png" alt="Matematica" class="topicos__list-item-icon">
-                    <div class="topicos__list-item-name">Números</div>
+                <div class="topicos__list topicos__list--requisito">
+                    <div class="topicos__list-item topicos__list-item--requisito">
+                        <img src="../../../../assets/images/icones/requisitos/alfabetizacao.png" alt="Alfabetizado" class="topicos__list-item-icon">
+                        <div class="topicos__list-item-name">Alfabetizado</div>
+                    </div>  
+                    <div class="topicos__list-item topicos__list-item--requisito">
+                        <img src="../../../../assets/images/icones/requisitos/escolaridade.png" alt="Escolarizado" class="topicos__list-item-icon">
+                        <div class="topicos__list-item-name">Escolarizado</div>
+                    </div>
                 </div>
-                <div class="topicos__list-item">
-                    <img src="../../../../assets/images/icones/habilidades/relacionamento.png" alt="Relacionamento" class="topicos__list-item-icon">
-                    <div class="topicos__list-item-name">Relacionamento</div>
+            </div>
+        </div>
+        
+        <div class="candidato__content-item">
+            <div class="description">
+                <mat-tab-group>
+                    <mat-tab>
+                        <ng-template mat-tab-label md-no-pagination="true">
+                            <mat-icon>videocam</mat-icon>
+                        </ng-template>
+                        
+                        <div class="description__video">
+                            <img src="../../../../assets/images/video.png" alt="Descrição do candidato" class="description__video-img">
+                        </div>
+                    </mat-tab>
+                    
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon>notes</mat-icon>
+                        </ng-template>
+                        
+                        <div class="description__text">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum commodi et, magni recusandae dicta repudiandae fuga provident possimus voluptatem dolores harum officia assumenda cumque sunt maxime nostrum nam sapiente dignissimos?
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum commodi et, magni recusandae dicta repudiandae fuga provident possimus voluptatem dolores harum officia assumenda cumque sunt maxime nostrum nam sapiente dignissimos?
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+
+            <div class="topicos">
+                <div class="topicos__title">
+                    Habilidades
+                </div>
+                <div class="topicos__list">
+                    <div class="topicos__list-item">
+                        <img src="../../../../assets/images/icones/habilidades/baby.png" alt="Crianças" class="topicos__list-item-icon">
+                        <div class="topicos__list-item-name">Crianças</div>
+                    </div>
+                    <div class="topicos__list-item">
+                        <img src="../../../../assets/images/icones/habilidades/matematica.png" alt="Matematica" class="topicos__list-item-icon">
+                        <div class="topicos__list-item-name">Números</div>
+                    </div>
+                    <div class="topicos__list-item">
+                        <img src="../../../../assets/images/icones/habilidades/relacionamento.png" alt="Relacionamento" class="topicos__list-item-icon">
+                        <div class="topicos__list-item-name">Relacionamento</div>
+                    </div>
                 </div>
             </div>
         </div>
