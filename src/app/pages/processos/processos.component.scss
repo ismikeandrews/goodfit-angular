@@ -1,0 +1,67 @@
+@import '../../shared/scss/variables.scss';
+@import '../../shared/scss/base.scss';
+
+.table {
+    font: 18px $font-regular;
+    margin-top: 40px;
+    width: 100%;
+
+    &__column {
+        color: $dark_red;
+        font-family: $font-bold;
+        font-size: 20px;
+        padding: 20px 10px;
+        text-align: left;
+    }
+
+    &__row {
+        background: #dedede;
+        
+        &:nth-child(odd) {
+            background: #d4d4d4;
+        }
+        
+        &--title {
+            background: #dedede !important;
+        }
+    }
+
+    &__item {
+        padding: 25px 15px;
+        
+        &--status {
+            padding: 25px 15px 25px 45px;
+            position: relative;
+            
+            &::before {
+                background: #fed066;
+                border: 1px solid #b9b9b9;
+                border-radius: 100%;
+                content: '';
+                height: 15px;
+                left: 20px;
+                position: absolute;
+                top: 28px;
+                width: 15px;
+            }
+        }
+
+        &--accept {
+            &::before {
+                background: #68dd9b;
+            }
+        }
+        
+        &--wait {
+            &::before {
+                background: #fed066;
+            }
+        }
+
+        &--decline {
+            &::before {
+                background: #e06f50;
+            }
+        }
+    }
+}

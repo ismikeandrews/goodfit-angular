@@ -14,12 +14,12 @@
 
 .container__menu {
     background: #E5E5E5;
-    padding: 10px 15px;
-    margin-left: 15px;
+    padding: 10px 25px 10px 30px;
 }
 
 .menu {
     height: 100%;
+    
     &.is-active {
         .menu--content-item-link {
             border-bottom: 1px solid #bababa;
@@ -63,6 +63,7 @@
             }
         }
     }
+    
     &--button {
         align-items: center;
         cursor: pointer;
@@ -110,7 +111,7 @@
     &--content {
         background: $dark_red;
         height: 100%;
-        padding: 20px 15px;
+        padding: 20px 15px 20px 10px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
