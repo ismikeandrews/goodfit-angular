@@ -12,3 +12,46 @@
     width: 100%;
     cursor: pointer;
 }
+
+.process__button {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+
+    &-item {
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: 500;
+        padding: 5px;
+        margin: 0 5px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: background .5s ease-in-out;
+        width: 70px;
+        
+        &.candidato {
+            align-items: center;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px 15px;
+            width: 130px;
+        }
+
+        &--decline {
+            background-color: #e06f50;
+
+            &:hover {
+                background-color: #af553c;
+            }
+        }
+        
+        &--accept {
+            background-color: #68dd9b;
+
+            &:hover {
+                background-color: #43a96f;
+            }
+        }
+    }
+}
