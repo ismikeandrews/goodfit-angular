@@ -23,7 +23,8 @@ export class VagasComponent implements OnInit {
   public pagination   : any[]
   public vaga         : any
   public vagasList    = []
-
+  public modal        = ModalComponent
+  public selectedVaga      : number
   constructor(
     public dialog                    : MatDialog,
     private vagaService              : VagaService,
@@ -40,7 +41,7 @@ export class VagasComponent implements OnInit {
   }
 
   openDialog(codVaga : number) {
-      this.dialog.open(ModalComponent);
+      this.dialog.open(ModalComponent, {data: {codVaga: codVaga}});
   }
 
   async loadData(){
