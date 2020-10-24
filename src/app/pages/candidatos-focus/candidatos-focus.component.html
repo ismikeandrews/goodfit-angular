@@ -20,29 +20,19 @@
     </div>
     
     <div class="candidato__content">
-        <app-accordion [title]="name">
-            <div class="candidato__content-item">
-                <div class="xp">
-                    <div class="xp__item">
-                        <div class="xp__nome">
-                            Nome da vaga
-                        </div>
-                        <div class="xp__desc">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </div>
-                    </div>
-                    
-                    <div class="xp__item">
-                        <div class="xp__nome">
-                            Nome da vaga
-                        </div>
-                        <div class="xp__desc">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </div>
-                    </div>
-                </div>
+        <div class="candidato__content-item">
+            <div class="xp__title">
+                Experiência profissional
             </div>
-        </app-accordion>
+            <div class="xp__item" *ngFor='let item of itens'>
+                <app-accordion [title]="item.name">
+                    <div class="xp__text">
+                        {{ item.text }}
+                    </div>
+                </app-accordion>
+            </div>
+        </div>
+
         <div class="candidato__content-item">
             <div class="profile">
                 <div class="profile__perfil">

@@ -9,8 +9,10 @@ export class CandidatosFocusComponent implements OnInit {
 
   constructor() { }
 
-  public name = 'Sobre';
-
+  public itens = [
+      { name: 'Atendente', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+      { name: 'Estagiário de TI', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+  ]
 
   ngOnInit() {
   }

@@ -5,7 +5,7 @@
         align-items: center;
         display: flex;
         justify-content: space-between;
-        margin: 20px 0 30px;
+        margin: 20px 0;
         
         &-icon {
             margin-right: 10px;
@@ -31,8 +31,28 @@
         margin: auto;
         
         &-item {
+            max-height: calc(100vh - 250px);
+            overflow: auto;
+            padding-right: 10px;
             width: 33%;
         }
+    }
+}
+
+.xp {
+    &__title {
+        color: #000;
+        font: 20px $font-bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    &__item {
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        padding: 20px 10px 10px;
     }
 }
 
@@ -126,7 +146,7 @@ svg {
 }
 
 .description {
-    margin: -20px 15px 0;
+    margin: -15px 15px 0;
 
     &__video {
         margin: 10px auto 0;
@@ -141,7 +161,7 @@ svg {
     &__text {
         font: 17px/25px $font-regular;
         margin: 20px 30px 0;
-        max-height: 207px;
+        max-height: 200px;
     }
 }
 
@@ -166,10 +186,7 @@ svg {
         text-align: center;
     }
     
-    &__list {
-        max-height: 160px;
-        overflow: auto;
-        
+    &__list {        
         &--requisito {
             flex-direction: column;
         }
