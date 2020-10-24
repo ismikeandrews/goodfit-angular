@@ -7,9 +7,15 @@
             <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-title"></div>
             <h1 *ngIf="isVagaCarregada" class="header-title"> {{tituloVaga}} </h1>
 
-            <button class="header-close" (click)="closeModal()" mat-icon-button aria-label="Example icon-button with a heart icon">
-                <mat-icon>clear</mat-icon>
-            </button>
+            <div class="header-actions">
+                <button class="header-actions-button" mat-icon-button aria-label="Configurações">
+                    <mat-icon>settings</mat-icon>
+                </button>
+
+                <button class="header-actions-button" (click)="closeModal()" mat-icon-button aria-label="Fechar">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
         </div>
 
         <div class="content">

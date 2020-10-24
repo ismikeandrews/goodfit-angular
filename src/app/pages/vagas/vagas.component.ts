@@ -1,5 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import { VagaModel } from '../../models/vaga.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../../shared/components/modal/modal.component';
 import { VagaService } from '../../services/vaga.service';
@@ -22,7 +21,6 @@ export class VagasComponent implements OnInit {
   public isVagasCarregadas : boolean = false
   public itemsVagas        : any[]
   public pagination        : any[]
-  public vaga              : any
 
   public vagasList         = []
   public modal             = ModalComponent

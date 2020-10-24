@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   async login(data) {
-    return await this.http.post(`${environment.originalUrlApi}/login`, data).toPromise()
+    return await this.http.post(`${environment.baseUrlApi}/login`, data).toPromise()
   }
 
   setLoggedUser(userData) {

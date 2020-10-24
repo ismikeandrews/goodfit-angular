@@ -29,13 +29,21 @@
         text-transform: uppercase;
     }
 
-    &-close {
-        border: none;
-        color: #C4C4C4;
-        outline: none;
+    &-actions {
         position: absolute;
         right: 0;
         top: 0;
+
+        &-button {
+            border: none;
+            color: #C4C4C4;
+            outline: none;
+            transition: .3s;
+
+            &:hover {
+              color: $pink;
+            }
+        }
     }
 }
 
