@@ -30,6 +30,16 @@ export class CandidatosComponent implements OnInit {
       focusIcon.classList.add('is-active')
     }
   }
+
+  btnSearch() {
+    const search = document.getElementById('search')
+    
+    if (search.classList.contains('is-active')) {
+      search.classList.remove('is-active')
+    } else {
+      search.classList.add('is-active')
+    }
+  }
 }
 
 // {

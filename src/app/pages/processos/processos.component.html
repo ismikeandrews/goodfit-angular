@@ -2,6 +2,16 @@
   <div class="wrapper">
     <div class="header">
       <h1 class="title">Procesos Seletivos</h1>
+      
+      <div class="buttons">
+        <input class="search__input search__input--process" type="text" id="search" placeholder="Pesquisar">
+        <div (click)='btnSearch()' class="buttons--item" aria-label="Botão de busca">
+          <mat-icon class="buttons--item-icon">search</mat-icon>
+        </div>
+        <a [routerLink]="['/vagas/create']" class="buttons--item" aria-label="Botão de filtro">
+            <mat-icon class="buttons--item-icon">filter_alt</mat-icon>
+        </a>
+      </div>
     </div>
 
     <div class="content">

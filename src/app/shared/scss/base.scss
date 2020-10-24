@@ -64,6 +64,7 @@ a {
     cursor: pointer;
     display: flex;
     margin-right: 20px;
+    position: relative;
    
     &--item {
         border-radius: 50%;
@@ -107,10 +108,10 @@ a {
                 width: 20px;
             }
         }
-        &:first-child {
+        &:nth-child(2) {
             background-color: $orange;
         }
-        &:nth-child(2) {
+        &:nth-child(3) {
             background-color: $pink;
         }
         &:last-child {
@@ -119,6 +120,29 @@ a {
     }
 }
 
+.search__input {
+    background: #efefef;
+    border: 1px solid #b9b9b9;
+    border-radius: 30px;
+    font-size: 20px;
+    padding: 10px 20px;
+    position: absolute;
+    opacity: 0;
+    outline: none;
+    right: 220px;
+    top: 3px;
+    transition: all .5s ease-in-out;
+    width: 0;
+    
+    &--process {
+        right: 150px;
+    }
+
+    &.is-active {
+        opacity: 1;
+        width: 370px;
+    }
+}
 
 /* Handle on hover */
 

@@ -5,7 +5,8 @@
             <h1 class="title">Candidatos</h1>
 
             <div class="buttons">
-                <div class="buttons--item" aria-label="Botão de busca">
+                <input class="search__input" type="text" id="search" placeholder="Pesquisar">
+                <div (click)='btnSearch()' class="buttons--item" aria-label="Botão de busca">
                     <mat-icon class="buttons--item-icon">search</mat-icon>
                 </div>
                 <div class="buttons--item" aria-label="Botão de filtro">

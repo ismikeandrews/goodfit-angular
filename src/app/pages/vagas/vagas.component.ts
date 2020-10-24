@@ -76,4 +76,14 @@ export class VagasComponent implements OnInit {
           })
       }
   }
+  
+  btnSearch() {
+    const search = document.getElementById('search')
+    
+    if (search.classList.contains('is-active')) {
+      search.classList.remove('is-active')
+    } else {
+      search.classList.add('is-active')
+    }
+  }
 }
