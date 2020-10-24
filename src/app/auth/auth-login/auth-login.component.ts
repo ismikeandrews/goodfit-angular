@@ -34,9 +34,8 @@ export class AuthLoginComponent implements OnInit {
       const token : any = await this.authService.login(this.authModule)
 
       this.authService.setLoggedUser(token)
-      console.log(this.authService.getLoggedUser())
 
-      //await this.router.navigate(['/vagas'])
+      await this.router.navigate(['/vagas'])
     } catch (error) {
       console.log(error)
     }

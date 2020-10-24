@@ -2,6 +2,7 @@ import {HttpClient} from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import {Injectable} from "@angular/core";
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class AuthService {
   public nivelModerador : number
 
   constructor(
-    private http : HttpClient
+    private http   : HttpClient,
+    private router : Router
   ) {
       this.nivelEmpresa   = 3
       this.nivelModerador = 1
@@ -20,6 +22,11 @@ export class AuthService {
 
   async login(data) {
     return await this.http.post(`${environment.baseUrlApi}/login`, data).toPromise()
+  }
+
+  async logout() {
+      localStorage.clear()
+      await this.router.navigate(['/login'])
   }
 
   setLoggedUser(userData) {
