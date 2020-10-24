@@ -17,6 +17,9 @@
     align-items: center;
     display: flex;
     justify-content: space-evenly;
+    position: absolute;
+    right: 20px;
+    top: 20px;
 
     &-item {
         border-radius: 5px;
@@ -29,7 +32,7 @@
         text-transform: uppercase;
         transition: background .5s ease-in-out;
         width: 70px;
-        
+
         &.candidato {
             align-items: center;
             display: flex;
@@ -39,15 +42,15 @@
         }
 
         &--decline {
-            background-color: #e06f50;
+            background-color: #f44336;
 
             &:hover {
-                background-color: #af553c;
+                background-color: #ce4b41;
             }
         }
-        
+
         &--accept {
-            background-color: #68dd9b;
+            background-color: #1ed760;
 
             &:hover {
                 background-color: #43a96f;
