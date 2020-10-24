@@ -6,7 +6,7 @@
     //     display: flex;
     //     margin-bottom: 15px;
     //     position: relative;
-    
+
     //     &:before {
     //     background: #C5C5C5;
     //     content: "";
@@ -18,7 +18,7 @@
     //     transform: translate(50%, -50%);
     //     width: 2px;
     //     }
-    
+
     //     &:after {
     //     background: #C5C5C5;
     //     content: "";
@@ -30,7 +30,7 @@
     //     transform: translate(50%, -50%);
     //     width: 100%;
     //     }
-    
+
     //     &-item {
     //     background: transparent;
     //     cursor: pointer;
@@ -38,7 +38,7 @@
     //     text-align: center;
     //     transition: background .7s ease-out;
     //     width: 50%;
-    
+
     //         &.is-active {
     //             background: rgba(212, 212, 212, 0.47);
     //         }
@@ -48,25 +48,25 @@
     //         }
     //     }
     // }
-  
+
   &--content {
         margin-bottom: 30px;
         position: relative;
         transition: opacity .7s ease-out;
-        
+
         &-video {
             border: 2px dotted #b5b5b5;
             cursor: pointer;
-            height: 100px;
+            height: 133px;
             margin: 20px auto;
             padding: 55px 10px;
             text-align: center;
             transition: all .3s ease-out;
-          
+
             &-icon {
               width: 50px;
             }
-          
+
             &-desc {
               color: #000;
               font: 15px/20px $font-semibold;

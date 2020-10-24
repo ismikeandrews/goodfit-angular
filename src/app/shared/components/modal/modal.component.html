@@ -1,69 +1,69 @@
 <div mat-dialog-content>
     <div class="container">
         <div class="header">
-            <img src="../../../../assets/images/icones/profissao/ti.png" alt="Desenvolvedor" class="header-icon">
-            
-            <h1 class="header-title">
-                Desenvolvedor
-            </h1>
+            <img src="../../../../assets/images/icones/profissao/{{iconeVaga}}" alt="{{tituloVaga}}" class="header-icon">
+
+            <h1 class="header-title"> {{tituloVaga}} </h1>
+
             <button class="header-close" (click)="closeModal()" mat-icon-button aria-label="Example icon-button with a heart icon">
                 <mat-icon>clear</mat-icon>
             </button>
         </div>
-    
+
         <div class="content">
             <div class="content--description-box">
                 <app-description-box></app-description-box>
             </div>
-    
+
             <div class="content--requisitos">
                 <div class="content--requisitos-title">
                     Requisitos
                 </div>
-    
+
                 <div class="content--requisitos__obrigatorio">
                     <div class="content--requisitos-subtitle">
                         Obrigatórios
                     </div>
                     <div class="content--requisitos-list">
-                        <div class="content--requisitos-list-item">
-                            <div class="content--requisitos-list-item-img">
-                                <img src="../../../../assets/images/icones/requisitos/alfabetizacao.png" alt="Alfabetizado" class="content--requisitos-list-item-icon">
+                        <ng-container *ngFor="let requisito of requisitos.obrigatorios">
+                            <div class="content--requisitos-list-item">
+                                <div class="content--requisitos-list-item-img">
+                                    <img src="../../../../assets/images/icones/{{requisito.path}}/{{requisito.icon}}" alt="{{requisito.name}}" class="content--requisitos-list-item-icon">
+                                </div>
+                                <div class="content--requisitos-list-item-name">
+                                    {{requisito.name}}
+                                </div>
                             </div>
-                            <div class="content--requisitos-list-item-name">
-                                Alfabetizado
-                            </div>
-                        </div>
+                        </ng-container>
                     </div>
                 </div>
-    
+
                 <div class="content--requisitos__opcional">
                     <div class="content--requisitos-subtitle">
                         Opcionais
                     </div>
                     <div class="content--requisitos-list">
-                        <div class="content--requisitos-list-item">
-                            <div class="content--requisitos-list-item-img">
-                                <img src="../../../../assets/images/icones/habilidades/comunicativo.png" alt="Comunicativo" class="content--requisitos-list-item-icon">
+                        <ng-container *ngFor="let requisito of requisitos.opcionais">
+                            <div class="content--requisitos-list-item">
+                                <div class="content--requisitos-list-item-img">
+                                    <img src="../../../../assets/images/icones/{{requisito.path}}/{{requisito.icon}}" alt="{{requisito.name}}" class="content--requisitos-list-item-icon">
+                                </div>
+                                <div class="content--requisitos-list-item-name">
+                                    {{requisito.name}}
+                                </div>
                             </div>
-                            <div class="content--requisitos-list-item-name">
-                                Comunicativo
-                            </div>
-                        </div>
+                        </ng-container>
                     </div>
                 </div>
-    
+
             </div>
         </div>
-        
+
         <div class="accordion">
             <div class="content content__accordion" *ngFor='let item of itensList'>
-                <app-accordion [title]="item.itemType.name">
+                <app-accordion [title]="item.itemType.name" style="width: 100%">
                     <div class="accordion--content">
                         <div class="accordion--content-item" *ngFor="let content of item.itemContent">
-                            <div class="accordion--content-img">
-                                <mat-icon class="accordion--content-img-icon">{{content.icon}}</mat-icon>
-                            </div>
                             <div class="accordion--content-desc">
                                 <div class="accordion--content-desc-name">
                                     {{content.name}}:
@@ -77,6 +77,10 @@
                 </app-accordion>
             </div>
         </div>
-    
+
+        <div class="address-map-container">
+            <span class="address-map-text"> {{enderecoVaga}} </span>
+            <img class="address-map" src="https://publicidademarketing.com/wp-content/uploads/2017/11/google-maps.jpg">
+        </div>
     </div>
 </div>

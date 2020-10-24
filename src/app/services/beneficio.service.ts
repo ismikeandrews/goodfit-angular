@@ -11,5 +11,7 @@ export class BeneficioService {
     private http: HttpClient,
   ) { }
 
-  
+  async getBeneficiosPorVaga(codVaga : number, token : string) {
+      return await this.http.get(`${environment.baseUrlApi}/vaga/${codVaga}/beneficio?token=${token}`).toPromise()
+  }
 }

@@ -30,4 +30,8 @@ export class VagaService {
   async setBeneficiosVaga(beneficios){
     return await this.http.post(`${environment.originalUrlApi}/vaga/beneficios`, beneficios).toPromise();
   }
+
+  async getVagaPorCod(codVaga : number, token : string){
+    return await this.http.get(`${environment.baseUrlApi}/vaga/${codVaga}?token=${token}`).toPromise()
+  }
 }

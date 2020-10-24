@@ -3,26 +3,26 @@
 
 .container {
     background: #f2f2f2;
-    border-radius: 20px;
-    height: 630px;
+    border-radius: 5px;
+    height: 650px;
     left: 50%;
     padding: 15px 20px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 730px;
+    width: 760px;
 }
 
 .header {
     align-items: center;
     display: flex;
     position: relative;
-    
+
     &-icon {
         margin-right: 10px;
         width: 40px;
     }
-    
+
     &-title {
         color: #000;
         font: 22px $font-bold;
@@ -52,10 +52,6 @@
     }
 
     &--requisitos {
-        &__obrigatorio {
-            height: 110px;
-        }
-
         &__opcional {
             margin-top: 15px;
         }
@@ -67,21 +63,30 @@
         }
 
         &-subtitle {
-            font: 16px $font-bold;
+            font: 14px $font-bold;
             margin: 10px 0;
+            text-transform: uppercase;
         }
 
         &-list {
             align-items: center;
             display: flex;
+            background: #e8e8e8;
             flex-wrap: wrap;
-            max-height: 80px;
+            height: 80px;
+            justify-content: space-between;
             overflow-y: auto;
+            padding: 10px;
 
             &-item {
                 align-items: center;
+                background: #f7f7f7;
+                border-radius: 5px;
                 display: flex;
-                margin: 0 20px 10px 0;
+                height: 50px;
+                margin-bottom: 10px;
+                padding: 10px;
+                width: 42%;
 
                 &-img {
                     height: 30px;
@@ -94,8 +99,35 @@
 
                 &-name {
                     font: 15px $font-regular;
+                    font-weight: 600;
                 }
             }
         }
+    }
+}
+
+.address-map-container {
+    border-radius: 5px;
+    height: 170px;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    .address-map-text {
+        background: #f7f7f7;
+        border-radius: 5px;
+        bottom: 5px;
+        font-size: 13px;
+        font-weight: bold;
+        left: 5px;
+        max-width: 80%;
+        padding: 10px;
+        position: absolute;
+        text-transform: uppercase;
+    }
+
+    .address-map {
+        width: 100%;
     }
 }

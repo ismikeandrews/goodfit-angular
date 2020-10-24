@@ -1,23 +1,12 @@
 <!-- <ng-container *ngFor='let item of accordion'> -->
-  <mat-accordion class="accordion">
-    <mat-expansion-panel class="accordion--container">
-      
-      <mat-expansion-panel-header class="accordion--container-header">
-        <mat-panel-title class="accordion--container-title">
-          <ng-container *ngIf="title === 'Sobre'">
-            <mat-icon class="accordion--container-title-icon">info</mat-icon> {{title}}
-          </ng-container>
-          <ng-container *ngIf="title === 'Benefícios'">
-            <mat-icon class="accordion--container-title-icon">loyalty</mat-icon> {{title}}
-          </ng-container>
-          <ng-container>
-            {{title}}
-          </ng-container>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-      <ng-content></ng-content>
-      
-    </mat-expansion-panel>
-  </mat-accordion>
+    <mat-accordion class="accordion">
+        <mat-expansion-panel class="accordion--container">
+            <mat-expansion-panel-header class="accordion--container-header">
+                <mat-panel-title class="accordion--container-title">
+                    <ng-container> {{title}} </ng-container>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+          <ng-content></ng-content>
+        </mat-expansion-panel>
+    </mat-accordion>
 <!-- </ng-container> -->

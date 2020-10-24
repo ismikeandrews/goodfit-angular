@@ -7,13 +7,15 @@
     &--container {
         box-shadow: none;
         border-radius: 0 !important;
+        width: 100%;
 
         &-header {
             border-bottom: 1px solid $pink_light;
             background: #f2f2f2;
+          text-transform: uppercase;
             transition: all .5s ease-in-out;
         }
-        
+
         &-title {
             color: $pink_light;
             font: 18px/26px $font-bold;
@@ -35,9 +37,12 @@
 
         &-item {
             align-items: center;
+            background: #f7f7f7;
+            border-radius: 5px;
             display: flex;
             margin-top: 20px;
-            width: 100%;
+            padding: 10px 15px;
+            width: 90%;
 
             &:first-child {
                 margin-top: 0;
@@ -53,8 +58,8 @@
         &-desc {
             &-name {
                 color: $pink_light;
-                font: 11px $font-regular;
-                font-weight: 700;
+                font: 10px $font-regular;
+                font-weight: 900;
                 text-transform: uppercase;
             }
 
@@ -67,23 +72,23 @@
 }
 
 ::ng-deep .mat-expansion-panel-header {
-    background-color: $pink_light !important;
+    background-color: #f2f2f2 !important;
     height: 50px !important;
 }
 
 ::ng-deep .mat-expansion-panel-header-title {
-    color: #fff !important;
+    color: $pink_light !important;
 }
 
 ::ng-deep .mat-expansion-panel-body {
-    background-color: #f2f2f2;
-    border: 1px solid $pink_light;
+    background-color: #e8e8e8;
     border-top: none;
+    height: 190px;
     padding: 0 10px 15px !important;
 }
 
 ::ng-deep .mat-expansion-indicator::after {
-    border-color: #fff !important;
+    border-color: $pink !important;
     margin-bottom: 5px;
     padding: 5px !important;
 }
@@ -92,6 +97,6 @@
 //     background-color: $pink_light;
 // }
 
-// ::ng-deep .cdk-focused { 
+// ::ng-deep .cdk-focused {
 //     display: none;
 // }
