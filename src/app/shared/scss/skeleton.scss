@@ -1,0 +1,44 @@
+.skeleton-vaga {
+    background: #e8e8e8;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+      content: '';
+      background: linear-gradient(to right, transparent 0%, #f7f7f7 50%, transparent 100%);
+      display: block;
+      height: 100%;
+      left: -200px;
+      position: absolute;
+      top: 0;
+      width: 200px;
+    }
+
+    @keyframes load {
+      from {
+        left: -200px;
+      }
+
+      to   {
+        left: 100%;
+      }
+    }
+
+    &-combo {
+        height: 100px;
+        width: 100%;
+    }
+
+    &-icon {
+      height: 40px;
+      width: 40px;
+    }
+
+    &-title {
+      height: 40px;
+      margin-left: 15px;
+      width: 45%;
+    }
+}

@@ -39,5 +39,6 @@ $goodfit-theme: mat-light-theme($goodfit-primary, $goodfit-accent, $goodfit-warn
 @import 'app/shared/scss/form.scss';
 @import 'app/shared/scss/radio.scss';
 @import 'app/shared/scss/profile.scss';
+@import "app/shared/scss/skeleton.scss";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

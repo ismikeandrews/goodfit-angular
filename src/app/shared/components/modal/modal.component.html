@@ -1,9 +1,11 @@
 <div mat-dialog-content>
     <div class="container">
         <div class="header">
-            <img src="../../../../assets/images/icones/profissao/{{iconeVaga}}" alt="{{tituloVaga}}" class="header-icon">
+            <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-icon"></div>
+            <img *ngIf="isVagaCarregada" src="../../../../assets/images/icones/profissao/{{iconeVaga}}" alt="{{tituloVaga}}" class="header-icon">
 
-            <h1 class="header-title"> {{tituloVaga}} </h1>
+            <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-title"></div>
+            <h1 *ngIf="isVagaCarregada" class="header-title"> {{tituloVaga}} </h1>
 
             <button class="header-close" (click)="closeModal()" mat-icon-button aria-label="Example icon-button with a heart icon">
                 <mat-icon>clear</mat-icon>
@@ -24,7 +26,9 @@
                     <div class="content--requisitos-subtitle">
                         Obrigatórios
                     </div>
-                    <div class="content--requisitos-list">
+
+                    <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-combo"></div>
+                    <div *ngIf="isVagaCarregada"  class="content--requisitos-list">
                         <ng-container *ngFor="let requisito of requisitos.obrigatorios">
                             <div class="content--requisitos-list-item">
                                 <div class="content--requisitos-list-item-img">
@@ -42,7 +46,9 @@
                     <div class="content--requisitos-subtitle">
                         Opcionais
                     </div>
-                    <div class="content--requisitos-list">
+
+                    <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-combo"></div>
+                    <div *ngIf="isVagaCarregada" class="content--requisitos-list">
                         <ng-container *ngFor="let requisito of requisitos.opcionais">
                             <div class="content--requisitos-list-item">
                                 <div class="content--requisitos-list-item-img">

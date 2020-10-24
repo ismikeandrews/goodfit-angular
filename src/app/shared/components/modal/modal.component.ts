@@ -3,7 +3,6 @@ import { BeneficioService } from '../../../services/beneficio.service';
 import { MatDialogRef}      from '@angular/material/dialog';
 import {MAT_DIALOG_DATA}    from '@angular/material/dialog';
 import { AdicionalService } from '../../../services/adicional.service';
-import { VagaModel }        from '../../../models/vaga.model';
 import { VagaService }      from '../../../services/vaga.service';
 import {
     Component,
@@ -22,6 +21,8 @@ export class ModalComponent implements OnInit{
     public enderecoVaga  : string
     public iconeVaga     : string
     public tituloVaga    : string
+
+    public isVagaCarregada : boolean = false
 
     public itensList  = [
       {
@@ -67,6 +68,10 @@ export class ModalComponent implements OnInit{
         this.setVaga(vaga[0], beneficios, requisitos)
     }
 
+    setIsVagaCarregada(isVagaCarregada) {
+        this.isVagaCarregada = isVagaCarregada
+    }
+
     setVaga(vaga, beneficios, requisitos) {
         this.setIcone(vaga.imagemCategoria)
         this.setTitulo(vaga.nomeProfissao)
@@ -78,6 +83,8 @@ export class ModalComponent implements OnInit{
 
         this.setDescricao(vaga.descricaoVaga)
         this.setEndereco(vaga.endereco)
+
+        this.setIsVagaCarregada(true)
     }
 
     setBeneficios(beneficios) {
