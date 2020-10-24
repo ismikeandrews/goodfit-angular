@@ -7,9 +7,11 @@
 
 .side-bar {
     transition: width .5s ease-in-out;
-    width: 85px;
+    width: 65px;
+
     &.is-active {
         width: 250px;
+
         @include MQ ($XL) {
             width: 190px;
         }
