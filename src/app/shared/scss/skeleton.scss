@@ -38,13 +38,18 @@
     }
 
     &-icon {
-      height: 40px;
-      width: 40px;
+        height: 40px;
+        width: 40px;
+    }
+
+    &-accordions {
+        height: 50px;
+        margin-top: 20px;
     }
 
     &-title {
-      height: 40px;
-      margin-left: 15px;
-      width: 45%;
+        height: 40px;
+        margin-left: 15px;
+        width: 41%;
     }
 }

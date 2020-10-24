@@ -70,9 +70,10 @@
             </div>
         </div>
 
-        <div class="accordion">
+        <div *ngIf="! isVagaCarregada" class="skeleton-vaga skeleton-vaga-accordions"></div>
+        <div *ngIf="isVagaCarregada" class="accordion">
             <div class="content content__accordion" *ngFor='let item of itensList'>
-                <app-accordion [title]="item.itemType.name" style="width: 100%">
+                <app-accordion *ngIf="item.itemContent.length > 0" [title]="item.itemType.name" style="width: 100%">
                     <div class="accordion--content">
                         <div class="accordion--content-item" *ngFor="let content of item.itemContent">
                             <div class="accordion--content-desc">
