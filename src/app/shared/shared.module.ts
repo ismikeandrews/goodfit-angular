@@ -1,24 +1,38 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DecimalPipe } from '@angular/common';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AccordionComponent } from './components/accordion/accordion.component';
-import { ModalComponent } from './components/modal/modal.component';
+import { CommonModule }            from '@angular/common';
+
+import { AccordionComponent }      from './components/accordion/accordion.component';
 import { DescriptionBoxComponent } from './components/description-box/description-box.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { EmptyComponent }          from './components/empty/empty.component';
+import { MatButtonModule }         from '@angular/material/button';
+import { MatExpansionModule }      from '@angular/material/expansion';
+import { MatIconModule }           from '@angular/material/icon';
+import { MatTabsModule }           from '@angular/material/tabs';
+import { ModalComponent }          from './components/modal/modal.component';
 
 @NgModule({
-  declarations: [AccordionComponent, ModalComponent, DescriptionBoxComponent],
-  exports: [ModalComponent, DescriptionBoxComponent, AccordionComponent],
-  imports: [
-    CommonModule,
-    BrowserAnimationsModule,
-    MatExpansionModule,
-    MatTabsModule,
-    MatButtonModule,
-    MatIconModule
-  ]
+    declarations: [
+        AccordionComponent,
+        DescriptionBoxComponent,
+        EmptyComponent,
+        ModalComponent
+    ],
+    exports: [
+        AccordionComponent,
+        DescriptionBoxComponent,
+        EmptyComponent,
+        ModalComponent
+    ],
+    imports: [
+        BrowserAnimationsModule,
+        CommonModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatTabsModule
+    ]
 })
+
 export class SharedModule { }

@@ -13,8 +13,9 @@
         </div>
 
         <div class="content">
-            <div class="content--description-box">
-                <app-description-box></app-description-box>
+            <div *ngIf="! isVagaCarregada" class="skeleton-vaga skeleton-vaga-descricao"></div>
+            <div class="content--description-box" *ngIf="isVagaCarregada">
+                <app-description-box [description]="descricaoVaga" [isEditing]="false"></app-description-box>
             </div>
 
             <div class="content--requisitos">
@@ -49,9 +50,7 @@
 
                     <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-combo"></div>
                     <div *ngIf="isVagaCarregada" class="content--requisitos-list">
-                        <ng-container *ngIf="! hasRequisitosOpcionais(requisitos)">
-                            <img class="empty-icon" src="../../../../assets/images/icones/empty.png">
-                        </ng-container>
+                        <app-empty *ngIf="! hasRequisitosOpcionais(requisitos)"></app-empty>
 
                         <ng-container *ngIf="hasRequisitosOpcionais(requisitos)">
                             <ng-container *ngFor="let requisito of requisitos.opcionais">

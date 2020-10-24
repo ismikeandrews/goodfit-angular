@@ -1,0 +1,21 @@
+@import 'src/app/shared/scss/variables.scss';
+
+.empty {
+    align-items: center;
+    display: flex;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &-icon {
+        height: 40px;
+        width: 40px;
+    }
+
+    &-text {
+        font: 12px $font-bold;
+        margin-left: 15px;
+        text-transform: uppercase;
+    }
+}
