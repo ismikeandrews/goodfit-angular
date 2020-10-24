@@ -12,11 +12,11 @@ export class VagaService {
   ) { }
 
   async getCandidatosPorVaga(token : string){
-      return await this.http.get(`${environment.originalUrlApi}/empresa/candidatos?token=${token}`).toPromise()
+      return await this.http.get(`${environment.baseUrlApi}/empresa/candidatos?token=${token}`).toPromise()
   }
 
   async getVagasByCompanyId(token : string){
-    return await this.http.get(`${environment.originalUrlApi}/empresa/vagas?token=${token}`).toPromise();
+    return await this.http.get(`${environment.baseUrlApi}/empresa/vagas?token=${token}`).toPromise();
   }
 
   async setVaga(vaga){

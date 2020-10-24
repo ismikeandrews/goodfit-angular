@@ -49,15 +49,21 @@
 
                     <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-combo"></div>
                     <div *ngIf="isVagaCarregada" class="content--requisitos-list">
-                        <ng-container *ngFor="let requisito of requisitos.opcionais">
-                            <div class="content--requisitos-list-item">
-                                <div class="content--requisitos-list-item-img">
-                                    <img src="../../../../assets/images/icones/{{requisito.path}}/{{requisito.icon}}" alt="{{requisito.name}}" class="content--requisitos-list-item-icon">
+                        <ng-container *ngIf="! hasRequisitosOpcionais(requisitos)">
+                            <img class="empty-icon" src="../../../../assets/images/icones/empty.png">
+                        </ng-container>
+
+                        <ng-container *ngIf="hasRequisitosOpcionais(requisitos)">
+                            <ng-container *ngFor="let requisito of requisitos.opcionais">
+                                <div class="content--requisitos-list-item">
+                                    <div class="content--requisitos-list-item-img">
+                                        <img src="../../../../assets/images/icones/{{requisito.path}}/{{requisito.icon}}" alt="{{requisito.name}}" class="content--requisitos-list-item-icon">
+                                    </div>
+                                    <div class="content--requisitos-list-item-name">
+                                        {{requisito.name}}
+                                    </div>
                                 </div>
-                                <div class="content--requisitos-list-item-name">
-                                    {{requisito.name}}
-                                </div>
-                            </div>
+                            </ng-container>
                         </ng-container>
                     </div>
                 </div>
@@ -72,7 +78,7 @@
                         <div class="accordion--content-item" *ngFor="let content of item.itemContent">
                             <div class="accordion--content-desc">
                                 <div class="accordion--content-desc-name">
-                                    {{content.name}}:
+                                    {{content.name}}
                                 </div>
                                 <div class="accordion--content-desc-text">
                                     {{content.text}}

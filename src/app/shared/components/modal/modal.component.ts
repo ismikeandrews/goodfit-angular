@@ -68,6 +68,10 @@ export class ModalComponent implements OnInit{
         this.setVaga(vaga[0], beneficios, requisitos)
     }
 
+    hasRequisitosOpcionais(requisitos) {
+        return requisitos.opcionais.length > 0
+    }
+
     setIsVagaCarregada(isVagaCarregada) {
         this.isVagaCarregada = isVagaCarregada
     }
