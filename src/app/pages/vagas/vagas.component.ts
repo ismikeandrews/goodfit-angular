@@ -18,13 +18,16 @@ import { AuthService } from '../../services/auth.service';
 
 export class VagasComponent implements OnInit {
 
-  public buttonsVagas : any[]
-  public itemsVagas   : any[]
-  public pagination   : any[]
-  public vaga         : any
-  public vagasList    = []
-  public modal        = ModalComponent
-  public selectedVaga      : number
+  public buttonsVagas      : any[]
+  public isVagasCarregadas : boolean = false
+  public itemsVagas        : any[]
+  public pagination        : any[]
+  public vaga              : any
+
+  public vagasList         = []
+  public modal             = ModalComponent
+
+
   constructor(
     public dialog                    : MatDialog,
     private vagaService              : VagaService,
@@ -42,10 +45,6 @@ export class VagasComponent implements OnInit {
 
   openDialog(codVaga : number) {
       this.dialog.open(ModalComponent, {data: {codVaga: codVaga}});
-  }
-
-  async loadData(){
-      this.getVagas()
   }
 
   async getVagas(){
@@ -75,15 +74,17 @@ export class VagasComponent implements OnInit {
               endereco         : endereco
           })
       }
+
+      this.isVagasCarregadas = true
   }
-  
+
   btnSearch() {
-    const search = document.getElementById('search')
-    
-    if (search.classList.contains('is-active')) {
-      search.classList.remove('is-active')
-    } else {
-      search.classList.add('is-active')
-    }
+      const search = document.getElementById('search')
+
+      if (search.classList.contains('is-active')) {
+          search.classList.remove('is-active')
+      } else {
+          search.classList.add('is-active')
+      }
   }
 }

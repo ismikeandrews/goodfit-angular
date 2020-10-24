@@ -26,8 +26,6 @@ export class CategoriaService {
   async getCategoria(codCategoria : number) {
       const categoria: any = await this.getCategoriaPorCod(codCategoria)
 
-      console.log(categoria)
-
       return {
           codCategoria    : categoria.codCategoria,
           imagemCategoria : categoria.imagemCategoria,

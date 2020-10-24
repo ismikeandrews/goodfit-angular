@@ -17,31 +17,29 @@
             </div>
         </div>
         <div class="content">
-            <div class="item" *ngFor='let vaga of vagasList'>
-                <div class="item--box" (click)="openDialog(vaga.codVaga)">
-                    <div class="item--box-desc">
-                        <div class="item--box-desc-img">
-                            <img src="../../../../assets/images/icones/profissao/{{vaga.profissao.categoria.imagemCategoria}}" alt="{{vaga.profissao.nomeProfissao}} {{vaga.profissao.categoria.nomeCategoria}}" class="item--box-desc-img-icon">
+            <div class="loading-spinner" *ngIf="! isVagasCarregadas"></div>
+            <ng-container *ngIf="isVagasCarregadas">
+                <div class="item" *ngFor='let vaga of vagasList'>
+                    <div class="item--box" (click)="openDialog(vaga.codVaga)">
+                        <div class="item--box-desc">
+                            <div class="item--box-desc-img">
+                                <img src="../../../../assets/images/icones/profissao/{{vaga.profissao.categoria.imagemCategoria}}" alt="{{vaga.profissao.nomeProfissao}} {{vaga.profissao.categoria.nomeCategoria}}" class="item--box-desc-img-icon">
+                            </div>
+                            <div class="item--box-desc-name">
+                                {{vaga.profissao.nomeProfissao}}
+                                <span>
+                                    <br/>
+                                    {{vaga.profissao.categoria.nomeCategoria}}
+                                </span>
+                            </div>
                         </div>
-                        <div class="item--box-desc-name">
-                            {{vaga.profissao.nomeProfissao}}
-                            <span>
-                                <br/>
-                                {{vaga.profissao.categoria.nomeCategoria}}
-                            </span>
-                        </div>
-                    </div>
 
-                    <div class="item--box-info">
-                        <div class="item--box-info-img">
-                            <mat-icon class="item--box-info-img-icon">attach_money</mat-icon>
-                        </div>
-                        <div class="item--box-info-text">
-                            {{vaga.salarioVaga}}
+                        <div class="item--box-info">
+                            <div class="item--box-info-text"> R$ {{vaga.salarioVaga}} </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </ng-container>
         </div>
         <!-- <div class="footer">
             <div class="pagination">
