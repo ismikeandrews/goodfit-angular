@@ -7,7 +7,6 @@ import { CreateVagaComponent } from './pages/create-vaga/create-vaga.component';
 import { CandidatosComponent } from './pages/candidatos/candidatos.component';
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { Empresa2Component } from './pages/empresa2/empresa2.component';
-import { ProcessosComponent } from './pages/processos/processos.component';
 import { AuthLoginComponent } from './auth/auth-login/auth-login.component';
 import { AuthGuard } from './services/auth.guard';
 
@@ -20,7 +19,6 @@ const routes: Routes = [
       {path: 'vagas/create', component: CreateVagaComponent, canActivate: [AuthGuard]},
       {path: 'nivel-usuario', component: NivelUsuarioComponent, canActivate: [AuthGuard]},
       {path: 'candidatos', component: CandidatosComponent, canActivate: [AuthGuard]},
-      {path: 'processos', component: ProcessosComponent}
     ]
   },
   {path: 'nivel-usuario', component: NivelUsuarioComponent},

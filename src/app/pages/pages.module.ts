@@ -28,7 +28,6 @@ import { Empresa2Component }                from './empresa2/empresa2.component'
 import { EmptyComponent }                   from '../shared/components/empty/empty.component';
 import { ModalComponent }                   from '../shared/components/modal/modal.component';
 import { NivelUsuarioComponent }            from './nivel-usuario/nivel-usuario.component';
-import { ProcessosComponent }               from './processos/processos.component';
 import { VagasComponent }                   from './vagas/vagas.component';
 
 
@@ -41,7 +40,6 @@ import { VagasComponent }                   from './vagas/vagas.component';
       EmpresaComponent,
       Empresa2Component,
       NivelUsuarioComponent,
-      ProcessosComponent,
       VagasComponent
   ],
   imports: [

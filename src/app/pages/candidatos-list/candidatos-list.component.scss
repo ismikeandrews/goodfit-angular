@@ -63,8 +63,8 @@
 
             input[type="checkbox"]:checked + label {
                 &:before {
-                    background: $dark_red;
-                    border-color: $dark_red;
+                    background: $pink;
+                    border-color: $pink;
                 }
             }
 
