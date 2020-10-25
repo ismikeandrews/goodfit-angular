@@ -21,78 +21,47 @@
     </div>
 
     <div class="content">
-      <table class="table">
-        <thead>
-          <tr class="table__row table__row--title">
-            <th class="table__column">Nome do candidato</th>
-            <th class="table__column">Vaga</th>
-            <th class="table__column">Status</th>
-            <th class="table__column"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="table__row">
-            <td class="table__item">Mike Kayle</td>
-            <td class="table__item">T.I Back-End</td>
-            <td class="table__item table__item--status table__item--accept">Aceito</td>
-            <td class="table__item">
-              <div class="process__button">
-                <div class="process__button-item process__button-item--decline">
-                    <mat-icon>close</mat-icon>
-                </div>
-                <div class="process__button-item process__button-item--accept">
-                    <mat-icon>done</mat-icon>
-                </div>
+      <div class="processos__listagem">
+          <ng-template ngFor let-vaga [ngForOf]="processos" >
+              <div class="processos__listagem-profissao">
+                  <div class="processos__header">
+                      <img src="../../../assets/images/icones/profissao/{{vaga.imagemCategoria}}" alt="{{vaga.nomeProfissao}}" class="processos__header--icon">
+
+                      <h1 class="processos__header--title"> {{vaga.nomeProfissao}} </h1>
+                  </div>
+
+                  <p class="processos__header--description"> {{vaga.descricaoVaga}} </p>
               </div>
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__item">Cyntia Sayuri</td>
-            <td class="table__item">T.I Front-End</td>
-            <td class="table__item table__item--status table__item--wait">Em andamento</td>
-            <td class="table__item">
-              <div class="process__button">
-                <div class="process__button-item process__button-item--decline">
-                    <mat-icon>close</mat-icon>
-                </div>
-                <div class="process__button-item process__button-item--accept">
-                    <mat-icon>done</mat-icon>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__item">Vanessa Marques</td>
-            <td class="table__item">Marketing</td>
-            <td class="table__item table__item--status table__item--wait">Em andamento</td>
-            <td class="table__item">
-              <div class="process__button">
-                <div class="process__button-item process__button-item--decline">
-                    <mat-icon>close</mat-icon>
-                </div>
-                <div class="process__button-item process__button-item--accept">
-                    <mat-icon>done</mat-icon>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__item">Fernando Silva</td>
-            <td class="table__item">T.I Front-End</td>
-            <td class="table__item table__item--status table__item--decline">Recusado</td>
-            <td class="table__item">
-              <div class="process__button">
-                <div class="process__button-item process__button-item--decline">
-                    <mat-icon>close</mat-icon>
-                </div>
-                <div class="process__button-item process__button-item--accept">
-                    <mat-icon>done</mat-icon>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+
+            <table class="table">
+                <thead>
+                    <tr class="table__row table__row--title">
+                          <th class="table__column">Nome do candidato</th>
+                          <th class="table__column">Status</th>
+                          <th class="table__column"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let candidato of vaga.candidatos" class="table__row">
+                        <td class="table__item"> {{candidato.nomeCandidato}} </td>
+                        <td class="table__item table__item--status table__item--status-{{candidato.codStatusCandidatura}}">
+                            {{ getStatusName(candidato.codStatusCandidatura) }}
+                        </td>
+                        <td class="table__item">
+                            <div class="process__button">
+                                <div class="process__button-item process__button-item--decline">
+                                    <mat-icon>close</mat-icon>
+                                </div>
+                                <div class="process__button-item process__button-item--accept">
+                                    <mat-icon>done</mat-icon>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </ng-template>
+      </div>
     </div>
   </div>
 </section>

@@ -43,7 +43,7 @@
         }
 
         &--decline {
-            background-color: #f44336;
+            background-color: $recusado;
 
             &:hover {
                 background-color: #ce4b41;
@@ -51,11 +51,15 @@
         }
 
         &--accept {
-            background-color: #1ed760;
+            background-color: $aprovado;
 
             &:hover {
                 background-color: #43a96f;
             }
+        }
+
+        &--process {
+            background-color: $em_analise_processo;
         }
     }
 }

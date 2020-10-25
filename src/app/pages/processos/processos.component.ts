@@ -12,6 +12,7 @@ import { ProcessoService } from '../../services/processo.service';
   styleUrls: ['./processos.component.scss']
 })
 export class ProcessosComponent implements OnInit {
+  public processos : any
 
   constructor(
     private authService     : AuthService,
@@ -33,15 +34,18 @@ export class ProcessosComponent implements OnInit {
     }
   }
 
-  async getPorEmpresa() {
-      const params       = this.authService.getLoggedUser()
-      const vagas  : any = await this.processoService.getPorEmpresa(params.token)
-
-      return vagas
+  async showProcessos() {
+      const params   = this.authService.getLoggedUser()
+      this.processos = await this.processoService.getPorEmpresa(params.token)
   }
 
-  async showProcessos() {
-      const vagas = await this.getPorEmpresa()
-      console.log(vagas)
+  getStatusName(codStatus : number) {
+      const status = []
+      status[1] = 'Aprovado'
+      status[2] = 'Em Análise'
+      status[3] = 'Reprovado'
+      status[4] = 'Em Análise'
+
+      return status[codStatus]
   }
 }

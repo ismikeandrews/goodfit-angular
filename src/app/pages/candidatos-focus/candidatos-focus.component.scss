@@ -179,6 +179,41 @@ svg {
         font: 16px $font-regular;
     }
 
+    &__status {
+        margin-left: 20px;
+        margin-top: 10px;
+        position: relative;
+
+        &:before {
+            border-radius: 50%;
+            content: "";
+            height: 10px;
+            left: -20px;
+            position: absolute;
+            top: 5px;
+            width: 10px;
+        }
+
+        &.status-1 {
+            &:before {
+                background: $aprovado;
+            }
+        }
+
+        &.status-2, &.status-4 {
+            &:before {
+                background: $em_analise_processo;
+            }
+
+        }
+
+        &.status-3 {
+            &:before {
+                background: $recusado;
+            }
+        }
+    }
+
     &__email {
         border: 2px solid $pink_light;
         border-radius: 10px;

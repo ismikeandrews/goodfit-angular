@@ -24,10 +24,57 @@
     &__listagem {
         max-height: 550px;
         overflow: auto;
+
         &-profissao {
             &:not(:first-child) {
                 border-top: 1px solid #c7c7c7;
-                margin-top: 30px
+                margin-top: 5px
+            }
+        }
+
+        &-filtros {
+            align-items: center;
+            display: flex;
+            height: 40px;
+            padding: 10px 40px;
+            position: relative;
+
+            input[type="checkbox"] {
+                position: absolute;
+                left: -9999999999999px;
+            }
+
+            input[type="checkbox"] + label {
+                cursor: pointer;
+                position: relative;
+                
+                &:before {
+                    border: 1px solid #c7c7c7;
+                    border-radius: 2px;
+                    content: "";
+                    height: 10px;
+                    left: -17px;
+                    top: 3px;
+                    position: absolute;
+                    transition: .3s all;
+                    width: 10px;
+                }
+            }
+
+            input[type="checkbox"]:checked + label {
+                &:before {
+                    background: $dark_red;
+                    border-color: $dark_red;
+                }
+            }
+
+            &-item {
+                width: 125px;
+
+                &-name {
+                    font: 15px $font-regular;
+                    font-weight: 600;
+                }
             }
         }
     }
@@ -51,15 +98,15 @@
         width: 170px;
 
         &.status-1 {
-            border-left-color: #1ed760;
+            border-left-color: $aprovado;
         }
 
         &.status-2, &.status-4 {
-            border-left-color: #f7e246;
+            border-left-color: $em_analise_processo;
         }
 
         &.status-3 {
-            border-left-color: #f44336;
+            border-left-color: $recusado;
         }
 
         &:hover {

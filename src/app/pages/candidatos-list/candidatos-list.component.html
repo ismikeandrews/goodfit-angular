@@ -1,4 +1,23 @@
 <div class="candidato__listagem">
+    <div class="candidato__listagem-filtros">
+        <div class="candidato__listagem-filtros-item">
+            <input type="checkbox" value="2" id="candidatos-filtro-analise" checked>
+            <label class="candidato__listagem-filtros-item-name" for="candidatos-filtro-analise"> Em Análise </label>
+        </div>
+        <div class="candidato__listagem-filtros-item">
+            <input type="checkbox" value="3" id="candidatos-filtro-processo" checked>
+            <label class="candidato__listagem-filtros-item-name" for="candidatos-filtro-processo"> Em Processo </label>
+        </div>
+        <div class="candidato__listagem-filtros-item">
+            <input type="checkbox" value="1" id="candidatos-filtro-aprovado" checked>
+            <label class="candidato__listagem-filtros-item-name" for="candidatos-filtro-aprovado"> Aprovados </label>
+        </div>
+        <div class="candidato__listagem-filtros-item">
+            <input type="checkbox" value="3" id="candidatos-filtro-recusado">
+            <label class="candidato__listagem-filtros-item-name" for="candidatos-filtro-recusado"> Recusados </label>
+        </div>
+    </div>
+
     <ng-template ngFor let-candidatura [ngForOf]="candidaturas" >
         <div class="candidato__listagem-profissao">
             <div class="candidato__header">
