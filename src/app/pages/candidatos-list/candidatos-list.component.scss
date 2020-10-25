@@ -40,7 +40,8 @@
 
     &__item {
         background: #f2f2f2;
-        border: 1px solid #c7c7c7;
+        border-left-style: solid;
+        border-left-width: 10px;
         border-radius: 10px;
         cursor: pointer;
         height: 230px;
@@ -48,6 +49,18 @@
         overflow: hidden;
         transition: all .5s ease-in-out;
         width: 170px;
+
+        &.status-1 {
+            border-left-color: #1ed760;
+        }
+
+        &.status-2, &.status-4 {
+            border-left-color: #f7e246;
+        }
+
+        &.status-3 {
+            border-left-color: #f44336;
+        }
 
         &:hover {
             background: rgba(255, 144, 21, 0.41);

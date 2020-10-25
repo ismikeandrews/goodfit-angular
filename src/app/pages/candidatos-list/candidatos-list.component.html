@@ -11,7 +11,7 @@
 
             <ng-container *ngFor="let candidato of candidatura.candidatos" >
                 <div class="list">
-                    <div class="list__item">
+                    <div class="list__item status-{{candidato.codStatusCandidatura}}">
                         <div class="list__item-img">
                             <img src="{{candidato.fotoUsuario}}" alt="{{candidato.nomeCandidato}}" class="list__item-img-icon">
                         </div>

@@ -37,11 +37,11 @@ export class ProcessosComponent implements OnInit {
       const params       = this.authService.getLoggedUser()
       const vagas  : any = await this.processoService.getPorEmpresa(params.token)
 
-      return vagas.data
+      return vagas
   }
 
-  showProcessos() {
-      const vagas = this.getPorEmpresa()
+  async showProcessos() {
+      const vagas = await this.getPorEmpresa()
       console.log(vagas)
   }
 }
