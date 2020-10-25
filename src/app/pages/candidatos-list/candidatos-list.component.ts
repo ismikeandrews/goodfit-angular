@@ -13,7 +13,7 @@ export class CandidatosListComponent implements OnInit {
 
     constructor(private vagaService : VagaService, private authService : AuthService) {
         if ( ! authService.isSpecialUser() ) {
-              console.log('Error 403')
+            console.log('Error 403')
         }
     }
     

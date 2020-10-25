@@ -2,7 +2,9 @@ import { AuthService }      from '../../../services/auth.service';
 import { BeneficioService } from '../../../services/beneficio.service';
 import { MatDialogRef}      from '@angular/material/dialog';
 import {MAT_DIALOG_DATA}    from '@angular/material/dialog';
+
 import { AdicionalService } from '../../../services/adicional.service';
+import { EnderecoService }  from '../../../services/endereco.service';
 import { VagaService }      from '../../../services/vaga.service';
 import {
     Component,
@@ -19,6 +21,8 @@ export class ModalComponent implements OnInit{
     public codVaga       : number
     public descricaoVaga : string
     public enderecoVaga  : string
+    public latituideVaga : number
+    public longitudeVaga : number
     public iconeVaga     : string
     public tituloVaga    : string
 
@@ -45,6 +49,7 @@ export class ModalComponent implements OnInit{
         private authService      : AuthService,
         private beneficioService : BeneficioService,
         public  dialogRef        : MatDialogRef<ModalComponent>,
+        public  enderecoService  : EnderecoService,
         private adicionalService : AdicionalService,
         private vagaService      : VagaService) {}
 
@@ -66,6 +71,20 @@ export class ModalComponent implements OnInit{
         const requisitos = await this.adicionalService.getPorVaga(codVaga, token)
 
         this.setVaga(vaga[0], beneficios, requisitos)
+        await this.getLatAndLong(vaga[0].endereco)
+    }
+    
+    async getLatAndLong(endereco) {
+        let response : any      = await this.enderecoService.getLatAndLong(endereco)
+        response = response.results[0]
+        
+        const enderecoFormatado = response.formatted_address
+        const coordenadas       = response.geometry.location
+        
+        this.latituideVaga      = coordenadas.lat
+        this.longitudeVaga      = coordenadas.lng
+        
+        this.setEndereco(enderecoFormatado)
     }
 
     hasBeneficios(beneficios) {
@@ -90,7 +109,6 @@ export class ModalComponent implements OnInit{
         this.setSobre(vaga)
 
         this.setDescricao(vaga.descricaoVaga)
-        this.setEndereco(vaga.endereco)
 
         this.setIsVagaCarregada(true)
     }

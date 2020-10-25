@@ -96,9 +96,10 @@
             </div>
         </div>
 
-        <div class="address-map-container">
+        <div *ngIf="! isVagaCarregada" class="skeleton-vaga skeleton-vaga-maps"></div>
+        <div *ngIf="isVagaCarregada" class="address-map-container">
             <span class="address-map-text"> {{enderecoVaga}} </span>
-            <img class="address-map" src="https://publicidademarketing.com/wp-content/uploads/2017/11/google-maps.jpg">
+            <img class="address-map" src="https://maps.googleapis.com/maps/api/staticmap?center={{enderecoVaga}}&zoom=15&size=768x170&key={{enderecoService.mapsAPIKey}}&markers={{latituideVaga}},{{longitudeVaga}}">
         </div>
     </div>
 </div>

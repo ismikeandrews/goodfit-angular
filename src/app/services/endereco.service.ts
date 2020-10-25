@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class EnderecoService {
-
+  public mapsAPIKey : string = 'AIzaSyAhH4jMj8gRXO_Cd4Igar0TBvnnXe3RSVQ'
+  
   constructor(
     private http: HttpClient,
   ) { }
@@ -21,5 +22,9 @@ export class EnderecoService {
 
   async getEnderecoPorCod(codEndereco : number) {
       return await this.http.get(`${environment.originalUrlApi}/endereco/${codEndereco}`).toPromise()
+  }
+  
+  async getLatAndLong(endereco : string) {
+      return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${endereco}&key=${this.mapsAPIKey}`).toPromise();
   }
 }
