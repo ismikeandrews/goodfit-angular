@@ -36,9 +36,10 @@
         &.candidato {
             align-items: center;
             display: flex;
+            height: 35px;
             justify-content: space-evenly;
             padding: 10px 15px;
-            width: 130px;
+            width: 165px;
         }
 
         &--decline {
