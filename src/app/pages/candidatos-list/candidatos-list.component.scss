@@ -8,19 +8,73 @@
             margin-right: 10px;
             width: 40px;
         }
+
         &--title {
             color: #000;
             font: 22px $font-bold;
             text-transform: uppercase;
         }
+
+        &--description {
+            margin-top: -20px;
+            margin-left: 50px;
+            width: 60%;
+        }
     }
     &__listagem {
         max-height: 550px;
         overflow: auto;
+
         &-profissao {
             &:not(:first-child) {
                 border-top: 1px solid #c7c7c7;
-                margin-top: 30px
+                margin-top: 5px
+            }
+        }
+
+        &-filtros {
+            align-items: center;
+            display: flex;
+            height: 40px;
+            padding: 10px 40px;
+            position: relative;
+
+            input[type="checkbox"] {
+                position: absolute;
+                left: -9999999999999px;
+            }
+
+            input[type="checkbox"] + label {
+                cursor: pointer;
+                position: relative;
+                
+                &:before {
+                    border: 1px solid #c7c7c7;
+                    border-radius: 2px;
+                    content: "";
+                    height: 10px;
+                    left: -17px;
+                    top: 3px;
+                    position: absolute;
+                    transition: .3s all;
+                    width: 10px;
+                }
+            }
+
+            input[type="checkbox"]:checked + label {
+                &:before {
+                    background: $dark_red;
+                    border-color: $dark_red;
+                }
+            }
+
+            &-item {
+                width: 125px;
+
+                &-name {
+                    font: 15px $font-regular;
+                    font-weight: 600;
+                }
             }
         }
     }
@@ -30,23 +84,41 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
+
     &__item {
-        border: 1px solid #c7c7c7;
+        background: #f2f2f2;
+        border-left-style: solid;
+        border-left-width: 10px;
         border-radius: 10px;
         cursor: pointer;
         height: 230px;
         margin: 10px;
+        overflow: hidden;
         transition: all .5s ease-in-out;
         width: 170px;
+
+        &.status-1 {
+            border-left-color: $aprovado;
+        }
+
+        &.status-2, &.status-4 {
+            border-left-color: $em_analise_processo;
+        }
+
+        &.status-3 {
+            border-left-color: $recusado;
+        }
+
         &:hover {
             background: rgba(255, 144, 21, 0.41);
         }
+
         &-img-icon {
-            padding: 15px;
-            width: 80%;
+            height: 100%;
+            width: 100%;
         }
+
         &-name {
-            border-top: 1px solid #c7c7c7;
             font: 16px $font-regular;
             padding: 10px 0;
             text-align: center;

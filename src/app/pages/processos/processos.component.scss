@@ -16,11 +16,11 @@
 
     &__row {
         background: #dedede;
-        
+
         &:nth-child(odd) {
             background: #d4d4d4;
         }
-        
+
         &--title {
             background: #dedede !important;
         }
@@ -33,15 +33,15 @@
         &:first-child {
             width: 33%;
         }
-        
+
         &:nth-child(2) {
             width: 28%;
         }
-        
+
         &--status {
             padding: 25px 15px 25px 45px;
             position: relative;
-            
+
             &::before {
                 background: #fed066;
                 border: 1px solid #b9b9b9;
@@ -54,23 +54,42 @@
                 width: 15px;
             }
         }
+    }
+}
 
-        &--accept {
-            &::before {
-                background: #68dd9b;
-            }
+.processos__listagem {
+    max-height: 550px;
+    overflow: auto;
+
+    &-profissao {
+        &:not(:first-child) {
+            border-top: 1px solid #c7c7c7;
+            margin-top: 30px
         }
-        
-        &--wait {
-            &::before {
-                background: #fed066;
-            }
+    }
+}
+
+.processos {
+    &__header {
+        align-items: center;
+        display: flex;
+        margin-top: 20px;
+
+        &--icon {
+            margin-right: 10px;
+            width: 40px;
         }
 
-        &--decline {
-            &::before {
-                background: #e06f50;
-            }
+        &--title {
+            color: #000;
+            font: 22px $font-bold;
+            text-transform: uppercase;
+        }
+
+        &--description {
+            margin-top: -20px;
+            margin-left: 50px;
+            width: 60%;
         }
     }
 }
