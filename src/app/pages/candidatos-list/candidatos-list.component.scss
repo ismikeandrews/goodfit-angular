@@ -8,10 +8,17 @@
             margin-right: 10px;
             width: 40px;
         }
+
         &--title {
             color: #000;
             font: 22px $font-bold;
             text-transform: uppercase;
+        }
+
+        &--description {
+            margin-top: -20px;
+            margin-left: 50px;
+            width: 60%;
         }
     }
     &__listagem {
@@ -30,23 +37,28 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
+
     &__item {
+        background: #f2f2f2;
         border: 1px solid #c7c7c7;
         border-radius: 10px;
         cursor: pointer;
         height: 230px;
         margin: 10px;
+        overflow: hidden;
         transition: all .5s ease-in-out;
         width: 170px;
+
         &:hover {
             background: rgba(255, 144, 21, 0.41);
         }
+
         &-img-icon {
-            padding: 15px;
-            width: 80%;
+            height: 100%;
+            width: 100%;
         }
+
         &-name {
-            border-top: 1px solid #c7c7c7;
             font: 16px $font-regular;
             padding: 10px 0;
             text-align: center;
