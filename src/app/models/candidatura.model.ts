@@ -8,6 +8,7 @@ export class CandidaturaModel{
     APROVADO       = 1
     EM_ANALISE     = 2
     RECUSADO       = 3
+    EM_PROCESSO    = 4
 
     constructor(codCandidatura : number, codCandidato : number, codVaga : number, codStatus : number){
         this.codCandidatura = codCandidatura

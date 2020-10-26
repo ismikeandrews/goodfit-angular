@@ -12,7 +12,7 @@ import { VagaService } from '../../services/vaga.service';
   styleUrls: ['./candidatos.component.scss']
 })
 export class CandidatosComponent implements OnInit {
-    public candidaturas           : Object
+    public candidaturas           : any
     public isCandidatosCarregados : boolean = false
     
     constructor(
@@ -36,8 +36,11 @@ export class CandidatosComponent implements OnInit {
         this.isCandidatosCarregados = true
     }
  
-    openModal() {
-        this.dialog.open(ModalCandidatosComponent);
+    openModal(codCandidato : number, codVaga : number) {
+        this.dialog.open(ModalCandidatosComponent, {data: {
+            codCandidato : codCandidato,
+            codVaga      : codVaga
+        }});
     }
     
     btnSearch() {

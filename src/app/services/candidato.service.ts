@@ -14,4 +14,8 @@ export class CandidatoService {
   async getCandidato(codCandidato : number, token : string) {
       return await this.http.get(`${environment.baseUrlApi}/candidato/${codCandidato}?token=${token}`).toPromise()
   }
+  
+  async getCandidatoEmVaga(codCandidato : number, codVaga : number, token : string) {
+      return await this.http.get(`${environment.baseUrlApi}/vaga/${codVaga}/candidato/${codCandidato}?token=${token}`).toPromise()
+  }
 }
