@@ -49,7 +49,9 @@ export class AuthService {
           return {
               token        : token,
               codUsuario   : decoded.cod,
-              nivelUsuario : decoded.nivel
+              nivelUsuario : decoded.nivel,
+              nomeUsuario  : decoded.nome,
+              username     : decoded.username
           }
       } catch (error) {
           console.log(error)

@@ -109,10 +109,11 @@
     &--content {
         background: $dark_red;
         height: 100%;
-        padding: 20px 0 20px 0;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        padding: 20px 0 20px 0;
+        position: relative;
 
         &-item {
             cursor: pointer;
@@ -167,6 +168,44 @@
                     font-size: 11px;
                 }
             }
+        }
+
+        &-logged-user {
+            align-items: center;
+            display: flex;
+            left: 10px;
+            position: absolute;
+            top: 15px;
+
+            &-img {
+                border-radius: 50%;
+                height: 60px;
+                overflow: hidden;
+                position: relative;
+                width: 60px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            &-info {
+                margin-left: 15px;
+
+                &-name {
+                    color: #fff;
+                    font: 14px $font-bold;
+                    margin: 0;
+                }
+
+                &-username {
+                    color: #e4e4e4;
+                    font-size: 13px;
+                    margin: 0;
+                }
+            }
+
+
         }
     }
 }

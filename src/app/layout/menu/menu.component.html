@@ -11,6 +11,18 @@
         </div>
     </div>
     <div class="menu--content">
+        <div class="menu--content-logged-user">
+            <div class="menu--content-logged-user-img">
+                <img src="https://pbs.twimg.com/profile_images/614128989112782848/S8826jXM.jpg">
+            </div>
+
+            <div class="menu--content-logged-user-info">
+                <p class="menu--content-logged-user-info-name"> {{nomeUsuario}} </p>
+                <p class="menu--content-logged-user-info-username"> @{{username}} </p>
+            </div>
+
+        </div>
+
         <div class="menu--content-item">
             <a [routerLink]="['/vagas']" class="menu--content-item-link">
                 <div class="menu--content-item-img">
