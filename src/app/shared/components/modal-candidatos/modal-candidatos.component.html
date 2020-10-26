@@ -1,0 +1,133 @@
+<div mat-dialog-content>
+    <div class="container">
+        <div class="header">
+            <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-icon"></div>
+            <img *ngIf="isVagaCarregada" src="../../../../assets/images/icones/profissao/{{iconeVaga}}" alt="{{tituloVaga}}" class="header-icon">
+
+            <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-title"></div>
+            <h1 *ngIf="isVagaCarregada" class="header-title"> {{tituloVaga}} </h1>
+
+            <div class="header-actions">
+                <button class="header-actions-button" mat-icon-button aria-label="Configurações">
+                    <mat-icon>settings</mat-icon>
+                </button>
+
+                <button class="header-actions-button" (click)="closeModal()" mat-icon-button aria-label="Fechar">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content__item">
+                <div class="profile">
+                    <div class="profile__perfil">
+                        <div class="profile__perfil-percent">
+                            <svg>
+                                <circle cx="80" cy="80" r="80"></circle>
+                                <circle cx="80" cy="80" r="80"></circle>
+                            </svg>
+                            <div class="profile__perfil-img">
+                                <img src="https://i.guim.co.uk/img/media/fc3b077685461992e9cb75e51ce995088de338ce/0_67_5175_3105/master/5175.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=e174022fbd43673f2119e8ed9ce564ff" alt="Nome do candidato" class="profile__perfil-img-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__info">
+                        <div class="profile__info-item">
+                            Louis William Tomlinsom
+                        </div>
+        
+                        <div class="profile__age">
+                            28 anos
+                        </div>
+        
+                        <div class="profile__status status-2">
+                            Em Análise
+                        </div>
+        
+                        <div class="profile__info-item profile__email">
+                            <a href="mailto:email@email.com.br" class="profile__email-link">
+                                <mat-icon style="font-size: 21px; line-height: 25px;">mail_outline</mat-icon> Enviar email
+                            </a>
+                        </div>
+        
+                        <div class="profile__info-item profile__phone">
+                            <mat-icon style="font-size: 21px; line-height: 25px;">phone</mat-icon> (11) 1234-5678
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process__button">
+                    <div class="process__button-item process__button-item--decline candidato">
+                        <mat-icon>close</mat-icon> Recusar
+                    </div>
+        
+        <!--            <div class="process__button-item process__button-item&#45;&#45;accept candidato">-->
+        <!--                <mat-icon>done</mat-icon> Aprovar-->
+        <!--            </div>-->
+        
+                    <div class="process__button-item process__button-item--process candidato">
+                        <mat-icon>done</mat-icon> Convidar para entrevista
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="skeleton-vaga skeleton-vaga-descricao"></div> -->
+            <div class="content--description-box">
+                <div class="description">
+                    <mat-tab-group>
+                        <mat-tab>
+                            <ng-template mat-tab-label md-no-pagination="true">
+                                <mat-icon>videocam</mat-icon>
+                            </ng-template>
+        
+                            <div class="description__video">
+                                <img src="../../../../assets/images/video.png" alt="Descrição do candidato" class="description__video-img">
+                            </div>
+                        </mat-tab>
+        
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <mat-icon>notes</mat-icon>
+                            </ng-template>
+        
+                            <div class="description__text">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum commodi et, magni recusandae dicta repudiandae fuga provident possimus voluptatem dolores harum officia assumenda cumque sunt maxime nostrum nam sapiente dignissimos?
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum commodi et, magni recusandae dicta repudiandae fuga provident possimus voluptatem dolores harum officia assumenda cumque sunt maxime nostrum nam sapiente dignissimos?
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content__item content__item--experiencias">
+                <div class="content__item-title"> Experiências profissionais </div>
+                <div class="xp__item" *ngFor='let item of itens'>
+                    <app-accordion [title]="item.name">
+                        <div class="xp__text">
+                            {{ item.text }}
+                        </div>
+                    </app-accordion>
+                </div>
+            </div>
+            
+            <div class="content__item content__item--requisitos">
+                <p class="content__item-title">
+                    Requisitos e Habilidades
+                </p>
+    
+                <div class="content__item-list">
+                    <div class="content__item-list-item">
+                        <div class="content__item-list-item-img">
+                            <img class="content__item-list-item-icon" src="../../../../assets/images/icones/requisitos/alfabetizacao.png" alt="Alfabetizado">
+                        </div>
+    
+                        <div class="content__item-list-item-name"> Alfabetizado </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,11 +13,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  selector: 'app-modal-vagas',
+  templateUrl: './modal-vagas.component.html',
+  styleUrls: ['./modal-vagas.component.scss']
 })
-export class ModalComponent implements OnInit{
+export class ModalVagasComponent implements OnInit{
     public codVaga       : number
     public descricaoVaga : string
     public enderecoVaga  : string
@@ -48,7 +48,7 @@ export class ModalComponent implements OnInit{
         @Inject(MAT_DIALOG_DATA) public data: any,
         private authService      : AuthService,
         private beneficioService : BeneficioService,
-        public  dialogRef        : MatDialogRef<ModalComponent>,
+        public  dialogRef        : MatDialogRef<ModalVagasComponent>,
         public  enderecoService  : EnderecoService,
         private adicionalService : AdicionalService,
         private vagaService      : VagaService) {}

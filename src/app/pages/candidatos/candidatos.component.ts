@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalCandidatosComponent } from '../../shared/components/modal-candidatos/modal-candidatos.component';
 
 @Component({
   selector: 'app-candidatos',
@@ -7,28 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialog : MatDialog,
+  ) { }
 
   ngOnInit() {
   }
-
-  changeView() {
-    const list = document.getElementById('list')
-    const focus = document.getElementById('focus')
-    const listIcon = document.getElementById('list-icon')
-    const focusIcon = document.getElementById('focus-icon')
-    
-    if (list.classList.contains('is-active')) {
-      list.classList.remove('is-active')
-      focus.classList.add('is-active')
-      listIcon.classList.add('is-active')
-      focusIcon.classList.remove('is-active')
-    } else {
-      list.classList.add('is-active')
-      focus.classList.remove('is-active')
-      listIcon.classList.remove('is-active')
-      focusIcon.classList.add('is-active')
-    }
+ 
+  openModal() {
+    this.dialog.open(ModalCandidatosComponent);
   }
 
   btnSearch() {
@@ -38,6 +27,16 @@ export class CandidatosComponent implements OnInit {
       search.classList.remove('is-active')
     } else {
       search.classList.add('is-active')
+    }
+  }
+
+  btnFilter() {
+    const filter = document.getElementById('filter')
+    
+    if (filter.classList.contains('is-active')) {
+      filter.classList.remove('is-active')
+    } else {
+      filter.classList.add('is-active')
     }
   }
 }

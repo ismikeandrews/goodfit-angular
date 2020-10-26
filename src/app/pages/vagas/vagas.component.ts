@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../../shared/components/modal/modal.component';
+import { ModalVagasComponent } from '../../shared/components/modal-vagas/modal-vagas.component';
 import { VagaService } from '../../services/vaga.service';
 import { ProfissaoService } from '../../services/profissao.service';
 import { CategoriaService } from '../../services/categoria.service';
@@ -23,7 +23,7 @@ export class VagasComponent implements OnInit {
   public pagination        : any[]
 
   public vagasList         = []
-  public modal             = ModalComponent
+  public modal             = ModalVagasComponent
 
 
   constructor(
@@ -42,7 +42,7 @@ export class VagasComponent implements OnInit {
   }
 
   openDialog(codVaga : number) {
-      this.dialog.open(ModalComponent, {data: {codVaga: codVaga}});
+      this.dialog.open(ModalVagasComponent, {data: {codVaga: codVaga}});
   }
 
   async getVagas(){

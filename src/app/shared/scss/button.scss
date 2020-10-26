@@ -17,9 +17,7 @@
     align-items: center;
     display: flex;
     justify-content: space-evenly;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    margin-top: 20px;
 
     &-item {
         border-radius: 5px;
@@ -57,9 +55,13 @@
                 background-color: #43a96f;
             }
         }
-
+        
         &--process {
             background-color: $em_analise_processo;
+
+            &:hover {
+                background-color: #d4c137;
+            }
         }
     }
 }

@@ -20,13 +20,12 @@ import { SharedModule }                     from '../shared/shared.module';
 
 import { AccordionComponent }               from '../shared/components/accordion/accordion.component';
 import { CandidatosComponent }              from './candidatos/candidatos.component';
-import { CandidatosFocusComponent }         from './candidatos-focus/candidatos-focus.component';
-import { CandidatosListComponent }          from './candidatos-list/candidatos-list.component';
 import { CreateVagaComponent }              from './create-vaga/create-vaga.component';
 import { EmpresaComponent }                 from './empresa/empresa.component';
 import { Empresa2Component }                from './empresa2/empresa2.component';
 import { EmptyComponent }                   from '../shared/components/empty/empty.component';
-import { ModalComponent }                   from '../shared/components/modal/modal.component';
+import { ModalVagasComponent }                   from '../shared/components/modal-vagas/modal-vagas.component';
+import { ModalCandidatosComponent }                   from '../shared/components/modal-candidatos/modal-candidatos.component';
 import { NivelUsuarioComponent }            from './nivel-usuario/nivel-usuario.component';
 import { VagasComponent }                   from './vagas/vagas.component';
 
@@ -34,8 +33,6 @@ import { VagasComponent }                   from './vagas/vagas.component';
 @NgModule({
   declarations: [
       CandidatosComponent,
-      CandidatosFocusComponent,
-      CandidatosListComponent,
       CreateVagaComponent,
       EmpresaComponent,
       Empresa2Component,
@@ -65,7 +62,8 @@ import { VagasComponent }                   from './vagas/vagas.component';
   entryComponents: [
       AccordionComponent,
       EmptyComponent,
-      ModalComponent
+      ModalVagasComponent,
+      ModalCandidatosComponent
   ]
 })
 export class PagesModule { }

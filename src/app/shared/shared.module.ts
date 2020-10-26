@@ -10,20 +10,23 @@ import { MatButtonModule }         from '@angular/material/button';
 import { MatExpansionModule }      from '@angular/material/expansion';
 import { MatIconModule }           from '@angular/material/icon';
 import { MatTabsModule }           from '@angular/material/tabs';
-import { ModalComponent }          from './components/modal/modal.component';
+import { ModalVagasComponent }          from './components/modal-vagas/modal-vagas.component';
+import { ModalCandidatosComponent }          from './components/modal-candidatos/modal-candidatos.component';
 
 @NgModule({
     declarations: [
         AccordionComponent,
         DescriptionBoxComponent,
         EmptyComponent,
-        ModalComponent
+        ModalVagasComponent,
+        ModalCandidatosComponent,
     ],
     exports: [
         AccordionComponent,
         DescriptionBoxComponent,
         EmptyComponent,
-        ModalComponent
+        ModalVagasComponent,
+        ModalCandidatosComponent,
     ],
     imports: [
         BrowserAnimationsModule,
