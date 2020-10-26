@@ -42,10 +42,7 @@ export class ModalCandidatosComponent implements OnInit{
       }
     ]
 
-    public requisitos = {
-        obrigatorios : [],
-        opcionais    : []
-    }
+    public adicionais : any = []
 
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
@@ -69,7 +66,9 @@ export class ModalCandidatosComponent implements OnInit{
         const params    = this.authService.getLoggedUser()
         const token     = params.token
         
-        const candidato = await this.candidatoService.getCandidatoEmVaga(codCandidato, codVaga, token)
+        const candidato  = await this.candidatoService.getCandidatoEmVaga(codCandidato, codVaga, token)
+        this.adicionais  = await this.candidatoService.getAdicionais(codCandidato, codVaga, token)
+        
         this.setCandidato(candidato[0])
     }
     
@@ -86,14 +85,37 @@ export class ModalCandidatosComponent implements OnInit{
         }
     }
     
-    setCandidato(candidato) {
-        this.nomeCandidato      = candidato.nomeCandidato
-        this.idadeCandidato     = candidato.idade
-        this.emailCandidato     = candidato.email
+    getPathImagemAdicional(codTipoAdicional : number) {
+        if ( codTipoAdicional === 1 ) {
+            return 'habilidades'
+        }
         
-        this.descricaoCandidato = candidato.descricaoCurriculo
+        return 'requisitos'
+    }
+    
+    isAdicionalCompativel(adicional) {
+        return ( (adicional.codTipoAdicional !== 1) || !!(adicional.compativel))
+    }
+    
+    isEmAnalise() {
+        return (this.codStatusCandidatura === 2)
+    }
+    
+    isEmProcesso() {
+        return (this.codStatusCandidatura === 4)
+    }
+    
+    setCandidato(candidatura) {
+        this.nomeCandidato      = candidatura.nomeCandidato
+        this.idadeCandidato     = candidatura.idade
+        this.emailCandidato     = candidatura.email
         
-        this.setStatus(candidato.codStatusCandidatura)
+        this.descricaoCandidato = candidatura.descricaoCurriculo
+        
+        this.iconeVaga          = candidatura.imagemCategoria
+        this.tituloVaga         = candidatura.nomeProfissao
+        
+        this.setStatus(candidatura.codStatusCandidatura)
     
         this.setIsCandidatoCarregado(true)
     }

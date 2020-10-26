@@ -62,11 +62,11 @@
                         <mat-icon>close</mat-icon> Recusar
                     </div>
         
-        <!--            <div class="process__button-item process__button-item&#45;&#45;accept candidato">-->
-        <!--                <mat-icon>done</mat-icon> Aprovar-->
-        <!--            </div>-->
-        
-                    <div class="process__button-item process__button-item--process candidato">
+                    <div *ngIf="isEmProcesso()" class="process__button-item process__button-item--accept candidato">
+                        <mat-icon>done</mat-icon> Aprovar
+                    </div>
+
+                    <div *ngIf="isEmAnalise()" class="process__button-item process__button-item--process candidato">
                         <mat-icon>done</mat-icon> Convidar para entrevista
                     </div>
                 </div>
@@ -116,12 +116,13 @@
                 </p>
     
                 <div class="content__item-list">
-                    <div class="content__item-list-item">
+                    <div *ngFor="let adicional of adicionais" class="content__item-list-item" [ngClass]="{'content__item-list-item-compatible' : isAdicionalCompativel(adicional)}">
                         <div class="content__item-list-item-img">
-                            <img class="content__item-list-item-icon" src="../../../../assets/images/icones/requisitos/alfabetizacao.png" alt="Alfabetizado">
+                            <img class="content__item-list-item-icon"
+                                 src="../../../../assets/images/icones/{{getPathImagemAdicional(adicional.codTipoAdicional)}}/{{adicional.imagemAdicional}}" alt="{{adicional.nomeAdicional}}">
                         </div>
-    
-                        <div class="content__item-list-item-name"> Alfabetizado </div>
+
+                        <div class="content__item-list-item-name"> {{adicional.nomeAdicional}} </div>
                     </div>
                 </div>
             </div>
