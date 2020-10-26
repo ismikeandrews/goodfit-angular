@@ -1,20 +1,134 @@
 @import '../../shared/scss/variables.scss';
 
-.candidato{
-}
-
-#list-icon, #focus-icon {
-    display: none;
-
+.filtros {
+    align-items: center;
+    display: flex;
+    height: 0;
+    opacity: 0;
+    padding: 10px 30px;
+    position: relative;
+    transition: all .3s ease-in-out;
+    
     &.is-active {
-        display: block;
+        height: 40px;
+        opacity: 1;
+    }
+
+    input[type="checkbox"] {
+        opacity: 0;
+    }
+
+    input[type="checkbox"] + label {
+        cursor: pointer;
+        position: relative;
+        
+        &:before {
+            border: 1px solid #c7c7c7;
+            border-radius: 2px;
+            content: '';
+            height: 13px;
+            left: -23px;
+            top: 1px;
+            position: absolute;
+            transition: 0.3s all;
+            width: 13px;
+        }
+    }
+
+    input[type="checkbox"]:checked + label {
+        &:before {
+            background: $pink;
+            border-color: $pink;
+        }
+    }
+
+    &__item {
+        margin-right: 60px;
+
+        &-name {
+            font: 16px $font-regular;
+            font-weight: 600;
+        }
     }
 }
 
-.list, .focus {
-    display: none;
+.candidato {
+    &__header {
+        align-items: center;
+        display: flex;
+        margin-top: 20px;
+        &--icon {
+            margin-right: 10px;
+            width: 40px;
+        }
 
-    &.is-active {
-        display: block;
+        &--title {
+            color: #000;
+            font: 22px $font-bold;
+            text-transform: uppercase;
+        }
+
+        &--description {
+            margin-top: -20px;
+            margin-left: 50px;
+            width: 60%;
+        }
+    }
+    &__listagem {
+        max-height: 550px;
+        overflow: auto;
+
+        &-profissao {
+            &:not(:first-child) {
+                border-top: 1px solid #c7c7c7;
+                margin-top: 5px
+            }
+        }
+    }
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+
+    &__item {
+        background: #f2f2f2;
+        border-left-style: solid;
+        border-left-width: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 230px;
+        margin: 10px;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+        width: 170px;
+
+        &.status-1 {
+            border-left-color: $aprovado;
+        }
+
+        &.status-2, &.status-4 {
+            border-left-color: $em_analise_processo;
+        }
+
+        &.status-3 {
+            border-left-color: $recusado;
+        }
+
+        &:hover {
+            background: rgba(255, 144, 21, 0.41);
+        }
+
+        &-img-icon {
+            height: 100%;
+            width: 100%;
+        }
+
+        &-name {
+            font: 16px $font-regular;
+            padding: 10px 0;
+            text-align: center;
+        }
     }
 }
