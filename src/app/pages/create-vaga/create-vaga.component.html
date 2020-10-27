@@ -9,44 +9,94 @@
                 <mat-step>
                     <div>
                         <ng-template matStepLabel>Profissão</ng-template>
-                        <form class='form'[formGroup]="description">
-                            <div class="create-vaga__container-select">
-                                <div class="create-vaga__select">
-                                    <div class="create-vaga__select-text" (click)="openCategorias()">
-                                        Categoria
-                                    </div>
-                                    <div class="create-vaga__select-options options-categorias">
-                                        <div *ngFor="let categoria of categorias" class="create-vaga__select-options-item" (click)="setCategoria(categoria.codCategoria)">
-                                            <img src="../../../assets/images/icones/profissao/{{categoria.imagemCategoria}}">
-                                            <p> {{categoria.nomeCategoria}} </p>
-                                        </div>
-                                    </div>
+                        <form [formGroup]="description">
+                            <div class="create-vaga__bloco">
+                                <div class="create-vaga__bloco-info">
+                                    <h2 class="create-vaga__bloco-info-title">
+                                        Profissão
+                                    </h2>
+
+                                    <p class="create-vaga__bloco-info-desc">
+                                        Selecione a categoria e a profissão a qual sua vaga pertence.
+                                    </p>
                                 </div>
 
-                                <div class="create-vaga__select">
-                                    <div *ngIf="! hasCategoriaSelecionada()" class="create-vaga__select-text" style="font-size: 14px">
-                                        Selecione uma categoria
+                                <div class="create-vaga__container-select">
+                                    <div class="create-vaga__select">
+                                        <div class="create-vaga__select-text" (click)="openCategorias()">
+                                            Categoria
+                                        </div>
+                                        <div class="create-vaga__select-options options-categorias">
+                                            <div *ngFor="let categoria of categorias" class="create-vaga__select-options-item" (click)="setCategoria(categoria.codCategoria)">
+                                                <img src="../../../assets/images/icones/profissao/{{categoria.imagemCategoria}}">
+                                                <p> {{categoria.nomeCategoria}} </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div *ngIf="hasCategoriaSelecionada()" class="create-vaga__select-text" (click)="openProfissoes()">
-                                        Profissão
-                                    </div>
-                                    <div class="create-vaga__select-options options-profissao">
-                                        <div *ngFor="let profissao of profissoes" class="create-vaga__select-options-item" (click)="vagaModel.setProfissao(profissao.codProfissao)">
-                                            <p> {{profissao.nomeProfissao}} </p>
+
+                                    <div class="create-vaga__select">
+                                        <div *ngIf="! hasCategoriaSelecionada()" class="create-vaga__select-text" style="font-size: 14px">
+                                            Selecione uma categoria
+                                        </div>
+                                        <div *ngIf="hasCategoriaSelecionada()" class="create-vaga__select-text" (click)="openProfissoes()">
+                                            Profissão
+                                        </div>
+                                        <div class="create-vaga__select-options options-profissao">
+                                            <div *ngFor="let profissao of profissoes" class="create-vaga__select-options-item" (click)="vagaModel.setProfissao(profissao.codProfissao)">
+                                                <p> {{profissao.nomeProfissao}} </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="create-vaga__container-select">
-                                <div class="create-vaga__select">
-                                    <div class="create-vaga__select-text" (click)="openRegimes()">
+                            <div class="create-vaga__bloco">
+                                <div class="create-vaga__bloco-info">
+                                    <h2 class="create-vaga__bloco-info-title">
                                         Regime de Contratação
-                                    </div>
-                                    <div class="create-vaga__select-options options-regime">
-                                        <div *ngFor="let regime of regimes" class="create-vaga__select-options-item" (click)="vagaModel.setRegimeContratacao(regime.codRegimeContratacao)">
-                                            <p> {{regime.nomeRegimeContratacao}} </p>
+                                    </h2>
+
+                                    <p class="create-vaga__bloco-info-desc">
+                                        Selecione qual regime de contratação.
+                                    </p>
+                                </div>
+
+                                <div class="create-vaga__container-select">
+                                    <div class="create-vaga__select">
+                                        <div class="create-vaga__select-text" (click)="openRegimes()">
+                                            Regime de Contratação
                                         </div>
+                                        <div class="create-vaga__select-options options-regime">
+                                            <div *ngFor="let regime of regimes" class="create-vaga__select-options-item" (click)="vagaModel.setRegimeContratacao(regime.codRegimeContratacao)">
+                                                <p> {{regime.nomeRegimeContratacao}} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="create-vaga__bloco">
+                                <div class="create-vaga__bloco-info">
+                                    <h2 class="create-vaga__bloco-info-title">
+                                        Benefícios
+                                    </h2>
+
+                                    <p class="create-vaga__bloco-info-desc">
+                                        Adicione quais benefícios sua vaga irá possuir.
+                                        <br> Você pode adicionar quantos quiser!
+                                    </p>
+                                </div>
+
+                                <div class="create-vaga__add-input">
+                                    <input type="text" class="create-vaga__add-input-input js-input-beneficio" (keyup)="setBeneficio($event)">
+                                    <button class="create-vaga__add-input-button" (click)="adicionaBeneficio()"> + </button>
+                                </div>
+
+                                <div class="create-vaga__beneficios-list">
+                                    <div *ngFor="let beneficio of beneficios" class="create-vaga__beneficios-list-item">
+                                        {{beneficio.nomeBeneficio}}
+
+                                        <button class="create-vaga__beneficios-list-item-remove" (click)="removeBeneficio(beneficio.nomeBeneficio)"></button>
                                     </div>
                                 </div>
                             </div>

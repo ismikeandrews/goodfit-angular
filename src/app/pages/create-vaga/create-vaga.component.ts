@@ -10,6 +10,7 @@ import { EnderecoModel } from '../../models/endereco.model';
 import { EnderecoService } from '../../services/endereco.service';
 import { VagaService } from '../../services/vaga.service';
 
+import { BeneficioModel }           from '../../models/beneficio.model';
 import { CategoriaModel }           from '../../models/categoria.model';
 import { CategoriaService }         from '../../services/categoria.service';
 import { ProfissaoModel}            from '../../models/profissao.model';
@@ -25,11 +26,14 @@ import { VagaModel }                from '../../models/vaga.model';
 })
 export class CreateVagaComponent implements OnInit {
     public categorias : any = []
+    public beneficios : any = []
     public profissoes : any = []
     public regimes    : any = []
     
     public vagaModel    : VagaModel
     public codCategoria : number = null
+    
+    public beneficioAdicionando : string
     
     
       public enderecoModel: EnderecoModel;
@@ -219,6 +223,19 @@ export class CreateVagaComponent implements OnInit {
         }
       }
       
+    adicionaBeneficio() {
+        const input = document.querySelector('.js-input-beneficio')
+        
+        // @ts-ignore
+        this.beneficios.push(new BeneficioModel(
+            null,
+            this.beneficioAdicionando
+        ))
+        
+        //input.value = ''
+        
+        console.log(this.beneficios)
+    }
       
     hasCategoriaSelecionada() {
         return (this.codCategoria !== null)
@@ -270,5 +287,17 @@ export class CreateVagaComponent implements OnInit {
                 codCategoria
             ))
         })
+    }
+    
+    removeBeneficio(nomeBeneficio : string) {
+          console.log(nomeBeneficio)
+        const index = this.beneficios.findIndex(item => item.nomeBeneficio === nomeBeneficio)
+        this.beneficios.splice(index, 1)
+        
+        console.log(this.beneficios)
+    }
+    
+    setBeneficio(event) {
+        this.beneficioAdicionando = event.target.value
     }
 }

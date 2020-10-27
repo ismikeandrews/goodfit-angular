@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { CategoriaModel } from '../models/categoria.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriaService {
-  public categoria : CategoriaModel
 
   constructor(
     private http: HttpClient
   ) {
-      this.categoria = new CategoriaModel()
   }
 
   async getCategoriaList() {
