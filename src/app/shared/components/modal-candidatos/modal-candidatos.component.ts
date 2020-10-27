@@ -1,9 +1,10 @@
-import { AuthService }      from '../../../services/auth.service';
-import { BeneficioService } from '../../../services/beneficio.service';
-import { MatDialogRef}      from '@angular/material/dialog';
-import {MAT_DIALOG_DATA}    from '@angular/material/dialog';
+import { AuthService }                    from '../../../services/auth.service';
+import { BeneficioService }               from '../../../services/beneficio.service';
+import { MatDialogRef}                    from '@angular/material/dialog';
+import {MAT_DIALOG_DATA}                  from '@angular/material/dialog';
 
-import { CandidatoService } from '../../../services/candidato.service';
+import { CandidatoService }               from '../../../services/candidato.service';
+import { ExperienciaProfissionalService } from '../../../services/experiencia-profissional.service';
 import {
     Component,
     OnInit,
@@ -42,14 +43,16 @@ export class ModalCandidatosComponent implements OnInit{
       }
     ]
 
-    public adicionais : any = []
+    public adicionais   : any = []
+    public experiencias : any = []
 
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
-        private authService      : AuthService,
-        private beneficioService : BeneficioService,
-        private candidatoService : CandidatoService,
-        public  dialogRef        : MatDialogRef<ModalCandidatosComponent>) {}
+        private authService        : AuthService,
+        private beneficioService   : BeneficioService,
+        private candidatoService   : CandidatoService,
+        private experienciaService : ExperienciaProfissionalService,
+        public  dialogRef          : MatDialogRef<ModalCandidatosComponent>) {}
 
     ngOnInit() {
         this.codCandidato = this.data.codCandidato
@@ -63,13 +66,18 @@ export class ModalCandidatosComponent implements OnInit{
     }
     
     async getCandidato(codCandidato : number, codVaga : number) {
-        const params    = this.authService.getLoggedUser()
-        const token     = params.token
+        const params      = this.authService.getLoggedUser()
+        const token       = params.token
         
-        const candidato  = await this.candidatoService.getCandidatoEmVaga(codCandidato, codVaga, token)
-        this.adicionais  = await this.candidatoService.getAdicionais(codCandidato, codVaga, token)
+        const candidato   = await this.candidatoService.getCandidatoEmVaga(codCandidato, codVaga, token)
+        this.adicionais   = await this.candidatoService.getAdicionais(codCandidato, codVaga, token)
+        this.experiencias = await this.experienciaService.getPorCandidato(codCandidato, token)
         
         this.setCandidato(candidato[0])
+    }
+    
+    getExperienciaData(experiencia) {
+        return 'Março de 2020 - Até o momento'
     }
     
     getNomeStatusCandidatura(codStatus : number) {

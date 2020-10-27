@@ -38,7 +38,7 @@
                         </div>
         
                         <div class="profile__age">
-                            {{idadeCandidato}}
+                            {{idadeCandidato}} anos
                         </div>
         
                         <div class="profile__status status-{{codStatusCandidatura}}">
@@ -101,10 +101,21 @@
         <div class="content">
             <div class="content__item content__item--experiencias">
                 <div class="content__item-title"> Experiências profissionais </div>
-                <div class="xp__item" *ngFor='let item of itens'>
-                    <app-accordion [title]="item.name">
-                        <div class="xp__text">
-                            {{ item.text }}
+                <div class="xp__item" *ngFor='let experiencia of experiencias'>
+                    <app-accordion [title]="experiencia.nomeProfissao">
+                        <div class="xp__content">
+                            <div class="xp__content-header">
+                                <img class="xp__content-header-icon" src="../../../../assets/images/icones/empresa.png">
+
+                                <div class="xp__content-header-info">
+                                    <p class="xp__content-header-info-company-name"> {{experiencia.empresaExperienciaProfissional}} </p>
+                                    <p class="xp__content-header-info-date"> {{getExperienciaData(experiencia)}} </p>
+                                </div>
+                            </div>
+
+                            <div class="xp__content-description">
+                                {{ experiencia.descricaoExperienciaProfissional }}
+                            </div>
                         </div>
                     </app-accordion>
                 </div>

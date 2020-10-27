@@ -198,6 +198,37 @@
     &__text {
         padding: 20px 10px 10px;
     }
+
+    &__content {
+        padding: 15px 0;
+
+        &-header {
+            display: flex;
+            text-transform: uppercase;
+
+            &-icon {
+                width: 50px;
+            }
+
+            &-info {
+                margin-left: 15px;
+
+                &-company-name {
+                    font: 19px $font-bold;
+                    margin: 0;
+                }
+
+                &-date {
+                    margin: 0;
+                    font: 13px $font-regular;
+                }
+            }
+        }
+
+        &-description {
+            margin-top: 15px;
+        }
+    }
 }
 
 svg {
