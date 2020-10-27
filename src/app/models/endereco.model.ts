@@ -16,7 +16,7 @@ export class EnderecoModel{
        this.numeroEndereco = ""
        this.complementoEndereco = ""
        this.bairroEndereco = ""
-       this.zonaEndereco = ""
+       this.zonaEndereco = 'Zona ficticia'
        this.cidadeEndereco = ""
        this.estadoEndereco = ""
     }

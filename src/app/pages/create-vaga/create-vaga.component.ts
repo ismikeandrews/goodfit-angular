@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AdicionalService } from '../../services/adicional.service';
+import { AdicionalService }  from '../../services/adicional.service';
 
-import { ViacepService } from '../../services/viacep.service';
-import { AdicionalModel } from '../../models/adicional.model'
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl}        from '@angular/forms';
 
-import { EnderecoModel } from '../../models/endereco.model';
-import { EnderecoService } from '../../services/endereco.service';
-import { VagaService } from '../../services/vaga.service';
+import { ViacepService }     from '../../services/viacep.service';
+import { AdicionalModel }    from '../../models/adicional.model'
+import { MatSnackBar }       from '@angular/material/snack-bar';
+
+import { EnderecoModel }     from '../../models/endereco.model';
+import { EnderecoService }   from '../../services/endereco.service';
+import { VagaService }       from '../../services/vaga.service';
 
 import { AuthService }              from '../../services/auth.service';
 import { BeneficioModel }           from '../../models/beneficio.model';
@@ -31,10 +33,14 @@ export class CreateVagaComponent implements OnInit {
     public regimes    : any = []
     
     public vagaModel     : VagaModel
-    public codCategoria  : number = null
     public enderecoModel : EnderecoModel
     
+    public alfabetizacao        : any
     public beneficioAdicionando : string
+    public categoria            : CategoriaModel = null
+    public escolaridade         : any
+    public profissao            : ProfissaoModel = null
+    public regime               : any            = null
     
     public adicionalList     : [AdicionalModel]
     public habilidadeList    : [AdicionalModel]
@@ -120,22 +126,24 @@ export class CreateVagaComponent implements OnInit {
         }
     }
     
-      handleRequisitosObject(vagaCod){
+    handleRequisitosObject(vagaCod){
         let requisitosList = []
-        let selectedReq = [];
-        selectedReq.push(this.selectedAlf, this.selectedEsclr);
+        let selectedReq    = []
+        
+        selectedReq.push(this.alfabetizacao, this.escolaridade)
     
         selectedReq.forEach(requisito => {
-          requisito.checked = true;
-          requisito.obrigatorio = true;
-          this.habilidadeList.push(requisito);
-        });
+            requisito.checked     = true
+            requisito.obrigatorio = true
+            this.habilidadeList.push(requisito)
+        })
     
         requisitosList = this.habilidadeList.filter(habilidade =>{
-          return habilidade.checked === true
+            return habilidade.checked === true
         })
+        
         requisitosList.forEach(requisito => {
-          if (requisito.obridatorio) {
+          if (requisito.obrigatorio) {
             this.selectedSkills.push({codAdicional: requisito.codAdicional, obrigatoriedade: 1})
           }else{
             this.selectedSkills.push({codAdicional: requisito.codAdicional, obrigatoriedade: 0})
@@ -146,18 +154,26 @@ export class CreateVagaComponent implements OnInit {
       }
     
       async submit(){
-        
           try {
-              const enderecoRes: any = await this.enderecoService.setEndereco(this.enderecoModel);
-    
+              const params           = this.authService.getLoggedUser()
+              const codEndreco : any = await this.enderecoService.setEndereco(this.enderecoModel);
 
-            this.vagaModel.codEmpresa  = 3;
-            this.vagaModel.codEndereco = enderecoRes;
-            const vagaRes: any = await this.vagaService.setVaga(this.vagaModel);
-            
-            const requisitos = this.handleRequisitosObject(vagaRes)
-            const adicionalRes: any = await this.vagaService.setRequisitosVaga(requisitos);
-            if (adicionalRes) {
+              this.vagaModel.codEmpresa  = 3;
+              this.vagaModel.codEndereco = codEndreco;
+
+              const codVaga   : any = await this.vagaService.setVaga(this.vagaModel);
+
+              const responseBeneficios = this.vagaService.setBeneficiosVaga({
+                  codVaga : codVaga,
+                  beneficios : this.beneficios.map(element => {
+                      return element.nomeBeneficio
+                  })
+              })
+              
+              const requisitos         = this.handleRequisitosObject(codVaga)
+              const adicionalRes: any  = await this.vagaService.setRequisitosVaga(requisitos);
+              
+              if (adicionalRes) {
               await this.snackBar.open("Cadastro concluido com sucesso", "", {
                 duration: 4000,
                 horizontalPosition: "right",
@@ -179,9 +195,7 @@ export class CreateVagaComponent implements OnInit {
             this.beneficioAdicionando
         ))
         
-        //input.value = ''
-        
-        console.log(this.beneficios)
+        this.beneficioAdicionando = ''
     }
     
     async getEnderecoEmpresa(checked) {
@@ -204,7 +218,15 @@ export class CreateVagaComponent implements OnInit {
     }
       
     hasCategoriaSelecionada() {
-        return (this.codCategoria !== null)
+        return (this.categoria !== null)
+    }
+    
+    hasProfissaoSelecionada() {
+        return (this.profissao !== null)
+    }
+    
+    hasRegimeSelecionado() {
+        return (this.regime !== null)
     }
       
     openCategorias() {
@@ -240,27 +262,34 @@ export class CreateVagaComponent implements OnInit {
         datalistRegimes.classList.add('is-active')
     }
     
-    async setCategoria(codCategoria : number) {
-        this.codCategoria = codCategoria
-        this.profissoes   = []
+    setAlfabetizacao(alfabetizacao) {
+        this.alfabetizacao = alfabetizacao
+    }
+    
+    setEscolaridade(escolaridade) {
+        this.escolaridade = escolaridade
+    }
+    
+    async setCategoria(categoria : CategoriaModel) {
+        this.openCategorias()
         
-        const profissoes : any = await this.profissaoService.getProfissoesPorCategoria(codCategoria, '')
+        this.categoria  = categoria
+        this.profissoes = []
+        
+        const profissoes : any = await this.profissaoService.getProfissoesPorCategoria(categoria.codCategoria, '')
         
         profissoes.forEach(profissao => {
             this.profissoes.push(new ProfissaoModel(
-                profissao.codCategoria,
+                profissao.codProfissao,
                 profissao.nomeProfissao,
-                codCategoria
+                categoria.codCategoria
             ))
         })
     }
     
     removeBeneficio(nomeBeneficio : string) {
-          console.log(nomeBeneficio)
         const index = this.beneficios.findIndex(item => item.nomeBeneficio === nomeBeneficio)
         this.beneficios.splice(index, 1)
-        
-        console.log(this.beneficios)
     }
     
     setBeneficio(event) {
@@ -271,11 +300,29 @@ export class CreateVagaComponent implements OnInit {
         this.vagaModel.cargaHorariaVaga = event.target.value
     }
     
+    setProfissao(profissao : ProfissaoModel) {
+        this.profissao = profissao
+        this.vagaModel.setProfissao(profissao.codProfissao)
+        
+        this.openProfissoes()
+    }
+    
+    setRegime(regime) {
+        this.regime = regime
+        this.vagaModel.setRegimeContratacao(regime.codRegimeContratacao)
+        
+        this.openRegimes()
+    }
+    
     setSalario(event) {
         this.vagaModel.salarioVaga = event.target.value
     }
     
     setQuantidade(event) {
           this.vagaModel.quantidadeVaga = event.target.value
+    }
+    
+    setDescricao(descricao) {
+        this.vagaModel.descricaoVaga = descricao
     }
 }

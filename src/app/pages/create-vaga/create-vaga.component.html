@@ -24,10 +24,16 @@
                                 <div class="create-vaga__container-select">
                                     <div class="create-vaga__select">
                                         <div class="create-vaga__select-text" (click)="openCategorias()">
-                                            Categoria
+                                            <ng-container *ngIf="! hasCategoriaSelecionada()">
+                                                Categoria
+                                            </ng-container>
+                                            <ng-container *ngIf="hasCategoriaSelecionada()">
+                                                <img class="create-vaga__select-icon" src="../../../assets/images/icones/profissao/{{categoria.imagemCategoria}}">
+                                                {{categoria.nomeCategoria}}
+                                            </ng-container>
                                         </div>
                                         <div class="create-vaga__select-options options-categorias">
-                                            <div *ngFor="let categoria of categorias" class="create-vaga__select-options-item" (click)="setCategoria(categoria.codCategoria)">
+                                            <div *ngFor="let categoria of categorias" class="create-vaga__select-options-item" (click)="setCategoria(categoria)">
                                                 <img src="../../../assets/images/icones/profissao/{{categoria.imagemCategoria}}">
                                                 <p> {{categoria.nomeCategoria}} </p>
                                             </div>
@@ -38,11 +44,19 @@
                                         <div *ngIf="! hasCategoriaSelecionada()" class="create-vaga__select-text" style="font-size: 14px">
                                             Selecione uma categoria
                                         </div>
-                                        <div *ngIf="hasCategoriaSelecionada()" class="create-vaga__select-text" (click)="openProfissoes()">
-                                            Profissão
-                                        </div>
+
+                                        <ng-container *ngIf="hasCategoriaSelecionada()">
+                                            <div *ngIf="! hasProfissaoSelecionada()" class="create-vaga__select-text" (click)="openProfissoes()">
+                                                Profissão
+                                            </div>
+
+                                            <div *ngIf="hasProfissaoSelecionada()" class="create-vaga__select-text" (click)="openProfissoes()">
+                                                {{profissao.nomeProfissao}}
+                                            </div>
+                                        </ng-container>
+
                                         <div class="create-vaga__select-options options-profissao">
-                                            <div *ngFor="let profissao of profissoes" class="create-vaga__select-options-item" (click)="vagaModel.setProfissao(profissao.codProfissao)">
+                                            <div *ngFor="let profissao of profissoes" class="create-vaga__select-options-item" (click)="setProfissao(profissao)">
                                                 <p> {{profissao.nomeProfissao}} </p>
                                             </div>
                                         </div>
@@ -64,10 +78,15 @@
                                 <div class="create-vaga__container-select">
                                     <div class="create-vaga__select">
                                         <div class="create-vaga__select-text" (click)="openRegimes()">
-                                            Regime de Contratação
+                                            <ng-container *ngIf="! hasRegimeSelecionado()">
+                                                Regime de Contratação
+                                            </ng-container>
+                                            <ng-container *ngIf="hasRegimeSelecionado()">
+                                                {{regime.nomeRegimeContratacao}}
+                                            </ng-container>
                                         </div>
                                         <div class="create-vaga__select-options options-regime">
-                                            <div *ngFor="let regime of regimes" class="create-vaga__select-options-item" (click)="vagaModel.setRegimeContratacao(regime.codRegimeContratacao)">
+                                            <div *ngFor="let regime of regimes" class="create-vaga__select-options-item" (click)="setRegime(regime)">
                                                 <p> {{regime.nomeRegimeContratacao}} </p>
                                             </div>
                                         </div>
@@ -88,7 +107,7 @@
                                 </div>
 
                                 <div class="create-vaga__add-input">
-                                    <input type="text" class="create-vaga__add-input-input js-input-beneficio" (keyup)="setBeneficio($event)">
+                                    <input type="text" class="create-vaga__add-input-input js-input-beneficio" value="{{beneficioAdicionando}}" (keyup)="setBeneficio($event)">
                                     <button class="create-vaga__add-input-button" (click)="adicionaBeneficio()"> + </button>
                                 </div>
 
@@ -119,7 +138,7 @@
                             </p>
                         </div>
 
-                        <app-description-box></app-description-box>
+                        <app-description-box (change)="setDescricao($event.target.value)"></app-description-box>
 
                         <div class="create-vaga__input-container">
                             <div class="create-vaga__input">
@@ -162,7 +181,7 @@
                                 </div>
                             </mat-label>
                             <mat-select required [(ngModel)]="selectedEsclr" name="escolaridade">
-                                <mat-option *ngFor="let escolaridade of escolaridadeList" [value]="escolaridade">
+                                <mat-option *ngFor="let escolaridade of escolaridadeList" [value]="escolaridade" (click)="setEscolaridade(escolaridade)">
                                     {{ escolaridade.nomeAdicional }}
                                 </mat-option>
                             </mat-select>
@@ -176,8 +195,8 @@
                                     Alfabetização
                                 </div>
                             </mat-label>
-                            <mat-select required [(ngModel)]="selectedAlf" name="alfabetizacao">
-                                <mat-option *ngFor="let alfabetizacao of alfabetizacaoList" [value]="alfabetizacao">
+                            <mat-select required name="alfabetizacao">
+                                <mat-option *ngFor="let alfabetizacao of alfabetizacaoList" [value]="alfabetizacao" (click)="setAlfabetizacao(alfabetizacao)">
                                     {{ alfabetizacao.nomeAdicional }}
                                 </mat-option>
                             </mat-select>

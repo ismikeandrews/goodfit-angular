@@ -20,15 +20,15 @@ export class VagaService {
   }
 
   async setVaga(vaga){
-    return await this.http.post(`${environment.originalUrlApi}/vaga`, vaga).toPromise();
+    return await this.http.post(`${environment.baseUrlApi}/vaga`, vaga).toPromise();
   }
 
   async setRequisitosVaga(requisitos) {
-    return this.http.post(`${environment.originalUrlApi}/vaga/requisitos`, requisitos).toPromise();
+    return this.http.post(`${environment.baseUrlApi}/vaga/requisitos`, requisitos).toPromise();
   }
 
   async setBeneficiosVaga(beneficios){
-    return await this.http.post(`${environment.originalUrlApi}/vaga/beneficios`, beneficios).toPromise();
+    return await this.http.post(`${environment.baseUrlApi}/vaga/beneficios`, beneficios).toPromise();
   }
 
   async getVagaPorCod(codVaga : number, token : string){
