@@ -35,6 +35,7 @@ export class ModalCandidatosComponent implements OnInit{
     public codStatusCandidatura  : number
     public nomeStatusCandidatura : string
 
+    public isAprovando           : boolean = false
     public isCandidatoCarregado  : boolean = false
 
     public adicionais   : any = []
@@ -75,10 +76,15 @@ export class ModalCandidatosComponent implements OnInit{
     }
     
     async aprovaCandidato() {
-        const params                    = this.authService.getLoggedUser()
+        this.isAprovando = true
         
-        this.candidatura.setStatus(this.candidatura.APROVADO, '')
-        await this.candidaturaService.mudarStatusCandidatura(this.candidatura, params.token)
+        const params                    = this.authService.getLoggedUser()
+        let attCandidatura = new CandidaturaModel(this.codCandidatura, this.codCandidato, this.codVaga, this.candidatura.APROVADO)
+        const response     : any = await this.candidaturaService.mudarStatusCandidatura(attCandidatura, params.token)
+        
+        if ( response.status === 200 ) {
+            this.candidatura.setStatus(this.candidatura.APROVADO, '')
+        }
     }
     
     getExperienciaData(experiencia) {
@@ -137,19 +143,6 @@ export class ModalCandidatosComponent implements OnInit{
         return MESES[mes]
     }
     
-    getNomeStatusCandidatura(codStatus : number) {
-        switch ( codStatus ) {
-            case 1 :
-                return 'Aprovado'
-            case 2 :
-                return 'Em Análise'
-            case 3 :
-                return 'Recusado'
-            case 4 :
-                return 'Em Processo'
-        }
-    }
-    
     getPathImagemAdicional(codTipoAdicional : number) {
         if ( codTipoAdicional === 1 ) {
             return 'habilidades'
@@ -164,14 +157,6 @@ export class ModalCandidatosComponent implements OnInit{
     
     isAdicionalCompativel(adicional) {
         return ( (adicional.codTipoAdicional !== 1) || !!(adicional.compativel))
-    }
-    
-    isEmAnalise() {
-        return (this.codStatusCandidatura === 2)
-    }
-    
-    isEmProcesso() {
-        return (this.codStatusCandidatura === 4)
     }
     
     setCandidato(candidatura) {
@@ -194,8 +179,9 @@ export class ModalCandidatosComponent implements OnInit{
     }
     
     setStatus(status : number) {
+        this.candidatura.setStatus(status, '')
         this.codStatusCandidatura  = status
-        this.nomeStatusCandidatura = this.getNomeStatusCandidatura(status)
+        this.nomeStatusCandidatura = this.candidatura.getNomeStatusCandidatura(status)
     }
     
 }

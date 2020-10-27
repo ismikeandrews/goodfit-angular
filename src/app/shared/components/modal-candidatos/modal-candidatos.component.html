@@ -62,17 +62,34 @@
 
                 <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-candidato__process-button"></div>
                 <div *ngIf="isCandidatoCarregado" class="process__button">
-                    <div class="process__button-item process__button-item--decline candidato">
-                        <mat-icon>close</mat-icon> Recusar
-                    </div>
+                    <ng-container *ngIf="! candidatura.isFinalizado()">
+                        <div class="process__button-item process__button-item--decline candidato">
+                            <mat-icon>close</mat-icon> Recusar
+                        </div>
 
-                    <div *ngIf="isEmProcesso()" (click)="aprovaCandidato()" class="process__button-item process__button-item--accept candidato">
-                        <mat-icon>done</mat-icon> Aprovar
-                    </div>
+                        <div *ngIf="candidatura.isEmProcesso()" (click)="aprovaCandidato()" class="process__button-item process__button-item--accept candidato">
+                            <ng-container *ngIf="! isAprovando">
+                                <mat-icon>done</mat-icon> Aprovar
+                            </ng-container>
 
-                    <div *ngIf="isEmAnalise()" class="process__button-item process__button-item--process candidato">
-                        <mat-icon>done</mat-icon> Convidar para entrevista
-                    </div>
+                            <ng-container *ngIf="isAprovando">
+                                <span class="loading-spinner loading-spinner-approving"></span>
+                            </ng-container>
+                        </div>
+
+                        <div *ngIf="candidatura.isEmAnalise()" class="process__button-item process__button-item--process candidato">
+                            <mat-icon>done</mat-icon> Convidar para entrevista
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="candidatura.isFinalizado()">
+                        <div *ngIf="candidatura.isRecusado()" class="process__button-item process__button-item--refused candidato">
+                            <mat-icon>close</mat-icon> Recusado
+                        </div>
+
+                        <div *ngIf="candidatura.isAprovado()" class="process__button-item process__button-item--approved candidato">
+                            <mat-icon>done</mat-icon> Aprovado
+                        </div>
+                    </ng-container>
                 </div>
             </div>
 

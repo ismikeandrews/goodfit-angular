@@ -162,6 +162,17 @@ a {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 40px;
+
+    &-approving {
+        border-color: #fff;
+        border-top-color: $aprovado;
+        border-width: 4px;
+        height: 15px;
+        position: unset;
+        left: auto;
+        top: auto;
+        width: 15px;
+    }
 }
 
 @keyframes spin {

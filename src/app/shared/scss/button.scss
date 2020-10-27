@@ -63,5 +63,19 @@
                 background-color: #d4c137;
             }
         }
+
+        &--approved, &--refused {
+            cursor: default;
+            justify-content: center!important;
+            width: 100%!important;
+        }
+
+        &--approved {
+            background-color: $aprovado;
+        }
+
+        &--refused {
+            background-color: $recusado;
+        }
     }
 }

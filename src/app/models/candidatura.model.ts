@@ -17,6 +17,42 @@ export class CandidaturaModel{
         this.codStatus      = codStatus
         this.feedback       = ''
     }
+    
+    getNomeStatusCandidatura(codStatus : number) {
+        switch ( codStatus ) {
+            case 1 :
+                return 'Aprovado'
+            case 2 :
+                return 'Em Análise'
+            case 3 :
+                return 'Recusado'
+            case 4 :
+                return 'Em Processo'
+        }
+    }
+    
+    isAprovado() {
+        return (this.codStatus === this.APROVADO)
+    }
+    
+    isFinalizado() {
+        return (
+            (this.codStatus === this.APROVADO)
+            || (this.codStatus === this.RECUSADO)
+        )
+    }
+    
+    isEmAnalise() {
+        return (this.codStatus === this.EM_ANALISE)
+    }
+    
+    isEmProcesso() {
+        return (this.codStatus === this.EM_PROCESSO)
+    }
+    
+    isRecusado() {
+        return (this.codStatus === this.RECUSADO)
+    }
 
     setFeedback(feedback : string) {
         this.feedback = feedback
