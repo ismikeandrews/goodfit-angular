@@ -15,6 +15,33 @@ export class CandidatosComponent implements OnInit {
     public candidaturas           : any
     public isCandidatosCarregados : boolean = false
     
+    public filtros = [
+        {
+            checked   : true,
+            className : 'aprovado',
+            label     : 'Aprovado',
+            value     : 1
+        },
+        {
+            checked   : true,
+            className : 'analise',
+            label     : 'Em Análise',
+            value     : 2
+        },
+        {
+            checked   : true,
+            className : 'processo',
+            label     : 'Em Processo',
+            value     : 4
+        },
+        {
+            checked   : false,
+            className : 'recusado',
+            label     : 'Recusado',
+            value     : 3
+        }
+    ]
+    
     constructor(
         public dialog : MatDialog,
         private vagaService : VagaService,
@@ -30,8 +57,11 @@ export class CandidatosComponent implements OnInit {
     }
     
     async getCandidatosPorVaga() {
+        this.isCandidatosCarregados = false
+        
         const params      = this.authService.getLoggedUser()
-        this.candidaturas = await this.vagaService.getCandidatosPorVaga(params.token)
+        const filters     = this.getFiltrosAtivos()
+        this.candidaturas = await this.vagaService.getCandidatosPorVaga(filters, params.token)
         
         this.isCandidatosCarregados = true
     }
@@ -62,5 +92,38 @@ export class CandidatosComponent implements OnInit {
         } else {
             filter.classList.add('is-active')
         }
+    }
+    
+    getFiltrosAtivos() {
+        let filtrosAtivos      = []
+        let isElementsOnScreen = (null !== document.getElementById(`candidatos-filtro-aprovado`))
+        
+        this.filtros.forEach(filtro => {
+            let isChecked = false
+            
+            if ( isElementsOnScreen ) {
+                let element   = document.getElementById(`candidatos-filtro-${filtro.className}`)
+                isChecked = element.checked
+            } else {
+                isChecked = filtro.checked
+            }
+    
+            if ( isChecked ) {
+                filtrosAtivos.push(filtro.value)
+            }
+        })
+        
+        if ( filtrosAtivos.length === 0 ) {
+            this.filtros.forEach(filtro => {
+                let element     = document.getElementById(`candidatos-filtro-${filtro.className}`)
+                element.checked = filtro.checked
+                
+                if ( filtro.checked ) {
+                    filtrosAtivos.push(filtro.value)
+                }
+            })
+        }
+        
+        return filtrosAtivos.join(',')
     }
 }

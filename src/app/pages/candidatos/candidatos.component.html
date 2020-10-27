@@ -23,21 +23,9 @@
 
         <div class="content">
             <div id="filter" class="filtros">
-                <div class="filtros__item">
-                    <input type="checkbox" value="2" id="candidatos-filtro-analise" checked>
-                    <label class="filtros__item-name" for="candidatos-filtro-analise"> Em Análise </label>
-                </div>
-                <div class="filtros__item">
-                    <input type="checkbox" value="3" id="candidatos-filtro-processo" checked>
-                    <label class="filtros__item-name" for="candidatos-filtro-processo"> Em Processo </label>
-                </div>
-                <div class="filtros__item">
-                    <input type="checkbox" value="1" id="candidatos-filtro-aprovado" checked>
-                    <label class="filtros__item-name" for="candidatos-filtro-aprovado"> Aprovados </label>
-                </div>
-                <div class="filtros__item">
-                    <input type="checkbox" value="3" id="candidatos-filtro-recusado">
-                    <label class="filtros__item-name" for="candidatos-filtro-recusado"> Recusados </label>
+                <div *ngFor="let filtro of filtros" class="filtros__item">
+                    <input type="checkbox" (change)="getCandidatosPorVaga()" value="{{filtro.value}}" id="candidatos-filtro-{{filtro.className}}" [checked]="filtro.checked">
+                    <label class="filtros__item-name" for="candidatos-filtro-{{filtro.className}}"> {{filtro.label}} </label>
                 </div>
             </div>
             
