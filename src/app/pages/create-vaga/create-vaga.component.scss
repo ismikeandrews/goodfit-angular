@@ -226,6 +226,90 @@
     }
 }
 
+.create-vaga__input {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+
+    &-label {
+        font: 13px $font-bold;
+        text-transform: uppercase;
+
+        &-obs {
+            font: 11px $font-regular;
+            text-transform: none;
+        }
+    }
+
+    &-item {
+        align-items: center;
+        background: #f2f2f2;
+        border: 1px solid #b9b9b9;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        height: 40px;
+        justify-content: flex-start;
+        margin-bottom: 25px;
+        padding-left: 15px;
+        position: relative;
+        transition: all 0.3s;
+        width: 97%;
+
+        &--readonly {
+            background: #e8e8e8;
+        }
+    }
+}
+
+.create-vaga__input-container {
+    display: flex;
+    justify-content: space-between;
+
+    .create-vaga__input-item {
+        width: 93%;
+    }
+
+    .create-vaga__input + .create-vaga__input {
+        margin-left: 25px;
+    }
+}
+
+.create-vaga__checkbox {
+    margin-bottom: 20px;
+    text-align: left;
+
+    input[type="checkbox"] {
+        opacity: 0;
+    }
+
+    input[type="checkbox"] + label {
+        cursor: pointer;
+        position: relative;
+
+        &:before {
+            border: 1px solid #c7c7c7;
+            border-radius: 2px;
+            content: '';
+            height: 13px;
+            left: -23px;
+            top: 1px;
+            position: absolute;
+            transition: 0.3s all;
+            width: 13px;
+        }
+    }
+
+    input[type="checkbox"]:checked + label {
+        &:before {
+            background: $pink;
+            border-color: $pink;
+        }
+    }
+}
+
+
 .habilidades {
     display: flex;
     flex-wrap: wrap;

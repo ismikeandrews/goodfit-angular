@@ -20,4 +20,12 @@ export class EnderecoModel{
        this.cidadeEndereco = ""
        this.estadoEndereco = ""
     }
+    
+    setComplemento(complemento : string) {
+        this.complementoEndereco = complemento
+    }
+    
+    setNumero(numero : string) {
+        this.numeroEndereco = numero
+    }
 }

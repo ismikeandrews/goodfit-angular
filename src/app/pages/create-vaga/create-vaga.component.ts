@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdicionalService } from '../../services/adicional.service';
 
 import { ViacepService } from '../../services/viacep.service';
@@ -30,134 +29,94 @@ export class CreateVagaComponent implements OnInit {
     public profissoes : any = []
     public regimes    : any = []
     
-    public vagaModel    : VagaModel
-    public codCategoria : number = null
+    public vagaModel     : VagaModel
+    public codCategoria  : number = null
+    public enderecoModel : EnderecoModel
     
     public beneficioAdicionando : string
     
+    public adicionalList     : [AdicionalModel]
+    public habilidadeList    : [AdicionalModel]
+    public escolaridadeList  : [AdicionalModel]
+    public alfabetizacaoList : [AdicionalModel]
     
-      public enderecoModel: EnderecoModel;
-      /*array lists*/
-      public adicionalList: [AdicionalModel];
-      public habilidadeList: [AdicionalModel];
-      public escolaridadeList: [AdicionalModel];
-      public alfabetizacaoList: [AdicionalModel];
-      public regimeList: [{}];
-      public profissaoList: [];
-      public benefits: any[] = [{nomeBeneficio: null}];
-      public selectedSkills = [];
-      public selectedAlf = [AdicionalModel];
-      public selectedEsclr = [AdicionalModel];
-      /*form group*/
-      public address: FormGroup;
-      public description: FormGroup;
+    public selectedSkills    = []
+    public selectedAlf       = [AdicionalModel]
+    public selectedEsclr     = [AdicionalModel]
     
-      constructor(
-          private categoriaService         : CategoriaService,
-          private profissaoService         : ProfissaoService,
-          private regimeContratacaoService : RegimeContratacaoService,
-          
-        private adicionalService: AdicionalService,
-        
-        
-        private viacepService: ViacepService,
-        private snackBar: MatSnackBar,
-        private enderecoService: EnderecoService,
-        private vagaService: VagaService,
-        ) {
-          this.vagaModel = new VagaModel()
-          
-          
-          this.address = new FormGroup({
-            cepEndereco: new FormControl('', [Validators.required]),
-            logradouroEndereco: new FormControl('', [Validators.required]),
-            numeroEndereco: new FormControl('', [Validators.required]),
-            complementoEndereco: new FormControl(''),
-            bairroEndereco: new FormControl('', [Validators.required]),
-            zonaEndereco: new FormControl('', [Validators.required]),
-            cidadeEndereco: new FormControl('', [Validators.required]),
-            estadoEndereco: new FormControl('', [Validators.required, Validators.max(2)]),
-          });
+    constructor(
+        private adicionalService         : AdicionalService,
+        private categoriaService         : CategoriaService,
+        private profissaoService         : ProfissaoService,
+        private regimeContratacaoService : RegimeContratacaoService,
+        private viacepService            : ViacepService,
+        private snackBar                 : MatSnackBar,
+        private enderecoService          : EnderecoService,
+        private vagaService              : VagaService,
+      ) {
+        this.vagaModel     = new VagaModel()
+        this.enderecoModel = new EnderecoModel()
+    }
     
-          this.description = new FormGroup({
-            salarioVaga: new FormControl(0, [Validators.required]),
-            cargaHorariaVaga: new FormControl('', [Validators.required]),
-            quantidadeVaga: new FormControl('', [Validators.required]),
-            codProfissao: new FormControl('', [Validators.required]),
-            codRegimeContratacao: new FormControl('', [Validators.required]),
-            descricaoVaga: new FormControl('', [Validators.required, Validators.min(15)]),
-          });
-         }
-    
-      ngOnInit() {
+    ngOnInit() {
         this.loadData();
-      }
+    }
     
-      async loadData(){
-          const categorias : any = await this.categoriaService.getCategoriaList()
+    async loadData(){
+        const categorias : any = await this.categoriaService.getCategoriaList()
           
-          categorias.forEach(categoria => {
-                this.categorias.push(new CategoriaModel(
-                    categoria.codCategoria,
-                    categoria.imagemCategoria,
-                    categoria.nomeCategoria
-                ))
-          })
+        categorias.forEach(categoria => {
+            this.categorias.push(new CategoriaModel(
+                categoria.codCategoria,
+                categoria.imagemCategoria,
+                categoria.nomeCategoria
+            ))
+        })
           
-          const regimes : any = await this.regimeContratacaoService.getRegimeContratacaoList()
-          this.regimes = regimes
+        const regimes : any = await this.regimeContratacaoService.getRegimeContratacaoList()
+        this.regimes = regimes
           
-        const adicionalRes: any = await this.adicionalService.getAdicionalList();
-        const escolaridadeRes: any = await this.adicionalService.getEscolaridade();
-        const alfabetizacaoRes: any = await this.adicionalService.getAlfabetizacao();
-        const habilidadeRes: any = await this.adicionalService.getHabilidades();
-        const regimeContratacaoRes: any = await this.regimeContratacaoService.getRegimeContratacaoList();
-        const profissaoRes: any = await this.profissaoService.getProfissaoList();
-        this.adicionalList = adicionalRes;
-        this.habilidadeList = habilidadeRes;
-        this.escolaridadeList = escolaridadeRes;
+        const adicionalRes      : any = await this.adicionalService.getAdicionalList();
+        const escolaridadeRes   : any = await this.adicionalService.getEscolaridade();
+        const alfabetizacaoRes  : any = await this.adicionalService.getAlfabetizacao();
+        const habilidadeRes     : any = await this.adicionalService.getHabilidades();
+        
+        this.adicionalList     = adicionalRes;
+        this.habilidadeList    = habilidadeRes;
+        this.escolaridadeList  = escolaridadeRes;
         this.alfabetizacaoList = alfabetizacaoRes;
-        this.regimeList = regimeContratacaoRes;
-        this.profissaoList = profissaoRes;
     
         this.habilidadeList.forEach(habilidade => {
-          habilidade.checked = false
-          habilidade.obrigatorio = false
+            habilidade.checked     = false
+            habilidade.obrigatorio = false
         });
-      }
+    }
     
-      async searchLocation(cep){
+    async searchLocation(cep){
         if (cep) {
-          try {
-            const viacepRes: any  = await this.viacepService.getLocation(cep);
-            if(viacepRes.erro){
-              this.snackBar.open("CEP não encontrado", "Fechar", {
-                duration: 4000,
-              });
-            }else{
-              this.address.patchValue({
-                logradouroEndereco: viacepRes.logradouro,
-                bairroEndereco: viacepRes.bairro,
-                cidadeEndereco: viacepRes.localidade,
-                estadoEndereco: viacepRes.uf
-                })
+            try {
+                const viacepRes: any = await this.viacepService.getLocation(cep)
+                
+                if(viacepRes.erro){
+                    this.snackBar.open("CEP não encontrado", "Fechar", {
+                    duration: 4000})
+        
+                    return
+                }
+        
+                this.enderecoModel.cepEndereco        = cep
+                this.enderecoModel.bairroEndereco     = viacepRes.bairro
+                this.enderecoModel.logradouroEndereco = viacepRes.logradouro
+                this.enderecoModel.cidadeEndereco     = viacepRes.localidade
+                this.enderecoModel.estadoEndereco     = viacepRes.uf
+            } catch (error) {
+                this.snackBar.open("CEP com formato inválido", "Fechar", {
+                    duration: 4000})
+                
+                console.warn(error)
             }
-          } catch (error) {
-            this.snackBar.open("CEP com formato inválido", "Fechar", {
-              duration: 4000
-            });
-            console.warn(error)
-          }
         }
-      }
-    
-      addBenefit(){
-        this.benefits.push({nomeBeneficio: null})
-      }
-    
-      removeBenefit(index){
-        this.benefits.splice(index, 1);
-      }
+    }
     
       handleRequisitosObject(vagaCod){
         let requisitosList = []
@@ -185,26 +144,15 @@ export class CreateVagaComponent implements OnInit {
       }
     
       async submit(){
-        console.log(this.address.valid, this.description.valid, this.selectedSkills, this.benefits[0])
-        if (this.address.valid && this.description.valid && this.benefits[0].nomeBeneficio != null) {
+        
           try {
+              const enderecoRes: any = await this.enderecoService.setEndereco(this.enderecoModel);
     
-            this.enderecoModel = this.address.value;
-            const enderecoRes: any = await this.enderecoService.setEndereco(this.enderecoModel);
-    
-            this.vagaModel = this.description.value;
-            this.vagaModel.codEmpresa = 3;
+
+            this.vagaModel.codEmpresa  = 3;
             this.vagaModel.codEndereco = enderecoRes;
             const vagaRes: any = await this.vagaService.setVaga(this.vagaModel);
-    
-            let benefit = this.benefits.map(element => {
-              return element.nomeBeneficio
-            });
-            let beneficiosObj = {
-              codVaga: vagaRes,
-              beneficios: benefit
-            }
-            await this.vagaService.setBeneficiosVaga(beneficiosObj);
+            
             const requisitos = this.handleRequisitosObject(vagaRes)
             const adicionalRes: any = await this.vagaService.setRequisitosVaga(requisitos);
             if (adicionalRes) {
@@ -218,9 +166,6 @@ export class CreateVagaComponent implements OnInit {
           } catch (error) {
             console.error(error)
           }
-        }else{
-          alert("deu erro no formulario")
-        }
       }
       
     adicionaBeneficio() {
@@ -299,5 +244,17 @@ export class CreateVagaComponent implements OnInit {
     
     setBeneficio(event) {
         this.beneficioAdicionando = event.target.value
+    }
+    
+    setCargaHoraria(event) {
+        this.vagaModel.cargaHorariaVaga = event.target.value
+    }
+    
+    setSalario(event) {
+        this.vagaModel.salarioVaga = event.target.value
+    }
+    
+    setQuantidade(event) {
+          this.vagaModel.quantidadeVaga = event.target.value
     }
 }
