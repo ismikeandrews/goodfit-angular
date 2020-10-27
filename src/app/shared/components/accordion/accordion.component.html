@@ -3,7 +3,12 @@
         <mat-expansion-panel class="accordion--container">
             <mat-expansion-panel-header class="accordion--container-header">
                 <mat-panel-title class="accordion--container-title">
-                    <ng-container> {{title}} </ng-container>
+                    <ng-container>
+                        <ng-container *ngIf="hasIcone">
+                            <img class="accordion--container-title-icon" src="../../../../assets/images/icones/{{iconePath}}">
+                        </ng-container>
+                        {{title}}
+                    </ng-container>
                 </mat-panel-title>
             </mat-expansion-panel-header>
           <ng-content></ng-content>

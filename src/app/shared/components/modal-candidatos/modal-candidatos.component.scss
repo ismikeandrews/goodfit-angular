@@ -123,7 +123,7 @@
     width: 48%;
 
     &-title {
-        font: 14px $font-bold;
+        font: 15px $font-bold;
         margin: 10px 0;
         text-transform: uppercase;
     }
@@ -213,6 +213,7 @@
 
             &-info {
                 margin-left: 15px;
+                margin-top: 5px;
 
                 &-company-name {
                     font: 19px $font-bold;
