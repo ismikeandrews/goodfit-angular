@@ -1,31 +1,33 @@
-.skeleton-vaga {
+.skeleton {
     background: #e8e8e8;
     border-radius: 5px;
     overflow: hidden;
     position: relative;
 
     &:before {
-      animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-      content: '';
-      background: linear-gradient(to right, transparent 0%, #f7f7f7 50%, transparent 100%);
-      display: block;
-      height: 100%;
-      left: -200px;
-      position: absolute;
-      top: 0;
-      width: 200px;
+        animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+        content: '';
+        background: linear-gradient(to right, transparent 0%, #f7f7f7 50%, transparent 100%);
+        display: block;
+        height: 100%;
+        left: -200px;
+        position: absolute;
+        top: 0;
+        width: 200px;
     }
 
     @keyframes load {
-      from {
-        left: -200px;
-      }
+        from {
+            left: -200px;
+        }
 
-      to   {
-        left: 100%;
-      }
+        to   {
+            left: 100%;
+        }
     }
+}
 
+.skeleton-vaga {
     &-combo {
         height: 100px;
         width: 100%;
@@ -56,5 +58,35 @@
     &-maps {
         height: 170px;
         margin-top: 20px;
+    }
+}
+
+.skeleton-candidato {
+    &-perfil-img {
+        border-radius: 50%;
+        height: 170px;
+        position: absolute;
+        top: 0;
+        width: 170px;
+        z-index: 10;
+    }
+
+    &-profile {
+        height: 170px;
+        right: 0;
+        top: 10px;
+        width: 50%;
+    }
+
+    &__process-button {
+        height: 55px;
+        margin-left: 18px;
+        margin-top: 20px;
+        width: 94%;
+    }
+
+    &-content {
+        height: 235px;
+        margin-top: 25px;
     }
 }

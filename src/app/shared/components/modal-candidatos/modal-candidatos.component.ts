@@ -3,7 +3,9 @@ import { BeneficioService }               from '../../../services/beneficio.serv
 import { MatDialogRef}                    from '@angular/material/dialog';
 import {MAT_DIALOG_DATA}                  from '@angular/material/dialog';
 
+import { CandidaturaModel }               from '../../../models/candidatura.model';
 import { CandidatoService }               from '../../../services/candidato.service';
+import { CandidaturaService }             from '../../../services/candidatura.service';
 import { ExperienciaProfissionalService } from '../../../services/experiencia-profissional.service';
 import {
     Component,
@@ -17,6 +19,8 @@ import {
   styleUrls: ['./modal-candidatos.component.scss']
 })
 export class ModalCandidatosComponent implements OnInit{
+    public candidatura           : CandidaturaModel
+    
     public codCandidato          : number
     public emailCandidato        : string
     public descricaoCandidato    : string
@@ -27,21 +31,11 @@ export class ModalCandidatosComponent implements OnInit{
     public iconeVaga             : string
     public tituloVaga            : string
     
+    public codCandidatura        : number
     public codStatusCandidatura  : number
     public nomeStatusCandidatura : string
 
     public isCandidatoCarregado  : boolean = false
-
-    public itensList  = [
-      {
-        itemType    : { name: 'Sobre' },
-        itemContent : []
-      },
-      {
-        itemType    : { name: 'Benefícios' },
-        itemContent : []
-      }
-    ]
 
     public adicionais   : any = []
     public experiencias : any = []
@@ -51,12 +45,16 @@ export class ModalCandidatosComponent implements OnInit{
         private authService        : AuthService,
         private beneficioService   : BeneficioService,
         private candidatoService   : CandidatoService,
+        private candidaturaService : CandidaturaService,
         private experienciaService : ExperienciaProfissionalService,
         public  dialogRef          : MatDialogRef<ModalCandidatosComponent>) {}
 
     ngOnInit() {
-        this.codCandidato = this.data.codCandidato
-        this.codVaga      = this.data.codVaga
+        this.codCandidato   = this.data.codCandidato
+        this.codCandidatura = this.data.codCandidatura
+        this.codVaga        = this.data.codVaga
+    
+        this.candidatura    = new CandidaturaModel(this.codCandidatura, this.codCandidato, this.codVaga)
         
         this.getCandidato(this.codCandidato, this.codVaga)
     }
@@ -74,6 +72,13 @@ export class ModalCandidatosComponent implements OnInit{
         this.experiencias = await this.experienciaService.getPorCandidato(codCandidato, token)
         
         this.setCandidato(candidato[0])
+    }
+    
+    async aprovaCandidato() {
+        const params                    = this.authService.getLoggedUser()
+        
+        this.candidatura.setStatus(this.candidatura.APROVADO, '')
+        await this.candidaturaService.mudarStatusCandidatura(this.candidatura, params.token)
     }
     
     getExperienciaData(experiencia) {
@@ -151,6 +156,10 @@ export class ModalCandidatosComponent implements OnInit{
         }
         
         return 'requisitos'
+    }
+    
+    hasExperiencias() {
+        return (this.experiencias.length > 0)
     }
     
     isAdicionalCompativel(adicional) {

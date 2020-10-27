@@ -36,10 +36,11 @@ export class CandidatosComponent implements OnInit {
         this.isCandidatosCarregados = true
     }
  
-    openModal(codCandidato : number, codVaga : number) {
+    openModal(codCandidato : number, codVaga : number, codCandidatura : number) {
         this.dialog.open(ModalCandidatosComponent, {data: {
-            codCandidato : codCandidato,
-            codVaga      : codVaga
+            codCandidato   : codCandidato,
+            codCandidatura : codCandidatura,
+            codVaga        : codVaga
         }});
     }
     

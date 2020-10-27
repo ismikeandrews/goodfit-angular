@@ -10,7 +10,7 @@ export class CandidaturaModel{
     RECUSADO       = 3
     EM_PROCESSO    = 4
 
-    constructor(codCandidatura : number, codCandidato : number, codVaga : number, codStatus : number){
+    constructor(codCandidatura : number, codCandidato : number, codVaga : number, codStatus : number = null){
         this.codCandidatura = codCandidatura
         this.codCandidato   = codCandidato
         this.codVaga        = codVaga

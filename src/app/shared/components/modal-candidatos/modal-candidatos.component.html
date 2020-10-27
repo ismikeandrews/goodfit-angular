@@ -1,10 +1,10 @@
 <div mat-dialog-content>
     <div class="container">
-        <div class="header">
-            <div *ngIf="!isCandidatoCarregado" class="skeleton-vaga skeleton-vaga-icon"></div>
+        <div class="header header-candidato">
+            <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-vaga-icon"></div>
             <img *ngIf="isCandidatoCarregado" src="../../../../assets/images/icones/profissao/{{iconeVaga}}" alt="{{tituloVaga}}" class="header-icon">
 
-            <div *ngIf="!isCandidatoCarregado" class="skeleton-vaga skeleton-vaga-title"></div>
+            <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-vaga-title"></div>
             <h1 *ngIf="isCandidatoCarregado" class="header-title"> {{tituloVaga}} </h1>
 
             <div class="header-actions">
@@ -27,42 +27,46 @@
                                 <circle cx="80" cy="80" r="80"></circle>
                                 <circle cx="80" cy="80" r="80"></circle>
                             </svg>
-                            <div class="profile__perfil-img">
+                            <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-candidato-perfil-img"></div>
+                            <div *ngIf="isCandidatoCarregado" class="profile__perfil-img">
                                 <img src="https://i.guim.co.uk/img/media/fc3b077685461992e9cb75e51ce995088de338ce/0_67_5175_3105/master/5175.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=e174022fbd43673f2119e8ed9ce564ff" alt="Nome do candidato" class="profile__perfil-img-icon">
                             </div>
                         </div>
                     </div>
-                    <div class="profile__info">
+
+                    <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-candidato-profile"></div>
+                    <div *ngIf="isCandidatoCarregado" class="profile__info">
                         <div class="profile__info-item">
                             {{nomeCandidato}}
                         </div>
-        
+
                         <div class="profile__age">
                             {{idadeCandidato}} anos
                         </div>
-        
+
                         <div class="profile__status status-{{codStatusCandidatura}}">
                             {{nomeStatusCandidatura}}
                         </div>
-        
+
                         <div class="profile__info-item profile__email">
                             <a href="mailto:{{emailCandidato}}" class="profile__email-link">
                                 <mat-icon style="font-size: 21px; line-height: 25px;">mail_outline</mat-icon> Enviar e-mail
                             </a>
                         </div>
-        
+
                         <div class="profile__info-item profile__phone">
                             <mat-icon style="font-size: 21px; line-height: 25px;">phone</mat-icon> (11) 1234-5678
                         </div>
                     </div>
                 </div>
 
-                <div class="process__button">
+                <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-candidato__process-button"></div>
+                <div *ngIf="isCandidatoCarregado" class="process__button">
                     <div class="process__button-item process__button-item--decline candidato">
                         <mat-icon>close</mat-icon> Recusar
                     </div>
-        
-                    <div *ngIf="isEmProcesso()" class="process__button-item process__button-item--accept candidato">
+
+                    <div *ngIf="isEmProcesso()" (click)="aprovaCandidato()" class="process__button-item process__button-item--accept candidato">
                         <mat-icon>done</mat-icon> Aprovar
                     </div>
 
@@ -72,25 +76,26 @@
                 </div>
             </div>
 
-            <!-- <div class="skeleton-vaga skeleton-vaga-descricao"></div> -->
-            <div class="content--description-box">
+            <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-vaga-descricao"></div>
+            <div *ngIf="isCandidatoCarregado" class="content--description-box">
                 <div class="description">
                     <mat-tab-group>
                         <mat-tab>
                             <ng-template mat-tab-label md-no-pagination="true">
                                 <mat-icon>videocam</mat-icon>
                             </ng-template>
-        
+
                             <div class="description__video">
-                                <img src="../../../../assets/images/video.png" alt="Descrição do candidato" class="description__video-img">
+                                <img src="../../../../assets/images/icones/video.png" alt="Descrição do candidato" class="description__video-img">
+                                <p> Nenhum vídeo enviado </p>
                             </div>
                         </mat-tab>
-        
+
                         <mat-tab>
                             <ng-template mat-tab-label>
                                 <mat-icon>notes</mat-icon>
                             </ng-template>
-        
+
                             <div class="description__text"> {{descricaoCandidato}} </div>
                         </mat-tab>
                     </mat-tab-group>
@@ -98,8 +103,9 @@
             </div>
         </div>
 
-        <div class="content">
-            <div class="content__item content__item--experiencias">
+        <div *ngIf="! isCandidatoCarregado" class="skeleton skeleton-candidato-content"></div>
+        <div *ngIf="isCandidatoCarregado" class="content">
+            <div *ngIf="hasExperiencias()" class="content__item content__item--experiencias">
                 <div class="content__item-title"> Experiências profissionais </div>
                 <div class="xp__item" *ngFor='let experiencia of experiencias'>
                     <app-accordion [title]="experiencia.nomeProfissao" [hasIcone]="true" [iconePath]="'profissao/'+experiencia.imagemCategoria">
@@ -121,7 +127,7 @@
                 </div>
             </div>
             
-            <div class="content__item content__item--requisitos">
+            <div class="content__item content__item--requisitos" [ngClass]="{'content__item--requisitos--fully' : !hasExperiencias()}">
                 <p class="content__item-title">
                     Requisitos e Habilidades
                 </p>

@@ -1,10 +1,10 @@
 <div mat-dialog-content>
     <div class="container">
         <div class="header">
-            <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-icon"></div>
+            <div *ngIf="!isVagaCarregada" class="skeleton skeleton-vaga-icon"></div>
             <img *ngIf="isVagaCarregada" src="../../../../assets/images/icones/profissao/{{iconeVaga}}" alt="{{tituloVaga}}" class="header-icon">
 
-            <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-title"></div>
+            <div *ngIf="!isVagaCarregada" class="skeleton skeleton-vaga-title"></div>
             <h1 *ngIf="isVagaCarregada" class="header-title"> {{tituloVaga}} </h1>
 
             <div class="header-actions">
@@ -19,7 +19,7 @@
         </div>
 
         <div class="content">
-            <div *ngIf="! isVagaCarregada" class="skeleton-vaga skeleton-vaga-descricao"></div>
+            <div *ngIf="! isVagaCarregada" class="skeleton skeleton-vaga-descricao"></div>
             <div class="content--description-box" *ngIf="isVagaCarregada">
                 <app-description-box [description]="descricaoVaga" [isEditing]="false"></app-description-box>
             </div>
@@ -34,7 +34,7 @@
                         Obrigatórios
                     </div>
 
-                    <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-combo"></div>
+                    <div *ngIf="!isVagaCarregada" class="skeleton skeleton-vaga-combo"></div>
                     <div *ngIf="isVagaCarregada"  class="content--requisitos-list">
                         <ng-container *ngFor="let requisito of requisitos.obrigatorios">
                             <div class="content--requisitos-list-item">
@@ -54,7 +54,7 @@
                         Opcionais
                     </div>
 
-                    <div *ngIf="!isVagaCarregada" class="skeleton-vaga skeleton-vaga-combo"></div>
+                    <div *ngIf="!isVagaCarregada" class="skeleton skeleton-vaga-combo"></div>
                     <div *ngIf="isVagaCarregada" class="content--requisitos-list">
                         <app-empty *ngIf="! hasRequisitosOpcionais(requisitos)"></app-empty>
 
@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        <div *ngIf="! isVagaCarregada" class="skeleton-vaga skeleton-vaga-accordions"></div>
+        <div *ngIf="! isVagaCarregada" class="skeleton skeleton-vaga-accordions"></div>
         <div *ngIf="isVagaCarregada" class="accordion">
             <div class="content content__accordion" *ngFor='let item of itensList'>
                 <app-accordion *ngIf="item.itemContent.length > 0" [title]="item.itemType.name" style="width: 100%">
@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <div *ngIf="! isVagaCarregada" class="skeleton-vaga skeleton-vaga-maps"></div>
+        <div *ngIf="! isVagaCarregada" class="skeleton skeleton-vaga-maps"></div>
         <div *ngIf="isVagaCarregada" class="address-map-container">
             <span class="address-map-text"> {{enderecoVaga}} </span>
             <img class="address-map" src="https://maps.googleapis.com/maps/api/staticmap?center={{enderecoVaga}}&zoom=15&size=768x170&key={{enderecoService.mapsAPIKey}}&markers={{latituideVaga}},{{longitudeVaga}}">

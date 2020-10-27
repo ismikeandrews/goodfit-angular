@@ -18,7 +18,6 @@
     align-items: center;
     display: flex;
     position: relative;
-    margin-bottom: 30px;
 
     &-icon {
         margin-right: 10px;
@@ -172,6 +171,16 @@
         }
     }
 
+    &--requisitos {
+        &--fully {
+            width: 100%;
+
+            .content__item-list-item {
+                width: 29%;
+            }
+        }
+    }
+
     &--requisitos, &--experiencias {
         margin-top: 25px;
     }
@@ -265,6 +274,7 @@ svg {
 
 .profile {
     display: flex;
+    margin-top: 50px;
 
     &__perfil {
         margin: 10px 25px;
@@ -337,7 +347,7 @@ svg {
 
     &__email {
         border: 2px solid $orange;
-        border-radius: 10px;
+        border-radius: 5px;
         font-size: 16px;
         margin: 10px auto;
         max-width: 310px;
@@ -365,7 +375,7 @@ svg {
     &__phone {
         align-items: center;
         border: 2px solid $pink_light;
-        border-radius: 10px;
+        border-radius: 5px;
         color: $pink_light;
         cursor: pointer;
         display: flex;
@@ -400,12 +410,16 @@ svg {
     margin: 0;
 
     &__video {
-        margin: 10px auto 0;
-        text-align: center;
+        align-items: center;
+        background: #e8e8e8;
+        display: flex;
+        flex-direction: column;
+        height: 265px;
+        justify-content: center;
 
         &-img {
             max-height: 250px;
-            width: 100%;
+            width: 110px;
         }
     }
 
