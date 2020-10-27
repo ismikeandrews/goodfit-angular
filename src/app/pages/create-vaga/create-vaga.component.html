@@ -10,30 +10,46 @@
                     <div>
                         <ng-template matStepLabel>Profissão</ng-template>
                         <form class='form'[formGroup]="description">
-                            <mat-form-field class="form__select" appearance="outline">
-                                <mat-label>Área</mat-label>
-                                <mat-select required formControlName="codProfissao" required>
-                                    <mat-option *ngFor="let profissao of profissaoList" [value]="profissao.codProfissao">
-                                        {{profissao.nomeProfissao}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <mat-form-field class="form__select" appearance="outline">
-                                <mat-label>Cargo</mat-label>
-                                <mat-select required formControlName="codProfissao" required>
-                                    <mat-option *ngFor="let profissao of profissaoList" [value]="profissao.codProfissao">
-                                        {{profissao.nomeProfissao}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <mat-form-field class="form__select" appearance="outline">
-                                <mat-label>Regime de contratação</mat-label>
-                                <mat-select required formControlName="codRegimeContratacao">
-                                    <mat-option *ngFor="let regime of regimeList" [value]="regime.codRegimeContratacao">
-                                        {{regime.nomeRegimeContratacao}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <div class="create-vaga__container-select">
+                                <div class="create-vaga__select">
+                                    <div class="create-vaga__select-text" (click)="openCategorias()">
+                                        Categoria
+                                    </div>
+                                    <div class="create-vaga__select-options options-categorias">
+                                        <div *ngFor="let categoria of categorias" class="create-vaga__select-options-item" (click)="setCategoria(categoria.codCategoria)">
+                                            <img src="../../../assets/images/icones/profissao/{{categoria.imagemCategoria}}">
+                                            <p> {{categoria.nomeCategoria}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="create-vaga__select">
+                                    <div *ngIf="! hasCategoriaSelecionada()" class="create-vaga__select-text" style="font-size: 14px">
+                                        Selecione uma categoria
+                                    </div>
+                                    <div *ngIf="hasCategoriaSelecionada()" class="create-vaga__select-text" (click)="openProfissoes()">
+                                        Profissão
+                                    </div>
+                                    <div class="create-vaga__select-options options-profissao">
+                                        <div *ngFor="let profissao of profissoes" class="create-vaga__select-options-item" (click)="vagaModel.setProfissao(profissao.codProfissao)">
+                                            <p> {{profissao.nomeProfissao}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="create-vaga__container-select">
+                                <div class="create-vaga__select">
+                                    <div class="create-vaga__select-text" (click)="openRegimes()">
+                                        Regime de Contratação
+                                    </div>
+                                    <div class="create-vaga__select-options options-regime">
+                                        <div *ngFor="let regime of regimes" class="create-vaga__select-options-item" (click)="vagaModel.setRegimeContratacao(regime.codRegimeContratacao)">
+                                            <p> {{regime.nomeRegimeContratacao}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                         
                         <button mat-button matStepperNext>Próximo</button>
@@ -162,58 +178,10 @@
                     </form>
                     <div>
                         <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
-                        <button mat-button matStepperNext>Próximo</button>
-                    </div>
-                </mat-step>
-                
-                <mat-step>
-                    <ng-template matStepLabel>Resumo</ng-template>
-                    <div class="resumo">
-                        <div class="resumo--topico">
-                            <div class="resumo--topico-title">Profissão</div>
-                            <div class="resumo--topico-list">
-                                <div class="resumo--topico-list-item">Área: <span class="resumo--topico-list-item__span">{{description.value.salarioVaga}}</span></div>
-                                <div class="resumo--topico-list-item">Cargo: <span class="resumo--topico-list-item__span">{{description.value.cargaHorariaVaga}}</span></div>
-                                <div class="resumo--topico-list-item">Regime de contratação: <span class="resumo--topico-list-item__span">{{description.value.codRegimeContratacao}}</span></div>
-                            </div>
-                        </div>
-                        
-                        <div class="resumo--topico">
-                            <div class="resumo--topico-title">Descrição</div>
-                            <div class="resumo--topico-list">
-                                <div class="resumo--topico-list-item">Salário: <span class="resumo--topico-list-item__span">{{description.value.salarioVaga}}</span></div>
-                                <div class="resumo--topico-list-item">Carga Horária: <span class="resumo--topico-list-item__span">{{description.value.cargaHorariaVaga}}</span></div>
-                                <div class="resumo--topico-list-item">Quantidade de vagas: <span class="resumo--topico-list-item__span">{{description.value.quantidadeVaga}}</span></div>
-                            </div>
-                        </div>
-                        
-                        <div class="resumo--topico">
-                            <div class="resumo--topico-title">Benefícios</div>
-                            <div class="resumo--topico-list">
-                                <div class="resumo--topico-list-item" *ngFor="let benefit of benefits"><span class="resumo--topico-list-item__span">{{benefit.nomeBeneficio}}</span></div>
-                            </div>
-                        </div>
-                        
-                        <div class="resumo--topico">
-                            <div class="resumo--topico-title">Enderço</div>
-                            <div class="resumo--topico-list">
-                                <div class="resumo--topico-list-item">CEP: <span class="resumo--topico-list-item__span">{{address.value.cepEndereco}}</span></div>
-                                <div class="resumo--topico-list-item">Logradouro: <span class="resumo--topico-list-item__span">{{address.value.logradouroEndereco}}</span></div>
-                                <div class="resumo--topico-list-item">Cidade: <span class="resumo--topico-list-item__span">{{address.value.cidadeEndereco}}</span></div>
-                                <div class="resumo--topico-list-item">Estado: <span class="resumo--topico-list-item__span">{{address.value.estadoEndereco}}</span></div>
-                                <div class="resumo--topico-list-item">Número: <span class="resumo--topico-list-item__span">{{address.value.numeroEndereco}}</span></div>
-                                <div class="resumo--topico-list-item">Complemento: <span class="resumo--topico-list-item__span">{{address.value.complementoEndereco}}</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
                         <button mat-button (click)="submit()">Cadastrar</button>
                     </div>
                 </mat-step>
             </mat-horizontal-stepper>
-            
         </div>
     </div>
 </section>

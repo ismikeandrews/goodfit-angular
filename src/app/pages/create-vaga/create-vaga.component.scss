@@ -51,25 +51,106 @@
     overflow-y: scroll;
 }
 
-.resumo {
-    text-align: left !important;
-    &--topico {
-        margin-bottom: 30px;
-        &-title {
-            border-bottom: 1px solid #c7c7c7;
-            font: 20px $font-bold;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            text-transform: uppercase;
+.create-vaga__container-select {
+    display: flex;
+    justify-content: space-between;
+
+    .create-vaga__select {
+        align-items: center;
+        background: #f2f2f2;
+        border: 1px solid #b9b9b9;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        justify-content: flex-start;
+        padding-left: 15px;
+        position: relative;
+        transition: all 0.3s;
+        width: 100%;
+
+        &-text {
+            color: #151515;
+            font: 17px $font-regular;
+            height: 100%;
+            margin-top: 15px;
+            text-align: left;
+            width: 100%;
         }
-        &-list-item {
-            margin: 10px 0;
-            text-align: left !important;
-            &__span {
-                font-family: $font-bold;
+
+        &-options {
+            background: #f2f2f2;
+            border: 1px solid #b9b9b9;
+            border-radius: 0 0 5px 5px;
+            margin-top: 13px;
+            margin-left: -14px;
+            max-height: 310px;
+            height: 0;
+            opacity: 0;
+            overflow-y: auto;
+            transition: all 0.3s;
+            width: 107%;
+            z-index: 10;
+
+            &.is-active {
+                min-height: 50px;
+                opacity: 1;
+            }
+
+            &-item {
+                align-items: center;
+                box-sizing: border-box;
+                display: flex;
+                height: 50px;
+                padding-left: 10px;
+                transition: all 0.5s;
+                width: 100%;
+
+                &:hover {
+                    background: $orange;
+                    color: #fff;
+                }
+
+                img {
+                    height: 30px;
+                }
+
+                p {
+                    font: 16px $font-regular;
+                    margin-left: 15px;
+                }
             }
         }
+
+        &-options-profissao {
+            p {
+                font-size: 15px;
+                margin-left: 0;
+            }
+        }
+
+        &:before {
+            border: 1px solid transparent;
+            border-bottom-color: #b9b9b9;
+            border-right-color: #b9b9b9;
+            content: "";
+            height: 8px;
+            position: absolute;
+            right: 15px;
+            transform: rotate(45deg);
+            top: 15px;
+            width: 8px;
+        }
     }
+
+    .create-vaga__select + .create-vaga__select {
+        margin-left: 15px;
+    }
+}
+
+.create-vaga__container-select + .create-vaga__container-select {
+    margin-top: 15px;
 }
 
 .habilidades {
@@ -212,6 +293,25 @@
 ::ng-deep .quarter-width {
     vertical-align: top;
     width: 48% !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: #F2F2F2;
+    border: 1px solid #b9b9b9;
+    border-radius: 5px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    border: 1px solid $dark_red;
+    color: $dark_red;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start {
+    border-width: 1px!important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start {
+    border-width: 1px!important;
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {

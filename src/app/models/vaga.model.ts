@@ -20,4 +20,12 @@ export class VagaModel{
        this.codEndereco          = null
        this.codRegimeContratacao = null
     }
+    
+    setProfissao(codProfissao : number) {
+        this.codProfissao = codProfissao
+    }
+    
+    setRegimeContratacao(codRegime : number) {
+        this.codRegimeContratacao = codRegime
+    }
 }

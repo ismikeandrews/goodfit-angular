@@ -103,7 +103,7 @@ export class CandidatosComponent implements OnInit {
             
             if ( isElementsOnScreen ) {
                 let element   = document.getElementById(`candidatos-filtro-${filtro.className}`)
-                isChecked = element.checked
+                isChecked = !!element.getAttribute('checked')
             } else {
                 isChecked = filtro.checked
             }
@@ -116,7 +116,7 @@ export class CandidatosComponent implements OnInit {
         if ( filtrosAtivos.length === 0 ) {
             this.filtros.forEach(filtro => {
                 let element     = document.getElementById(`candidatos-filtro-${filtro.className}`)
-                element.checked = filtro.checked
+                element.setAttribute('checked', `${filtro.checked}`)
                 
                 if ( filtro.checked ) {
                     filtrosAtivos.push(filtro.value)

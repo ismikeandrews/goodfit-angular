@@ -3,10 +3,10 @@ export class CategoriaModel{
     imagemCategoria : string
     nomeCategoria   : string
 
-    constructor(){
-        this.codCategoria    = null
-        this.imagemCategoria = null
-        this.nomeCategoria   = null
+    constructor(codCategoria : number, imagemCategoria : string, nomeCategoria : string){
+        this.codCategoria    = codCategoria
+        this.imagemCategoria = imagemCategoria
+        this.nomeCategoria   = nomeCategoria
     }
 
     set(codCategoria : number, imagemCategoria : string, nomeCategoria : string) {

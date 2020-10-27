@@ -31,4 +31,8 @@ export class ProfissaoService {
         categoria     : categoria
       }
   }
+  
+  async getProfissoesPorCategoria(codCategoria : number, token : string) {
+      return this.http.get(`${environment.originalUrlApi}/categoria/1/profissao`).toPromise()
+  }
 }
