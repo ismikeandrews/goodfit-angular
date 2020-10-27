@@ -28,4 +28,14 @@ export class EnderecoModel{
     setNumero(numero : string) {
         this.numeroEndereco = numero
     }
+    
+    setEndereco(cep : string, logradouro : string, numero : string, complemento : string, bairro : string, cidade : string, estado : string) {
+        this.cepEndereco         = cep
+        this.logradouroEndereco  = logradouro
+        this.numeroEndereco      = numero
+        this.complementoEndereco = complemento
+        this.bairroEndereco      = bairro
+        this.cidadeEndereco      = cidade
+        this.estadoEndereco      = estado
+    }
 }

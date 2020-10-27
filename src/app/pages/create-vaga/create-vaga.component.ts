@@ -9,6 +9,7 @@ import { EnderecoModel } from '../../models/endereco.model';
 import { EnderecoService } from '../../services/endereco.service';
 import { VagaService } from '../../services/vaga.service';
 
+import { AuthService }              from '../../services/auth.service';
 import { BeneficioModel }           from '../../models/beneficio.model';
 import { CategoriaModel }           from '../../models/categoria.model';
 import { CategoriaService }         from '../../services/categoria.service';
@@ -46,6 +47,7 @@ export class CreateVagaComponent implements OnInit {
     
     constructor(
         private adicionalService         : AdicionalService,
+        private authService              : AuthService,
         private categoriaService         : CategoriaService,
         private profissaoService         : ProfissaoService,
         private regimeContratacaoService : RegimeContratacaoService,
@@ -180,6 +182,25 @@ export class CreateVagaComponent implements OnInit {
         //input.value = ''
         
         console.log(this.beneficios)
+    }
+    
+    async getEnderecoEmpresa(checked) {
+        if ( checked ) {
+            const params   = this.authService.getLoggedUser()
+            const response = await this.enderecoService.getEnderecoPorEmpresa(params.token)
+            
+            const endereco = response[0]
+            
+            this.enderecoModel.setEndereco(
+                endereco.cepEndereco,
+                endereco.logradouroEndereco,
+                endereco.numeroEndereco,
+                endereco.complementoEndereco,
+                endereco.bairroEndereco,
+                endereco.cidadeEndereco,
+                endereco.estadoEndereco
+            )
+        }
     }
       
     hasCategoriaSelecionada() {

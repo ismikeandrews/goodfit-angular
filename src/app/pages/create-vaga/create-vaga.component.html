@@ -215,13 +215,13 @@
                         </div>
 
                         <div class="create-vaga__checkbox">
-                            <input type="checkbox" id="create-vaga-endereco-empresa">
+                            <input type="checkbox" id="create-vaga-endereco-empresa" (change)="getEnderecoEmpresa($event.target.checked)">
                             <label for="create-vaga-endereco-empresa"> Utilizar endereço da empresa </label>
                         </div>
 
                         <div class="create-vaga__input">
                             <label class="create-vaga__input-label"> CEP </label>
-                            <input type="number" class="create-vaga__input-item" (keyup)="searchLocation($event.target.value)">
+                            <input type="number" class="create-vaga__input-item" (keyup)="searchLocation($event.target.value)" value="{{enderecoModel.cepEndereco}}">
                         </div>
 
                         <div class="create-vaga__input-container">
@@ -232,13 +232,13 @@
 
                             <div class="create-vaga__input">
                                 <label class="create-vaga__input-label"> Número </label>
-                                <input type="text" class="create-vaga__input-item" (keyup)="enderecoModel.setNumero($event.target.value)">
+                                <input type="text" class="create-vaga__input-item"  value="{{enderecoModel.numeroEndereco}}" (keyup)="enderecoModel.setNumero($event.target.value)">
                             </div>
                         </div>
 
                         <div class="create-vaga__input">
                             <label class="create-vaga__input-label"> Complemento </label>
-                            <input type="text" class="create-vaga__input-item" (keyup)="enderecoModel.setComplemento($event.target.value)">
+                            <input type="text" class="create-vaga__input-item" value="{{enderecoModel.complementoEndereco}}" (keyup)="enderecoModel.setComplemento($event.target.value)">
                         </div>
 
                         <div class="create-vaga__input-container">

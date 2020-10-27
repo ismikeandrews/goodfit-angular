@@ -27,4 +27,8 @@ export class EnderecoService {
   async getLatAndLong(endereco : string) {
       return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${endereco}&key=${this.mapsAPIKey}`).toPromise();
   }
+  
+  async getEnderecoPorEmpresa(token : string) {
+      return await this.http.get(`${environment.baseUrlApi}/empresa/endereco?token=${token}`).toPromise()
+  }
 }
