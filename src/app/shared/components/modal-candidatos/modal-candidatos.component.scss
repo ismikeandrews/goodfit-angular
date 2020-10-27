@@ -265,11 +265,13 @@ svg {
     }
 }
 
-.profile__perfil:nth-child(1) svg circle:nth-child(2) {
-    stroke: #1ed760;
-    // stroke: #fed066;
-    // stroke: #e06f50;
-    stroke-dashoffset: calc(440 - (440 * 85) / 100);
+@for $i from 1 through 100 {
+    .profile-#{$i} {
+        .profile__perfil:nth-child(1) svg circle:nth-child(2) {
+            stroke: #1ed760;
+            stroke-dashoffset: calc(440 - (440 * #{$i}) / 100);
+        }
+    }
 }
 
 .profile {
@@ -287,13 +289,39 @@ svg {
             width: 170px;
         }
 
-        &-img-icon {
-            border-radius: 50%;
-            height: 150px;
-            position: absolute;
-            top: 0;
-            transform: translate(10px, 10px);
-            width: 150px;
+        &-img {
+            &-hover, &-icon {
+                border-radius: 50%;
+                height: 150px;
+                position: absolute;
+                top: 0;
+                transform: translate(10px, 10px);
+                width: 150px;
+            }
+
+            &-hover {
+                align-items: center;
+                background: rgba(0, 0, 0, 0.3);
+                box-sizing: border-box;
+                color: #fff;
+                cursor: pointer;
+                display: flex;
+                font: 15px $font-bold;
+                justify-content: center;
+                opacity: 0;
+                padding: 50px;
+                text-align: center;
+                transition: all 0.3s;
+                z-index: 10;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            &-icon {
+
+            }
         }
     }
 

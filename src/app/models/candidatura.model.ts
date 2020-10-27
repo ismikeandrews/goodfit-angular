@@ -1,9 +1,10 @@
 export class CandidaturaModel{
-    codCandidatura : number
-    codCandidato   : number
-    codVaga        : number
-    codStatus      : number
-    feedback       : string
+    codCandidatura  : number
+    codCandidato    : number
+    codVaga         : number
+    codStatus       : number
+    feedback        : string
+    compatibilidade : number
 
     APROVADO       = 1
     EM_ANALISE     = 2

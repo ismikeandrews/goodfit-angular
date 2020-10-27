@@ -20,7 +20,7 @@
 
         <div class="content">
             <div class="content__item">
-                <div class="profile">
+                <div class="profile profile-{{candidatura.compatibilidade}}">
                     <div class="profile__perfil">
                         <div class="profile__perfil-percent">
                             <svg>
@@ -29,6 +29,9 @@
                             </svg>
                             <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-candidato-perfil-img"></div>
                             <div *ngIf="isCandidatoCarregado" class="profile__perfil-img">
+                                <div class="profile__perfil-img-hover">
+                                    {{candidatura.compatibilidade}}% compatível
+                                </div>
                                 <img src="https://i.guim.co.uk/img/media/fc3b077685461992e9cb75e51ce995088de338ce/0_67_5175_3105/master/5175.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=e174022fbd43673f2119e8ed9ce564ff" alt="Nome do candidato" class="profile__perfil-img-icon">
                             </div>
                         </div>

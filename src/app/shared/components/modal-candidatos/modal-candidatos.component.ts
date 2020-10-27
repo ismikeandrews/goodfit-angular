@@ -71,6 +71,9 @@ export class ModalCandidatosComponent implements OnInit{
         this.adicionais   = await this.candidatoService.getAdicionais(codCandidato, codVaga, token)
         this.experiencias = await this.experienciaService.getPorCandidato(codCandidato, token)
         
+        const compatibilidade = await this.candidaturaService.getCompatibilidade(this.candidatura, token)
+        this.candidatura.compatibilidade = compatibilidade[0].compatibilidade
+        
         this.setCandidato(candidato[0])
     }
     
