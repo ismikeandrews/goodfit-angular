@@ -177,6 +177,7 @@
     }
     
     &--experiencias {
+        margin-left: 20px;
         max-height: 250px;
         overflow-y: auto;
     }
@@ -226,6 +227,7 @@
         }
 
         &-description {
+            font-size: 15px;
             margin-top: 15px;
         }
     }

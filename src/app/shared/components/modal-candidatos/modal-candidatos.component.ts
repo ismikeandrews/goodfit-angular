@@ -77,7 +77,59 @@ export class ModalCandidatosComponent implements OnInit{
     }
     
     getExperienciaData(experiencia) {
-        return 'Março de 2020 - Até o momento'
+        const dataInicio = new Date(experiencia.dataInicioExperienciaProfissional * 1000)
+        const dataFinal  = new Date(experiencia.dataFinalExperienciaProfissional * 1000)
+        
+        const mesInicio  = this.getNomeMes(dataInicio.getMonth())
+        const mesFinal   = this.getNomeMes(dataFinal.getMonth())
+        
+        const anoInicio  = dataInicio.getFullYear()
+        const anoFinal   = dataFinal.getFullYear()
+        
+        const anoAtual   = new Date().getFullYear()
+        
+        if ( experiencia.isEmpregoAtualExperienciaProfissional ) {
+            if ( anoInicio === anoAtual ) {
+                return `${mesInicio} até o momento`
+            }
+            
+            return `${mesInicio} de ${anoInicio} - Até o momento`
+        }
+        
+        if ( anoInicio === anoFinal ) {
+            if ( mesInicio === mesFinal ) {
+                if ( anoInicio === anoAtual ) {
+                    return `${mesInicio}`
+                }
+    
+                return `${mesInicio} de ${anoInicio}`
+            }
+            
+            if ( anoInicio === anoAtual ) {
+                return `${mesInicio} de ${mesFinal}`
+            }
+        }
+    
+        return `${mesInicio} de ${anoInicio} até ${mesFinal} de ${anoFinal}`
+    }
+    
+    getNomeMes(mes : number) {
+        const MESES = [
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro',
+            'Novembro',
+            'Dezembro'
+        ]
+        
+        return MESES[mes]
     }
     
     getNomeStatusCandidatura(codStatus : number) {
