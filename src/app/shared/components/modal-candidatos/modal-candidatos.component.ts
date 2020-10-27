@@ -32,11 +32,10 @@ export class ModalCandidatosComponent implements OnInit{
     public tituloVaga            : string
     
     public codCandidatura        : number
-    public codStatusCandidatura  : number
-    public nomeStatusCandidatura : string
 
     public isAprovando           : boolean = false
     public isCandidatoCarregado  : boolean = false
+    public isRecusando           : boolean = false
 
     public adicionais   : any = []
     public experiencias : any = []
@@ -78,12 +77,25 @@ export class ModalCandidatosComponent implements OnInit{
     async aprovaCandidato() {
         this.isAprovando = true
         
-        const params                    = this.authService.getLoggedUser()
+        const params       = this.authService.getLoggedUser()
         let attCandidatura = new CandidaturaModel(this.codCandidatura, this.codCandidato, this.codVaga, this.candidatura.APROVADO)
         const response     : any = await this.candidaturaService.mudarStatusCandidatura(attCandidatura, params.token)
         
         if ( response.status === 200 ) {
             this.candidatura.setStatus(this.candidatura.APROVADO, '')
+        }
+    }
+    
+    async recusaCandidato() {
+        this.isRecusando = true
+    
+        const params       = this.authService.getLoggedUser()
+        let attCandidatura = new CandidaturaModel(this.codCandidatura, this.codCandidato, this.codVaga)
+        attCandidatura.setStatus(this.candidatura.RECUSADO, 'Não foi dessa vez, mas continue tentando!')
+        
+        const response     : any = await this.candidaturaService.mudarStatusCandidatura(attCandidatura, params.token)
+        if ( response.status === 200 ) {
+            this.candidatura.setStatus(this.candidatura.RECUSADO, 'Não foi dessa vez, mas continue tentando!')
         }
     }
     
@@ -169,7 +181,7 @@ export class ModalCandidatosComponent implements OnInit{
         this.iconeVaga          = candidatura.imagemCategoria
         this.tituloVaga         = candidatura.nomeProfissao
         
-        this.setStatus(candidatura.codStatusCandidatura)
+        this.candidatura.setStatus(candidatura.codStatusCandidatura, '')
     
         this.setIsCandidatoCarregado(true)
     }
@@ -177,11 +189,4 @@ export class ModalCandidatosComponent implements OnInit{
     setIsCandidatoCarregado(isCandidatoCarregado) {
         this.isCandidatoCarregado = isCandidatoCarregado
     }
-    
-    setStatus(status : number) {
-        this.candidatura.setStatus(status, '')
-        this.codStatusCandidatura  = status
-        this.nomeStatusCandidatura = this.candidatura.getNomeStatusCandidatura(status)
-    }
-    
 }

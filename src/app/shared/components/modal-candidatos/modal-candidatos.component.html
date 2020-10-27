@@ -44,8 +44,8 @@
                             {{idadeCandidato}} anos
                         </div>
 
-                        <div class="profile__status status-{{codStatusCandidatura}}">
-                            {{nomeStatusCandidatura}}
+                        <div class="profile__status status-{{this.candidatura.codStatus}}">
+                            {{this.candidatura.getNomeStatusCandidatura(this.candidatura.codStatus)}}
                         </div>
 
                         <div class="profile__info-item profile__email">
@@ -63,8 +63,14 @@
                 <div *ngIf="!isCandidatoCarregado" class="skeleton skeleton-candidato__process-button"></div>
                 <div *ngIf="isCandidatoCarregado" class="process__button">
                     <ng-container *ngIf="! candidatura.isFinalizado()">
-                        <div class="process__button-item process__button-item--decline candidato">
-                            <mat-icon>close</mat-icon> Recusar
+                        <div (click)="recusaCandidato()" class="process__button-item process__button-item--decline candidato">
+                            <ng-container *ngIf="! isRecusando">
+                                <mat-icon>close</mat-icon> Recusar
+                            </ng-container>
+
+                            <ng-container *ngIf="isRecusando">
+                                <span class="loading-spinner loading-spinner-reproving"></span>
+                            </ng-container>
                         </div>
 
                         <div *ngIf="candidatura.isEmProcesso()" (click)="aprovaCandidato()" class="process__button-item process__button-item--accept candidato">
