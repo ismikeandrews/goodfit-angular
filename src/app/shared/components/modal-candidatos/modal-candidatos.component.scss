@@ -259,8 +259,8 @@ svg {
         width: 100%;
 
         &:nth-child(2) {
-            stroke-dasharray: 440;
-            stroke-dashoffset: 440;
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
         }
     }
 }
@@ -269,7 +269,7 @@ svg {
     .profile-#{$i} {
         .profile__perfil:nth-child(1) svg circle:nth-child(2) {
             stroke: #1ed760;
-            stroke-dashoffset: calc(440 - (440 * #{$i}) / 100);
+            stroke-dashoffset: calc(500 - (500 * #{$i}) / 100);
         }
     }
 }

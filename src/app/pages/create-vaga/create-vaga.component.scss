@@ -57,26 +57,27 @@
 
     .create-vaga__select {
         align-items: center;
-        background: #f2f2f2;
-        border: 1px solid #b9b9b9;
-        border-radius: 5px;
         cursor: pointer;
         display: flex;
         flex-direction: column;
         height: 50px;
         justify-content: flex-start;
-        padding-left: 15px;
         position: relative;
         transition: all 0.3s;
         width: 100%;
 
         &-text {
             align-items: center;
+            background: #f2f2f2;
+            border: 1px solid #b9b9b9;
+            border-radius: 5px;
+            box-sizing: border-box;
             color: #151515;
             display: flex;
             font: 17px $font-regular;
             line-height: 44px;
             margin-top: 3px;
+            padding-left: 15px;
             text-align: left;
             width: 100%;
         }
@@ -90,17 +91,19 @@
             background: #f2f2f2;
             border: 1px solid #b9b9b9;
             border-radius: 0 0 5px 5px;
-            margin-top: 13px;
-            margin-left: -14px;
             max-height: 310px;
             height: 0;
+            min-height: 50px;
             opacity: 0;
             overflow-y: auto;
+            position: absolute;
+            top: 48px;
             transition: all 0.3s;
-            width: 107%;
+            width: 100%;
             z-index: 10;
 
             &.is-active {
+                height: auto;
                 min-height: 50px;
                 opacity: 1;
             }
@@ -127,6 +130,10 @@
                     font: 16px $font-regular;
                     margin-left: 15px;
                 }
+            }
+
+            &-item + &-item {
+                border-top: 1px solid #b9b9b91f;
             }
         }
 
@@ -204,7 +211,7 @@
 }
 
 .create-vaga__beneficios-list {
-    padding-top: 30px;
+    padding-top: 5px;
     width: 100%;
 
     &-item {
