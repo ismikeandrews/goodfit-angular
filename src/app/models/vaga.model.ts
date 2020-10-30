@@ -14,7 +14,7 @@ export class VagaModel{
        this.descricaoVaga        = ""
        this.salarioVaga          = null
        this.cargaHorariaVaga     = ""
-       this.quantidadeVaga       = null
+       this.quantidadeVaga       = 1
        this.codEmpresa           = null
        this.codProfissao         = null
        this.codEndereco          = null

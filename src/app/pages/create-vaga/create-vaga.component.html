@@ -121,7 +121,7 @@
                             </div>
                         </form>
                         
-                        <button mat-button matStepperNext>Próximo</button>
+                        <button mat-button matStepperNext class="btn-next">Próximo</button>
                     </div>
                 </mat-step>
                 
@@ -157,13 +157,13 @@
 
                         <div class="create-vaga__input">
                             <label class="create-vaga__input-label"> Quantidade </label>
-                            <input type="number" class="create-vaga__input-item" (keyup)="setQuantidade($event)">
+                            <input type="number" class="create-vaga__input-item" (keyup)="setQuantidade($event)" value="1">
                         </div>
                     </div>
 
                     <div>
                         <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
-                        <button mat-button matStepperNext>Próximo</button>
+                        <button mat-button matStepperNext class="btn-next">Próximo</button>
                     </div>
                 </mat-step>
                 
@@ -216,7 +216,7 @@
                     </form>
                     <div>
                         <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
-                        <button mat-button matStepperNext>Próximo</button>
+                        <button mat-button matStepperNext class="btn-next">Próximo</button>
                     </div>
                 </mat-step>
                 
@@ -274,7 +274,7 @@
                     </div>
                     <div>
                         <button mat-button matStepperPrevious class="btn-prev">Voltar</button>
-                        <button mat-button (click)="submit()">Cadastrar</button>
+                        <button mat-button (click)="submit()" class="btn-next">Cadastrar</button>
                     </div>
                 </mat-step>
             </mat-horizontal-stepper>

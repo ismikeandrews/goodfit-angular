@@ -334,6 +334,7 @@
     margin: 10px 20px 20px 0;
 
     &__icon {
+        background: #F2F2F2;
         border: 2px solid #c7c7c7;
         border-radius: 10px;
         cursor: pointer;
@@ -344,6 +345,7 @@
         padding: 10px;
         transition: all .5s ease-in-out;
         width: 130px;
+
         img {
             width: 70px;
             margin: 10px auto;
@@ -418,31 +420,28 @@
 .ng-star-inserted {
     text-align: center;
 }
-
-.btn-prev.mat-button {
-    border-color: $orange !important;
-    color: $orange;
+.btn-prev.mat-button, .btn-next.mat-button {
+    color: #fff;
+    line-height: 45px;
     margin-bottom: 30px !important;
 }
 
-.btn-prev.mat-button:hover {
-    background-color: $orange !important;
-    color: #fff !important;
+
+.btn-prev.mat-button {
+    background: $orange !important;
+}
+
+.btn-next.mat-button {
+    background: $pink !important;
 }
 
 ::ng-deep .mat-button {
-    border: 1.5px solid $pink_light !important;
-    color: $pink_light;
+    font: 14px $font-regular;
     font-weight: bold;
     margin: 0 5px !important;
     text-transform: uppercase;
     transition: all .5s ease-in-out;
-    width: 110px;
-}
-
-::ng-deep .mat-button:hover {
-    background-color: $pink_light;
-    color: #fff;
+    width: 200px;
 }
 
 ::ng-deep .mat-flat-button.mat-primary,
