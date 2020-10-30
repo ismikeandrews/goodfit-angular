@@ -86,7 +86,7 @@
                             </ng-container>
                         </div>
 
-                        <div *ngIf="candidatura.isEmAnalise()" class="process__button-item process__button-item--process candidato">
+                        <div *ngIf="candidatura.isEmAnalise()" (click)="adicionaParaProcesso()" class="process__button-item process__button-item--process candidato">
                             <mat-icon>done</mat-icon> Convidar para entrevista
                         </div>
                     </ng-container>

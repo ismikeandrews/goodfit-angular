@@ -33,6 +33,7 @@ export class ModalCandidatosComponent implements OnInit{
     
     public codCandidatura        : number
 
+    public isAddParaProcesso     : boolean = false
     public isAprovando           : boolean = false
     public isCandidatoCarregado  : boolean = false
     public isRecusando           : boolean = false
@@ -80,14 +81,36 @@ export class ModalCandidatosComponent implements OnInit{
     }
     
     async aprovaCandidato() {
-        this.isAprovando = true
+        this.isAprovando   = true
         
-        const params       = this.authService.getLoggedUser()
-        let attCandidatura = new CandidaturaModel(this.codCandidatura, this.codCandidato, this.codVaga, this.candidatura.APROVADO)
-        const response     : any = await this.candidaturaService.mudarStatusCandidatura(attCandidatura, params.token)
+        const params         = this.authService.getLoggedUser()
+        let attCandidatura   = new CandidaturaModel(
+            this.codCandidatura,
+            this.codCandidato,
+            this.codVaga,
+            this.candidatura.APROVADO
+        )
+        const response : any = await this.candidaturaService.mudarStatusCandidatura(attCandidatura, params.token)
         
         if ( response.status === 200 ) {
             this.candidatura.setStatus(this.candidatura.APROVADO, '')
+        }
+    }
+    
+    async adicionaParaProcesso() {
+        this.isAddParaProcesso = true
+        
+        const params       = this.authService.getLoggedUser()
+        let attCandidatura = new CandidaturaModel(
+            this.codCandidatura,
+            this.codCandidato,
+            this.codVaga,
+            this.candidatura.EM_PROCESSO
+        )
+        const response     : any = await this.candidaturaService.mudarStatusCandidatura(attCandidatura, params.token)
+        
+        if ( response.status === 200 ) {
+            this.candidatura.setStatus(this.candidatura.EM_PROCESSO, '')
         }
     }
     
