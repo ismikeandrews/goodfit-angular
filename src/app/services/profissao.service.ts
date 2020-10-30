@@ -33,6 +33,6 @@ export class ProfissaoService {
   }
   
   async getProfissoesPorCategoria(codCategoria : number, token : string) {
-      return this.http.get(`${environment.originalUrlApi}/categoria/1/profissao`).toPromise()
+      return this.http.get(`${environment.baseUrlApi}/categoria/${codCategoria}/profissao?token=${token}`).toPromise()
   }
 }
