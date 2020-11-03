@@ -51,6 +51,8 @@ export class CreateVagaComponent implements OnInit {
     public selectedAlf       = [AdicionalModel]
     public selectedEsclr     = [AdicionalModel]
     
+    public primeiraEtapaPreenchida : boolean = false
+    
     constructor(
         private adicionalService         : AdicionalService,
         private authService              : AuthService,

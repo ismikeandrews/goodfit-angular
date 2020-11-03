@@ -109,8 +109,12 @@
             border-left-color: $aprovado;
         }
 
-        &.status-2, &.status-4 {
-            border-left-color: $em_analise_processo;
+        &.status-2 {
+            border-left-color: $sem_status;
+        }
+
+        &.status-4 {
+            border-left-color: $em_processo;
         }
 
         &.status-3 {

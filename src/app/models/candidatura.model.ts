@@ -24,7 +24,7 @@ export class CandidaturaModel{
             case 1 :
                 return 'Aprovado'
             case 2 :
-                return 'Em Análise'
+                return 'Sem status'
             case 3 :
                 return 'Recusado'
             case 4 :

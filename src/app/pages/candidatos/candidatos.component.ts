@@ -18,14 +18,8 @@ export class CandidatosComponent implements OnInit {
     public filtros = [
         {
             checked   : true,
-            className : 'aprovado',
-            label     : 'Aprovado',
-            value     : 1
-        },
-        {
-            checked   : true,
             className : 'analise',
-            label     : 'Em Análise',
+            label     : 'Sem status',
             value     : 2
         },
         {
@@ -33,6 +27,12 @@ export class CandidatosComponent implements OnInit {
             className : 'processo',
             label     : 'Em Processo',
             value     : 4
+        },
+        {
+            checked   : true,
+            className : 'aprovado',
+            label     : 'Aprovado',
+            value     : 1
         },
         {
             checked   : false,
