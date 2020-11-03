@@ -168,7 +168,7 @@ export class ModalVagasComponent implements OnInit{
             },
             {
                 name: 'Vagas Disponíveis',
-                text: vaga.quantidadeVaga
+                text: vaga.quantidadeDisponivelVaga
             }
         )
     }

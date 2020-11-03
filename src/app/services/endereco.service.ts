@@ -21,7 +21,7 @@ export class EnderecoService {
   }
 
   async getEnderecoPorCod(codEndereco : number) {
-      return await this.http.get(`${environment.originalUrlApi}/endereco/${codEndereco}`).toPromise()
+      return await this.http.get(`${environment.baseUrlApi}/endereco/${codEndereco}`).toPromise()
   }
   
   async getLatAndLong(endereco : string) {

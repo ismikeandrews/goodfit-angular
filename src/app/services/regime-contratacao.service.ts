@@ -16,6 +16,6 @@ export class RegimeContratacaoService {
   }
 
   async getRegimeContratacaoPorCod(codRegime : number) {
-      return this.http.get(`${environment.originalUrlApi}/regime-contratacao/${codRegime}`).toPromise()
+      return this.http.get(`${environment.baseUrlApi}/regime-contratacao/${codRegime}`).toPromise()
   }
 }

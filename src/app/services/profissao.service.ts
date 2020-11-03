@@ -18,7 +18,7 @@ export class ProfissaoService {
   }
 
   async getProfissaoPorCod(codProfissao : number) {
-      return this.http.get(`${environment.originalUrlApi}/profissao/${codProfissao}`).toPromise()
+      return this.http.get(`${environment.baseUrlApi}/profissao/${codProfissao}`).toPromise()
   }
 
   async getProfissao(codProfissao : number) {
