@@ -69,7 +69,11 @@ export class ModalCandidatosComponent implements OnInit{
         const token       = params.token
         
         const candidato   = await this.candidatoService.getCandidatoEmVaga(codCandidato, codVaga, token)
-        this.adicionais   = await this.candidatoService.getAdicionais(codCandidato, codVaga, token)
+        let adicionaisRes: any  = await this.candidatoService.getAdicionais(codCandidato, codVaga, token)
+        for (const element of adicionaisRes) {
+            element.imagemAdicional = element.imagemAdicional + '.png'
+        }
+        this.adicionais = adicionaisRes
         this.experiencias = await this.experienciaService.getPorCandidato(codCandidato, token)
         
         const compatibilidade = await this.candidaturaService.getCompatibilidade(this.candidatura, token)
@@ -206,7 +210,7 @@ export class ModalCandidatosComponent implements OnInit{
         
         this.descricaoCandidato = candidatura.descricaoCurriculo
         
-        this.iconeVaga          = candidatura.imagemCategoria
+        this.iconeVaga          = candidatura.imagemCategoria + '.png'
         this.tituloVaga         = candidatura.nomeProfissao
         
         this.candidatura.setStatus(candidatura.codStatusCandidatura, '')

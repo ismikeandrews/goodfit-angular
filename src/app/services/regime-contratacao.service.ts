@@ -12,7 +12,7 @@ export class RegimeContratacaoService {
   ) { }
 
   async getRegimeContratacaoList() {
-    return this.http.get(`${environment.originalUrlApi}/regime-contratacao`).toPromise();
+    return this.http.get(`${environment.baseUrlApi}/regime-contratacao`).toPromise();
   }
 
   async getRegimeContratacaoPorCod(codRegime : number) {

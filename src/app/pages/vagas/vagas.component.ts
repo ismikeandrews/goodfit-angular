@@ -54,12 +54,11 @@ export class VagasComponent implements OnInit {
 
   async showVagas(){
       const vagas: any = await this.getVagas()
-
       for ( let vaga of vagas ) {
-          const profissao = await this.profissaoService.getProfissao(vaga.codProfissao);
-          const regime    = await this.regimeContratacaoService.getRegimeContratacaoPorCod(vaga.codRegimeContratacao)
-          const endereco  = await this.enderecoService.getEnderecoPorCod(vaga.codEndereco)
-
+        const profissao: any = await this.profissaoService.getProfissao(vaga.codProfissao);
+        const regime    = await this.regimeContratacaoService.getRegimeContratacaoPorCod(vaga.codRegimeContratacao)
+        const endereco  = await this.enderecoService.getEnderecoPorCod(vaga.codEndereco)
+        profissao.categoria.imagemCategoria = profissao.categoria.imagemCategoria + '.png'
           this.vagasList.push({
               cargaHorariaVaga : vaga.cargaHorariaVaga,
               codEmpresa       : vaga.codEmpresa,

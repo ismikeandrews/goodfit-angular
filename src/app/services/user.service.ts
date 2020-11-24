@@ -23,6 +23,6 @@ export class UserService {
   }
 
   async create(usuario: UsuarioModel){
-    return this.http.post(`${environment.originalUrlApi}/usuario`, usuario).toPromise()
+    return this.http.post(`${environment.baseUrlApi}/usuario`, usuario).toPromise()
   }
 }

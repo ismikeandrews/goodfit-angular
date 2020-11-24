@@ -74,8 +74,9 @@ export class CreateVagaComponent implements OnInit {
     
     async loadData(){
         const categorias : any = await this.categoriaService.getCategoriaList()
-          
+        
         categorias.forEach(categoria => {
+            categoria.imagemCategoria = categoria.imagemCategoria + '.png'
             this.categorias.push(new CategoriaModel(
                 categoria.codCategoria,
                 categoria.imagemCategoria,
@@ -97,6 +98,7 @@ export class CreateVagaComponent implements OnInit {
         this.alfabetizacaoList = alfabetizacaoRes;
     
         this.habilidadeList.forEach(habilidade => {
+            habilidade.imagemAdicional = habilidade.imagemAdicional + '.png'
             habilidade.checked     = false
             habilidade.obrigatorio = false
         });
@@ -162,7 +164,7 @@ export class CreateVagaComponent implements OnInit {
 
               this.vagaModel.codEmpresa  = 3;
               this.vagaModel.codEndereco = codEndreco;
-
+                console.log(this.vagaModel)
               const codVaga   : any = await this.vagaService.setVaga(this.vagaModel);
 
               const responseBeneficios = this.vagaService.setBeneficiosVaga({

@@ -61,8 +61,12 @@ export class CandidatosComponent implements OnInit {
         
         const params      = this.authService.getLoggedUser()
         const filters     = this.getFiltrosAtivos()
-        this.candidaturas = await this.vagaService.getCandidatosPorVaga(filters, params.token)
-        
+        let candidaturaRes: any = await this.vagaService.getCandidatosPorVaga(filters, params.token)
+        console.log(candidaturaRes)
+        candidaturaRes.forEach(element => {
+            element.imagemCategoria = element.imagemCategoria + '.png'
+        });
+        this.candidaturas = candidaturaRes
         this.isCandidatosCarregados = true
     }
  

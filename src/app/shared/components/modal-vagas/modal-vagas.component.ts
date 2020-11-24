@@ -100,6 +100,7 @@ export class ModalVagasComponent implements OnInit{
     }
 
     setVaga(vaga, beneficios, requisitos) {
+        vaga.imagemCategoria = vaga.imagemCategoria + '.png'
         this.setIcone(vaga.imagemCategoria)
         this.setTitulo(vaga.nomeProfissao)
 
@@ -139,7 +140,7 @@ export class ModalVagasComponent implements OnInit{
         requisitos.forEach(requisito => {
             let data = {
                 name : requisito.nomeAdicional,
-                icon : requisito.imagemAdicional,
+                icon : requisito.imagemAdicional + '.png',
                 path : (requisito.codTipoAdicional === 1) ? 'habilidades' : 'requisitos'
             }
 

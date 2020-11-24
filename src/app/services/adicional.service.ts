@@ -12,18 +12,18 @@ export class AdicionalService {
   ) { }
 
   async getAdicionalList() {
-    return this.http.get(`${environment.originalUrlApi}/adicional`).toPromise();
+    return this.http.get(`${environment.baseUrlApi}/adicional`).toPromise();
   }
 
   async getHabilidades(){
-    return this.http.get(`${environment.originalUrlApi}/adicional/tipo/1`).toPromise();
+    return this.http.get(`${environment.baseUrlApi}/adicional/tipo/1`).toPromise();
   }
 
   async getEscolaridade(){
-    return this.http.get(`${environment.originalUrlApi}/adicional/tipo/2`).toPromise();
+    return this.http.get(`${environment.baseUrlApi}/adicional/tipo/2`).toPromise();
   }
   async getAlfabetizacao(){
-    return this.http.get(`${environment.originalUrlApi}/adicional/tipo/3`).toPromise();
+    return this.http.get(`${environment.baseUrlApi}/adicional/tipo/3`).toPromise();
   }
 
   async getPorVaga(codVaga : number, token : string){
